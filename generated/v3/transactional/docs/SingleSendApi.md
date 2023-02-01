@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-    publicSingleSendRequestEgg := *openapiclient.NewPublicSingleSendRequestEgg(int32(123), *openapiclient.NewPublicSingleSendEmail("To_example")) // PublicSingleSendRequestEgg | A request object describing the email to send.
+    publicSingleSendRequestEgg := *openapiclient.NewPublicSingleSendRequestEgg(int64(123), *openapiclient.NewPublicSingleSendEmail("To_example")) // PublicSingleSendRequestEgg | A request object describing the email to send.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -393,7 +393,7 @@
           "emailId" : {
             "type" : "integer",
             "description" : "The content ID for the transactional email, which can be found in email tool UI.",
-            "format" : "int32"
+            "format" : "int64"
           },
           "message" : {
             "$ref" : "#/components/schemas/PublicSingleSendEmail"

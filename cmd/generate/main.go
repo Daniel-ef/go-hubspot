@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"io"
 	"io/fs"
@@ -562,6 +563,10 @@ func versionFromSchema(input string) (string, error) {
 }
 
 func main() {
+	var skipFetching bool
+	flag.BoolVar(&skipFetching, "skip_fetching", false, "Skip_fetching the schema from the HubSpot API Catalog and generate the client from the local schema files.")
+	flag.Parse()
+
 	res, err := http.Get(directoryUrl)
 	if err != nil {
 		panic(err)
@@ -588,16 +593,25 @@ func main() {
 	//outer:
 	for _, group := range r.Results {
 		for name, feature := range group.Features {
-			schema, err := retrieveSchema(feature.OpenAPI)
-
+			filename := "./schema/" + name + ".json"
+			schemaBytes, err := ioutil.ReadFile(filename)
 			if err != nil {
 				panic(err)
 			}
+			schema := string(schemaBytes)
 
-			filename, err := preProcessSchema(name, schema)
+			if !skipFetching {
+				schema, err = retrieveSchema(feature.OpenAPI)
 
-			if err != nil {
-				panic(err)
+				if err != nil {
+					panic(err)
+				}
+
+				filename, err = preProcessSchema(name, schema)
+
+				if err != nil {
+					panic(err)
+				}
 			}
 
 			version, err := versionFromSchema(schema)

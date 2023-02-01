@@ -22,7 +22,7 @@ type PublicSingleSendRequestEgg struct {
 	// The contactProperties field is a map of contact property values. Each contact property value contains a name and value property. Each property will get set on the contact record and will be visible in the template under {{ contact.NAME }}. Use these properties when you want to set a contact property while you’re sending the email. For example, when sending a reciept you may want to set a last_paid_date property, as the sending of the receipt will have information about the last payment.
 	ContactProperties *map[string]string `json:"contactProperties,omitempty"`
 	// The customProperties field is a map of property values. Each property value contains a name and value property. Each property will be visible in the template under {{ custom.NAME }}. Note: Custom properties do not currently support arrays. To provide a listing in an email, one workaround is to build an HTML list (either with tables or ul) and specify it as a custom property.
-	CustomProperties map[string]map[string]interface{} `json:"customProperties,omitempty"`
+	CustomProperties map[string]interface{} `json:"customProperties,omitempty"`
 }
 
 // NewPublicSingleSendRequestEgg instantiates a new PublicSingleSendRequestEgg object
@@ -125,9 +125,9 @@ func (o *PublicSingleSendRequestEgg) SetContactProperties(v map[string]string) {
 }
 
 // GetCustomProperties returns the CustomProperties field value if set, zero value otherwise.
-func (o *PublicSingleSendRequestEgg) GetCustomProperties() map[string]map[string]interface{} {
+func (o *PublicSingleSendRequestEgg) GetCustomProperties() map[string]interface{} {
 	if o == nil || isNil(o.CustomProperties) {
-		var ret map[string]map[string]interface{}
+		var ret map[string]interface{}
 		return ret
 	}
 	return o.CustomProperties
@@ -135,9 +135,9 @@ func (o *PublicSingleSendRequestEgg) GetCustomProperties() map[string]map[string
 
 // GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PublicSingleSendRequestEgg) GetCustomPropertiesOk() (map[string]map[string]interface{}, bool) {
+func (o *PublicSingleSendRequestEgg) GetCustomPropertiesOk() (map[string]interface{}, bool) {
 	if o == nil || isNil(o.CustomProperties) {
-		return map[string]map[string]interface{}{}, false
+		return map[string]interface{}{}, false
 	}
 	return o.CustomProperties, true
 }
@@ -151,8 +151,8 @@ func (o *PublicSingleSendRequestEgg) HasCustomProperties() bool {
 	return false
 }
 
-// SetCustomProperties gets a reference to the given map[string]map[string]interface{} and assigns it to the CustomProperties field.
-func (o *PublicSingleSendRequestEgg) SetCustomProperties(v map[string]map[string]interface{}) {
+// SetCustomProperties gets a reference to the given map[string]interface{} and assigns it to the CustomProperties field.
+func (o *PublicSingleSendRequestEgg) SetCustomProperties(v map[string]interface{}) {
 	o.CustomProperties = v
 }
 

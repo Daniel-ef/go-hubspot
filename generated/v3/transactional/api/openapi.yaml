@@ -426,7 +426,7 @@ components:
       description: A request to send a single transactional email asynchronously.
       example:
         customProperties:
-          key: "{}"
+          key: ""
         emailId: 0
         message:
           cc:
@@ -463,9 +463,7 @@ components:
             \ as the sending of the receipt will have information about the last payment."
           type: object
         customProperties:
-          additionalProperties:
-            properties: {}
-            type: object
+          additionalProperties: true
           description: |-
             The customProperties field is a map of property values. Each property value contains a name and value property. Each property will be visible in the template under {{ custom.NAME }}.
             Note: Custom properties do not currently support arrays. To provide a listing in an email, one workaround is to build an HTML list (either with tables or ul) and specify it as a custom property.

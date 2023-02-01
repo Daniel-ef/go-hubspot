@@ -75,7 +75,7 @@ func (o *PublicOwner) SetId(v string) {
 
 // GetEmail returns the Email field value if set, zero value otherwise.
 func (o *PublicOwner) GetEmail() string {
-	if o == nil || o.Email == nil {
+	if o == nil || isNil(o.Email) {
 		var ret string
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *PublicOwner) GetEmail() string {
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicOwner) GetEmailOk() (*string, bool) {
-	if o == nil || o.Email == nil {
+	if o == nil || isNil(o.Email) {
 		return nil, false
 	}
 	return o.Email, true
@@ -93,7 +93,7 @@ func (o *PublicOwner) GetEmailOk() (*string, bool) {
 
 // HasEmail returns a boolean if a field has been set.
 func (o *PublicOwner) HasEmail() bool {
-	if o != nil && o.Email != nil {
+	if o != nil && !isNil(o.Email) {
 		return true
 	}
 
@@ -107,7 +107,7 @@ func (o *PublicOwner) SetEmail(v string) {
 
 // GetFirstName returns the FirstName field value if set, zero value otherwise.
 func (o *PublicOwner) GetFirstName() string {
-	if o == nil || o.FirstName == nil {
+	if o == nil || isNil(o.FirstName) {
 		var ret string
 		return ret
 	}
@@ -117,7 +117,7 @@ func (o *PublicOwner) GetFirstName() string {
 // GetFirstNameOk returns a tuple with the FirstName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicOwner) GetFirstNameOk() (*string, bool) {
-	if o == nil || o.FirstName == nil {
+	if o == nil || isNil(o.FirstName) {
 		return nil, false
 	}
 	return o.FirstName, true
@@ -125,7 +125,7 @@ func (o *PublicOwner) GetFirstNameOk() (*string, bool) {
 
 // HasFirstName returns a boolean if a field has been set.
 func (o *PublicOwner) HasFirstName() bool {
-	if o != nil && o.FirstName != nil {
+	if o != nil && !isNil(o.FirstName) {
 		return true
 	}
 
@@ -139,7 +139,7 @@ func (o *PublicOwner) SetFirstName(v string) {
 
 // GetLastName returns the LastName field value if set, zero value otherwise.
 func (o *PublicOwner) GetLastName() string {
-	if o == nil || o.LastName == nil {
+	if o == nil || isNil(o.LastName) {
 		var ret string
 		return ret
 	}
@@ -149,7 +149,7 @@ func (o *PublicOwner) GetLastName() string {
 // GetLastNameOk returns a tuple with the LastName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicOwner) GetLastNameOk() (*string, bool) {
-	if o == nil || o.LastName == nil {
+	if o == nil || isNil(o.LastName) {
 		return nil, false
 	}
 	return o.LastName, true
@@ -157,7 +157,7 @@ func (o *PublicOwner) GetLastNameOk() (*string, bool) {
 
 // HasLastName returns a boolean if a field has been set.
 func (o *PublicOwner) HasLastName() bool {
-	if o != nil && o.LastName != nil {
+	if o != nil && !isNil(o.LastName) {
 		return true
 	}
 
@@ -171,7 +171,7 @@ func (o *PublicOwner) SetLastName(v string) {
 
 // GetUserId returns the UserId field value if set, zero value otherwise.
 func (o *PublicOwner) GetUserId() int32 {
-	if o == nil || o.UserId == nil {
+	if o == nil || isNil(o.UserId) {
 		var ret int32
 		return ret
 	}
@@ -181,7 +181,7 @@ func (o *PublicOwner) GetUserId() int32 {
 // GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicOwner) GetUserIdOk() (*int32, bool) {
-	if o == nil || o.UserId == nil {
+	if o == nil || isNil(o.UserId) {
 		return nil, false
 	}
 	return o.UserId, true
@@ -189,7 +189,7 @@ func (o *PublicOwner) GetUserIdOk() (*int32, bool) {
 
 // HasUserId returns a boolean if a field has been set.
 func (o *PublicOwner) HasUserId() bool {
-	if o != nil && o.UserId != nil {
+	if o != nil && !isNil(o.UserId) {
 		return true
 	}
 
@@ -275,7 +275,7 @@ func (o *PublicOwner) SetArchived(v bool) {
 
 // GetTeams returns the Teams field value if set, zero value otherwise.
 func (o *PublicOwner) GetTeams() []PublicTeam {
-	if o == nil || o.Teams == nil {
+	if o == nil || isNil(o.Teams) {
 		var ret []PublicTeam
 		return ret
 	}
@@ -285,7 +285,7 @@ func (o *PublicOwner) GetTeams() []PublicTeam {
 // GetTeamsOk returns a tuple with the Teams field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicOwner) GetTeamsOk() ([]PublicTeam, bool) {
-	if o == nil || o.Teams == nil {
+	if o == nil || isNil(o.Teams) {
 		return nil, false
 	}
 	return o.Teams, true
@@ -293,7 +293,7 @@ func (o *PublicOwner) GetTeamsOk() ([]PublicTeam, bool) {
 
 // HasTeams returns a boolean if a field has been set.
 func (o *PublicOwner) HasTeams() bool {
-	if o != nil && o.Teams != nil {
+	if o != nil && !isNil(o.Teams) {
 		return true
 	}
 
@@ -310,16 +310,16 @@ func (o PublicOwner) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.Email != nil {
+	if !isNil(o.Email) {
 		toSerialize["email"] = o.Email
 	}
-	if o.FirstName != nil {
+	if !isNil(o.FirstName) {
 		toSerialize["firstName"] = o.FirstName
 	}
-	if o.LastName != nil {
+	if !isNil(o.LastName) {
 		toSerialize["lastName"] = o.LastName
 	}
-	if o.UserId != nil {
+	if !isNil(o.UserId) {
 		toSerialize["userId"] = o.UserId
 	}
 	if true {
@@ -331,7 +331,7 @@ func (o PublicOwner) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["archived"] = o.Archived
 	}
-	if o.Teams != nil {
+	if !isNil(o.Teams) {
 		toSerialize["teams"] = o.Teams
 	}
 	return json.Marshal(toSerialize)

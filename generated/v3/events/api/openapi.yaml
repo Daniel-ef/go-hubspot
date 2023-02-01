@@ -113,6 +113,8 @@ paths:
       - hapikey: []
       - oauth2_legacy:
         - business-intelligence
+      - private_apps_legacy:
+        - business-intelligence
       summary: Returns a collection of events matching a query.
       tags:
       - Events
@@ -326,6 +328,10 @@ components:
     hapikey:
       in: query
       name: hapikey
+      type: apiKey
+    private_apps_legacy:
+      in: header
+      name: private-app-legacy
       type: apiKey
 x-hubspot-available-client-libraries:
 - PHP

@@ -73,7 +73,7 @@ func NewHubDbTableV3WithDefaults() *HubDbTableV3 {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetId() string {
-	if o == nil || o.Id == nil {
+	if o == nil || isNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -83,7 +83,7 @@ func (o *HubDbTableV3) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
+	if o == nil || isNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -91,7 +91,7 @@ func (o *HubDbTableV3) GetIdOk() (*string, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasId() bool {
-	if o != nil && o.Id != nil {
+	if o != nil && !isNil(o.Id) {
 		return true
 	}
 
@@ -153,7 +153,7 @@ func (o *HubDbTableV3) SetLabel(v string) {
 
 // GetColumns returns the Columns field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetColumns() []Column {
-	if o == nil || o.Columns == nil {
+	if o == nil || isNil(o.Columns) {
 		var ret []Column
 		return ret
 	}
@@ -163,7 +163,7 @@ func (o *HubDbTableV3) GetColumns() []Column {
 // GetColumnsOk returns a tuple with the Columns field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetColumnsOk() ([]Column, bool) {
-	if o == nil || o.Columns == nil {
+	if o == nil || isNil(o.Columns) {
 		return nil, false
 	}
 	return o.Columns, true
@@ -171,7 +171,7 @@ func (o *HubDbTableV3) GetColumnsOk() ([]Column, bool) {
 
 // HasColumns returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasColumns() bool {
-	if o != nil && o.Columns != nil {
+	if o != nil && !isNil(o.Columns) {
 		return true
 	}
 
@@ -185,7 +185,7 @@ func (o *HubDbTableV3) SetColumns(v []Column) {
 
 // GetPublished returns the Published field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetPublished() bool {
-	if o == nil || o.Published == nil {
+	if o == nil || isNil(o.Published) {
 		var ret bool
 		return ret
 	}
@@ -195,7 +195,7 @@ func (o *HubDbTableV3) GetPublished() bool {
 // GetPublishedOk returns a tuple with the Published field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetPublishedOk() (*bool, bool) {
-	if o == nil || o.Published == nil {
+	if o == nil || isNil(o.Published) {
 		return nil, false
 	}
 	return o.Published, true
@@ -203,7 +203,7 @@ func (o *HubDbTableV3) GetPublishedOk() (*bool, bool) {
 
 // HasPublished returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasPublished() bool {
-	if o != nil && o.Published != nil {
+	if o != nil && !isNil(o.Published) {
 		return true
 	}
 
@@ -217,7 +217,7 @@ func (o *HubDbTableV3) SetPublished(v bool) {
 
 // GetColumnCount returns the ColumnCount field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetColumnCount() int32 {
-	if o == nil || o.ColumnCount == nil {
+	if o == nil || isNil(o.ColumnCount) {
 		var ret int32
 		return ret
 	}
@@ -227,7 +227,7 @@ func (o *HubDbTableV3) GetColumnCount() int32 {
 // GetColumnCountOk returns a tuple with the ColumnCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetColumnCountOk() (*int32, bool) {
-	if o == nil || o.ColumnCount == nil {
+	if o == nil || isNil(o.ColumnCount) {
 		return nil, false
 	}
 	return o.ColumnCount, true
@@ -235,7 +235,7 @@ func (o *HubDbTableV3) GetColumnCountOk() (*int32, bool) {
 
 // HasColumnCount returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasColumnCount() bool {
-	if o != nil && o.ColumnCount != nil {
+	if o != nil && !isNil(o.ColumnCount) {
 		return true
 	}
 
@@ -249,7 +249,7 @@ func (o *HubDbTableV3) SetColumnCount(v int32) {
 
 // GetRowCount returns the RowCount field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetRowCount() int32 {
-	if o == nil || o.RowCount == nil {
+	if o == nil || isNil(o.RowCount) {
 		var ret int32
 		return ret
 	}
@@ -259,7 +259,7 @@ func (o *HubDbTableV3) GetRowCount() int32 {
 // GetRowCountOk returns a tuple with the RowCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetRowCountOk() (*int32, bool) {
-	if o == nil || o.RowCount == nil {
+	if o == nil || isNil(o.RowCount) {
 		return nil, false
 	}
 	return o.RowCount, true
@@ -267,7 +267,7 @@ func (o *HubDbTableV3) GetRowCountOk() (*int32, bool) {
 
 // HasRowCount returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasRowCount() bool {
-	if o != nil && o.RowCount != nil {
+	if o != nil && !isNil(o.RowCount) {
 		return true
 	}
 
@@ -281,7 +281,7 @@ func (o *HubDbTableV3) SetRowCount(v int32) {
 
 // GetCreatedBy returns the CreatedBy field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetCreatedBy() SimpleUser {
-	if o == nil || o.CreatedBy == nil {
+	if o == nil || isNil(o.CreatedBy) {
 		var ret SimpleUser
 		return ret
 	}
@@ -291,7 +291,7 @@ func (o *HubDbTableV3) GetCreatedBy() SimpleUser {
 // GetCreatedByOk returns a tuple with the CreatedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetCreatedByOk() (*SimpleUser, bool) {
-	if o == nil || o.CreatedBy == nil {
+	if o == nil || isNil(o.CreatedBy) {
 		return nil, false
 	}
 	return o.CreatedBy, true
@@ -299,7 +299,7 @@ func (o *HubDbTableV3) GetCreatedByOk() (*SimpleUser, bool) {
 
 // HasCreatedBy returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasCreatedBy() bool {
-	if o != nil && o.CreatedBy != nil {
+	if o != nil && !isNil(o.CreatedBy) {
 		return true
 	}
 
@@ -313,7 +313,7 @@ func (o *HubDbTableV3) SetCreatedBy(v SimpleUser) {
 
 // GetUpdatedBy returns the UpdatedBy field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetUpdatedBy() SimpleUser {
-	if o == nil || o.UpdatedBy == nil {
+	if o == nil || isNil(o.UpdatedBy) {
 		var ret SimpleUser
 		return ret
 	}
@@ -323,7 +323,7 @@ func (o *HubDbTableV3) GetUpdatedBy() SimpleUser {
 // GetUpdatedByOk returns a tuple with the UpdatedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetUpdatedByOk() (*SimpleUser, bool) {
-	if o == nil || o.UpdatedBy == nil {
+	if o == nil || isNil(o.UpdatedBy) {
 		return nil, false
 	}
 	return o.UpdatedBy, true
@@ -331,7 +331,7 @@ func (o *HubDbTableV3) GetUpdatedByOk() (*SimpleUser, bool) {
 
 // HasUpdatedBy returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasUpdatedBy() bool {
-	if o != nil && o.UpdatedBy != nil {
+	if o != nil && !isNil(o.UpdatedBy) {
 		return true
 	}
 
@@ -345,7 +345,7 @@ func (o *HubDbTableV3) SetUpdatedBy(v SimpleUser) {
 
 // GetPublishedAt returns the PublishedAt field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetPublishedAt() time.Time {
-	if o == nil || o.PublishedAt == nil {
+	if o == nil || isNil(o.PublishedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -355,7 +355,7 @@ func (o *HubDbTableV3) GetPublishedAt() time.Time {
 // GetPublishedAtOk returns a tuple with the PublishedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetPublishedAtOk() (*time.Time, bool) {
-	if o == nil || o.PublishedAt == nil {
+	if o == nil || isNil(o.PublishedAt) {
 		return nil, false
 	}
 	return o.PublishedAt, true
@@ -363,7 +363,7 @@ func (o *HubDbTableV3) GetPublishedAtOk() (*time.Time, bool) {
 
 // HasPublishedAt returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasPublishedAt() bool {
-	if o != nil && o.PublishedAt != nil {
+	if o != nil && !isNil(o.PublishedAt) {
 		return true
 	}
 
@@ -377,7 +377,7 @@ func (o *HubDbTableV3) SetPublishedAt(v time.Time) {
 
 // GetDynamicMetaTags returns the DynamicMetaTags field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetDynamicMetaTags() map[string]int32 {
-	if o == nil || o.DynamicMetaTags == nil {
+	if o == nil || isNil(o.DynamicMetaTags) {
 		var ret map[string]int32
 		return ret
 	}
@@ -387,7 +387,7 @@ func (o *HubDbTableV3) GetDynamicMetaTags() map[string]int32 {
 // GetDynamicMetaTagsOk returns a tuple with the DynamicMetaTags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetDynamicMetaTagsOk() (*map[string]int32, bool) {
-	if o == nil || o.DynamicMetaTags == nil {
+	if o == nil || isNil(o.DynamicMetaTags) {
 		return nil, false
 	}
 	return o.DynamicMetaTags, true
@@ -395,7 +395,7 @@ func (o *HubDbTableV3) GetDynamicMetaTagsOk() (*map[string]int32, bool) {
 
 // HasDynamicMetaTags returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasDynamicMetaTags() bool {
-	if o != nil && o.DynamicMetaTags != nil {
+	if o != nil && !isNil(o.DynamicMetaTags) {
 		return true
 	}
 
@@ -409,7 +409,7 @@ func (o *HubDbTableV3) SetDynamicMetaTags(v map[string]int32) {
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetCreatedAt() time.Time {
-	if o == nil || o.CreatedAt == nil {
+	if o == nil || isNil(o.CreatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -419,7 +419,7 @@ func (o *HubDbTableV3) GetCreatedAt() time.Time {
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || o.CreatedAt == nil {
+	if o == nil || isNil(o.CreatedAt) {
 		return nil, false
 	}
 	return o.CreatedAt, true
@@ -427,7 +427,7 @@ func (o *HubDbTableV3) GetCreatedAtOk() (*time.Time, bool) {
 
 // HasCreatedAt returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasCreatedAt() bool {
-	if o != nil && o.CreatedAt != nil {
+	if o != nil && !isNil(o.CreatedAt) {
 		return true
 	}
 
@@ -441,7 +441,7 @@ func (o *HubDbTableV3) SetCreatedAt(v time.Time) {
 
 // GetArchived returns the Archived field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetArchived() bool {
-	if o == nil || o.Archived == nil {
+	if o == nil || isNil(o.Archived) {
 		var ret bool
 		return ret
 	}
@@ -451,7 +451,7 @@ func (o *HubDbTableV3) GetArchived() bool {
 // GetArchivedOk returns a tuple with the Archived field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetArchivedOk() (*bool, bool) {
-	if o == nil || o.Archived == nil {
+	if o == nil || isNil(o.Archived) {
 		return nil, false
 	}
 	return o.Archived, true
@@ -459,7 +459,7 @@ func (o *HubDbTableV3) GetArchivedOk() (*bool, bool) {
 
 // HasArchived returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasArchived() bool {
-	if o != nil && o.Archived != nil {
+	if o != nil && !isNil(o.Archived) {
 		return true
 	}
 
@@ -473,7 +473,7 @@ func (o *HubDbTableV3) SetArchived(v bool) {
 
 // GetAllowPublicApiAccess returns the AllowPublicApiAccess field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetAllowPublicApiAccess() bool {
-	if o == nil || o.AllowPublicApiAccess == nil {
+	if o == nil || isNil(o.AllowPublicApiAccess) {
 		var ret bool
 		return ret
 	}
@@ -483,7 +483,7 @@ func (o *HubDbTableV3) GetAllowPublicApiAccess() bool {
 // GetAllowPublicApiAccessOk returns a tuple with the AllowPublicApiAccess field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetAllowPublicApiAccessOk() (*bool, bool) {
-	if o == nil || o.AllowPublicApiAccess == nil {
+	if o == nil || isNil(o.AllowPublicApiAccess) {
 		return nil, false
 	}
 	return o.AllowPublicApiAccess, true
@@ -491,7 +491,7 @@ func (o *HubDbTableV3) GetAllowPublicApiAccessOk() (*bool, bool) {
 
 // HasAllowPublicApiAccess returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasAllowPublicApiAccess() bool {
-	if o != nil && o.AllowPublicApiAccess != nil {
+	if o != nil && !isNil(o.AllowPublicApiAccess) {
 		return true
 	}
 
@@ -505,7 +505,7 @@ func (o *HubDbTableV3) SetAllowPublicApiAccess(v bool) {
 
 // GetUseForPages returns the UseForPages field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetUseForPages() bool {
-	if o == nil || o.UseForPages == nil {
+	if o == nil || isNil(o.UseForPages) {
 		var ret bool
 		return ret
 	}
@@ -515,7 +515,7 @@ func (o *HubDbTableV3) GetUseForPages() bool {
 // GetUseForPagesOk returns a tuple with the UseForPages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetUseForPagesOk() (*bool, bool) {
-	if o == nil || o.UseForPages == nil {
+	if o == nil || isNil(o.UseForPages) {
 		return nil, false
 	}
 	return o.UseForPages, true
@@ -523,7 +523,7 @@ func (o *HubDbTableV3) GetUseForPagesOk() (*bool, bool) {
 
 // HasUseForPages returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasUseForPages() bool {
-	if o != nil && o.UseForPages != nil {
+	if o != nil && !isNil(o.UseForPages) {
 		return true
 	}
 
@@ -537,7 +537,7 @@ func (o *HubDbTableV3) SetUseForPages(v bool) {
 
 // GetEnableChildTablePages returns the EnableChildTablePages field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetEnableChildTablePages() bool {
-	if o == nil || o.EnableChildTablePages == nil {
+	if o == nil || isNil(o.EnableChildTablePages) {
 		var ret bool
 		return ret
 	}
@@ -547,7 +547,7 @@ func (o *HubDbTableV3) GetEnableChildTablePages() bool {
 // GetEnableChildTablePagesOk returns a tuple with the EnableChildTablePages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetEnableChildTablePagesOk() (*bool, bool) {
-	if o == nil || o.EnableChildTablePages == nil {
+	if o == nil || isNil(o.EnableChildTablePages) {
 		return nil, false
 	}
 	return o.EnableChildTablePages, true
@@ -555,7 +555,7 @@ func (o *HubDbTableV3) GetEnableChildTablePagesOk() (*bool, bool) {
 
 // HasEnableChildTablePages returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasEnableChildTablePages() bool {
-	if o != nil && o.EnableChildTablePages != nil {
+	if o != nil && !isNil(o.EnableChildTablePages) {
 		return true
 	}
 
@@ -569,7 +569,7 @@ func (o *HubDbTableV3) SetEnableChildTablePages(v bool) {
 
 // GetAllowChildTables returns the AllowChildTables field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetAllowChildTables() bool {
-	if o == nil || o.AllowChildTables == nil {
+	if o == nil || isNil(o.AllowChildTables) {
 		var ret bool
 		return ret
 	}
@@ -579,7 +579,7 @@ func (o *HubDbTableV3) GetAllowChildTables() bool {
 // GetAllowChildTablesOk returns a tuple with the AllowChildTables field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetAllowChildTablesOk() (*bool, bool) {
-	if o == nil || o.AllowChildTables == nil {
+	if o == nil || isNil(o.AllowChildTables) {
 		return nil, false
 	}
 	return o.AllowChildTables, true
@@ -587,7 +587,7 @@ func (o *HubDbTableV3) GetAllowChildTablesOk() (*bool, bool) {
 
 // HasAllowChildTables returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasAllowChildTables() bool {
-	if o != nil && o.AllowChildTables != nil {
+	if o != nil && !isNil(o.AllowChildTables) {
 		return true
 	}
 
@@ -601,7 +601,7 @@ func (o *HubDbTableV3) SetAllowChildTables(v bool) {
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *HubDbTableV3) GetUpdatedAt() time.Time {
-	if o == nil || o.UpdatedAt == nil {
+	if o == nil || isNil(o.UpdatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -611,7 +611,7 @@ func (o *HubDbTableV3) GetUpdatedAt() time.Time {
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3) GetUpdatedAtOk() (*time.Time, bool) {
-	if o == nil || o.UpdatedAt == nil {
+	if o == nil || isNil(o.UpdatedAt) {
 		return nil, false
 	}
 	return o.UpdatedAt, true
@@ -619,7 +619,7 @@ func (o *HubDbTableV3) GetUpdatedAtOk() (*time.Time, bool) {
 
 // HasUpdatedAt returns a boolean if a field has been set.
 func (o *HubDbTableV3) HasUpdatedAt() bool {
-	if o != nil && o.UpdatedAt != nil {
+	if o != nil && !isNil(o.UpdatedAt) {
 		return true
 	}
 
@@ -633,7 +633,7 @@ func (o *HubDbTableV3) SetUpdatedAt(v time.Time) {
 
 func (o HubDbTableV3) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Id != nil {
+	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
 	if true {
@@ -642,49 +642,49 @@ func (o HubDbTableV3) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["label"] = o.Label
 	}
-	if o.Columns != nil {
+	if !isNil(o.Columns) {
 		toSerialize["columns"] = o.Columns
 	}
-	if o.Published != nil {
+	if !isNil(o.Published) {
 		toSerialize["published"] = o.Published
 	}
-	if o.ColumnCount != nil {
+	if !isNil(o.ColumnCount) {
 		toSerialize["columnCount"] = o.ColumnCount
 	}
-	if o.RowCount != nil {
+	if !isNil(o.RowCount) {
 		toSerialize["rowCount"] = o.RowCount
 	}
-	if o.CreatedBy != nil {
+	if !isNil(o.CreatedBy) {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-	if o.UpdatedBy != nil {
+	if !isNil(o.UpdatedBy) {
 		toSerialize["updatedBy"] = o.UpdatedBy
 	}
-	if o.PublishedAt != nil {
+	if !isNil(o.PublishedAt) {
 		toSerialize["publishedAt"] = o.PublishedAt
 	}
-	if o.DynamicMetaTags != nil {
+	if !isNil(o.DynamicMetaTags) {
 		toSerialize["dynamicMetaTags"] = o.DynamicMetaTags
 	}
-	if o.CreatedAt != nil {
+	if !isNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
-	if o.Archived != nil {
+	if !isNil(o.Archived) {
 		toSerialize["archived"] = o.Archived
 	}
-	if o.AllowPublicApiAccess != nil {
+	if !isNil(o.AllowPublicApiAccess) {
 		toSerialize["allowPublicApiAccess"] = o.AllowPublicApiAccess
 	}
-	if o.UseForPages != nil {
+	if !isNil(o.UseForPages) {
 		toSerialize["useForPages"] = o.UseForPages
 	}
-	if o.EnableChildTablePages != nil {
+	if !isNil(o.EnableChildTablePages) {
 		toSerialize["enableChildTablePages"] = o.EnableChildTablePages
 	}
-	if o.AllowChildTables != nil {
+	if !isNil(o.AllowChildTables) {
 		toSerialize["allowChildTables"] = o.AllowChildTables
 	}
-	if o.UpdatedAt != nil {
+	if !isNil(o.UpdatedAt) {
 		toSerialize["updatedAt"] = o.UpdatedAt
 	}
 	return json.Marshal(toSerialize)

@@ -50,7 +50,7 @@ func NewActionLabelsWithDefaults() *ActionLabels {
 
 // GetInputFieldLabels returns the InputFieldLabels field value if set, zero value otherwise.
 func (o *ActionLabels) GetInputFieldLabels() map[string]string {
-	if o == nil || o.InputFieldLabels == nil {
+	if o == nil || isNil(o.InputFieldLabels) {
 		var ret map[string]string
 		return ret
 	}
@@ -60,7 +60,7 @@ func (o *ActionLabels) GetInputFieldLabels() map[string]string {
 // GetInputFieldLabelsOk returns a tuple with the InputFieldLabels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionLabels) GetInputFieldLabelsOk() (*map[string]string, bool) {
-	if o == nil || o.InputFieldLabels == nil {
+	if o == nil || isNil(o.InputFieldLabels) {
 		return nil, false
 	}
 	return o.InputFieldLabels, true
@@ -68,7 +68,7 @@ func (o *ActionLabels) GetInputFieldLabelsOk() (*map[string]string, bool) {
 
 // HasInputFieldLabels returns a boolean if a field has been set.
 func (o *ActionLabels) HasInputFieldLabels() bool {
-	if o != nil && o.InputFieldLabels != nil {
+	if o != nil && !isNil(o.InputFieldLabels) {
 		return true
 	}
 
@@ -82,7 +82,7 @@ func (o *ActionLabels) SetInputFieldLabels(v map[string]string) {
 
 // GetInputFieldDescriptions returns the InputFieldDescriptions field value if set, zero value otherwise.
 func (o *ActionLabels) GetInputFieldDescriptions() map[string]string {
-	if o == nil || o.InputFieldDescriptions == nil {
+	if o == nil || isNil(o.InputFieldDescriptions) {
 		var ret map[string]string
 		return ret
 	}
@@ -92,7 +92,7 @@ func (o *ActionLabels) GetInputFieldDescriptions() map[string]string {
 // GetInputFieldDescriptionsOk returns a tuple with the InputFieldDescriptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionLabels) GetInputFieldDescriptionsOk() (*map[string]string, bool) {
-	if o == nil || o.InputFieldDescriptions == nil {
+	if o == nil || isNil(o.InputFieldDescriptions) {
 		return nil, false
 	}
 	return o.InputFieldDescriptions, true
@@ -100,7 +100,7 @@ func (o *ActionLabels) GetInputFieldDescriptionsOk() (*map[string]string, bool) 
 
 // HasInputFieldDescriptions returns a boolean if a field has been set.
 func (o *ActionLabels) HasInputFieldDescriptions() bool {
-	if o != nil && o.InputFieldDescriptions != nil {
+	if o != nil && !isNil(o.InputFieldDescriptions) {
 		return true
 	}
 
@@ -138,7 +138,7 @@ func (o *ActionLabels) SetActionName(v string) {
 
 // GetActionDescription returns the ActionDescription field value if set, zero value otherwise.
 func (o *ActionLabels) GetActionDescription() string {
-	if o == nil || o.ActionDescription == nil {
+	if o == nil || isNil(o.ActionDescription) {
 		var ret string
 		return ret
 	}
@@ -148,7 +148,7 @@ func (o *ActionLabels) GetActionDescription() string {
 // GetActionDescriptionOk returns a tuple with the ActionDescription field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionLabels) GetActionDescriptionOk() (*string, bool) {
-	if o == nil || o.ActionDescription == nil {
+	if o == nil || isNil(o.ActionDescription) {
 		return nil, false
 	}
 	return o.ActionDescription, true
@@ -156,7 +156,7 @@ func (o *ActionLabels) GetActionDescriptionOk() (*string, bool) {
 
 // HasActionDescription returns a boolean if a field has been set.
 func (o *ActionLabels) HasActionDescription() bool {
-	if o != nil && o.ActionDescription != nil {
+	if o != nil && !isNil(o.ActionDescription) {
 		return true
 	}
 
@@ -170,7 +170,7 @@ func (o *ActionLabels) SetActionDescription(v string) {
 
 // GetAppDisplayName returns the AppDisplayName field value if set, zero value otherwise.
 func (o *ActionLabels) GetAppDisplayName() string {
-	if o == nil || o.AppDisplayName == nil {
+	if o == nil || isNil(o.AppDisplayName) {
 		var ret string
 		return ret
 	}
@@ -180,7 +180,7 @@ func (o *ActionLabels) GetAppDisplayName() string {
 // GetAppDisplayNameOk returns a tuple with the AppDisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionLabels) GetAppDisplayNameOk() (*string, bool) {
-	if o == nil || o.AppDisplayName == nil {
+	if o == nil || isNil(o.AppDisplayName) {
 		return nil, false
 	}
 	return o.AppDisplayName, true
@@ -188,7 +188,7 @@ func (o *ActionLabels) GetAppDisplayNameOk() (*string, bool) {
 
 // HasAppDisplayName returns a boolean if a field has been set.
 func (o *ActionLabels) HasAppDisplayName() bool {
-	if o != nil && o.AppDisplayName != nil {
+	if o != nil && !isNil(o.AppDisplayName) {
 		return true
 	}
 
@@ -202,7 +202,7 @@ func (o *ActionLabels) SetAppDisplayName(v string) {
 
 // GetActionCardContent returns the ActionCardContent field value if set, zero value otherwise.
 func (o *ActionLabels) GetActionCardContent() string {
-	if o == nil || o.ActionCardContent == nil {
+	if o == nil || isNil(o.ActionCardContent) {
 		var ret string
 		return ret
 	}
@@ -212,7 +212,7 @@ func (o *ActionLabels) GetActionCardContent() string {
 // GetActionCardContentOk returns a tuple with the ActionCardContent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionLabels) GetActionCardContentOk() (*string, bool) {
-	if o == nil || o.ActionCardContent == nil {
+	if o == nil || isNil(o.ActionCardContent) {
 		return nil, false
 	}
 	return o.ActionCardContent, true
@@ -220,7 +220,7 @@ func (o *ActionLabels) GetActionCardContentOk() (*string, bool) {
 
 // HasActionCardContent returns a boolean if a field has been set.
 func (o *ActionLabels) HasActionCardContent() bool {
-	if o != nil && o.ActionCardContent != nil {
+	if o != nil && !isNil(o.ActionCardContent) {
 		return true
 	}
 
@@ -234,22 +234,22 @@ func (o *ActionLabels) SetActionCardContent(v string) {
 
 func (o ActionLabels) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.InputFieldLabels != nil {
+	if !isNil(o.InputFieldLabels) {
 		toSerialize["inputFieldLabels"] = o.InputFieldLabels
 	}
-	if o.InputFieldDescriptions != nil {
+	if !isNil(o.InputFieldDescriptions) {
 		toSerialize["inputFieldDescriptions"] = o.InputFieldDescriptions
 	}
 	if true {
 		toSerialize["actionName"] = o.ActionName
 	}
-	if o.ActionDescription != nil {
+	if !isNil(o.ActionDescription) {
 		toSerialize["actionDescription"] = o.ActionDescription
 	}
-	if o.AppDisplayName != nil {
+	if !isNil(o.AppDisplayName) {
 		toSerialize["appDisplayName"] = o.AppDisplayName
 	}
-	if o.ActionCardContent != nil {
+	if !isNil(o.ActionCardContent) {
 		toSerialize["actionCardContent"] = o.ActionCardContent
 	}
 	return json.Marshal(toSerialize)

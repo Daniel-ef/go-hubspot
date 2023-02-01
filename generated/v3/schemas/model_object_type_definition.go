@@ -141,7 +141,7 @@ func (o *ObjectTypeDefinition) SetSearchableProperties(v []string) {
 
 // GetPrimaryDisplayProperty returns the PrimaryDisplayProperty field value if set, zero value otherwise.
 func (o *ObjectTypeDefinition) GetPrimaryDisplayProperty() string {
-	if o == nil || o.PrimaryDisplayProperty == nil {
+	if o == nil || isNil(o.PrimaryDisplayProperty) {
 		var ret string
 		return ret
 	}
@@ -151,7 +151,7 @@ func (o *ObjectTypeDefinition) GetPrimaryDisplayProperty() string {
 // GetPrimaryDisplayPropertyOk returns a tuple with the PrimaryDisplayProperty field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ObjectTypeDefinition) GetPrimaryDisplayPropertyOk() (*string, bool) {
-	if o == nil || o.PrimaryDisplayProperty == nil {
+	if o == nil || isNil(o.PrimaryDisplayProperty) {
 		return nil, false
 	}
 	return o.PrimaryDisplayProperty, true
@@ -159,7 +159,7 @@ func (o *ObjectTypeDefinition) GetPrimaryDisplayPropertyOk() (*string, bool) {
 
 // HasPrimaryDisplayProperty returns a boolean if a field has been set.
 func (o *ObjectTypeDefinition) HasPrimaryDisplayProperty() bool {
-	if o != nil && o.PrimaryDisplayProperty != nil {
+	if o != nil && !isNil(o.PrimaryDisplayProperty) {
 		return true
 	}
 
@@ -269,7 +269,7 @@ func (o *ObjectTypeDefinition) SetFullyQualifiedName(v string) {
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ObjectTypeDefinition) GetCreatedAt() time.Time {
-	if o == nil || o.CreatedAt == nil {
+	if o == nil || isNil(o.CreatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -279,7 +279,7 @@ func (o *ObjectTypeDefinition) GetCreatedAt() time.Time {
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ObjectTypeDefinition) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || o.CreatedAt == nil {
+	if o == nil || isNil(o.CreatedAt) {
 		return nil, false
 	}
 	return o.CreatedAt, true
@@ -287,7 +287,7 @@ func (o *ObjectTypeDefinition) GetCreatedAtOk() (*time.Time, bool) {
 
 // HasCreatedAt returns a boolean if a field has been set.
 func (o *ObjectTypeDefinition) HasCreatedAt() bool {
-	if o != nil && o.CreatedAt != nil {
+	if o != nil && !isNil(o.CreatedAt) {
 		return true
 	}
 
@@ -301,7 +301,7 @@ func (o *ObjectTypeDefinition) SetCreatedAt(v time.Time) {
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *ObjectTypeDefinition) GetUpdatedAt() time.Time {
-	if o == nil || o.UpdatedAt == nil {
+	if o == nil || isNil(o.UpdatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -311,7 +311,7 @@ func (o *ObjectTypeDefinition) GetUpdatedAt() time.Time {
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ObjectTypeDefinition) GetUpdatedAtOk() (*time.Time, bool) {
-	if o == nil || o.UpdatedAt == nil {
+	if o == nil || isNil(o.UpdatedAt) {
 		return nil, false
 	}
 	return o.UpdatedAt, true
@@ -319,7 +319,7 @@ func (o *ObjectTypeDefinition) GetUpdatedAtOk() (*time.Time, bool) {
 
 // HasUpdatedAt returns a boolean if a field has been set.
 func (o *ObjectTypeDefinition) HasUpdatedAt() bool {
-	if o != nil && o.UpdatedAt != nil {
+	if o != nil && !isNil(o.UpdatedAt) {
 		return true
 	}
 
@@ -381,7 +381,7 @@ func (o *ObjectTypeDefinition) SetName(v string) {
 
 // GetPortalId returns the PortalId field value if set, zero value otherwise.
 func (o *ObjectTypeDefinition) GetPortalId() int32 {
-	if o == nil || o.PortalId == nil {
+	if o == nil || isNil(o.PortalId) {
 		var ret int32
 		return ret
 	}
@@ -391,7 +391,7 @@ func (o *ObjectTypeDefinition) GetPortalId() int32 {
 // GetPortalIdOk returns a tuple with the PortalId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ObjectTypeDefinition) GetPortalIdOk() (*int32, bool) {
-	if o == nil || o.PortalId == nil {
+	if o == nil || isNil(o.PortalId) {
 		return nil, false
 	}
 	return o.PortalId, true
@@ -399,7 +399,7 @@ func (o *ObjectTypeDefinition) GetPortalIdOk() (*int32, bool) {
 
 // HasPortalId returns a boolean if a field has been set.
 func (o *ObjectTypeDefinition) HasPortalId() bool {
-	if o != nil && o.PortalId != nil {
+	if o != nil && !isNil(o.PortalId) {
 		return true
 	}
 
@@ -422,7 +422,7 @@ func (o ObjectTypeDefinition) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["searchableProperties"] = o.SearchableProperties
 	}
-	if o.PrimaryDisplayProperty != nil {
+	if !isNil(o.PrimaryDisplayProperty) {
 		toSerialize["primaryDisplayProperty"] = o.PrimaryDisplayProperty
 	}
 	if true {
@@ -437,10 +437,10 @@ func (o ObjectTypeDefinition) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["fullyQualifiedName"] = o.FullyQualifiedName
 	}
-	if o.CreatedAt != nil {
+	if !isNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
-	if o.UpdatedAt != nil {
+	if !isNil(o.UpdatedAt) {
 		toSerialize["updatedAt"] = o.UpdatedAt
 	}
 	if true {
@@ -449,7 +449,7 @@ func (o ObjectTypeDefinition) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["name"] = o.Name
 	}
-	if o.PortalId != nil {
+	if !isNil(o.PortalId) {
 		toSerialize["portalId"] = o.PortalId
 	}
 	return json.Marshal(toSerialize)

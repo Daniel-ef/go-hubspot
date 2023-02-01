@@ -42,7 +42,7 @@ func NewCardFetchBodyPatchWithDefaults() *CardFetchBodyPatch {
 
 // GetTargetUrl returns the TargetUrl field value if set, zero value otherwise.
 func (o *CardFetchBodyPatch) GetTargetUrl() string {
-	if o == nil || o.TargetUrl == nil {
+	if o == nil || isNil(o.TargetUrl) {
 		var ret string
 		return ret
 	}
@@ -52,7 +52,7 @@ func (o *CardFetchBodyPatch) GetTargetUrl() string {
 // GetTargetUrlOk returns a tuple with the TargetUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CardFetchBodyPatch) GetTargetUrlOk() (*string, bool) {
-	if o == nil || o.TargetUrl == nil {
+	if o == nil || isNil(o.TargetUrl) {
 		return nil, false
 	}
 	return o.TargetUrl, true
@@ -60,7 +60,7 @@ func (o *CardFetchBodyPatch) GetTargetUrlOk() (*string, bool) {
 
 // HasTargetUrl returns a boolean if a field has been set.
 func (o *CardFetchBodyPatch) HasTargetUrl() bool {
-	if o != nil && o.TargetUrl != nil {
+	if o != nil && !isNil(o.TargetUrl) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *CardFetchBodyPatch) SetObjectTypes(v []CardObjectTypeBody) {
 
 func (o CardFetchBodyPatch) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.TargetUrl != nil {
+	if !isNil(o.TargetUrl) {
 		toSerialize["targetUrl"] = o.TargetUrl
 	}
 	if true {

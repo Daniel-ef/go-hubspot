@@ -64,6 +64,8 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
+          "private_apps_legacy" : [ "accounting" ]
+        }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
       }
@@ -107,6 +109,8 @@
         },
         "security" : [ {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "accounting" ]
         }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
@@ -152,6 +156,8 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
+          "private_apps_legacy" : [ "accounting" ]
+        }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
       }
@@ -195,6 +201,8 @@
         },
         "security" : [ {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "accounting" ]
         }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
@@ -240,6 +248,8 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
+          "private_apps_legacy" : [ "accounting" ]
+        }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
       }
@@ -283,6 +293,8 @@
         },
         "security" : [ {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "accounting" ]
         }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
@@ -328,6 +340,8 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
+          "private_apps_legacy" : [ "accounting" ]
+        }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
       }
@@ -371,6 +385,8 @@
         },
         "security" : [ {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "accounting" ]
         }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
@@ -416,6 +432,8 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
+          "private_apps_legacy" : [ "accounting" ]
+        }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
       }
@@ -459,6 +477,8 @@
         },
         "security" : [ {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "accounting" ]
         }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
@@ -508,6 +528,8 @@
         },
         "security" : [ {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "accounting" ]
         }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
@@ -566,6 +588,8 @@
         },
         "security" : [ {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "accounting" ]
         }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
@@ -626,6 +650,8 @@
         },
         "security" : [ {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "accounting" ]
         }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
@@ -755,6 +781,8 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
+          "private_apps_legacy" : [ "accounting" ]
+        }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
       }
@@ -805,6 +833,8 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
+          "private_apps_legacy" : [ "accounting" ]
+        }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
       }
@@ -838,6 +868,8 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
+          "private_apps_legacy" : [ "accounting" ]
+        }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
       }
@@ -870,6 +902,8 @@
         },
         "security" : [ {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "accounting" ]
         }, {
           "oauth2_legacy" : [ "accounting" ]
         } ]
@@ -1943,6 +1977,11 @@
         "type" : "apiKey",
         "name" : "hapikey",
         "in" : "query"
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
       }
     }
   },

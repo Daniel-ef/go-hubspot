@@ -64,7 +64,7 @@ func (o *CollectionResponseSmtpApiTokenViewForwardPaging) SetResults(v []SmtpApi
 
 // GetPaging returns the Paging field value if set, zero value otherwise.
 func (o *CollectionResponseSmtpApiTokenViewForwardPaging) GetPaging() ForwardPaging {
-	if o == nil || o.Paging == nil {
+	if o == nil || isNil(o.Paging) {
 		var ret ForwardPaging
 		return ret
 	}
@@ -74,7 +74,7 @@ func (o *CollectionResponseSmtpApiTokenViewForwardPaging) GetPaging() ForwardPag
 // GetPagingOk returns a tuple with the Paging field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CollectionResponseSmtpApiTokenViewForwardPaging) GetPagingOk() (*ForwardPaging, bool) {
-	if o == nil || o.Paging == nil {
+	if o == nil || isNil(o.Paging) {
 		return nil, false
 	}
 	return o.Paging, true
@@ -82,7 +82,7 @@ func (o *CollectionResponseSmtpApiTokenViewForwardPaging) GetPagingOk() (*Forwar
 
 // HasPaging returns a boolean if a field has been set.
 func (o *CollectionResponseSmtpApiTokenViewForwardPaging) HasPaging() bool {
-	if o != nil && o.Paging != nil {
+	if o != nil && !isNil(o.Paging) {
 		return true
 	}
 
@@ -99,7 +99,7 @@ func (o CollectionResponseSmtpApiTokenViewForwardPaging) MarshalJSON() ([]byte, 
 	if true {
 		toSerialize["results"] = o.Results
 	}
-	if o.Paging != nil {
+	if !isNil(o.Paging) {
 		toSerialize["paging"] = o.Paging
 	}
 	return json.Marshal(toSerialize)

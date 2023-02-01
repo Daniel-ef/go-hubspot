@@ -92,7 +92,7 @@ func (o *BatchReadInputSimplePublicObjectId) SetPropertiesWithHistory(v []string
 
 // GetIdProperty returns the IdProperty field value if set, zero value otherwise.
 func (o *BatchReadInputSimplePublicObjectId) GetIdProperty() string {
-	if o == nil || o.IdProperty == nil {
+	if o == nil || isNil(o.IdProperty) {
 		var ret string
 		return ret
 	}
@@ -102,7 +102,7 @@ func (o *BatchReadInputSimplePublicObjectId) GetIdProperty() string {
 // GetIdPropertyOk returns a tuple with the IdProperty field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchReadInputSimplePublicObjectId) GetIdPropertyOk() (*string, bool) {
-	if o == nil || o.IdProperty == nil {
+	if o == nil || isNil(o.IdProperty) {
 		return nil, false
 	}
 	return o.IdProperty, true
@@ -110,7 +110,7 @@ func (o *BatchReadInputSimplePublicObjectId) GetIdPropertyOk() (*string, bool) {
 
 // HasIdProperty returns a boolean if a field has been set.
 func (o *BatchReadInputSimplePublicObjectId) HasIdProperty() bool {
-	if o != nil && o.IdProperty != nil {
+	if o != nil && !isNil(o.IdProperty) {
 		return true
 	}
 
@@ -154,7 +154,7 @@ func (o BatchReadInputSimplePublicObjectId) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["propertiesWithHistory"] = o.PropertiesWithHistory
 	}
-	if o.IdProperty != nil {
+	if !isNil(o.IdProperty) {
 		toSerialize["idProperty"] = o.IdProperty
 	}
 	if true {

@@ -78,7 +78,7 @@ func (o *SubscriptionResponse) SetEventType(v string) {
 
 // GetPropertyName returns the PropertyName field value if set, zero value otherwise.
 func (o *SubscriptionResponse) GetPropertyName() string {
-	if o == nil || o.PropertyName == nil {
+	if o == nil || isNil(o.PropertyName) {
 		var ret string
 		return ret
 	}
@@ -88,7 +88,7 @@ func (o *SubscriptionResponse) GetPropertyName() string {
 // GetPropertyNameOk returns a tuple with the PropertyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionResponse) GetPropertyNameOk() (*string, bool) {
-	if o == nil || o.PropertyName == nil {
+	if o == nil || isNil(o.PropertyName) {
 		return nil, false
 	}
 	return o.PropertyName, true
@@ -96,7 +96,7 @@ func (o *SubscriptionResponse) GetPropertyNameOk() (*string, bool) {
 
 // HasPropertyName returns a boolean if a field has been set.
 func (o *SubscriptionResponse) HasPropertyName() bool {
-	if o != nil && o.PropertyName != nil {
+	if o != nil && !isNil(o.PropertyName) {
 		return true
 	}
 
@@ -182,7 +182,7 @@ func (o *SubscriptionResponse) SetCreatedAt(v time.Time) {
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *SubscriptionResponse) GetUpdatedAt() time.Time {
-	if o == nil || o.UpdatedAt == nil {
+	if o == nil || isNil(o.UpdatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -192,7 +192,7 @@ func (o *SubscriptionResponse) GetUpdatedAt() time.Time {
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionResponse) GetUpdatedAtOk() (*time.Time, bool) {
-	if o == nil || o.UpdatedAt == nil {
+	if o == nil || isNil(o.UpdatedAt) {
 		return nil, false
 	}
 	return o.UpdatedAt, true
@@ -200,7 +200,7 @@ func (o *SubscriptionResponse) GetUpdatedAtOk() (*time.Time, bool) {
 
 // HasUpdatedAt returns a boolean if a field has been set.
 func (o *SubscriptionResponse) HasUpdatedAt() bool {
-	if o != nil && o.UpdatedAt != nil {
+	if o != nil && !isNil(o.UpdatedAt) {
 		return true
 	}
 
@@ -217,7 +217,7 @@ func (o SubscriptionResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["eventType"] = o.EventType
 	}
-	if o.PropertyName != nil {
+	if !isNil(o.PropertyName) {
 		toSerialize["propertyName"] = o.PropertyName
 	}
 	if true {
@@ -229,7 +229,7 @@ func (o SubscriptionResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
-	if o.UpdatedAt != nil {
+	if !isNil(o.UpdatedAt) {
 		toSerialize["updatedAt"] = o.UpdatedAt
 	}
 	return json.Marshal(toSerialize)

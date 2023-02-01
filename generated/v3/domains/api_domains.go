@@ -16,10 +16,11 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"reflect"
 	"strings"
+	"time"
 )
 
 // DomainsApiService DomainsApi service
@@ -29,13 +30,6 @@ type ApiGetByIDRequest struct {
 	ctx        context.Context
 	ApiService *DomainsApiService
 	domainId   string
-	archived   *bool
-}
-
-// Whether to return only results that have been archived.
-func (r ApiGetByIDRequest) Archived(archived bool) ApiGetByIDRequest {
-	r.archived = &archived
-	return r
 }
 
 func (r ApiGetByIDRequest) Execute() (*Domain, *http.Response, error) {
@@ -47,9 +41,9 @@ GetByID Get a single domain
 
 Returns a single domains with the id specified.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param domainId The unique ID of the domain.
- @return ApiGetByIDRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param domainId The unique ID of the domain.
+	@return ApiGetByIDRequest
 */
 func (a *DomainsApiService) GetByID(ctx context.Context, domainId string) ApiGetByIDRequest {
 	return ApiGetByIDRequest{
@@ -60,7 +54,8 @@ func (a *DomainsApiService) GetByID(ctx context.Context, domainId string) ApiGet
 }
 
 // Execute executes the request
-//  @return Domain
+//
+//	@return Domain
 func (a *DomainsApiService) GetByIDExecute(r ApiGetByIDRequest) (*Domain, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -81,9 +76,6 @@ func (a *DomainsApiService) GetByIDExecute(r ApiGetByIDRequest) (*Domain, *http.
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.archived != nil {
-		localVarQueryParams.Add("archived", parameterToString(*r.archived, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -109,6 +101,34 @@ func (a *DomainsApiService) GetByIDExecute(r ApiGetByIDRequest) (*Domain, *http.
 				FormParams:  localVarFormParams,
 				Headers:     localVarHeaderParams,
 			})
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
 		}
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -139,6 +159,7 @@ func (a *DomainsApiService) GetByIDExecute(r ApiGetByIDRequest) (*Domain, *http.
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -158,52 +179,50 @@ func (a *DomainsApiService) GetByIDExecute(r ApiGetByIDRequest) (*Domain, *http.
 type ApiGetPageRequest struct {
 	ctx           context.Context
 	ApiService    *DomainsApiService
-	createdAt     *int64
-	createdAfter  *int64
-	createdBefore *int64
-	updatedAt     *int64
-	updatedAfter  *int64
-	updatedBefore *int64
+	createdAt     *time.Time
+	createdAfter  *time.Time
+	createdBefore *time.Time
+	updatedAt     *time.Time
+	updatedAfter  *time.Time
+	updatedBefore *time.Time
 	sort          *[]string
-	properties    *[]string
 	after         *string
-	before        *string
 	limit         *int32
 	archived      *bool
 }
 
 // Only return domains created at this date.
-func (r ApiGetPageRequest) CreatedAt(createdAt int64) ApiGetPageRequest {
+func (r ApiGetPageRequest) CreatedAt(createdAt time.Time) ApiGetPageRequest {
 	r.createdAt = &createdAt
 	return r
 }
 
 // Only return domains created after this date.
-func (r ApiGetPageRequest) CreatedAfter(createdAfter int64) ApiGetPageRequest {
+func (r ApiGetPageRequest) CreatedAfter(createdAfter time.Time) ApiGetPageRequest {
 	r.createdAfter = &createdAfter
 	return r
 }
 
 // Only return domains created before this date.
-func (r ApiGetPageRequest) CreatedBefore(createdBefore int64) ApiGetPageRequest {
+func (r ApiGetPageRequest) CreatedBefore(createdBefore time.Time) ApiGetPageRequest {
 	r.createdBefore = &createdBefore
 	return r
 }
 
 // Only return domains updated at this date.
-func (r ApiGetPageRequest) UpdatedAt(updatedAt int64) ApiGetPageRequest {
+func (r ApiGetPageRequest) UpdatedAt(updatedAt time.Time) ApiGetPageRequest {
 	r.updatedAt = &updatedAt
 	return r
 }
 
 // Only return domains updated after this date.
-func (r ApiGetPageRequest) UpdatedAfter(updatedAfter int64) ApiGetPageRequest {
+func (r ApiGetPageRequest) UpdatedAfter(updatedAfter time.Time) ApiGetPageRequest {
 	r.updatedAfter = &updatedAfter
 	return r
 }
 
 // Only return domains updated before this date.
-func (r ApiGetPageRequest) UpdatedBefore(updatedBefore int64) ApiGetPageRequest {
+func (r ApiGetPageRequest) UpdatedBefore(updatedBefore time.Time) ApiGetPageRequest {
 	r.updatedBefore = &updatedBefore
 	return r
 }
@@ -213,19 +232,9 @@ func (r ApiGetPageRequest) Sort(sort []string) ApiGetPageRequest {
 	return r
 }
 
-func (r ApiGetPageRequest) Properties(properties []string) ApiGetPageRequest {
-	r.properties = &properties
-	return r
-}
-
 // The paging cursor token of the last successfully read resource will be returned as the &#x60;paging.next.after&#x60; JSON property of a paged response containing more results.
 func (r ApiGetPageRequest) After(after string) ApiGetPageRequest {
 	r.after = &after
-	return r
-}
-
-func (r ApiGetPageRequest) Before(before string) ApiGetPageRequest {
-	r.before = &before
 	return r
 }
 
@@ -241,7 +250,7 @@ func (r ApiGetPageRequest) Archived(archived bool) ApiGetPageRequest {
 	return r
 }
 
-func (r ApiGetPageRequest) Execute() (*CollectionResponseWithTotalDomain, *http.Response, error) {
+func (r ApiGetPageRequest) Execute() (*CollectionResponseWithTotalDomainForwardPaging, *http.Response, error) {
 	return r.ApiService.GetPageExecute(r)
 }
 
@@ -250,8 +259,8 @@ GetPage Get current domains
 
 Returns all existing domains that have been created. Results can be limited and filtered by creation or updated date.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetPageRequest
 */
 func (a *DomainsApiService) GetPage(ctx context.Context) ApiGetPageRequest {
 	return ApiGetPageRequest{
@@ -261,13 +270,14 @@ func (a *DomainsApiService) GetPage(ctx context.Context) ApiGetPageRequest {
 }
 
 // Execute executes the request
-//  @return CollectionResponseWithTotalDomain
-func (a *DomainsApiService) GetPageExecute(r ApiGetPageRequest) (*CollectionResponseWithTotalDomain, *http.Response, error) {
+//
+//	@return CollectionResponseWithTotalDomainForwardPaging
+func (a *DomainsApiService) GetPageExecute(r ApiGetPageRequest) (*CollectionResponseWithTotalDomainForwardPaging, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *CollectionResponseWithTotalDomain
+		localVarReturnValue *CollectionResponseWithTotalDomainForwardPaging
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsApiService.GetPage")
@@ -310,22 +320,8 @@ func (a *DomainsApiService) GetPageExecute(r ApiGetPageRequest) (*CollectionResp
 			localVarQueryParams.Add("sort", parameterToString(t, "multi"))
 		}
 	}
-	if r.properties != nil {
-		t := *r.properties
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("properties", parameterToString(s.Index(i), "multi"))
-			}
-		} else {
-			localVarQueryParams.Add("properties", parameterToString(t, "multi"))
-		}
-	}
 	if r.after != nil {
 		localVarQueryParams.Add("after", parameterToString(*r.after, ""))
-	}
-	if r.before != nil {
-		localVarQueryParams.Add("before", parameterToString(*r.before, ""))
 	}
 	if r.limit != nil {
 		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
@@ -360,6 +356,34 @@ func (a *DomainsApiService) GetPageExecute(r ApiGetPageRequest) (*CollectionResp
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -388,6 +412,7 @@ func (a *DomainsApiService) GetPageExecute(r ApiGetPageRequest) (*CollectionResp
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -68,7 +68,7 @@ func (o *IdentificationTokenGenerationRequest) SetEmail(v string) {
 
 // GetFirstName returns the FirstName field value if set, zero value otherwise.
 func (o *IdentificationTokenGenerationRequest) GetFirstName() string {
-	if o == nil || o.FirstName == nil {
+	if o == nil || isNil(o.FirstName) {
 		var ret string
 		return ret
 	}
@@ -78,7 +78,7 @@ func (o *IdentificationTokenGenerationRequest) GetFirstName() string {
 // GetFirstNameOk returns a tuple with the FirstName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentificationTokenGenerationRequest) GetFirstNameOk() (*string, bool) {
-	if o == nil || o.FirstName == nil {
+	if o == nil || isNil(o.FirstName) {
 		return nil, false
 	}
 	return o.FirstName, true
@@ -86,7 +86,7 @@ func (o *IdentificationTokenGenerationRequest) GetFirstNameOk() (*string, bool) 
 
 // HasFirstName returns a boolean if a field has been set.
 func (o *IdentificationTokenGenerationRequest) HasFirstName() bool {
-	if o != nil && o.FirstName != nil {
+	if o != nil && !isNil(o.FirstName) {
 		return true
 	}
 
@@ -100,7 +100,7 @@ func (o *IdentificationTokenGenerationRequest) SetFirstName(v string) {
 
 // GetLastName returns the LastName field value if set, zero value otherwise.
 func (o *IdentificationTokenGenerationRequest) GetLastName() string {
-	if o == nil || o.LastName == nil {
+	if o == nil || isNil(o.LastName) {
 		var ret string
 		return ret
 	}
@@ -110,7 +110,7 @@ func (o *IdentificationTokenGenerationRequest) GetLastName() string {
 // GetLastNameOk returns a tuple with the LastName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentificationTokenGenerationRequest) GetLastNameOk() (*string, bool) {
-	if o == nil || o.LastName == nil {
+	if o == nil || isNil(o.LastName) {
 		return nil, false
 	}
 	return o.LastName, true
@@ -118,7 +118,7 @@ func (o *IdentificationTokenGenerationRequest) GetLastNameOk() (*string, bool) {
 
 // HasLastName returns a boolean if a field has been set.
 func (o *IdentificationTokenGenerationRequest) HasLastName() bool {
-	if o != nil && o.LastName != nil {
+	if o != nil && !isNil(o.LastName) {
 		return true
 	}
 
@@ -135,10 +135,10 @@ func (o IdentificationTokenGenerationRequest) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["email"] = o.Email
 	}
-	if o.FirstName != nil {
+	if !isNil(o.FirstName) {
 		toSerialize["firstName"] = o.FirstName
 	}
-	if o.LastName != nil {
+	if !isNil(o.LastName) {
 		toSerialize["lastName"] = o.LastName
 	}
 	return json.Marshal(toSerialize)

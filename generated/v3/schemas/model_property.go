@@ -88,7 +88,7 @@ func NewPropertyWithDefaults() *Property {
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *Property) GetUpdatedAt() time.Time {
-	if o == nil || o.UpdatedAt == nil {
+	if o == nil || isNil(o.UpdatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -98,7 +98,7 @@ func (o *Property) GetUpdatedAt() time.Time {
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetUpdatedAtOk() (*time.Time, bool) {
-	if o == nil || o.UpdatedAt == nil {
+	if o == nil || isNil(o.UpdatedAt) {
 		return nil, false
 	}
 	return o.UpdatedAt, true
@@ -106,7 +106,7 @@ func (o *Property) GetUpdatedAtOk() (*time.Time, bool) {
 
 // HasUpdatedAt returns a boolean if a field has been set.
 func (o *Property) HasUpdatedAt() bool {
-	if o != nil && o.UpdatedAt != nil {
+	if o != nil && !isNil(o.UpdatedAt) {
 		return true
 	}
 
@@ -120,7 +120,7 @@ func (o *Property) SetUpdatedAt(v time.Time) {
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *Property) GetCreatedAt() time.Time {
-	if o == nil || o.CreatedAt == nil {
+	if o == nil || isNil(o.CreatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -130,7 +130,7 @@ func (o *Property) GetCreatedAt() time.Time {
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || o.CreatedAt == nil {
+	if o == nil || isNil(o.CreatedAt) {
 		return nil, false
 	}
 	return o.CreatedAt, true
@@ -138,7 +138,7 @@ func (o *Property) GetCreatedAtOk() (*time.Time, bool) {
 
 // HasCreatedAt returns a boolean if a field has been set.
 func (o *Property) HasCreatedAt() bool {
-	if o != nil && o.CreatedAt != nil {
+	if o != nil && !isNil(o.CreatedAt) {
 		return true
 	}
 
@@ -152,7 +152,7 @@ func (o *Property) SetCreatedAt(v time.Time) {
 
 // GetArchivedAt returns the ArchivedAt field value if set, zero value otherwise.
 func (o *Property) GetArchivedAt() time.Time {
-	if o == nil || o.ArchivedAt == nil {
+	if o == nil || isNil(o.ArchivedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -162,7 +162,7 @@ func (o *Property) GetArchivedAt() time.Time {
 // GetArchivedAtOk returns a tuple with the ArchivedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetArchivedAtOk() (*time.Time, bool) {
-	if o == nil || o.ArchivedAt == nil {
+	if o == nil || isNil(o.ArchivedAt) {
 		return nil, false
 	}
 	return o.ArchivedAt, true
@@ -170,7 +170,7 @@ func (o *Property) GetArchivedAtOk() (*time.Time, bool) {
 
 // HasArchivedAt returns a boolean if a field has been set.
 func (o *Property) HasArchivedAt() bool {
-	if o != nil && o.ArchivedAt != nil {
+	if o != nil && !isNil(o.ArchivedAt) {
 		return true
 	}
 
@@ -352,7 +352,7 @@ func (o *Property) SetOptions(v []Option) {
 
 // GetCreatedUserId returns the CreatedUserId field value if set, zero value otherwise.
 func (o *Property) GetCreatedUserId() string {
-	if o == nil || o.CreatedUserId == nil {
+	if o == nil || isNil(o.CreatedUserId) {
 		var ret string
 		return ret
 	}
@@ -362,7 +362,7 @@ func (o *Property) GetCreatedUserId() string {
 // GetCreatedUserIdOk returns a tuple with the CreatedUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetCreatedUserIdOk() (*string, bool) {
-	if o == nil || o.CreatedUserId == nil {
+	if o == nil || isNil(o.CreatedUserId) {
 		return nil, false
 	}
 	return o.CreatedUserId, true
@@ -370,7 +370,7 @@ func (o *Property) GetCreatedUserIdOk() (*string, bool) {
 
 // HasCreatedUserId returns a boolean if a field has been set.
 func (o *Property) HasCreatedUserId() bool {
-	if o != nil && o.CreatedUserId != nil {
+	if o != nil && !isNil(o.CreatedUserId) {
 		return true
 	}
 
@@ -384,7 +384,7 @@ func (o *Property) SetCreatedUserId(v string) {
 
 // GetUpdatedUserId returns the UpdatedUserId field value if set, zero value otherwise.
 func (o *Property) GetUpdatedUserId() string {
-	if o == nil || o.UpdatedUserId == nil {
+	if o == nil || isNil(o.UpdatedUserId) {
 		var ret string
 		return ret
 	}
@@ -394,7 +394,7 @@ func (o *Property) GetUpdatedUserId() string {
 // GetUpdatedUserIdOk returns a tuple with the UpdatedUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetUpdatedUserIdOk() (*string, bool) {
-	if o == nil || o.UpdatedUserId == nil {
+	if o == nil || isNil(o.UpdatedUserId) {
 		return nil, false
 	}
 	return o.UpdatedUserId, true
@@ -402,7 +402,7 @@ func (o *Property) GetUpdatedUserIdOk() (*string, bool) {
 
 // HasUpdatedUserId returns a boolean if a field has been set.
 func (o *Property) HasUpdatedUserId() bool {
-	if o != nil && o.UpdatedUserId != nil {
+	if o != nil && !isNil(o.UpdatedUserId) {
 		return true
 	}
 
@@ -416,7 +416,7 @@ func (o *Property) SetUpdatedUserId(v string) {
 
 // GetReferencedObjectType returns the ReferencedObjectType field value if set, zero value otherwise.
 func (o *Property) GetReferencedObjectType() string {
-	if o == nil || o.ReferencedObjectType == nil {
+	if o == nil || isNil(o.ReferencedObjectType) {
 		var ret string
 		return ret
 	}
@@ -426,7 +426,7 @@ func (o *Property) GetReferencedObjectType() string {
 // GetReferencedObjectTypeOk returns a tuple with the ReferencedObjectType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetReferencedObjectTypeOk() (*string, bool) {
-	if o == nil || o.ReferencedObjectType == nil {
+	if o == nil || isNil(o.ReferencedObjectType) {
 		return nil, false
 	}
 	return o.ReferencedObjectType, true
@@ -434,7 +434,7 @@ func (o *Property) GetReferencedObjectTypeOk() (*string, bool) {
 
 // HasReferencedObjectType returns a boolean if a field has been set.
 func (o *Property) HasReferencedObjectType() bool {
-	if o != nil && o.ReferencedObjectType != nil {
+	if o != nil && !isNil(o.ReferencedObjectType) {
 		return true
 	}
 
@@ -448,7 +448,7 @@ func (o *Property) SetReferencedObjectType(v string) {
 
 // GetDisplayOrder returns the DisplayOrder field value if set, zero value otherwise.
 func (o *Property) GetDisplayOrder() int32 {
-	if o == nil || o.DisplayOrder == nil {
+	if o == nil || isNil(o.DisplayOrder) {
 		var ret int32
 		return ret
 	}
@@ -458,7 +458,7 @@ func (o *Property) GetDisplayOrder() int32 {
 // GetDisplayOrderOk returns a tuple with the DisplayOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetDisplayOrderOk() (*int32, bool) {
-	if o == nil || o.DisplayOrder == nil {
+	if o == nil || isNil(o.DisplayOrder) {
 		return nil, false
 	}
 	return o.DisplayOrder, true
@@ -466,7 +466,7 @@ func (o *Property) GetDisplayOrderOk() (*int32, bool) {
 
 // HasDisplayOrder returns a boolean if a field has been set.
 func (o *Property) HasDisplayOrder() bool {
-	if o != nil && o.DisplayOrder != nil {
+	if o != nil && !isNil(o.DisplayOrder) {
 		return true
 	}
 
@@ -480,7 +480,7 @@ func (o *Property) SetDisplayOrder(v int32) {
 
 // GetCalculated returns the Calculated field value if set, zero value otherwise.
 func (o *Property) GetCalculated() bool {
-	if o == nil || o.Calculated == nil {
+	if o == nil || isNil(o.Calculated) {
 		var ret bool
 		return ret
 	}
@@ -490,7 +490,7 @@ func (o *Property) GetCalculated() bool {
 // GetCalculatedOk returns a tuple with the Calculated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetCalculatedOk() (*bool, bool) {
-	if o == nil || o.Calculated == nil {
+	if o == nil || isNil(o.Calculated) {
 		return nil, false
 	}
 	return o.Calculated, true
@@ -498,7 +498,7 @@ func (o *Property) GetCalculatedOk() (*bool, bool) {
 
 // HasCalculated returns a boolean if a field has been set.
 func (o *Property) HasCalculated() bool {
-	if o != nil && o.Calculated != nil {
+	if o != nil && !isNil(o.Calculated) {
 		return true
 	}
 
@@ -512,7 +512,7 @@ func (o *Property) SetCalculated(v bool) {
 
 // GetExternalOptions returns the ExternalOptions field value if set, zero value otherwise.
 func (o *Property) GetExternalOptions() bool {
-	if o == nil || o.ExternalOptions == nil {
+	if o == nil || isNil(o.ExternalOptions) {
 		var ret bool
 		return ret
 	}
@@ -522,7 +522,7 @@ func (o *Property) GetExternalOptions() bool {
 // GetExternalOptionsOk returns a tuple with the ExternalOptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetExternalOptionsOk() (*bool, bool) {
-	if o == nil || o.ExternalOptions == nil {
+	if o == nil || isNil(o.ExternalOptions) {
 		return nil, false
 	}
 	return o.ExternalOptions, true
@@ -530,7 +530,7 @@ func (o *Property) GetExternalOptionsOk() (*bool, bool) {
 
 // HasExternalOptions returns a boolean if a field has been set.
 func (o *Property) HasExternalOptions() bool {
-	if o != nil && o.ExternalOptions != nil {
+	if o != nil && !isNil(o.ExternalOptions) {
 		return true
 	}
 
@@ -544,7 +544,7 @@ func (o *Property) SetExternalOptions(v bool) {
 
 // GetArchived returns the Archived field value if set, zero value otherwise.
 func (o *Property) GetArchived() bool {
-	if o == nil || o.Archived == nil {
+	if o == nil || isNil(o.Archived) {
 		var ret bool
 		return ret
 	}
@@ -554,7 +554,7 @@ func (o *Property) GetArchived() bool {
 // GetArchivedOk returns a tuple with the Archived field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetArchivedOk() (*bool, bool) {
-	if o == nil || o.Archived == nil {
+	if o == nil || isNil(o.Archived) {
 		return nil, false
 	}
 	return o.Archived, true
@@ -562,7 +562,7 @@ func (o *Property) GetArchivedOk() (*bool, bool) {
 
 // HasArchived returns a boolean if a field has been set.
 func (o *Property) HasArchived() bool {
-	if o != nil && o.Archived != nil {
+	if o != nil && !isNil(o.Archived) {
 		return true
 	}
 
@@ -576,7 +576,7 @@ func (o *Property) SetArchived(v bool) {
 
 // GetHasUniqueValue returns the HasUniqueValue field value if set, zero value otherwise.
 func (o *Property) GetHasUniqueValue() bool {
-	if o == nil || o.HasUniqueValue == nil {
+	if o == nil || isNil(o.HasUniqueValue) {
 		var ret bool
 		return ret
 	}
@@ -586,7 +586,7 @@ func (o *Property) GetHasUniqueValue() bool {
 // GetHasUniqueValueOk returns a tuple with the HasUniqueValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetHasUniqueValueOk() (*bool, bool) {
-	if o == nil || o.HasUniqueValue == nil {
+	if o == nil || isNil(o.HasUniqueValue) {
 		return nil, false
 	}
 	return o.HasUniqueValue, true
@@ -594,7 +594,7 @@ func (o *Property) GetHasUniqueValueOk() (*bool, bool) {
 
 // HasHasUniqueValue returns a boolean if a field has been set.
 func (o *Property) HasHasUniqueValue() bool {
-	if o != nil && o.HasUniqueValue != nil {
+	if o != nil && !isNil(o.HasUniqueValue) {
 		return true
 	}
 
@@ -608,7 +608,7 @@ func (o *Property) SetHasUniqueValue(v bool) {
 
 // GetHidden returns the Hidden field value if set, zero value otherwise.
 func (o *Property) GetHidden() bool {
-	if o == nil || o.Hidden == nil {
+	if o == nil || isNil(o.Hidden) {
 		var ret bool
 		return ret
 	}
@@ -618,7 +618,7 @@ func (o *Property) GetHidden() bool {
 // GetHiddenOk returns a tuple with the Hidden field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetHiddenOk() (*bool, bool) {
-	if o == nil || o.Hidden == nil {
+	if o == nil || isNil(o.Hidden) {
 		return nil, false
 	}
 	return o.Hidden, true
@@ -626,7 +626,7 @@ func (o *Property) GetHiddenOk() (*bool, bool) {
 
 // HasHidden returns a boolean if a field has been set.
 func (o *Property) HasHidden() bool {
-	if o != nil && o.Hidden != nil {
+	if o != nil && !isNil(o.Hidden) {
 		return true
 	}
 
@@ -640,7 +640,7 @@ func (o *Property) SetHidden(v bool) {
 
 // GetHubspotDefined returns the HubspotDefined field value if set, zero value otherwise.
 func (o *Property) GetHubspotDefined() bool {
-	if o == nil || o.HubspotDefined == nil {
+	if o == nil || isNil(o.HubspotDefined) {
 		var ret bool
 		return ret
 	}
@@ -650,7 +650,7 @@ func (o *Property) GetHubspotDefined() bool {
 // GetHubspotDefinedOk returns a tuple with the HubspotDefined field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetHubspotDefinedOk() (*bool, bool) {
-	if o == nil || o.HubspotDefined == nil {
+	if o == nil || isNil(o.HubspotDefined) {
 		return nil, false
 	}
 	return o.HubspotDefined, true
@@ -658,7 +658,7 @@ func (o *Property) GetHubspotDefinedOk() (*bool, bool) {
 
 // HasHubspotDefined returns a boolean if a field has been set.
 func (o *Property) HasHubspotDefined() bool {
-	if o != nil && o.HubspotDefined != nil {
+	if o != nil && !isNil(o.HubspotDefined) {
 		return true
 	}
 
@@ -672,7 +672,7 @@ func (o *Property) SetHubspotDefined(v bool) {
 
 // GetShowCurrencySymbol returns the ShowCurrencySymbol field value if set, zero value otherwise.
 func (o *Property) GetShowCurrencySymbol() bool {
-	if o == nil || o.ShowCurrencySymbol == nil {
+	if o == nil || isNil(o.ShowCurrencySymbol) {
 		var ret bool
 		return ret
 	}
@@ -682,7 +682,7 @@ func (o *Property) GetShowCurrencySymbol() bool {
 // GetShowCurrencySymbolOk returns a tuple with the ShowCurrencySymbol field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetShowCurrencySymbolOk() (*bool, bool) {
-	if o == nil || o.ShowCurrencySymbol == nil {
+	if o == nil || isNil(o.ShowCurrencySymbol) {
 		return nil, false
 	}
 	return o.ShowCurrencySymbol, true
@@ -690,7 +690,7 @@ func (o *Property) GetShowCurrencySymbolOk() (*bool, bool) {
 
 // HasShowCurrencySymbol returns a boolean if a field has been set.
 func (o *Property) HasShowCurrencySymbol() bool {
-	if o != nil && o.ShowCurrencySymbol != nil {
+	if o != nil && !isNil(o.ShowCurrencySymbol) {
 		return true
 	}
 
@@ -704,7 +704,7 @@ func (o *Property) SetShowCurrencySymbol(v bool) {
 
 // GetModificationMetadata returns the ModificationMetadata field value if set, zero value otherwise.
 func (o *Property) GetModificationMetadata() PropertyModificationMetadata {
-	if o == nil || o.ModificationMetadata == nil {
+	if o == nil || isNil(o.ModificationMetadata) {
 		var ret PropertyModificationMetadata
 		return ret
 	}
@@ -714,7 +714,7 @@ func (o *Property) GetModificationMetadata() PropertyModificationMetadata {
 // GetModificationMetadataOk returns a tuple with the ModificationMetadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetModificationMetadataOk() (*PropertyModificationMetadata, bool) {
-	if o == nil || o.ModificationMetadata == nil {
+	if o == nil || isNil(o.ModificationMetadata) {
 		return nil, false
 	}
 	return o.ModificationMetadata, true
@@ -722,7 +722,7 @@ func (o *Property) GetModificationMetadataOk() (*PropertyModificationMetadata, b
 
 // HasModificationMetadata returns a boolean if a field has been set.
 func (o *Property) HasModificationMetadata() bool {
-	if o != nil && o.ModificationMetadata != nil {
+	if o != nil && !isNil(o.ModificationMetadata) {
 		return true
 	}
 
@@ -736,7 +736,7 @@ func (o *Property) SetModificationMetadata(v PropertyModificationMetadata) {
 
 // GetFormField returns the FormField field value if set, zero value otherwise.
 func (o *Property) GetFormField() bool {
-	if o == nil || o.FormField == nil {
+	if o == nil || isNil(o.FormField) {
 		var ret bool
 		return ret
 	}
@@ -746,7 +746,7 @@ func (o *Property) GetFormField() bool {
 // GetFormFieldOk returns a tuple with the FormField field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Property) GetFormFieldOk() (*bool, bool) {
-	if o == nil || o.FormField == nil {
+	if o == nil || isNil(o.FormField) {
 		return nil, false
 	}
 	return o.FormField, true
@@ -754,7 +754,7 @@ func (o *Property) GetFormFieldOk() (*bool, bool) {
 
 // HasFormField returns a boolean if a field has been set.
 func (o *Property) HasFormField() bool {
-	if o != nil && o.FormField != nil {
+	if o != nil && !isNil(o.FormField) {
 		return true
 	}
 
@@ -768,13 +768,13 @@ func (o *Property) SetFormField(v bool) {
 
 func (o Property) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.UpdatedAt != nil {
+	if !isNil(o.UpdatedAt) {
 		toSerialize["updatedAt"] = o.UpdatedAt
 	}
-	if o.CreatedAt != nil {
+	if !isNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
-	if o.ArchivedAt != nil {
+	if !isNil(o.ArchivedAt) {
 		toSerialize["archivedAt"] = o.ArchivedAt
 	}
 	if true {
@@ -798,43 +798,43 @@ func (o Property) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["options"] = o.Options
 	}
-	if o.CreatedUserId != nil {
+	if !isNil(o.CreatedUserId) {
 		toSerialize["createdUserId"] = o.CreatedUserId
 	}
-	if o.UpdatedUserId != nil {
+	if !isNil(o.UpdatedUserId) {
 		toSerialize["updatedUserId"] = o.UpdatedUserId
 	}
-	if o.ReferencedObjectType != nil {
+	if !isNil(o.ReferencedObjectType) {
 		toSerialize["referencedObjectType"] = o.ReferencedObjectType
 	}
-	if o.DisplayOrder != nil {
+	if !isNil(o.DisplayOrder) {
 		toSerialize["displayOrder"] = o.DisplayOrder
 	}
-	if o.Calculated != nil {
+	if !isNil(o.Calculated) {
 		toSerialize["calculated"] = o.Calculated
 	}
-	if o.ExternalOptions != nil {
+	if !isNil(o.ExternalOptions) {
 		toSerialize["externalOptions"] = o.ExternalOptions
 	}
-	if o.Archived != nil {
+	if !isNil(o.Archived) {
 		toSerialize["archived"] = o.Archived
 	}
-	if o.HasUniqueValue != nil {
+	if !isNil(o.HasUniqueValue) {
 		toSerialize["hasUniqueValue"] = o.HasUniqueValue
 	}
-	if o.Hidden != nil {
+	if !isNil(o.Hidden) {
 		toSerialize["hidden"] = o.Hidden
 	}
-	if o.HubspotDefined != nil {
+	if !isNil(o.HubspotDefined) {
 		toSerialize["hubspotDefined"] = o.HubspotDefined
 	}
-	if o.ShowCurrencySymbol != nil {
+	if !isNil(o.ShowCurrencySymbol) {
 		toSerialize["showCurrencySymbol"] = o.ShowCurrencySymbol
 	}
-	if o.ModificationMetadata != nil {
+	if !isNil(o.ModificationMetadata) {
 		toSerialize["modificationMetadata"] = o.ModificationMetadata
 	}
-	if o.FormField != nil {
+	if !isNil(o.FormField) {
 		toSerialize["formField"] = o.FormField
 	}
 	return json.Marshal(toSerialize)

@@ -48,7 +48,7 @@ func NewAccountingExtensionCustomerWithDefaults() *AccountingExtensionCustomer {
 
 // GetEmailAddress returns the EmailAddress field value if set, zero value otherwise.
 func (o *AccountingExtensionCustomer) GetEmailAddress() string {
-	if o == nil || o.EmailAddress == nil {
+	if o == nil || isNil(o.EmailAddress) {
 		var ret string
 		return ret
 	}
@@ -58,7 +58,7 @@ func (o *AccountingExtensionCustomer) GetEmailAddress() string {
 // GetEmailAddressOk returns a tuple with the EmailAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingExtensionCustomer) GetEmailAddressOk() (*string, bool) {
-	if o == nil || o.EmailAddress == nil {
+	if o == nil || isNil(o.EmailAddress) {
 		return nil, false
 	}
 	return o.EmailAddress, true
@@ -66,7 +66,7 @@ func (o *AccountingExtensionCustomer) GetEmailAddressOk() (*string, bool) {
 
 // HasEmailAddress returns a boolean if a field has been set.
 func (o *AccountingExtensionCustomer) HasEmailAddress() bool {
-	if o != nil && o.EmailAddress != nil {
+	if o != nil && !isNil(o.EmailAddress) {
 		return true
 	}
 
@@ -128,7 +128,7 @@ func (o *AccountingExtensionCustomer) SetId(v string) {
 
 // GetBillingAddress returns the BillingAddress field value if set, zero value otherwise.
 func (o *AccountingExtensionCustomer) GetBillingAddress() Address {
-	if o == nil || o.BillingAddress == nil {
+	if o == nil || isNil(o.BillingAddress) {
 		var ret Address
 		return ret
 	}
@@ -138,7 +138,7 @@ func (o *AccountingExtensionCustomer) GetBillingAddress() Address {
 // GetBillingAddressOk returns a tuple with the BillingAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingExtensionCustomer) GetBillingAddressOk() (*Address, bool) {
-	if o == nil || o.BillingAddress == nil {
+	if o == nil || isNil(o.BillingAddress) {
 		return nil, false
 	}
 	return o.BillingAddress, true
@@ -146,7 +146,7 @@ func (o *AccountingExtensionCustomer) GetBillingAddressOk() (*Address, bool) {
 
 // HasBillingAddress returns a boolean if a field has been set.
 func (o *AccountingExtensionCustomer) HasBillingAddress() bool {
-	if o != nil && o.BillingAddress != nil {
+	if o != nil && !isNil(o.BillingAddress) {
 		return true
 	}
 
@@ -160,7 +160,7 @@ func (o *AccountingExtensionCustomer) SetBillingAddress(v Address) {
 
 // GetCurrencyCode returns the CurrencyCode field value if set, zero value otherwise.
 func (o *AccountingExtensionCustomer) GetCurrencyCode() string {
-	if o == nil || o.CurrencyCode == nil {
+	if o == nil || isNil(o.CurrencyCode) {
 		var ret string
 		return ret
 	}
@@ -170,7 +170,7 @@ func (o *AccountingExtensionCustomer) GetCurrencyCode() string {
 // GetCurrencyCodeOk returns a tuple with the CurrencyCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingExtensionCustomer) GetCurrencyCodeOk() (*string, bool) {
-	if o == nil || o.CurrencyCode == nil {
+	if o == nil || isNil(o.CurrencyCode) {
 		return nil, false
 	}
 	return o.CurrencyCode, true
@@ -178,7 +178,7 @@ func (o *AccountingExtensionCustomer) GetCurrencyCodeOk() (*string, bool) {
 
 // HasCurrencyCode returns a boolean if a field has been set.
 func (o *AccountingExtensionCustomer) HasCurrencyCode() bool {
-	if o != nil && o.CurrencyCode != nil {
+	if o != nil && !isNil(o.CurrencyCode) {
 		return true
 	}
 
@@ -192,7 +192,7 @@ func (o *AccountingExtensionCustomer) SetCurrencyCode(v string) {
 
 func (o AccountingExtensionCustomer) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.EmailAddress != nil {
+	if !isNil(o.EmailAddress) {
 		toSerialize["emailAddress"] = o.EmailAddress
 	}
 	if true {
@@ -201,10 +201,10 @@ func (o AccountingExtensionCustomer) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.BillingAddress != nil {
+	if !isNil(o.BillingAddress) {
 		toSerialize["billingAddress"] = o.BillingAddress
 	}
-	if o.CurrencyCode != nil {
+	if !isNil(o.CurrencyCode) {
 		toSerialize["currencyCode"] = o.CurrencyCode
 	}
 	return json.Marshal(toSerialize)

@@ -44,7 +44,7 @@ func NewHubDbTableCloneRequestWithDefaults() *HubDbTableCloneRequest {
 
 // GetNewName returns the NewName field value if set, zero value otherwise.
 func (o *HubDbTableCloneRequest) GetNewName() string {
-	if o == nil || o.NewName == nil {
+	if o == nil || isNil(o.NewName) {
 		var ret string
 		return ret
 	}
@@ -54,7 +54,7 @@ func (o *HubDbTableCloneRequest) GetNewName() string {
 // GetNewNameOk returns a tuple with the NewName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableCloneRequest) GetNewNameOk() (*string, bool) {
-	if o == nil || o.NewName == nil {
+	if o == nil || isNil(o.NewName) {
 		return nil, false
 	}
 	return o.NewName, true
@@ -62,7 +62,7 @@ func (o *HubDbTableCloneRequest) GetNewNameOk() (*string, bool) {
 
 // HasNewName returns a boolean if a field has been set.
 func (o *HubDbTableCloneRequest) HasNewName() bool {
-	if o != nil && o.NewName != nil {
+	if o != nil && !isNil(o.NewName) {
 		return true
 	}
 
@@ -76,7 +76,7 @@ func (o *HubDbTableCloneRequest) SetNewName(v string) {
 
 // GetNewLabel returns the NewLabel field value if set, zero value otherwise.
 func (o *HubDbTableCloneRequest) GetNewLabel() string {
-	if o == nil || o.NewLabel == nil {
+	if o == nil || isNil(o.NewLabel) {
 		var ret string
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *HubDbTableCloneRequest) GetNewLabel() string {
 // GetNewLabelOk returns a tuple with the NewLabel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableCloneRequest) GetNewLabelOk() (*string, bool) {
-	if o == nil || o.NewLabel == nil {
+	if o == nil || isNil(o.NewLabel) {
 		return nil, false
 	}
 	return o.NewLabel, true
@@ -94,7 +94,7 @@ func (o *HubDbTableCloneRequest) GetNewLabelOk() (*string, bool) {
 
 // HasNewLabel returns a boolean if a field has been set.
 func (o *HubDbTableCloneRequest) HasNewLabel() bool {
-	if o != nil && o.NewLabel != nil {
+	if o != nil && !isNil(o.NewLabel) {
 		return true
 	}
 
@@ -132,10 +132,10 @@ func (o *HubDbTableCloneRequest) SetCopyRows(v bool) {
 
 func (o HubDbTableCloneRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.NewName != nil {
+	if !isNil(o.NewName) {
 		toSerialize["newName"] = o.NewName
 	}
-	if o.NewLabel != nil {
+	if !isNil(o.NewLabel) {
 		toSerialize["newLabel"] = o.NewLabel
 	}
 	if true {

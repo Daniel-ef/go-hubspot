@@ -35,9 +35,9 @@ func (r ApiGetAccessTokenRequest) Execute() (*AccessTokenInfoResponse, *http.Res
 /*
 GetAccessToken Method for GetAccessToken
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param token
- @return ApiGetAccessTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param token
+	@return ApiGetAccessTokenRequest
 */
 func (a *AccessTokensApiService) GetAccessToken(ctx context.Context, token string) ApiGetAccessTokenRequest {
 	return ApiGetAccessTokenRequest{
@@ -48,7 +48,8 @@ func (a *AccessTokensApiService) GetAccessToken(ctx context.Context, token strin
 }
 
 // Execute executes the request
-//  @return AccessTokenInfoResponse
+//
+//	@return AccessTokenInfoResponse
 func (a *AccessTokensApiService) GetAccessTokenExecute(r ApiGetAccessTokenRequest) (*AccessTokenInfoResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -114,6 +115,7 @@ func (a *AccessTokensApiService) GetAccessTokenExecute(r ApiGetAccessTokenReques
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

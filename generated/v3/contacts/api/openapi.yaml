@@ -102,8 +102,10 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.read
-      - oauth2_legacy:
+      - private_apps_legacy:
         - contacts
+      - private_apps:
+        - crm.objects.contacts.read
       summary: List
       tags:
       - Basic
@@ -136,7 +138,9 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.write
-      - oauth2_legacy:
+      - private_apps:
+        - crm.objects.contacts.write
+      - private_apps_legacy:
         - contacts
       summary: Create
       tags:
@@ -165,7 +169,9 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.write
-      - oauth2_legacy:
+      - private_apps:
+        - crm.objects.contacts.write
+      - private_apps_legacy:
         - contacts
       summary: Archive a batch of contacts by ID
       tags:
@@ -203,7 +209,9 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.write
-      - oauth2_legacy:
+      - private_apps:
+        - crm.objects.contacts.write
+      - private_apps_legacy:
         - contacts
       summary: Create a batch of contacts
       tags:
@@ -250,8 +258,10 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.read
-      - oauth2_legacy:
+      - private_apps_legacy:
         - contacts
+      - private_apps:
+        - crm.objects.contacts.read
       summary: "Read a batch of contacts by internal ID, or unique property values"
       tags:
       - Batch
@@ -288,7 +298,9 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.write
-      - oauth2_legacy:
+      - private_apps:
+        - crm.objects.contacts.write
+      - private_apps_legacy:
         - contacts
       summary: Update a batch of contacts
       tags:
@@ -321,7 +333,9 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.write
-      - oauth2_legacy:
+      - private_apps:
+        - crm.objects.contacts.write
+      - private_apps_legacy:
         - contacts
       summary: GDPR DELETE
       tags:
@@ -353,7 +367,9 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.write
-      - oauth2_legacy:
+      - private_apps:
+        - crm.objects.contacts.write
+      - private_apps_legacy:
         - contacts
       summary: Merge two contacts with same type
       tags:
@@ -385,8 +401,10 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.read
-      - oauth2_legacy:
+      - private_apps_legacy:
         - contacts
+      - private_apps:
+        - crm.objects.contacts.read
       tags:
       - Search
       x-hubspot-rate-limit-exemptions:
@@ -417,7 +435,9 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.write
-      - oauth2_legacy:
+      - private_apps:
+        - crm.objects.contacts.write
+      - private_apps_legacy:
         - contacts
       summary: Archive
       tags:
@@ -497,8 +517,10 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.read
-      - oauth2_legacy:
+      - private_apps_legacy:
         - contacts
+      - private_apps:
+        - crm.objects.contacts.read
       summary: Read
       tags:
       - Basic
@@ -539,13 +561,17 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.write
-      - oauth2_legacy:
+      - private_apps:
+        - crm.objects.contacts.write
+      - private_apps_legacy:
         - contacts
       summary: Update
       tags:
       - Basic
-  /crm/v3/objects/contacts/{contactId}/associations/{toObjectType}:
+  /crm/v4/objects/contacts/{contactId}/associations/{toObjectType}:
     get:
+      description: List all associations of a contact by object type. Limit 1000 per
+        call.
       operationId: AssociationsGetAll
       parameters:
       - explode: false
@@ -553,7 +579,8 @@ paths:
         name: contactId
         required: true
         schema:
-          type: string
+          format: int64
+          type: integer
         style: simple
       - explode: false
         in: path
@@ -587,7 +614,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CollectionResponseAssociatedIdForwardPaging'
+                $ref: '#/components/schemas/CollectionResponseMultiAssociatedObjectWithLabelForwardPaging'
           description: successful operation
         default:
           content:
@@ -599,21 +626,25 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.read
-      - oauth2_legacy:
+      - private_apps_legacy:
         - contacts
-      summary: List associations of a contact by type
+      - private_apps:
+        - crm.objects.contacts.read
+      summary: List
       tags:
       - Associations
-  /crm/v3/objects/contacts/{contactId}/associations/{toObjectType}/{toObjectId}/{associationType}:
+  /crm/v4/objects/contacts/{contactId}/associations/{toObjectType}/{toObjectId}:
     delete:
-      operationId: AssociationsArchive
+      description: deletes all associations between two records.
+      operationId: "delete-/crm/v4/objects/contacts/{contactId}/associations/{toObjectType}/{toObjectId}_archive"
       parameters:
       - explode: false
         in: path
         name: contactId
         required: true
         schema:
-          type: string
+          format: int64
+          type: integer
         style: simple
       - explode: false
         in: path
@@ -627,14 +658,8 @@ paths:
         name: toObjectId
         required: true
         schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: associationType
-        required: true
-        schema:
-          type: string
+          format: int64
+          type: integer
         style: simple
       responses:
         "204":
@@ -650,20 +675,24 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.write
-      - oauth2_legacy:
+      - private_apps:
+        - crm.objects.contacts.write
+      - private_apps_legacy:
         - contacts
-      summary: Remove an association between two contacts
+      summary: Delete
       tags:
       - Associations
     put:
-      operationId: AssociationsCreate
+      description: Set association labels between two records.
+      operationId: "put-/crm/v4/objects/contacts/{contactId}/associations/{toObjectType}/{toObjectId}_create"
       parameters:
       - explode: false
         in: path
         name: contactId
         required: true
         schema:
-          type: string
+          format: int64
+          type: integer
         style: simple
       - explode: false
         in: path
@@ -677,21 +706,23 @@ paths:
         name: toObjectId
         required: true
         schema:
-          type: string
+          format: int64
+          type: integer
         style: simple
-      - explode: false
-        in: path
-        name: associationType
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/AssociationSpec'
+              type: array
         required: true
-        schema:
-          type: string
-        style: simple
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SimplePublicObjectWithAssociations'
+                $ref: '#/components/schemas/LabelsBetweenObjectPair'
           description: successful operation
         default:
           content:
@@ -703,9 +734,11 @@ paths:
       - hapikey: []
       - oauth2:
         - crm.objects.contacts.write
-      - oauth2_legacy:
+      - private_apps:
+        - crm.objects.contacts.write
+      - private_apps_legacy:
         - contacts
-      summary: Associate a contact with another object
+      summary: Create
       tags:
       - Associations
 components:
@@ -762,6 +795,37 @@ components:
           $ref: '#/components/schemas/Paging'
       required:
       - results
+      type: object
+    LabelsBetweenObjectPair:
+      example:
+        fromObjectTypeId: fromObjectTypeId
+        toObjectId: 6
+        toObjectTypeId: toObjectTypeId
+        fromObjectId: 0
+        labels:
+        - labels
+        - labels
+      properties:
+        fromObjectTypeId:
+          type: string
+        fromObjectId:
+          format: int32
+          type: integer
+        toObjectTypeId:
+          type: string
+        toObjectId:
+          format: int32
+          type: integer
+        labels:
+          items:
+            type: string
+          type: array
+      required:
+      - fromObjectId
+      - fromObjectTypeId
+      - labels
+      - toObjectId
+      - toObjectTypeId
       type: object
     BatchResponseSimplePublicObject:
       example:
@@ -852,6 +916,28 @@ components:
       required:
       - filters
       type: object
+    MultiAssociatedObjectWithLabel:
+      example:
+        associationTypes:
+        - typeId: 6
+          label: label
+          category: HUBSPOT_DEFINED
+        - typeId: 6
+          label: label
+          category: HUBSPOT_DEFINED
+        toObjectId: 0
+      properties:
+        toObjectId:
+          format: int32
+          type: integer
+        associationTypes:
+          items:
+            $ref: '#/components/schemas/AssociationSpecWithLabel'
+          type: array
+      required:
+      - associationTypes
+      - toObjectId
+      type: object
     ErrorDetail:
       properties:
         message:
@@ -899,6 +985,27 @@ components:
           type: string
       required:
       - id
+      type: object
+    AssociationSpecWithLabel:
+      example:
+        typeId: 6
+        label: label
+        category: HUBSPOT_DEFINED
+      properties:
+        category:
+          enum:
+          - HUBSPOT_DEFINED
+          - USER_DEFINED
+          - INTEGRATOR_DEFINED
+          type: string
+        typeId:
+          format: int32
+          type: integer
+        label:
+          type: string
+      required:
+      - category
+      - typeId
       type: object
     BatchReadInputSimplePublicObjectId:
       example:
@@ -1315,6 +1422,24 @@ components:
       required:
       - results
       type: object
+    AssociationSpec:
+      example:
+        associationCategory: HUBSPOT_DEFINED
+        associationTypeId: 0
+      properties:
+        associationCategory:
+          enum:
+          - HUBSPOT_DEFINED
+          - USER_DEFINED
+          - INTEGRATOR_DEFINED
+          type: string
+        associationTypeId:
+          format: int32
+          type: integer
+      required:
+      - associationCategory
+      - associationTypeId
+      type: object
     PublicMergeInput:
       example:
         objectIdToMerge: objectIdToMerge
@@ -1520,21 +1645,33 @@ components:
       required:
       - before
       type: object
-    CollectionResponseAssociatedIdForwardPaging:
+    CollectionResponseMultiAssociatedObjectWithLabelForwardPaging:
       example:
         paging:
           next:
             after: NTI1Cg%3D%3D
             link: ?after=NTI1Cg%3D%3D
         results:
-        - id: id
-          type: type
-        - id: id
-          type: type
+        - associationTypes:
+          - typeId: 6
+            label: label
+            category: HUBSPOT_DEFINED
+          - typeId: 6
+            label: label
+            category: HUBSPOT_DEFINED
+          toObjectId: 0
+        - associationTypes:
+          - typeId: 6
+            label: label
+            category: HUBSPOT_DEFINED
+          - typeId: 6
+            label: label
+            category: HUBSPOT_DEFINED
+          toObjectId: 0
       properties:
         results:
           items:
-            $ref: '#/components/schemas/AssociatedId'
+            $ref: '#/components/schemas/MultiAssociatedObjectWithLabel'
           type: array
         paging:
           $ref: '#/components/schemas/ForwardPaging'
@@ -1563,9 +1700,6 @@ components:
       - properties
       type: object
     AssociatedId:
-      example:
-        id: id
-        type: type
       properties:
         id:
           type: string
@@ -1588,14 +1722,6 @@ components:
       - after
       type: object
   securitySchemes:
-    oauth2_legacy:
-      flows:
-        authorizationCode:
-          authorizationUrl: https://app.hubspot.com/oauth/authorize
-          scopes:
-            contacts: Read from and write to my Contacts
-          tokenUrl: https://api.hubapi.com/oauth/v1/token
-      type: oauth2
     hapikey:
       in: query
       name: hapikey
@@ -1609,6 +1735,14 @@ components:
             crm.objects.contacts.write: ' '
           tokenUrl: https://api.hubapi.com/oauth/v1/token
       type: oauth2
+    private_apps_legacy:
+      in: header
+      name: private-app-legacy
+      type: apiKey
+    private_apps:
+      in: header
+      name: private-app
+      type: apiKey
 x-hubspot-available-client-libraries:
 - PHP
 - Node

@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"strings"
 )
@@ -40,10 +40,10 @@ Archive Archive a property
 
 Move a property identified by {propertyName} to the recycling bin.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType
- @param propertyName
- @return ApiArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType
+	@param propertyName
+	@return ApiArchiveRequest
 */
 func (a *CoreApiService) Archive(ctx context.Context, objectType string, propertyName string) ApiArchiveRequest {
 	return ApiArchiveRequest{
@@ -102,6 +102,34 @@ func (a *CoreApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Response, er
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -130,6 +158,7 @@ func (a *CoreApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Response, er
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -158,9 +187,9 @@ Create Create a property
 
 Create and return a copy of a new property for the specified object type.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType
- @return ApiCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType
+	@return ApiCreateRequest
 */
 func (a *CoreApiService) Create(ctx context.Context, objectType string) ApiCreateRequest {
 	return ApiCreateRequest{
@@ -171,7 +200,8 @@ func (a *CoreApiService) Create(ctx context.Context, objectType string) ApiCreat
 }
 
 // Execute executes the request
-//  @return Property
+//
+//	@return Property
 func (a *CoreApiService) CreateExecute(r ApiCreateRequest) (*Property, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -224,6 +254,34 @@ func (a *CoreApiService) CreateExecute(r ApiCreateRequest) (*Property, *http.Res
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -252,6 +310,7 @@ func (a *CoreApiService) CreateExecute(r ApiCreateRequest) (*Property, *http.Res
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -290,9 +349,9 @@ GetAll Read all properties
 
 Read all existing properties for the specified object type and HubSpot account.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType
- @return ApiGetAllRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType
+	@return ApiGetAllRequest
 */
 func (a *CoreApiService) GetAll(ctx context.Context, objectType string) ApiGetAllRequest {
 	return ApiGetAllRequest{
@@ -303,7 +362,8 @@ func (a *CoreApiService) GetAll(ctx context.Context, objectType string) ApiGetAl
 }
 
 // Execute executes the request
-//  @return CollectionResponseProperty
+//
+//	@return CollectionResponseProperty
 func (a *CoreApiService) GetAllExecute(r ApiGetAllRequest) (*CollectionResponseProperty, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -354,6 +414,34 @@ func (a *CoreApiService) GetAllExecute(r ApiGetAllRequest) (*CollectionResponseP
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -382,6 +470,7 @@ func (a *CoreApiService) GetAllExecute(r ApiGetAllRequest) (*CollectionResponseP
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -421,10 +510,10 @@ GetByName Read a property
 
 Read a property identified by {propertyName}.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType
- @param propertyName
- @return ApiGetByNameRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType
+	@param propertyName
+	@return ApiGetByNameRequest
 */
 func (a *CoreApiService) GetByName(ctx context.Context, objectType string, propertyName string) ApiGetByNameRequest {
 	return ApiGetByNameRequest{
@@ -436,7 +525,8 @@ func (a *CoreApiService) GetByName(ctx context.Context, objectType string, prope
 }
 
 // Execute executes the request
-//  @return Property
+//
+//	@return Property
 func (a *CoreApiService) GetByNameExecute(r ApiGetByNameRequest) (*Property, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -488,6 +578,34 @@ func (a *CoreApiService) GetByNameExecute(r ApiGetByNameRequest) (*Property, *ht
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -516,6 +634,7 @@ func (a *CoreApiService) GetByNameExecute(r ApiGetByNameRequest) (*Property, *ht
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -554,10 +673,10 @@ Update Update a property
 
 Perform a partial update of a property identified by {propertyName}. Provided fields will be overwritten.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType
- @param propertyName
- @return ApiUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType
+	@param propertyName
+	@return ApiUpdateRequest
 */
 func (a *CoreApiService) Update(ctx context.Context, objectType string, propertyName string) ApiUpdateRequest {
 	return ApiUpdateRequest{
@@ -569,7 +688,8 @@ func (a *CoreApiService) Update(ctx context.Context, objectType string, property
 }
 
 // Execute executes the request
-//  @return Property
+//
+//	@return Property
 func (a *CoreApiService) UpdateExecute(r ApiUpdateRequest) (*Property, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPatch
@@ -623,6 +743,34 @@ func (a *CoreApiService) UpdateExecute(r ApiUpdateRequest) (*Property, *http.Res
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -651,6 +799,7 @@ func (a *CoreApiService) UpdateExecute(r ApiUpdateRequest) (*Property, *http.Res
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

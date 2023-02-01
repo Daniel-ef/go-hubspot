@@ -96,7 +96,7 @@ func (o *BatchResponseSubscriptionResponse) SetResults(v []SubscriptionResponse)
 
 // GetRequestedAt returns the RequestedAt field value if set, zero value otherwise.
 func (o *BatchResponseSubscriptionResponse) GetRequestedAt() time.Time {
-	if o == nil || o.RequestedAt == nil {
+	if o == nil || isNil(o.RequestedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -106,7 +106,7 @@ func (o *BatchResponseSubscriptionResponse) GetRequestedAt() time.Time {
 // GetRequestedAtOk returns a tuple with the RequestedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseSubscriptionResponse) GetRequestedAtOk() (*time.Time, bool) {
-	if o == nil || o.RequestedAt == nil {
+	if o == nil || isNil(o.RequestedAt) {
 		return nil, false
 	}
 	return o.RequestedAt, true
@@ -114,7 +114,7 @@ func (o *BatchResponseSubscriptionResponse) GetRequestedAtOk() (*time.Time, bool
 
 // HasRequestedAt returns a boolean if a field has been set.
 func (o *BatchResponseSubscriptionResponse) HasRequestedAt() bool {
-	if o != nil && o.RequestedAt != nil {
+	if o != nil && !isNil(o.RequestedAt) {
 		return true
 	}
 
@@ -176,7 +176,7 @@ func (o *BatchResponseSubscriptionResponse) SetCompletedAt(v time.Time) {
 
 // GetLinks returns the Links field value if set, zero value otherwise.
 func (o *BatchResponseSubscriptionResponse) GetLinks() map[string]string {
-	if o == nil || o.Links == nil {
+	if o == nil || isNil(o.Links) {
 		var ret map[string]string
 		return ret
 	}
@@ -186,7 +186,7 @@ func (o *BatchResponseSubscriptionResponse) GetLinks() map[string]string {
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseSubscriptionResponse) GetLinksOk() (*map[string]string, bool) {
-	if o == nil || o.Links == nil {
+	if o == nil || isNil(o.Links) {
 		return nil, false
 	}
 	return o.Links, true
@@ -194,7 +194,7 @@ func (o *BatchResponseSubscriptionResponse) GetLinksOk() (*map[string]string, bo
 
 // HasLinks returns a boolean if a field has been set.
 func (o *BatchResponseSubscriptionResponse) HasLinks() bool {
-	if o != nil && o.Links != nil {
+	if o != nil && !isNil(o.Links) {
 		return true
 	}
 
@@ -214,7 +214,7 @@ func (o BatchResponseSubscriptionResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["results"] = o.Results
 	}
-	if o.RequestedAt != nil {
+	if !isNil(o.RequestedAt) {
 		toSerialize["requestedAt"] = o.RequestedAt
 	}
 	if true {
@@ -223,7 +223,7 @@ func (o BatchResponseSubscriptionResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["completedAt"] = o.CompletedAt
 	}
-	if o.Links != nil {
+	if !isNil(o.Links) {
 		toSerialize["links"] = o.Links
 	}
 	return json.Marshal(toSerialize)

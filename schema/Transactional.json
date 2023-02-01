@@ -49,6 +49,8 @@
           "oauth2_legacy" : [ "transactional-email" ]
         }, {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "transactional-email" ]
         } ],
         "x-hubspot-rate-limit-exemptions" : [ "daily", "ten-secondly" ]
       }
@@ -118,6 +120,8 @@
         },
         "security" : [ {
           "oauth2_legacy" : [ "transactional-email" ]
+        }, {
+          "private_apps_legacy" : [ "transactional-email" ]
         } ]
       },
       "post" : {
@@ -153,6 +157,8 @@
         },
         "security" : [ {
           "oauth2_legacy" : [ "transactional-email" ]
+        }, {
+          "private_apps_legacy" : [ "transactional-email" ]
         } ]
       }
     },
@@ -190,6 +196,8 @@
         },
         "security" : [ {
           "oauth2_legacy" : [ "transactional-email" ]
+        }, {
+          "private_apps_legacy" : [ "transactional-email" ]
         } ]
       },
       "delete" : {
@@ -219,6 +227,8 @@
         },
         "security" : [ {
           "oauth2_legacy" : [ "transactional-email" ]
+        }, {
+          "private_apps_legacy" : [ "transactional-email" ]
         } ]
       }
     },
@@ -256,6 +266,8 @@
         },
         "security" : [ {
           "oauth2_legacy" : [ "transactional-email" ]
+        }, {
+          "private_apps_legacy" : [ "transactional-email" ]
         } ]
       }
     }
@@ -600,8 +612,13 @@
         "type" : "apiKey",
         "name" : "hapikey",
         "in" : "query"
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
       }
     }
   },
-  "x-hubspot-available-client-libraries" : [ "Node" ]
+  "x-hubspot-available-client-libraries" : [ "PHP", "Node", "Python", "Ruby" ]
 }

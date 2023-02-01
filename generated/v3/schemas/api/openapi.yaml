@@ -40,7 +40,11 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - crm.objects.custom.read
       - hapikey: []
+      - private_apps_legacy:
+        - crm.schemas.custom.read
       - oauth2_legacy:
         - crm.objects.custom.read
       - oauth2_legacy:
@@ -74,7 +78,12 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - crm.schemas.custom.write
+        - crm.objects.custom.write
       - hapikey: []
+      - private_apps_legacy:
+        - crm.schemas.custom.write
       summary: Create a new schema
       tags:
       - Core
@@ -113,6 +122,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - crm.schemas.custom.write
       summary: Delete a schema
       tags:
       - Core
@@ -142,7 +153,11 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - crm.objects.custom.read
       - hapikey: []
+      - private_apps_legacy:
+        - crm.schemas.custom.read
       - oauth2_legacy:
         - crm.objects.custom.read
       - oauth2_legacy:
@@ -183,7 +198,12 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - crm.schemas.custom.write
+        - crm.objects.custom.write
       - hapikey: []
+      - private_apps_legacy:
+        - crm.schemas.custom.write
       summary: Update a schema
       tags:
       - Core
@@ -222,7 +242,12 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - crm.schemas.custom.write
+        - crm.objects.custom.write
       - hapikey: []
+      - private_apps_legacy:
+        - crm.schemas.custom.write
       summary: Create an association
       tags:
       - Core
@@ -259,6 +284,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - crm.schemas.custom.write
       summary: Remove an association
       tags:
       - Core
@@ -286,6 +313,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - crm.schemas.custom.write
       tags:
       - Public_Object_Schemas
 components:
@@ -1097,6 +1126,10 @@ components:
     hapikey:
       in: query
       name: hapikey
+      type: apiKey
+    private_apps_legacy:
+      in: header
+      name: private-app-legacy
       type: apiKey
 x-hubspot-available-client-libraries:
 - PHP

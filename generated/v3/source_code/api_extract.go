@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"strings"
 )
@@ -39,9 +39,9 @@ ExtractByPath Extracts a zip file
 
 Extracts a zip file in the file system. The zip file will be extracted in-place and not be deleted automatically.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param path The file system location of the zip file.
- @return ApiExtractByPathRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param path The file system location of the zip file.
+	@return ApiExtractByPathRequest
 
 Deprecated
 */
@@ -101,6 +101,20 @@ func (a *ExtractApiService) ExtractByPathExecute(r ApiExtractByPathRequest) (*ht
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -129,6 +143,7 @@ func (a *ExtractApiService) ExtractByPathExecute(r ApiExtractByPathRequest) (*ht
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}

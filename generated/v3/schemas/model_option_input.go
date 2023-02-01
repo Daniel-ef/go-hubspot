@@ -99,7 +99,7 @@ func (o *OptionInput) SetValue(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *OptionInput) GetDescription() string {
-	if o == nil || o.Description == nil {
+	if o == nil || isNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -109,7 +109,7 @@ func (o *OptionInput) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OptionInput) GetDescriptionOk() (*string, bool) {
-	if o == nil || o.Description == nil {
+	if o == nil || isNil(o.Description) {
 		return nil, false
 	}
 	return o.Description, true
@@ -117,7 +117,7 @@ func (o *OptionInput) GetDescriptionOk() (*string, bool) {
 
 // HasDescription returns a boolean if a field has been set.
 func (o *OptionInput) HasDescription() bool {
-	if o != nil && o.Description != nil {
+	if o != nil && !isNil(o.Description) {
 		return true
 	}
 
@@ -185,7 +185,7 @@ func (o OptionInput) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["value"] = o.Value
 	}
-	if o.Description != nil {
+	if !isNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
 	if true {

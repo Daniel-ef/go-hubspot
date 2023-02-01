@@ -52,6 +52,8 @@
           "oauth2_legacy" : [ "automation" ]
         }, {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "automation" ]
         } ]
       }
     },
@@ -96,6 +98,8 @@
           "oauth2_legacy" : [ "automation" ]
         }, {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "automation" ]
         } ]
       }
     },
@@ -2085,6 +2089,11 @@
         "type" : "apiKey",
         "name" : "hapikey",
         "in" : "query"
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
       }
     }
   },

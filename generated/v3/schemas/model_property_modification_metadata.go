@@ -92,7 +92,7 @@ func (o *PropertyModificationMetadata) SetReadOnlyDefinition(v bool) {
 
 // GetReadOnlyOptions returns the ReadOnlyOptions field value if set, zero value otherwise.
 func (o *PropertyModificationMetadata) GetReadOnlyOptions() bool {
-	if o == nil || o.ReadOnlyOptions == nil {
+	if o == nil || isNil(o.ReadOnlyOptions) {
 		var ret bool
 		return ret
 	}
@@ -102,7 +102,7 @@ func (o *PropertyModificationMetadata) GetReadOnlyOptions() bool {
 // GetReadOnlyOptionsOk returns a tuple with the ReadOnlyOptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyModificationMetadata) GetReadOnlyOptionsOk() (*bool, bool) {
-	if o == nil || o.ReadOnlyOptions == nil {
+	if o == nil || isNil(o.ReadOnlyOptions) {
 		return nil, false
 	}
 	return o.ReadOnlyOptions, true
@@ -110,7 +110,7 @@ func (o *PropertyModificationMetadata) GetReadOnlyOptionsOk() (*bool, bool) {
 
 // HasReadOnlyOptions returns a boolean if a field has been set.
 func (o *PropertyModificationMetadata) HasReadOnlyOptions() bool {
-	if o != nil && o.ReadOnlyOptions != nil {
+	if o != nil && !isNil(o.ReadOnlyOptions) {
 		return true
 	}
 
@@ -154,7 +154,7 @@ func (o PropertyModificationMetadata) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["readOnlyDefinition"] = o.ReadOnlyDefinition
 	}
-	if o.ReadOnlyOptions != nil {
+	if !isNil(o.ReadOnlyOptions) {
 		toSerialize["readOnlyOptions"] = o.ReadOnlyOptions
 	}
 	if true {

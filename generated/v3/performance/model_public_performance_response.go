@@ -72,7 +72,7 @@ func (o *PublicPerformanceResponse) SetData(v []PerformanceView) {
 
 // GetDomain returns the Domain field value if set, zero value otherwise.
 func (o *PublicPerformanceResponse) GetDomain() string {
-	if o == nil || o.Domain == nil {
+	if o == nil || isNil(o.Domain) {
 		var ret string
 		return ret
 	}
@@ -82,7 +82,7 @@ func (o *PublicPerformanceResponse) GetDomain() string {
 // GetDomainOk returns a tuple with the Domain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicPerformanceResponse) GetDomainOk() (*string, bool) {
-	if o == nil || o.Domain == nil {
+	if o == nil || isNil(o.Domain) {
 		return nil, false
 	}
 	return o.Domain, true
@@ -90,7 +90,7 @@ func (o *PublicPerformanceResponse) GetDomainOk() (*string, bool) {
 
 // HasDomain returns a boolean if a field has been set.
 func (o *PublicPerformanceResponse) HasDomain() bool {
-	if o != nil && o.Domain != nil {
+	if o != nil && !isNil(o.Domain) {
 		return true
 	}
 
@@ -104,7 +104,7 @@ func (o *PublicPerformanceResponse) SetDomain(v string) {
 
 // GetPath returns the Path field value if set, zero value otherwise.
 func (o *PublicPerformanceResponse) GetPath() string {
-	if o == nil || o.Path == nil {
+	if o == nil || isNil(o.Path) {
 		var ret string
 		return ret
 	}
@@ -114,7 +114,7 @@ func (o *PublicPerformanceResponse) GetPath() string {
 // GetPathOk returns a tuple with the Path field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicPerformanceResponse) GetPathOk() (*string, bool) {
-	if o == nil || o.Path == nil {
+	if o == nil || isNil(o.Path) {
 		return nil, false
 	}
 	return o.Path, true
@@ -122,7 +122,7 @@ func (o *PublicPerformanceResponse) GetPathOk() (*string, bool) {
 
 // HasPath returns a boolean if a field has been set.
 func (o *PublicPerformanceResponse) HasPath() bool {
-	if o != nil && o.Path != nil {
+	if o != nil && !isNil(o.Path) {
 		return true
 	}
 
@@ -208,7 +208,7 @@ func (o *PublicPerformanceResponse) SetInterval(v string) {
 
 // GetPeriod returns the Period field value if set, zero value otherwise.
 func (o *PublicPerformanceResponse) GetPeriod() string {
-	if o == nil || o.Period == nil {
+	if o == nil || isNil(o.Period) {
 		var ret string
 		return ret
 	}
@@ -218,7 +218,7 @@ func (o *PublicPerformanceResponse) GetPeriod() string {
 // GetPeriodOk returns a tuple with the Period field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicPerformanceResponse) GetPeriodOk() (*string, bool) {
-	if o == nil || o.Period == nil {
+	if o == nil || isNil(o.Period) {
 		return nil, false
 	}
 	return o.Period, true
@@ -226,7 +226,7 @@ func (o *PublicPerformanceResponse) GetPeriodOk() (*string, bool) {
 
 // HasPeriod returns a boolean if a field has been set.
 func (o *PublicPerformanceResponse) HasPeriod() bool {
-	if o != nil && o.Period != nil {
+	if o != nil && !isNil(o.Period) {
 		return true
 	}
 
@@ -243,10 +243,10 @@ func (o PublicPerformanceResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["data"] = o.Data
 	}
-	if o.Domain != nil {
+	if !isNil(o.Domain) {
 		toSerialize["domain"] = o.Domain
 	}
-	if o.Path != nil {
+	if !isNil(o.Path) {
 		toSerialize["path"] = o.Path
 	}
 	if true {
@@ -258,7 +258,7 @@ func (o PublicPerformanceResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["interval"] = o.Interval
 	}
-	if o.Period != nil {
+	if !isNil(o.Period) {
 		toSerialize["period"] = o.Period
 	}
 	return json.Marshal(toSerialize)

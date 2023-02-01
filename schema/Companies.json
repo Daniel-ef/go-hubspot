@@ -114,11 +114,13 @@
           }
         },
         "security" : [ {
+          "private_apps" : [ "crm.objects.companies.read" ]
+        }, {
           "hapikey" : [ ]
         }, {
           "oauth2" : [ "crm.objects.companies.read" ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
         } ]
       },
       "post" : {
@@ -155,7 +157,9 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.write" ]
         } ]
@@ -189,7 +193,9 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.write" ]
         } ]
@@ -239,7 +245,9 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.write" ]
         } ]
@@ -298,11 +306,13 @@
           }
         },
         "security" : [ {
+          "private_apps" : [ "crm.objects.companies.read" ]
+        }, {
           "hapikey" : [ ]
         }, {
           "oauth2" : [ "crm.objects.companies.read" ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
         } ]
       }
     },
@@ -350,7 +360,9 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.write" ]
         } ]
@@ -390,7 +402,9 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.write" ]
         } ]
@@ -427,11 +441,13 @@
           }
         },
         "security" : [ {
+          "private_apps" : [ "crm.objects.companies.read" ]
+        }, {
           "hapikey" : [ ]
         }, {
           "oauth2" : [ "crm.objects.companies.read" ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
         } ],
         "x-hubspot-rate-limit-exemptions" : [ "ten-secondly" ]
       }
@@ -528,11 +544,13 @@
           }
         },
         "security" : [ {
+          "private_apps" : [ "crm.objects.companies.read" ]
+        }, {
           "hapikey" : [ ]
         }, {
           "oauth2" : [ "crm.objects.companies.read" ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
         } ]
       },
       "delete" : {
@@ -562,7 +580,9 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.write" ]
         } ]
@@ -620,16 +640,19 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.write" ]
         } ]
       }
     },
-    "/crm/v3/objects/companies/{companyId}/associations/{toObjectType}" : {
+    "/crm/v4/objects/companies/{companyId}/associations/{toObjectType}" : {
       "get" : {
         "tags" : [ "Associations" ],
-        "summary" : "List associations of a company by type",
+        "summary" : "List",
+        "description" : "List all associations of a company by object type. Limit 1000 per call.",
         "operationId" : "AssociationsGetAll",
         "parameters" : [ {
           "name" : "companyId",
@@ -638,7 +661,8 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         }, {
           "name" : "toObjectType",
@@ -678,7 +702,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/CollectionResponseAssociatedIdForwardPaging"
+                  "$ref" : "#/components/schemas/CollectionResponseMultiAssociatedObjectWithLabelForwardPaging"
                 }
               }
             }
@@ -688,19 +712,22 @@
           }
         },
         "security" : [ {
+          "private_apps" : [ "crm.objects.companies.read" ]
+        }, {
           "hapikey" : [ ]
         }, {
           "oauth2" : [ "crm.objects.companies.read" ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
         } ]
       }
     },
-    "/crm/v3/objects/companies/{companyId}/associations/{toObjectType}/{toObjectId}/{associationType}" : {
+    "/crm/v4/objects/companies/{companyId}/associations/{toObjectType}/{toObjectId}" : {
       "put" : {
         "tags" : [ "Associations" ],
-        "summary" : "Associate a company with another object",
-        "operationId" : "AssociationsCreate",
+        "summary" : "Create",
+        "description" : "Set association labels between two records.",
+        "operationId" : "put-/crm/v4/objects/companies/{companyId}/associations/{toObjectType}/{toObjectId}_create",
         "parameters" : [ {
           "name" : "companyId",
           "in" : "path",
@@ -708,7 +735,8 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         }, {
           "name" : "toObjectType",
@@ -726,25 +754,30 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "associationType",
-          "in" : "path",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/components/schemas/AssociationSpec"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
-          "200" : {
+          "201" : {
             "description" : "successful operation",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/SimplePublicObjectWithAssociations"
+                  "$ref" : "#/components/schemas/LabelsBetweenObjectPair"
                 }
               }
             }
@@ -756,15 +789,18 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.write" ]
         } ]
       },
       "delete" : {
         "tags" : [ "Associations" ],
-        "summary" : "Remove an association between two companies",
-        "operationId" : "AssociationsArchive",
+        "summary" : "Delete",
+        "description" : "deletes all associations between two records.",
+        "operationId" : "delete-/crm/v4/objects/companies/{companyId}/associations/{toObjectType}/{toObjectId}_archive",
         "parameters" : [ {
           "name" : "companyId",
           "in" : "path",
@@ -772,7 +808,8 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         }, {
           "name" : "toObjectType",
@@ -790,16 +827,8 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "associationType",
-          "in" : "path",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         } ],
         "responses" : {
@@ -814,7 +843,9 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.write" ]
         } ]
@@ -881,6 +912,32 @@
           }
         }
       },
+      "LabelsBetweenObjectPair" : {
+        "required" : [ "fromObjectId", "fromObjectTypeId", "labels", "toObjectId", "toObjectTypeId" ],
+        "type" : "object",
+        "properties" : {
+          "fromObjectTypeId" : {
+            "type" : "string"
+          },
+          "fromObjectId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "toObjectTypeId" : {
+            "type" : "string"
+          },
+          "toObjectId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "labels" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
       "BatchResponseSimplePublicObject" : {
         "required" : [ "completedAt", "results", "startedAt", "status" ],
         "type" : "object",
@@ -923,6 +980,22 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/Filter"
+            }
+          }
+        }
+      },
+      "MultiAssociatedObjectWithLabel" : {
+        "required" : [ "associationTypes", "toObjectId" ],
+        "type" : "object",
+        "properties" : {
+          "toObjectId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "associationTypes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/AssociationSpecWithLabel"
             }
           }
         }
@@ -975,6 +1048,23 @@
         "type" : "object",
         "properties" : {
           "id" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AssociationSpecWithLabel" : {
+        "required" : [ "category", "typeId" ],
+        "type" : "object",
+        "properties" : {
+          "category" : {
+            "type" : "string",
+            "enum" : [ "HUBSPOT_DEFINED", "USER_DEFINED", "INTEGRATOR_DEFINED" ]
+          },
+          "typeId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "label" : {
             "type" : "string"
           }
         }
@@ -1318,6 +1408,20 @@
           }
         }
       },
+      "AssociationSpec" : {
+        "required" : [ "associationCategory", "associationTypeId" ],
+        "type" : "object",
+        "properties" : {
+          "associationCategory" : {
+            "type" : "string",
+            "enum" : [ "HUBSPOT_DEFINED", "USER_DEFINED", "INTEGRATOR_DEFINED" ]
+          },
+          "associationTypeId" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
       "PublicMergeInput" : {
         "required" : [ "objectIdToMerge", "primaryObjectId" ],
         "type" : "object",
@@ -1447,14 +1551,14 @@
           }
         }
       },
-      "CollectionResponseAssociatedIdForwardPaging" : {
+      "CollectionResponseMultiAssociatedObjectWithLabelForwardPaging" : {
         "required" : [ "results" ],
         "type" : "object",
         "properties" : {
           "results" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AssociatedId"
+              "$ref" : "#/components/schemas/MultiAssociatedObjectWithLabel"
             }
           },
           "paging" : {
@@ -1530,18 +1634,6 @@
       }
     },
     "securitySchemes" : {
-      "oauth2_legacy" : {
-        "type" : "oauth2",
-        "flows" : {
-          "authorizationCode" : {
-            "authorizationUrl" : "https://app.hubspot.com/oauth/authorize",
-            "tokenUrl" : "https://api.hubapi.com/oauth/v1/token",
-            "scopes" : {
-              "contacts" : "Read from and write to my Contacts"
-            }
-          }
-        }
-      },
       "hapikey" : {
         "type" : "apiKey",
         "name" : "hapikey",
@@ -1559,6 +1651,16 @@
             }
           }
         }
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
+      },
+      "private_apps" : {
+        "type" : "apiKey",
+        "name" : "private-app",
+        "in" : "header"
       }
     }
   },

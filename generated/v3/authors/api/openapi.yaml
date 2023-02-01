@@ -124,6 +124,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -154,6 +156,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -182,6 +186,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -219,6 +225,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -266,6 +274,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -314,6 +324,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -339,6 +351,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -370,6 +384,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -395,6 +411,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -423,6 +441,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -449,6 +469,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -487,6 +509,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -528,6 +552,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -578,6 +604,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - private_apps_legacy:
+        - content
       - hapikey: []
       - oauth2_legacy:
         - content
@@ -4087,6 +4115,10 @@ components:
     hapikey:
       in: query
       name: hapikey
+      type: apiKey
+    private_apps_legacy:
+      in: header
+      name: private-app-legacy
       type: apiKey
 x-hubspot-available-client-libraries:
 - PHP

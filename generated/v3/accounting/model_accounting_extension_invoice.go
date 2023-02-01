@@ -85,7 +85,7 @@ func (o *AccountingExtensionInvoice) SetAmountDue(v float32) {
 
 // GetBalance returns the Balance field value if set, zero value otherwise.
 func (o *AccountingExtensionInvoice) GetBalance() float32 {
-	if o == nil || o.Balance == nil {
+	if o == nil || isNil(o.Balance) {
 		var ret float32
 		return ret
 	}
@@ -95,7 +95,7 @@ func (o *AccountingExtensionInvoice) GetBalance() float32 {
 // GetBalanceOk returns a tuple with the Balance field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingExtensionInvoice) GetBalanceOk() (*float32, bool) {
-	if o == nil || o.Balance == nil {
+	if o == nil || isNil(o.Balance) {
 		return nil, false
 	}
 	return o.Balance, true
@@ -103,7 +103,7 @@ func (o *AccountingExtensionInvoice) GetBalanceOk() (*float32, bool) {
 
 // HasBalance returns a boolean if a field has been set.
 func (o *AccountingExtensionInvoice) HasBalance() bool {
-	if o != nil && o.Balance != nil {
+	if o != nil && !isNil(o.Balance) {
 		return true
 	}
 
@@ -141,7 +141,7 @@ func (o *AccountingExtensionInvoice) SetDueDate(v string) {
 
 // GetInvoiceNumber returns the InvoiceNumber field value if set, zero value otherwise.
 func (o *AccountingExtensionInvoice) GetInvoiceNumber() string {
-	if o == nil || o.InvoiceNumber == nil {
+	if o == nil || isNil(o.InvoiceNumber) {
 		var ret string
 		return ret
 	}
@@ -151,7 +151,7 @@ func (o *AccountingExtensionInvoice) GetInvoiceNumber() string {
 // GetInvoiceNumberOk returns a tuple with the InvoiceNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingExtensionInvoice) GetInvoiceNumberOk() (*string, bool) {
-	if o == nil || o.InvoiceNumber == nil {
+	if o == nil || isNil(o.InvoiceNumber) {
 		return nil, false
 	}
 	return o.InvoiceNumber, true
@@ -159,7 +159,7 @@ func (o *AccountingExtensionInvoice) GetInvoiceNumberOk() (*string, bool) {
 
 // HasInvoiceNumber returns a boolean if a field has been set.
 func (o *AccountingExtensionInvoice) HasInvoiceNumber() bool {
-	if o != nil && o.InvoiceNumber != nil {
+	if o != nil && !isNil(o.InvoiceNumber) {
 		return true
 	}
 
@@ -173,7 +173,7 @@ func (o *AccountingExtensionInvoice) SetInvoiceNumber(v string) {
 
 // GetCustomerId returns the CustomerId field value if set, zero value otherwise.
 func (o *AccountingExtensionInvoice) GetCustomerId() string {
-	if o == nil || o.CustomerId == nil {
+	if o == nil || isNil(o.CustomerId) {
 		var ret string
 		return ret
 	}
@@ -183,7 +183,7 @@ func (o *AccountingExtensionInvoice) GetCustomerId() string {
 // GetCustomerIdOk returns a tuple with the CustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingExtensionInvoice) GetCustomerIdOk() (*string, bool) {
-	if o == nil || o.CustomerId == nil {
+	if o == nil || isNil(o.CustomerId) {
 		return nil, false
 	}
 	return o.CustomerId, true
@@ -191,7 +191,7 @@ func (o *AccountingExtensionInvoice) GetCustomerIdOk() (*string, bool) {
 
 // HasCustomerId returns a boolean if a field has been set.
 func (o *AccountingExtensionInvoice) HasCustomerId() bool {
-	if o != nil && o.CustomerId != nil {
+	if o != nil && !isNil(o.CustomerId) {
 		return true
 	}
 
@@ -304,16 +304,16 @@ func (o AccountingExtensionInvoice) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["amountDue"] = o.AmountDue
 	}
-	if o.Balance != nil {
+	if !isNil(o.Balance) {
 		toSerialize["balance"] = o.Balance
 	}
 	if true {
 		toSerialize["dueDate"] = o.DueDate
 	}
-	if o.InvoiceNumber != nil {
+	if !isNil(o.InvoiceNumber) {
 		toSerialize["invoiceNumber"] = o.InvoiceNumber
 	}
-	if o.CustomerId != nil {
+	if !isNil(o.CustomerId) {
 		toSerialize["customerId"] = o.CustomerId
 	}
 	if true {

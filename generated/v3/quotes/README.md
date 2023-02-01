@@ -78,9 +78,9 @@ All URIs are relative to *https://api.hubapi.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AssociationsApi* | [**AssociationsArchive**](docs/AssociationsApi.md#associationsarchive) | **Delete** /crm/v3/objects/quotes/{quoteId}/associations/{toObjectType}/{toObjectId}/{associationType} | Remove an association between two quotes
-*AssociationsApi* | [**AssociationsCreate**](docs/AssociationsApi.md#associationscreate) | **Put** /crm/v3/objects/quotes/{quoteId}/associations/{toObjectType}/{toObjectId}/{associationType} | Associate a quote with another object
-*AssociationsApi* | [**AssociationsGetAll**](docs/AssociationsApi.md#associationsgetall) | **Get** /crm/v3/objects/quotes/{quoteId}/associations/{toObjectType} | List associations of a quote by type
+*AssociationsApi* | [**AssociationsGetAll**](docs/AssociationsApi.md#associationsgetall) | **Get** /crm/v4/objects/quotes/{quoteId}/associations/{toObjectType} | List
+*AssociationsApi* | [**DeleteCrmV4ObjectsQuotesQuoteIdAssociationsToObjectTypeToObjectIdArchive**](docs/AssociationsApi.md#deletecrmv4objectsquotesquoteidassociationstoobjecttypetoobjectidarchive) | **Delete** /crm/v4/objects/quotes/{quoteId}/associations/{toObjectType}/{toObjectId} | Delete
+*AssociationsApi* | [**PutCrmV4ObjectsQuotesQuoteIdAssociationsToObjectTypeToObjectIdCreate**](docs/AssociationsApi.md#putcrmv4objectsquotesquoteidassociationstoobjecttypetoobjectidcreate) | **Put** /crm/v4/objects/quotes/{quoteId}/associations/{toObjectType}/{toObjectId} | Create
 *BasicApi* | [**Archive**](docs/BasicApi.md#archive) | **Delete** /crm/v3/objects/quotes/{quoteId} | Archive
 *BasicApi* | [**Create**](docs/BasicApi.md#create) | **Post** /crm/v3/objects/quotes | Create
 *BasicApi* | [**GetByID**](docs/BasicApi.md#getbyid) | **Get** /crm/v3/objects/quotes/{quoteId} | Read
@@ -97,6 +97,8 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AssociatedId](docs/AssociatedId.md)
+ - [AssociationSpec](docs/AssociationSpec.md)
+ - [AssociationSpecWithLabel](docs/AssociationSpecWithLabel.md)
  - [BatchInputSimplePublicObjectBatchInput](docs/BatchInputSimplePublicObjectBatchInput.md)
  - [BatchInputSimplePublicObjectId](docs/BatchInputSimplePublicObjectId.md)
  - [BatchInputSimplePublicObjectInput](docs/BatchInputSimplePublicObjectInput.md)
@@ -104,7 +106,7 @@ Class | Method | HTTP request | Description
  - [BatchResponseSimplePublicObject](docs/BatchResponseSimplePublicObject.md)
  - [BatchResponseSimplePublicObjectWithErrors](docs/BatchResponseSimplePublicObjectWithErrors.md)
  - [CollectionResponseAssociatedId](docs/CollectionResponseAssociatedId.md)
- - [CollectionResponseAssociatedIdForwardPaging](docs/CollectionResponseAssociatedIdForwardPaging.md)
+ - [CollectionResponseMultiAssociatedObjectWithLabelForwardPaging](docs/CollectionResponseMultiAssociatedObjectWithLabelForwardPaging.md)
  - [CollectionResponseSimplePublicObjectWithAssociationsForwardPaging](docs/CollectionResponseSimplePublicObjectWithAssociationsForwardPaging.md)
  - [CollectionResponseWithTotalSimplePublicObjectForwardPaging](docs/CollectionResponseWithTotalSimplePublicObjectForwardPaging.md)
  - [Error](docs/Error.md)
@@ -113,6 +115,8 @@ Class | Method | HTTP request | Description
  - [Filter](docs/Filter.md)
  - [FilterGroup](docs/FilterGroup.md)
  - [ForwardPaging](docs/ForwardPaging.md)
+ - [LabelsBetweenObjectPair](docs/LabelsBetweenObjectPair.md)
+ - [MultiAssociatedObjectWithLabel](docs/MultiAssociatedObjectWithLabel.md)
  - [NextPage](docs/NextPage.md)
  - [Paging](docs/Paging.md)
  - [PreviousPage](docs/PreviousPage.md)
@@ -197,6 +201,24 @@ tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
 auth := context.WithValue(oauth2.NoContext, sw.ContextOAuth2, tokenSource)
 r, err := client.Service.Operation(auth, args)
 ```
+
+
+### private_apps
+
+- **Type**: API key
+- **API key parameter name**: private-app
+- **Location**: HTTP header
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: private-app and passed in as the auth context for each request.
+
+
+### private_apps_legacy
+
+- **Type**: API key
+- **API key parameter name**: private-app-legacy
+- **Location**: HTTP header
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: private-app-legacy and passed in as the auth context for each request.
 
 
 ## Documentation for Utility Methods

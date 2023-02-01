@@ -92,7 +92,7 @@ func (o *CollectionResponseWithTotalVersionBlogPost) SetResults(v []VersionBlogP
 
 // GetPaging returns the Paging field value if set, zero value otherwise.
 func (o *CollectionResponseWithTotalVersionBlogPost) GetPaging() Paging {
-	if o == nil || o.Paging == nil {
+	if o == nil || isNil(o.Paging) {
 		var ret Paging
 		return ret
 	}
@@ -102,7 +102,7 @@ func (o *CollectionResponseWithTotalVersionBlogPost) GetPaging() Paging {
 // GetPagingOk returns a tuple with the Paging field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CollectionResponseWithTotalVersionBlogPost) GetPagingOk() (*Paging, bool) {
-	if o == nil || o.Paging == nil {
+	if o == nil || isNil(o.Paging) {
 		return nil, false
 	}
 	return o.Paging, true
@@ -110,7 +110,7 @@ func (o *CollectionResponseWithTotalVersionBlogPost) GetPagingOk() (*Paging, boo
 
 // HasPaging returns a boolean if a field has been set.
 func (o *CollectionResponseWithTotalVersionBlogPost) HasPaging() bool {
-	if o != nil && o.Paging != nil {
+	if o != nil && !isNil(o.Paging) {
 		return true
 	}
 
@@ -130,7 +130,7 @@ func (o CollectionResponseWithTotalVersionBlogPost) MarshalJSON() ([]byte, error
 	if true {
 		toSerialize["results"] = o.Results
 	}
-	if o.Paging != nil {
+	if !isNil(o.Paging) {
 		toSerialize["paging"] = o.Paging
 	}
 	return json.Marshal(toSerialize)

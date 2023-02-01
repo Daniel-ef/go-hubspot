@@ -97,7 +97,7 @@ func (o *SimplePublicObject) SetProperties(v map[string]string) {
 
 // GetPropertiesWithHistory returns the PropertiesWithHistory field value if set, zero value otherwise.
 func (o *SimplePublicObject) GetPropertiesWithHistory() map[string][]ValueWithTimestamp {
-	if o == nil || o.PropertiesWithHistory == nil {
+	if o == nil || isNil(o.PropertiesWithHistory) {
 		var ret map[string][]ValueWithTimestamp
 		return ret
 	}
@@ -107,7 +107,7 @@ func (o *SimplePublicObject) GetPropertiesWithHistory() map[string][]ValueWithTi
 // GetPropertiesWithHistoryOk returns a tuple with the PropertiesWithHistory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SimplePublicObject) GetPropertiesWithHistoryOk() (*map[string][]ValueWithTimestamp, bool) {
-	if o == nil || o.PropertiesWithHistory == nil {
+	if o == nil || isNil(o.PropertiesWithHistory) {
 		return nil, false
 	}
 	return o.PropertiesWithHistory, true
@@ -115,7 +115,7 @@ func (o *SimplePublicObject) GetPropertiesWithHistoryOk() (*map[string][]ValueWi
 
 // HasPropertiesWithHistory returns a boolean if a field has been set.
 func (o *SimplePublicObject) HasPropertiesWithHistory() bool {
-	if o != nil && o.PropertiesWithHistory != nil {
+	if o != nil && !isNil(o.PropertiesWithHistory) {
 		return true
 	}
 
@@ -177,7 +177,7 @@ func (o *SimplePublicObject) SetUpdatedAt(v time.Time) {
 
 // GetArchived returns the Archived field value if set, zero value otherwise.
 func (o *SimplePublicObject) GetArchived() bool {
-	if o == nil || o.Archived == nil {
+	if o == nil || isNil(o.Archived) {
 		var ret bool
 		return ret
 	}
@@ -187,7 +187,7 @@ func (o *SimplePublicObject) GetArchived() bool {
 // GetArchivedOk returns a tuple with the Archived field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SimplePublicObject) GetArchivedOk() (*bool, bool) {
-	if o == nil || o.Archived == nil {
+	if o == nil || isNil(o.Archived) {
 		return nil, false
 	}
 	return o.Archived, true
@@ -195,7 +195,7 @@ func (o *SimplePublicObject) GetArchivedOk() (*bool, bool) {
 
 // HasArchived returns a boolean if a field has been set.
 func (o *SimplePublicObject) HasArchived() bool {
-	if o != nil && o.Archived != nil {
+	if o != nil && !isNil(o.Archived) {
 		return true
 	}
 
@@ -209,7 +209,7 @@ func (o *SimplePublicObject) SetArchived(v bool) {
 
 // GetArchivedAt returns the ArchivedAt field value if set, zero value otherwise.
 func (o *SimplePublicObject) GetArchivedAt() time.Time {
-	if o == nil || o.ArchivedAt == nil {
+	if o == nil || isNil(o.ArchivedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -219,7 +219,7 @@ func (o *SimplePublicObject) GetArchivedAt() time.Time {
 // GetArchivedAtOk returns a tuple with the ArchivedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SimplePublicObject) GetArchivedAtOk() (*time.Time, bool) {
-	if o == nil || o.ArchivedAt == nil {
+	if o == nil || isNil(o.ArchivedAt) {
 		return nil, false
 	}
 	return o.ArchivedAt, true
@@ -227,7 +227,7 @@ func (o *SimplePublicObject) GetArchivedAtOk() (*time.Time, bool) {
 
 // HasArchivedAt returns a boolean if a field has been set.
 func (o *SimplePublicObject) HasArchivedAt() bool {
-	if o != nil && o.ArchivedAt != nil {
+	if o != nil && !isNil(o.ArchivedAt) {
 		return true
 	}
 
@@ -247,7 +247,7 @@ func (o SimplePublicObject) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["properties"] = o.Properties
 	}
-	if o.PropertiesWithHistory != nil {
+	if !isNil(o.PropertiesWithHistory) {
 		toSerialize["propertiesWithHistory"] = o.PropertiesWithHistory
 	}
 	if true {
@@ -256,10 +256,10 @@ func (o SimplePublicObject) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["updatedAt"] = o.UpdatedAt
 	}
-	if o.Archived != nil {
+	if !isNil(o.Archived) {
 		toSerialize["archived"] = o.Archived
 	}
-	if o.ArchivedAt != nil {
+	if !isNil(o.ArchivedAt) {
 		toSerialize["archivedAt"] = o.ArchivedAt
 	}
 	return json.Marshal(toSerialize)

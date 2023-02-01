@@ -64,7 +64,7 @@ func (o *NextPage) SetAfter(v string) {
 
 // GetLink returns the Link field value if set, zero value otherwise.
 func (o *NextPage) GetLink() string {
-	if o == nil || o.Link == nil {
+	if o == nil || isNil(o.Link) {
 		var ret string
 		return ret
 	}
@@ -74,7 +74,7 @@ func (o *NextPage) GetLink() string {
 // GetLinkOk returns a tuple with the Link field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NextPage) GetLinkOk() (*string, bool) {
-	if o == nil || o.Link == nil {
+	if o == nil || isNil(o.Link) {
 		return nil, false
 	}
 	return o.Link, true
@@ -82,7 +82,7 @@ func (o *NextPage) GetLinkOk() (*string, bool) {
 
 // HasLink returns a boolean if a field has been set.
 func (o *NextPage) HasLink() bool {
-	if o != nil && o.Link != nil {
+	if o != nil && !isNil(o.Link) {
 		return true
 	}
 
@@ -99,7 +99,7 @@ func (o NextPage) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["after"] = o.After
 	}
-	if o.Link != nil {
+	if !isNil(o.Link) {
 		toSerialize["link"] = o.Link
 	}
 	return json.Marshal(toSerialize)

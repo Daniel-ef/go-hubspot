@@ -46,7 +46,7 @@ func NewHubDbTableRowV3RequestWithDefaults() *HubDbTableRowV3Request {
 
 // GetPath returns the Path field value if set, zero value otherwise.
 func (o *HubDbTableRowV3Request) GetPath() string {
-	if o == nil || o.Path == nil {
+	if o == nil || isNil(o.Path) {
 		var ret string
 		return ret
 	}
@@ -56,7 +56,7 @@ func (o *HubDbTableRowV3Request) GetPath() string {
 // GetPathOk returns a tuple with the Path field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableRowV3Request) GetPathOk() (*string, bool) {
-	if o == nil || o.Path == nil {
+	if o == nil || isNil(o.Path) {
 		return nil, false
 	}
 	return o.Path, true
@@ -64,7 +64,7 @@ func (o *HubDbTableRowV3Request) GetPathOk() (*string, bool) {
 
 // HasPath returns a boolean if a field has been set.
 func (o *HubDbTableRowV3Request) HasPath() bool {
-	if o != nil && o.Path != nil {
+	if o != nil && !isNil(o.Path) {
 		return true
 	}
 
@@ -78,7 +78,7 @@ func (o *HubDbTableRowV3Request) SetPath(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *HubDbTableRowV3Request) GetName() string {
-	if o == nil || o.Name == nil {
+	if o == nil || isNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -88,7 +88,7 @@ func (o *HubDbTableRowV3Request) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableRowV3Request) GetNameOk() (*string, bool) {
-	if o == nil || o.Name == nil {
+	if o == nil || isNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -96,7 +96,7 @@ func (o *HubDbTableRowV3Request) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *HubDbTableRowV3Request) HasName() bool {
-	if o != nil && o.Name != nil {
+	if o != nil && !isNil(o.Name) {
 		return true
 	}
 
@@ -110,7 +110,7 @@ func (o *HubDbTableRowV3Request) SetName(v string) {
 
 // GetChildTableId returns the ChildTableId field value if set, zero value otherwise.
 func (o *HubDbTableRowV3Request) GetChildTableId() int32 {
-	if o == nil || o.ChildTableId == nil {
+	if o == nil || isNil(o.ChildTableId) {
 		var ret int32
 		return ret
 	}
@@ -120,7 +120,7 @@ func (o *HubDbTableRowV3Request) GetChildTableId() int32 {
 // GetChildTableIdOk returns a tuple with the ChildTableId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableRowV3Request) GetChildTableIdOk() (*int32, bool) {
-	if o == nil || o.ChildTableId == nil {
+	if o == nil || isNil(o.ChildTableId) {
 		return nil, false
 	}
 	return o.ChildTableId, true
@@ -128,7 +128,7 @@ func (o *HubDbTableRowV3Request) GetChildTableIdOk() (*int32, bool) {
 
 // HasChildTableId returns a boolean if a field has been set.
 func (o *HubDbTableRowV3Request) HasChildTableId() bool {
-	if o != nil && o.ChildTableId != nil {
+	if o != nil && !isNil(o.ChildTableId) {
 		return true
 	}
 
@@ -166,13 +166,13 @@ func (o *HubDbTableRowV3Request) SetValues(v map[string]map[string]interface{}) 
 
 func (o HubDbTableRowV3Request) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Path != nil {
+	if !isNil(o.Path) {
 		toSerialize["path"] = o.Path
 	}
-	if o.Name != nil {
+	if !isNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if o.ChildTableId != nil {
+	if !isNil(o.ChildTableId) {
 		toSerialize["childTableId"] = o.ChildTableId
 	}
 	if true {

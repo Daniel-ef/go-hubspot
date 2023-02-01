@@ -43,11 +43,11 @@ The timeline will still display this property for older CRM objects if it's stil
 
 Any lists or reports referencing deleted tokens will no longer return new contacts, but old ones will still exist in the lists.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param eventTemplateId The event template ID.
- @param tokenName The token name.
- @param appId The ID of the target app.
- @return ApiTemplatesTokensArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param eventTemplateId The event template ID.
+	@param tokenName The token name.
+	@param appId The ID of the target app.
+	@return ApiTemplatesTokensArchiveRequest
 */
 func (a *TokensApiService) TemplatesTokensArchive(ctx context.Context, eventTemplateId string, tokenName string, appId int32) ApiTemplatesTokensArchiveRequest {
 	return ApiTemplatesTokensArchiveRequest{
@@ -140,6 +140,7 @@ func (a *TokensApiService) TemplatesTokensArchiveExecute(r ApiTemplatesTokensArc
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -176,10 +177,10 @@ You can also use `objectPropertyName` to associate any CRM object properties. Th
 
 Token names should be unique across the template.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param eventTemplateId The event template ID.
- @param appId The ID of the target app.
- @return ApiTemplatesTokensCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param eventTemplateId The event template ID.
+	@param appId The ID of the target app.
+	@return ApiTemplatesTokensCreateRequest
 */
 func (a *TokensApiService) TemplatesTokensCreate(ctx context.Context, eventTemplateId string, appId int32) ApiTemplatesTokensCreateRequest {
 	return ApiTemplatesTokensCreateRequest{
@@ -191,7 +192,8 @@ func (a *TokensApiService) TemplatesTokensCreate(ctx context.Context, eventTempl
 }
 
 // Execute executes the request
-//  @return TimelineEventTemplateToken
+//
+//	@return TimelineEventTemplateToken
 func (a *TokensApiService) TemplatesTokensCreateExecute(r ApiTemplatesTokensCreateRequest) (*TimelineEventTemplateToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -277,6 +279,7 @@ func (a *TokensApiService) TemplatesTokensCreateExecute(r ApiTemplatesTokensCrea
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -317,11 +320,11 @@ TemplatesTokensUpdate Updates an existing token on an event template
 
 This will update the existing token on an event template. Name and type can't be changed on existing tokens.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param eventTemplateId The event template ID.
- @param tokenName The token name.
- @param appId The ID of the target app.
- @return ApiTemplatesTokensUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param eventTemplateId The event template ID.
+	@param tokenName The token name.
+	@param appId The ID of the target app.
+	@return ApiTemplatesTokensUpdateRequest
 */
 func (a *TokensApiService) TemplatesTokensUpdate(ctx context.Context, eventTemplateId string, tokenName string, appId int32) ApiTemplatesTokensUpdateRequest {
 	return ApiTemplatesTokensUpdateRequest{
@@ -334,7 +337,8 @@ func (a *TokensApiService) TemplatesTokensUpdate(ctx context.Context, eventTempl
 }
 
 // Execute executes the request
-//  @return TimelineEventTemplateToken
+//
+//	@return TimelineEventTemplateToken
 func (a *TokensApiService) TemplatesTokensUpdateExecute(r ApiTemplatesTokensUpdateRequest) (*TimelineEventTemplateToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
@@ -421,6 +425,7 @@ func (a *TokensApiService) TemplatesTokensUpdateExecute(r ApiTemplatesTokensUpda
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

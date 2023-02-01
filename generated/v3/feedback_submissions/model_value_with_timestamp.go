@@ -119,7 +119,7 @@ func (o *ValueWithTimestamp) SetSourceType(v string) {
 
 // GetSourceId returns the SourceId field value if set, zero value otherwise.
 func (o *ValueWithTimestamp) GetSourceId() string {
-	if o == nil || o.SourceId == nil {
+	if o == nil || isNil(o.SourceId) {
 		var ret string
 		return ret
 	}
@@ -129,7 +129,7 @@ func (o *ValueWithTimestamp) GetSourceId() string {
 // GetSourceIdOk returns a tuple with the SourceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ValueWithTimestamp) GetSourceIdOk() (*string, bool) {
-	if o == nil || o.SourceId == nil {
+	if o == nil || isNil(o.SourceId) {
 		return nil, false
 	}
 	return o.SourceId, true
@@ -137,7 +137,7 @@ func (o *ValueWithTimestamp) GetSourceIdOk() (*string, bool) {
 
 // HasSourceId returns a boolean if a field has been set.
 func (o *ValueWithTimestamp) HasSourceId() bool {
-	if o != nil && o.SourceId != nil {
+	if o != nil && !isNil(o.SourceId) {
 		return true
 	}
 
@@ -151,7 +151,7 @@ func (o *ValueWithTimestamp) SetSourceId(v string) {
 
 // GetSourceLabel returns the SourceLabel field value if set, zero value otherwise.
 func (o *ValueWithTimestamp) GetSourceLabel() string {
-	if o == nil || o.SourceLabel == nil {
+	if o == nil || isNil(o.SourceLabel) {
 		var ret string
 		return ret
 	}
@@ -161,7 +161,7 @@ func (o *ValueWithTimestamp) GetSourceLabel() string {
 // GetSourceLabelOk returns a tuple with the SourceLabel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ValueWithTimestamp) GetSourceLabelOk() (*string, bool) {
-	if o == nil || o.SourceLabel == nil {
+	if o == nil || isNil(o.SourceLabel) {
 		return nil, false
 	}
 	return o.SourceLabel, true
@@ -169,7 +169,7 @@ func (o *ValueWithTimestamp) GetSourceLabelOk() (*string, bool) {
 
 // HasSourceLabel returns a boolean if a field has been set.
 func (o *ValueWithTimestamp) HasSourceLabel() bool {
-	if o != nil && o.SourceLabel != nil {
+	if o != nil && !isNil(o.SourceLabel) {
 		return true
 	}
 
@@ -183,7 +183,7 @@ func (o *ValueWithTimestamp) SetSourceLabel(v string) {
 
 // GetUpdatedByUserId returns the UpdatedByUserId field value if set, zero value otherwise.
 func (o *ValueWithTimestamp) GetUpdatedByUserId() int32 {
-	if o == nil || o.UpdatedByUserId == nil {
+	if o == nil || isNil(o.UpdatedByUserId) {
 		var ret int32
 		return ret
 	}
@@ -193,7 +193,7 @@ func (o *ValueWithTimestamp) GetUpdatedByUserId() int32 {
 // GetUpdatedByUserIdOk returns a tuple with the UpdatedByUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ValueWithTimestamp) GetUpdatedByUserIdOk() (*int32, bool) {
-	if o == nil || o.UpdatedByUserId == nil {
+	if o == nil || isNil(o.UpdatedByUserId) {
 		return nil, false
 	}
 	return o.UpdatedByUserId, true
@@ -201,7 +201,7 @@ func (o *ValueWithTimestamp) GetUpdatedByUserIdOk() (*int32, bool) {
 
 // HasUpdatedByUserId returns a boolean if a field has been set.
 func (o *ValueWithTimestamp) HasUpdatedByUserId() bool {
-	if o != nil && o.UpdatedByUserId != nil {
+	if o != nil && !isNil(o.UpdatedByUserId) {
 		return true
 	}
 
@@ -224,13 +224,13 @@ func (o ValueWithTimestamp) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["sourceType"] = o.SourceType
 	}
-	if o.SourceId != nil {
+	if !isNil(o.SourceId) {
 		toSerialize["sourceId"] = o.SourceId
 	}
-	if o.SourceLabel != nil {
+	if !isNil(o.SourceLabel) {
 		toSerialize["sourceLabel"] = o.SourceLabel
 	}
-	if o.UpdatedByUserId != nil {
+	if !isNil(o.UpdatedByUserId) {
 		toSerialize["updatedByUserId"] = o.UpdatedByUserId
 	}
 	return json.Marshal(toSerialize)

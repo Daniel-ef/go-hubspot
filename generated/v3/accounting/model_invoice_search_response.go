@@ -42,7 +42,7 @@ func NewInvoiceSearchResponseWithDefaults() *InvoiceSearchResponse {
 
 // GetResult returns the Result field value if set, zero value otherwise.
 func (o *InvoiceSearchResponse) GetResult() string {
-	if o == nil || o.Result == nil {
+	if o == nil || isNil(o.Result) {
 		var ret string
 		return ret
 	}
@@ -52,7 +52,7 @@ func (o *InvoiceSearchResponse) GetResult() string {
 // GetResultOk returns a tuple with the Result field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InvoiceSearchResponse) GetResultOk() (*string, bool) {
-	if o == nil || o.Result == nil {
+	if o == nil || isNil(o.Result) {
 		return nil, false
 	}
 	return o.Result, true
@@ -60,7 +60,7 @@ func (o *InvoiceSearchResponse) GetResultOk() (*string, bool) {
 
 // HasResult returns a boolean if a field has been set.
 func (o *InvoiceSearchResponse) HasResult() bool {
-	if o != nil && o.Result != nil {
+	if o != nil && !isNil(o.Result) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *InvoiceSearchResponse) SetInvoices(v []AccountingExtensionInvoice) {
 
 func (o InvoiceSearchResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Result != nil {
+	if !isNil(o.Result) {
 		toSerialize["@result"] = o.Result
 	}
 	if true {

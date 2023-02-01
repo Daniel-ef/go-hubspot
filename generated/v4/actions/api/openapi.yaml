@@ -41,6 +41,8 @@ paths:
       - oauth2_legacy:
         - automation
       - hapikey: []
+      - private_apps_legacy:
+        - automation
       summary: Complete a batch of callbacks
       tags:
       - Callbacks
@@ -78,6 +80,8 @@ paths:
       - oauth2_legacy:
         - automation
       - hapikey: []
+      - private_apps_legacy:
+        - automation
       summary: Complete a callback
       tags:
       - Callbacks
@@ -2689,6 +2693,10 @@ components:
     developer_hapikey:
       in: query
       name: hapikey
+      type: apiKey
+    private_apps_legacy:
+      in: header
+      name: private-app-legacy
       type: apiKey
 x-hubspot-available-client-libraries:
 - PHP

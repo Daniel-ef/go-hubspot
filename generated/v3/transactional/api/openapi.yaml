@@ -38,6 +38,8 @@ paths:
       - oauth2_legacy:
         - transactional-email
       - hapikey: []
+      - private_apps_legacy:
+        - transactional-email
       summary: Send a single transactional email asynchronously.
       tags:
       - Single_Send
@@ -100,6 +102,8 @@ paths:
       security:
       - oauth2_legacy:
         - transactional-email
+      - private_apps_legacy:
+        - transactional-email
       summary: Query SMTP API tokens by campaign name or an emailCampaignId.
       tags:
       - Public_Smtp_Tokens
@@ -130,6 +134,8 @@ paths:
       security:
       - oauth2_legacy:
         - transactional-email
+      - private_apps_legacy:
+        - transactional-email
       summary: Create a SMTP API token.
       tags:
       - Public_Smtp_Tokens
@@ -158,6 +164,8 @@ paths:
           description: An error occurred.
       security:
       - oauth2_legacy:
+        - transactional-email
+      - private_apps_legacy:
         - transactional-email
       summary: Delete a single token by ID.
       tags:
@@ -189,6 +197,8 @@ paths:
           description: An error occurred.
       security:
       - oauth2_legacy:
+        - transactional-email
+      - private_apps_legacy:
         - transactional-email
       summary: Query a single token by ID.
       tags:
@@ -223,6 +233,8 @@ paths:
           description: An error occurred.
       security:
       - oauth2_legacy:
+        - transactional-email
+      - private_apps_legacy:
         - transactional-email
       summary: Reset the password of an existing token.
       tags:
@@ -647,5 +659,12 @@ components:
       in: query
       name: hapikey
       type: apiKey
+    private_apps_legacy:
+      in: header
+      name: private-app-legacy
+      type: apiKey
 x-hubspot-available-client-libraries:
+- PHP
 - Node
+- Python
+- Ruby

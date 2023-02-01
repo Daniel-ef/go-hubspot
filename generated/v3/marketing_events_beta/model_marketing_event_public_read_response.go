@@ -103,7 +103,7 @@ func (o *MarketingEventPublicReadResponse) SetEventName(v string) {
 
 // GetEventType returns the EventType field value if set, zero value otherwise.
 func (o *MarketingEventPublicReadResponse) GetEventType() string {
-	if o == nil || o.EventType == nil {
+	if o == nil || isNil(o.EventType) {
 		var ret string
 		return ret
 	}
@@ -113,7 +113,7 @@ func (o *MarketingEventPublicReadResponse) GetEventType() string {
 // GetEventTypeOk returns a tuple with the EventType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MarketingEventPublicReadResponse) GetEventTypeOk() (*string, bool) {
-	if o == nil || o.EventType == nil {
+	if o == nil || isNil(o.EventType) {
 		return nil, false
 	}
 	return o.EventType, true
@@ -121,7 +121,7 @@ func (o *MarketingEventPublicReadResponse) GetEventTypeOk() (*string, bool) {
 
 // HasEventType returns a boolean if a field has been set.
 func (o *MarketingEventPublicReadResponse) HasEventType() bool {
-	if o != nil && o.EventType != nil {
+	if o != nil && !isNil(o.EventType) {
 		return true
 	}
 
@@ -135,7 +135,7 @@ func (o *MarketingEventPublicReadResponse) SetEventType(v string) {
 
 // GetStartDateTime returns the StartDateTime field value if set, zero value otherwise.
 func (o *MarketingEventPublicReadResponse) GetStartDateTime() time.Time {
-	if o == nil || o.StartDateTime == nil {
+	if o == nil || isNil(o.StartDateTime) {
 		var ret time.Time
 		return ret
 	}
@@ -145,7 +145,7 @@ func (o *MarketingEventPublicReadResponse) GetStartDateTime() time.Time {
 // GetStartDateTimeOk returns a tuple with the StartDateTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MarketingEventPublicReadResponse) GetStartDateTimeOk() (*time.Time, bool) {
-	if o == nil || o.StartDateTime == nil {
+	if o == nil || isNil(o.StartDateTime) {
 		return nil, false
 	}
 	return o.StartDateTime, true
@@ -153,7 +153,7 @@ func (o *MarketingEventPublicReadResponse) GetStartDateTimeOk() (*time.Time, boo
 
 // HasStartDateTime returns a boolean if a field has been set.
 func (o *MarketingEventPublicReadResponse) HasStartDateTime() bool {
-	if o != nil && o.StartDateTime != nil {
+	if o != nil && !isNil(o.StartDateTime) {
 		return true
 	}
 
@@ -167,7 +167,7 @@ func (o *MarketingEventPublicReadResponse) SetStartDateTime(v time.Time) {
 
 // GetEndDateTime returns the EndDateTime field value if set, zero value otherwise.
 func (o *MarketingEventPublicReadResponse) GetEndDateTime() time.Time {
-	if o == nil || o.EndDateTime == nil {
+	if o == nil || isNil(o.EndDateTime) {
 		var ret time.Time
 		return ret
 	}
@@ -177,7 +177,7 @@ func (o *MarketingEventPublicReadResponse) GetEndDateTime() time.Time {
 // GetEndDateTimeOk returns a tuple with the EndDateTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MarketingEventPublicReadResponse) GetEndDateTimeOk() (*time.Time, bool) {
-	if o == nil || o.EndDateTime == nil {
+	if o == nil || isNil(o.EndDateTime) {
 		return nil, false
 	}
 	return o.EndDateTime, true
@@ -185,7 +185,7 @@ func (o *MarketingEventPublicReadResponse) GetEndDateTimeOk() (*time.Time, bool)
 
 // HasEndDateTime returns a boolean if a field has been set.
 func (o *MarketingEventPublicReadResponse) HasEndDateTime() bool {
-	if o != nil && o.EndDateTime != nil {
+	if o != nil && !isNil(o.EndDateTime) {
 		return true
 	}
 
@@ -223,7 +223,7 @@ func (o *MarketingEventPublicReadResponse) SetEventOrganizer(v string) {
 
 // GetEventDescription returns the EventDescription field value if set, zero value otherwise.
 func (o *MarketingEventPublicReadResponse) GetEventDescription() string {
-	if o == nil || o.EventDescription == nil {
+	if o == nil || isNil(o.EventDescription) {
 		var ret string
 		return ret
 	}
@@ -233,7 +233,7 @@ func (o *MarketingEventPublicReadResponse) GetEventDescription() string {
 // GetEventDescriptionOk returns a tuple with the EventDescription field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MarketingEventPublicReadResponse) GetEventDescriptionOk() (*string, bool) {
-	if o == nil || o.EventDescription == nil {
+	if o == nil || isNil(o.EventDescription) {
 		return nil, false
 	}
 	return o.EventDescription, true
@@ -241,7 +241,7 @@ func (o *MarketingEventPublicReadResponse) GetEventDescriptionOk() (*string, boo
 
 // HasEventDescription returns a boolean if a field has been set.
 func (o *MarketingEventPublicReadResponse) HasEventDescription() bool {
-	if o != nil && o.EventDescription != nil {
+	if o != nil && !isNil(o.EventDescription) {
 		return true
 	}
 
@@ -255,7 +255,7 @@ func (o *MarketingEventPublicReadResponse) SetEventDescription(v string) {
 
 // GetEventUrl returns the EventUrl field value if set, zero value otherwise.
 func (o *MarketingEventPublicReadResponse) GetEventUrl() string {
-	if o == nil || o.EventUrl == nil {
+	if o == nil || isNil(o.EventUrl) {
 		var ret string
 		return ret
 	}
@@ -265,7 +265,7 @@ func (o *MarketingEventPublicReadResponse) GetEventUrl() string {
 // GetEventUrlOk returns a tuple with the EventUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MarketingEventPublicReadResponse) GetEventUrlOk() (*string, bool) {
-	if o == nil || o.EventUrl == nil {
+	if o == nil || isNil(o.EventUrl) {
 		return nil, false
 	}
 	return o.EventUrl, true
@@ -273,7 +273,7 @@ func (o *MarketingEventPublicReadResponse) GetEventUrlOk() (*string, bool) {
 
 // HasEventUrl returns a boolean if a field has been set.
 func (o *MarketingEventPublicReadResponse) HasEventUrl() bool {
-	if o != nil && o.EventUrl != nil {
+	if o != nil && !isNil(o.EventUrl) {
 		return true
 	}
 
@@ -287,7 +287,7 @@ func (o *MarketingEventPublicReadResponse) SetEventUrl(v string) {
 
 // GetEventCancelled returns the EventCancelled field value if set, zero value otherwise.
 func (o *MarketingEventPublicReadResponse) GetEventCancelled() bool {
-	if o == nil || o.EventCancelled == nil {
+	if o == nil || isNil(o.EventCancelled) {
 		var ret bool
 		return ret
 	}
@@ -297,7 +297,7 @@ func (o *MarketingEventPublicReadResponse) GetEventCancelled() bool {
 // GetEventCancelledOk returns a tuple with the EventCancelled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MarketingEventPublicReadResponse) GetEventCancelledOk() (*bool, bool) {
-	if o == nil || o.EventCancelled == nil {
+	if o == nil || isNil(o.EventCancelled) {
 		return nil, false
 	}
 	return o.EventCancelled, true
@@ -305,7 +305,7 @@ func (o *MarketingEventPublicReadResponse) GetEventCancelledOk() (*bool, bool) {
 
 // HasEventCancelled returns a boolean if a field has been set.
 func (o *MarketingEventPublicReadResponse) HasEventCancelled() bool {
-	if o != nil && o.EventCancelled != nil {
+	if o != nil && !isNil(o.EventCancelled) {
 		return true
 	}
 
@@ -319,7 +319,7 @@ func (o *MarketingEventPublicReadResponse) SetEventCancelled(v bool) {
 
 // GetCustomProperties returns the CustomProperties field value if set, zero value otherwise.
 func (o *MarketingEventPublicReadResponse) GetCustomProperties() []PropertyValue {
-	if o == nil || o.CustomProperties == nil {
+	if o == nil || isNil(o.CustomProperties) {
 		var ret []PropertyValue
 		return ret
 	}
@@ -329,7 +329,7 @@ func (o *MarketingEventPublicReadResponse) GetCustomProperties() []PropertyValue
 // GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MarketingEventPublicReadResponse) GetCustomPropertiesOk() ([]PropertyValue, bool) {
-	if o == nil || o.CustomProperties == nil {
+	if o == nil || isNil(o.CustomProperties) {
 		return nil, false
 	}
 	return o.CustomProperties, true
@@ -337,7 +337,7 @@ func (o *MarketingEventPublicReadResponse) GetCustomPropertiesOk() ([]PropertyVa
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *MarketingEventPublicReadResponse) HasCustomProperties() bool {
-	if o != nil && o.CustomProperties != nil {
+	if o != nil && !isNil(o.CustomProperties) {
 		return true
 	}
 
@@ -546,28 +546,28 @@ func (o MarketingEventPublicReadResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["eventName"] = o.EventName
 	}
-	if o.EventType != nil {
+	if !isNil(o.EventType) {
 		toSerialize["eventType"] = o.EventType
 	}
-	if o.StartDateTime != nil {
+	if !isNil(o.StartDateTime) {
 		toSerialize["startDateTime"] = o.StartDateTime
 	}
-	if o.EndDateTime != nil {
+	if !isNil(o.EndDateTime) {
 		toSerialize["endDateTime"] = o.EndDateTime
 	}
 	if true {
 		toSerialize["eventOrganizer"] = o.EventOrganizer
 	}
-	if o.EventDescription != nil {
+	if !isNil(o.EventDescription) {
 		toSerialize["eventDescription"] = o.EventDescription
 	}
-	if o.EventUrl != nil {
+	if !isNil(o.EventUrl) {
 		toSerialize["eventUrl"] = o.EventUrl
 	}
-	if o.EventCancelled != nil {
+	if !isNil(o.EventCancelled) {
 		toSerialize["eventCancelled"] = o.EventCancelled
 	}
-	if o.CustomProperties != nil {
+	if !isNil(o.CustomProperties) {
 		toSerialize["customProperties"] = o.CustomProperties
 	}
 	if true {

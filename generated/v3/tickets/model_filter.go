@@ -44,7 +44,7 @@ func NewFilterWithDefaults() *Filter {
 
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *Filter) GetValue() string {
-	if o == nil || o.Value == nil {
+	if o == nil || isNil(o.Value) {
 		var ret string
 		return ret
 	}
@@ -54,7 +54,7 @@ func (o *Filter) GetValue() string {
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Filter) GetValueOk() (*string, bool) {
-	if o == nil || o.Value == nil {
+	if o == nil || isNil(o.Value) {
 		return nil, false
 	}
 	return o.Value, true
@@ -62,7 +62,7 @@ func (o *Filter) GetValueOk() (*string, bool) {
 
 // HasValue returns a boolean if a field has been set.
 func (o *Filter) HasValue() bool {
-	if o != nil && o.Value != nil {
+	if o != nil && !isNil(o.Value) {
 		return true
 	}
 
@@ -76,7 +76,7 @@ func (o *Filter) SetValue(v string) {
 
 // GetValues returns the Values field value if set, zero value otherwise.
 func (o *Filter) GetValues() []string {
-	if o == nil || o.Values == nil {
+	if o == nil || isNil(o.Values) {
 		var ret []string
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *Filter) GetValues() []string {
 // GetValuesOk returns a tuple with the Values field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Filter) GetValuesOk() ([]string, bool) {
-	if o == nil || o.Values == nil {
+	if o == nil || isNil(o.Values) {
 		return nil, false
 	}
 	return o.Values, true
@@ -94,7 +94,7 @@ func (o *Filter) GetValuesOk() ([]string, bool) {
 
 // HasValues returns a boolean if a field has been set.
 func (o *Filter) HasValues() bool {
-	if o != nil && o.Values != nil {
+	if o != nil && !isNil(o.Values) {
 		return true
 	}
 
@@ -156,10 +156,10 @@ func (o *Filter) SetOperator(v string) {
 
 func (o Filter) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Value != nil {
+	if !isNil(o.Value) {
 		toSerialize["value"] = o.Value
 	}
-	if o.Values != nil {
+	if !isNil(o.Values) {
 		toSerialize["values"] = o.Values
 	}
 	if true {

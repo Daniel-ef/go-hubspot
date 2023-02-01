@@ -64,7 +64,7 @@ func (o *PublicGdprDeleteInput) SetObjectId(v string) {
 
 // GetIdProperty returns the IdProperty field value if set, zero value otherwise.
 func (o *PublicGdprDeleteInput) GetIdProperty() string {
-	if o == nil || o.IdProperty == nil {
+	if o == nil || isNil(o.IdProperty) {
 		var ret string
 		return ret
 	}
@@ -74,7 +74,7 @@ func (o *PublicGdprDeleteInput) GetIdProperty() string {
 // GetIdPropertyOk returns a tuple with the IdProperty field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicGdprDeleteInput) GetIdPropertyOk() (*string, bool) {
-	if o == nil || o.IdProperty == nil {
+	if o == nil || isNil(o.IdProperty) {
 		return nil, false
 	}
 	return o.IdProperty, true
@@ -82,7 +82,7 @@ func (o *PublicGdprDeleteInput) GetIdPropertyOk() (*string, bool) {
 
 // HasIdProperty returns a boolean if a field has been set.
 func (o *PublicGdprDeleteInput) HasIdProperty() bool {
-	if o != nil && o.IdProperty != nil {
+	if o != nil && !isNil(o.IdProperty) {
 		return true
 	}
 
@@ -99,7 +99,7 @@ func (o PublicGdprDeleteInput) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["objectId"] = o.ObjectId
 	}
-	if o.IdProperty != nil {
+	if !isNil(o.IdProperty) {
 		toSerialize["idProperty"] = o.IdProperty
 	}
 	return json.Marshal(toSerialize)

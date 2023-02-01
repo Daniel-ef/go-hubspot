@@ -91,7 +91,7 @@ func (o *AccountingAppSettings) SetUrls(v AccountingAppUrls) {
 
 // GetFeatures returns the Features field value if set, zero value otherwise.
 func (o *AccountingAppSettings) GetFeatures() AccountingFeatures {
-	if o == nil || o.Features == nil {
+	if o == nil || isNil(o.Features) {
 		var ret AccountingFeatures
 		return ret
 	}
@@ -101,7 +101,7 @@ func (o *AccountingAppSettings) GetFeatures() AccountingFeatures {
 // GetFeaturesOk returns a tuple with the Features field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingAppSettings) GetFeaturesOk() (*AccountingFeatures, bool) {
-	if o == nil || o.Features == nil {
+	if o == nil || isNil(o.Features) {
 		return nil, false
 	}
 	return o.Features, true
@@ -109,7 +109,7 @@ func (o *AccountingAppSettings) GetFeaturesOk() (*AccountingFeatures, bool) {
 
 // HasFeatures returns a boolean if a field has been set.
 func (o *AccountingAppSettings) HasFeatures() bool {
-	if o != nil && o.Features != nil {
+	if o != nil && !isNil(o.Features) {
 		return true
 	}
 
@@ -129,7 +129,7 @@ func (o AccountingAppSettings) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["urls"] = o.Urls
 	}
-	if o.Features != nil {
+	if !isNil(o.Features) {
 		toSerialize["features"] = o.Features
 	}
 	return json.Marshal(toSerialize)

@@ -148,7 +148,7 @@ func (o *UpdatedContact) SetId(v string) {
 
 // GetCustomerType returns the CustomerType field value if set, zero value otherwise.
 func (o *UpdatedContact) GetCustomerType() string {
-	if o == nil || o.CustomerType == nil {
+	if o == nil || isNil(o.CustomerType) {
 		var ret string
 		return ret
 	}
@@ -158,7 +158,7 @@ func (o *UpdatedContact) GetCustomerType() string {
 // GetCustomerTypeOk returns a tuple with the CustomerType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdatedContact) GetCustomerTypeOk() (*string, bool) {
-	if o == nil || o.CustomerType == nil {
+	if o == nil || isNil(o.CustomerType) {
 		return nil, false
 	}
 	return o.CustomerType, true
@@ -166,7 +166,7 @@ func (o *UpdatedContact) GetCustomerTypeOk() (*string, bool) {
 
 // HasCustomerType returns a boolean if a field has been set.
 func (o *UpdatedContact) HasCustomerType() bool {
-	if o != nil && o.CustomerType != nil {
+	if o != nil && !isNil(o.CustomerType) {
 		return true
 	}
 
@@ -192,7 +192,7 @@ func (o UpdatedContact) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.CustomerType != nil {
+	if !isNil(o.CustomerType) {
 		toSerialize["customerType"] = o.CustomerType
 	}
 	return json.Marshal(toSerialize)

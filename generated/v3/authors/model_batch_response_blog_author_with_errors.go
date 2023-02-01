@@ -106,7 +106,7 @@ func (o *BatchResponseBlogAuthorWithErrors) SetResults(v []BlogAuthor) {
 
 // GetNumErrors returns the NumErrors field value if set, zero value otherwise.
 func (o *BatchResponseBlogAuthorWithErrors) GetNumErrors() int32 {
-	if o == nil || o.NumErrors == nil {
+	if o == nil || isNil(o.NumErrors) {
 		var ret int32
 		return ret
 	}
@@ -116,7 +116,7 @@ func (o *BatchResponseBlogAuthorWithErrors) GetNumErrors() int32 {
 // GetNumErrorsOk returns a tuple with the NumErrors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseBlogAuthorWithErrors) GetNumErrorsOk() (*int32, bool) {
-	if o == nil || o.NumErrors == nil {
+	if o == nil || isNil(o.NumErrors) {
 		return nil, false
 	}
 	return o.NumErrors, true
@@ -124,7 +124,7 @@ func (o *BatchResponseBlogAuthorWithErrors) GetNumErrorsOk() (*int32, bool) {
 
 // HasNumErrors returns a boolean if a field has been set.
 func (o *BatchResponseBlogAuthorWithErrors) HasNumErrors() bool {
-	if o != nil && o.NumErrors != nil {
+	if o != nil && !isNil(o.NumErrors) {
 		return true
 	}
 
@@ -138,7 +138,7 @@ func (o *BatchResponseBlogAuthorWithErrors) SetNumErrors(v int32) {
 
 // GetErrors returns the Errors field value if set, zero value otherwise.
 func (o *BatchResponseBlogAuthorWithErrors) GetErrors() []StandardError {
-	if o == nil || o.Errors == nil {
+	if o == nil || isNil(o.Errors) {
 		var ret []StandardError
 		return ret
 	}
@@ -148,7 +148,7 @@ func (o *BatchResponseBlogAuthorWithErrors) GetErrors() []StandardError {
 // GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseBlogAuthorWithErrors) GetErrorsOk() ([]StandardError, bool) {
-	if o == nil || o.Errors == nil {
+	if o == nil || isNil(o.Errors) {
 		return nil, false
 	}
 	return o.Errors, true
@@ -156,7 +156,7 @@ func (o *BatchResponseBlogAuthorWithErrors) GetErrorsOk() ([]StandardError, bool
 
 // HasErrors returns a boolean if a field has been set.
 func (o *BatchResponseBlogAuthorWithErrors) HasErrors() bool {
-	if o != nil && o.Errors != nil {
+	if o != nil && !isNil(o.Errors) {
 		return true
 	}
 
@@ -170,7 +170,7 @@ func (o *BatchResponseBlogAuthorWithErrors) SetErrors(v []StandardError) {
 
 // GetRequestedAt returns the RequestedAt field value if set, zero value otherwise.
 func (o *BatchResponseBlogAuthorWithErrors) GetRequestedAt() time.Time {
-	if o == nil || o.RequestedAt == nil {
+	if o == nil || isNil(o.RequestedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -180,7 +180,7 @@ func (o *BatchResponseBlogAuthorWithErrors) GetRequestedAt() time.Time {
 // GetRequestedAtOk returns a tuple with the RequestedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseBlogAuthorWithErrors) GetRequestedAtOk() (*time.Time, bool) {
-	if o == nil || o.RequestedAt == nil {
+	if o == nil || isNil(o.RequestedAt) {
 		return nil, false
 	}
 	return o.RequestedAt, true
@@ -188,7 +188,7 @@ func (o *BatchResponseBlogAuthorWithErrors) GetRequestedAtOk() (*time.Time, bool
 
 // HasRequestedAt returns a boolean if a field has been set.
 func (o *BatchResponseBlogAuthorWithErrors) HasRequestedAt() bool {
-	if o != nil && o.RequestedAt != nil {
+	if o != nil && !isNil(o.RequestedAt) {
 		return true
 	}
 
@@ -250,7 +250,7 @@ func (o *BatchResponseBlogAuthorWithErrors) SetCompletedAt(v time.Time) {
 
 // GetLinks returns the Links field value if set, zero value otherwise.
 func (o *BatchResponseBlogAuthorWithErrors) GetLinks() map[string]string {
-	if o == nil || o.Links == nil {
+	if o == nil || isNil(o.Links) {
 		var ret map[string]string
 		return ret
 	}
@@ -260,7 +260,7 @@ func (o *BatchResponseBlogAuthorWithErrors) GetLinks() map[string]string {
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseBlogAuthorWithErrors) GetLinksOk() (*map[string]string, bool) {
-	if o == nil || o.Links == nil {
+	if o == nil || isNil(o.Links) {
 		return nil, false
 	}
 	return o.Links, true
@@ -268,7 +268,7 @@ func (o *BatchResponseBlogAuthorWithErrors) GetLinksOk() (*map[string]string, bo
 
 // HasLinks returns a boolean if a field has been set.
 func (o *BatchResponseBlogAuthorWithErrors) HasLinks() bool {
-	if o != nil && o.Links != nil {
+	if o != nil && !isNil(o.Links) {
 		return true
 	}
 
@@ -288,13 +288,13 @@ func (o BatchResponseBlogAuthorWithErrors) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["results"] = o.Results
 	}
-	if o.NumErrors != nil {
+	if !isNil(o.NumErrors) {
 		toSerialize["numErrors"] = o.NumErrors
 	}
-	if o.Errors != nil {
+	if !isNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
-	if o.RequestedAt != nil {
+	if !isNil(o.RequestedAt) {
 		toSerialize["requestedAt"] = o.RequestedAt
 	}
 	if true {
@@ -303,7 +303,7 @@ func (o BatchResponseBlogAuthorWithErrors) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["completedAt"] = o.CompletedAt
 	}
-	if o.Links != nil {
+	if !isNil(o.Links) {
 		toSerialize["links"] = o.Links
 	}
 	return json.Marshal(toSerialize)

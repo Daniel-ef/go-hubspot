@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"reflect"
 	"strings"
@@ -47,9 +47,9 @@ GetByID Get indexed properties.
 
 For a given account and document ID (page ID, blog post ID, HubDB row ID, etc.), return all indexed data for that document. This is useful when debugging why a particular document is not returned from a custom search.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param contentId ID of the target document when searching for indexed properties.
- @return ApiGetByIDRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param contentId ID of the target document when searching for indexed properties.
+	@return ApiGetByIDRequest
 */
 func (a *PublicApiService) GetByID(ctx context.Context, contentId string) ApiGetByIDRequest {
 	return ApiGetByIDRequest{
@@ -60,7 +60,8 @@ func (a *PublicApiService) GetByID(ctx context.Context, contentId string) ApiGet
 }
 
 // Execute executes the request
-//  @return IndexedData
+//
+//	@return IndexedData
 func (a *PublicApiService) GetByIDExecute(r ApiGetByIDRequest) (*IndexedData, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -111,6 +112,20 @@ func (a *PublicApiService) GetByIDExecute(r ApiGetByIDRequest) (*IndexedData, *h
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -139,6 +154,7 @@ func (a *PublicApiService) GetByIDExecute(r ApiGetByIDRequest) (*IndexedData, *h
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -288,8 +304,8 @@ Search Search your site.
 
 Returns any website content matching the given search criteria for a given HubSpot account. Searches can be filtered by content type, domain, or URL path.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSearchRequest
 */
 func (a *PublicApiService) Search(ctx context.Context) ApiSearchRequest {
 	return ApiSearchRequest{
@@ -299,7 +315,8 @@ func (a *PublicApiService) Search(ctx context.Context) ApiSearchRequest {
 }
 
 // Execute executes the request
-//  @return PublicSearchResults
+//
+//	@return PublicSearchResults
 func (a *PublicApiService) SearchExecute(r ApiSearchRequest) (*PublicSearchResults, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -437,6 +454,20 @@ func (a *PublicApiService) SearchExecute(r ApiSearchRequest) (*PublicSearchResul
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -465,6 +496,7 @@ func (a *PublicApiService) SearchExecute(r ApiSearchRequest) (*PublicSearchResul
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

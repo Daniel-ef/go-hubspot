@@ -39,7 +39,7 @@ func NewPagingWithDefaults() *Paging {
 
 // GetNext returns the Next field value if set, zero value otherwise.
 func (o *Paging) GetNext() NextPage {
-	if o == nil || o.Next == nil {
+	if o == nil || isNil(o.Next) {
 		var ret NextPage
 		return ret
 	}
@@ -49,7 +49,7 @@ func (o *Paging) GetNext() NextPage {
 // GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Paging) GetNextOk() (*NextPage, bool) {
-	if o == nil || o.Next == nil {
+	if o == nil || isNil(o.Next) {
 		return nil, false
 	}
 	return o.Next, true
@@ -57,7 +57,7 @@ func (o *Paging) GetNextOk() (*NextPage, bool) {
 
 // HasNext returns a boolean if a field has been set.
 func (o *Paging) HasNext() bool {
-	if o != nil && o.Next != nil {
+	if o != nil && !isNil(o.Next) {
 		return true
 	}
 
@@ -71,7 +71,7 @@ func (o *Paging) SetNext(v NextPage) {
 
 // GetPrev returns the Prev field value if set, zero value otherwise.
 func (o *Paging) GetPrev() PreviousPage {
-	if o == nil || o.Prev == nil {
+	if o == nil || isNil(o.Prev) {
 		var ret PreviousPage
 		return ret
 	}
@@ -81,7 +81,7 @@ func (o *Paging) GetPrev() PreviousPage {
 // GetPrevOk returns a tuple with the Prev field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Paging) GetPrevOk() (*PreviousPage, bool) {
-	if o == nil || o.Prev == nil {
+	if o == nil || isNil(o.Prev) {
 		return nil, false
 	}
 	return o.Prev, true
@@ -89,7 +89,7 @@ func (o *Paging) GetPrevOk() (*PreviousPage, bool) {
 
 // HasPrev returns a boolean if a field has been set.
 func (o *Paging) HasPrev() bool {
-	if o != nil && o.Prev != nil {
+	if o != nil && !isNil(o.Prev) {
 		return true
 	}
 
@@ -103,10 +103,10 @@ func (o *Paging) SetPrev(v PreviousPage) {
 
 func (o Paging) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Next != nil {
+	if !isNil(o.Next) {
 		toSerialize["next"] = o.Next
 	}
-	if o.Prev != nil {
+	if !isNil(o.Prev) {
 		toSerialize["prev"] = o.Prev
 	}
 	return json.Marshal(toSerialize)

@@ -40,6 +40,8 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
+          "private_apps_legacy" : [ "analytics.behavioral_events.send" ]
+        }, {
           "oauth2_legacy" : [ "analytics.behavioral_events.send" ]
         } ]
       }
@@ -207,6 +209,11 @@
         "type" : "apiKey",
         "name" : "hapikey",
         "in" : "query"
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
       }
     }
   }

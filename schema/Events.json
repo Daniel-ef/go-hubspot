@@ -133,6 +133,8 @@
           "hapikey" : [ ]
         }, {
           "oauth2_legacy" : [ "business-intelligence" ]
+        }, {
+          "private_apps_legacy" : [ "business-intelligence" ]
         } ]
       }
     }
@@ -334,6 +336,11 @@
         "type" : "apiKey",
         "name" : "hapikey",
         "in" : "query"
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
       }
     }
   },

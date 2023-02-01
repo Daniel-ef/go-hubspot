@@ -53,6 +53,8 @@ type APIClient struct {
 
 	MarketingEventsExternalApi *MarketingEventsExternalApiService
 
+	SearchApi *SearchApiService
+
 	SettingsExternalApi *SettingsExternalApiService
 }
 
@@ -74,6 +76,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.AttendanceSubscriberStateChangesApi = (*AttendanceSubscriberStateChangesApiService)(&c.common)
 	c.MarketingEventsExternalApi = (*MarketingEventsExternalApiService)(&c.common)
+	c.SearchApi = (*SearchApiService)(&c.common)
 	c.SettingsExternalApi = (*SettingsExternalApiService)(&c.common)
 
 	return c
@@ -126,7 +129,7 @@ func typeCheckParameter(obj interface{}, expected string, name string) error {
 
 	// Check the type is as expected.
 	if reflect.TypeOf(obj).String() != expected {
-		return fmt.Errorf("Expected %s to be of type %s but received %s.", name, expected, reflect.TypeOf(obj).String())
+		return fmt.Errorf("expected %s to be of type %s but received %s", name, expected, reflect.TypeOf(obj).String())
 	}
 	return nil
 }
@@ -465,7 +468,7 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 	}
 
 	if bodyBuf.Len() == 0 {
-		err = fmt.Errorf("Invalid body type %s\n", contentType)
+		err = fmt.Errorf("invalid body type %s\n", contentType)
 		return nil, err
 	}
 	return bodyBuf, nil
@@ -566,4 +569,24 @@ func (e GenericOpenAPIError) Body() []byte {
 // Model returns the unpacked model of the error
 func (e GenericOpenAPIError) Model() interface{} {
 	return e.model
+}
+
+// format error message using title and detail when model implements rfc7807
+func formatErrorMessage(status string, v interface{}) string {
+
+	str := ""
+	metaValue := reflect.ValueOf(v).Elem()
+
+	field := metaValue.FieldByName("Title")
+	if field != (reflect.Value{}) {
+		str = fmt.Sprintf("%s", field.Interface())
+	}
+
+	field = metaValue.FieldByName("Detail")
+	if field != (reflect.Value{}) {
+		str = fmt.Sprintf("%s (%s)", str, field.Interface())
+	}
+
+	// status title (detail)
+	return fmt.Sprintf("%s %s", status, str)
 }

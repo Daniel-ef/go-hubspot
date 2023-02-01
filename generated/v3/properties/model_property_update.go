@@ -55,7 +55,7 @@ func NewPropertyUpdateWithDefaults() *PropertyUpdate {
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *PropertyUpdate) GetLabel() string {
-	if o == nil || o.Label == nil {
+	if o == nil || isNil(o.Label) {
 		var ret string
 		return ret
 	}
@@ -65,7 +65,7 @@ func (o *PropertyUpdate) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyUpdate) GetLabelOk() (*string, bool) {
-	if o == nil || o.Label == nil {
+	if o == nil || isNil(o.Label) {
 		return nil, false
 	}
 	return o.Label, true
@@ -73,7 +73,7 @@ func (o *PropertyUpdate) GetLabelOk() (*string, bool) {
 
 // HasLabel returns a boolean if a field has been set.
 func (o *PropertyUpdate) HasLabel() bool {
-	if o != nil && o.Label != nil {
+	if o != nil && !isNil(o.Label) {
 		return true
 	}
 
@@ -87,7 +87,7 @@ func (o *PropertyUpdate) SetLabel(v string) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *PropertyUpdate) GetType() string {
-	if o == nil || o.Type == nil {
+	if o == nil || isNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -97,7 +97,7 @@ func (o *PropertyUpdate) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyUpdate) GetTypeOk() (*string, bool) {
-	if o == nil || o.Type == nil {
+	if o == nil || isNil(o.Type) {
 		return nil, false
 	}
 	return o.Type, true
@@ -105,7 +105,7 @@ func (o *PropertyUpdate) GetTypeOk() (*string, bool) {
 
 // HasType returns a boolean if a field has been set.
 func (o *PropertyUpdate) HasType() bool {
-	if o != nil && o.Type != nil {
+	if o != nil && !isNil(o.Type) {
 		return true
 	}
 
@@ -119,7 +119,7 @@ func (o *PropertyUpdate) SetType(v string) {
 
 // GetFieldType returns the FieldType field value if set, zero value otherwise.
 func (o *PropertyUpdate) GetFieldType() string {
-	if o == nil || o.FieldType == nil {
+	if o == nil || isNil(o.FieldType) {
 		var ret string
 		return ret
 	}
@@ -129,7 +129,7 @@ func (o *PropertyUpdate) GetFieldType() string {
 // GetFieldTypeOk returns a tuple with the FieldType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyUpdate) GetFieldTypeOk() (*string, bool) {
-	if o == nil || o.FieldType == nil {
+	if o == nil || isNil(o.FieldType) {
 		return nil, false
 	}
 	return o.FieldType, true
@@ -137,7 +137,7 @@ func (o *PropertyUpdate) GetFieldTypeOk() (*string, bool) {
 
 // HasFieldType returns a boolean if a field has been set.
 func (o *PropertyUpdate) HasFieldType() bool {
-	if o != nil && o.FieldType != nil {
+	if o != nil && !isNil(o.FieldType) {
 		return true
 	}
 
@@ -151,7 +151,7 @@ func (o *PropertyUpdate) SetFieldType(v string) {
 
 // GetGroupName returns the GroupName field value if set, zero value otherwise.
 func (o *PropertyUpdate) GetGroupName() string {
-	if o == nil || o.GroupName == nil {
+	if o == nil || isNil(o.GroupName) {
 		var ret string
 		return ret
 	}
@@ -161,7 +161,7 @@ func (o *PropertyUpdate) GetGroupName() string {
 // GetGroupNameOk returns a tuple with the GroupName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyUpdate) GetGroupNameOk() (*string, bool) {
-	if o == nil || o.GroupName == nil {
+	if o == nil || isNil(o.GroupName) {
 		return nil, false
 	}
 	return o.GroupName, true
@@ -169,7 +169,7 @@ func (o *PropertyUpdate) GetGroupNameOk() (*string, bool) {
 
 // HasGroupName returns a boolean if a field has been set.
 func (o *PropertyUpdate) HasGroupName() bool {
-	if o != nil && o.GroupName != nil {
+	if o != nil && !isNil(o.GroupName) {
 		return true
 	}
 
@@ -183,7 +183,7 @@ func (o *PropertyUpdate) SetGroupName(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *PropertyUpdate) GetDescription() string {
-	if o == nil || o.Description == nil {
+	if o == nil || isNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -193,7 +193,7 @@ func (o *PropertyUpdate) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyUpdate) GetDescriptionOk() (*string, bool) {
-	if o == nil || o.Description == nil {
+	if o == nil || isNil(o.Description) {
 		return nil, false
 	}
 	return o.Description, true
@@ -201,7 +201,7 @@ func (o *PropertyUpdate) GetDescriptionOk() (*string, bool) {
 
 // HasDescription returns a boolean if a field has been set.
 func (o *PropertyUpdate) HasDescription() bool {
-	if o != nil && o.Description != nil {
+	if o != nil && !isNil(o.Description) {
 		return true
 	}
 
@@ -215,7 +215,7 @@ func (o *PropertyUpdate) SetDescription(v string) {
 
 // GetOptions returns the Options field value if set, zero value otherwise.
 func (o *PropertyUpdate) GetOptions() []OptionInput {
-	if o == nil || o.Options == nil {
+	if o == nil || isNil(o.Options) {
 		var ret []OptionInput
 		return ret
 	}
@@ -225,7 +225,7 @@ func (o *PropertyUpdate) GetOptions() []OptionInput {
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyUpdate) GetOptionsOk() ([]OptionInput, bool) {
-	if o == nil || o.Options == nil {
+	if o == nil || isNil(o.Options) {
 		return nil, false
 	}
 	return o.Options, true
@@ -233,7 +233,7 @@ func (o *PropertyUpdate) GetOptionsOk() ([]OptionInput, bool) {
 
 // HasOptions returns a boolean if a field has been set.
 func (o *PropertyUpdate) HasOptions() bool {
-	if o != nil && o.Options != nil {
+	if o != nil && !isNil(o.Options) {
 		return true
 	}
 
@@ -247,7 +247,7 @@ func (o *PropertyUpdate) SetOptions(v []OptionInput) {
 
 // GetDisplayOrder returns the DisplayOrder field value if set, zero value otherwise.
 func (o *PropertyUpdate) GetDisplayOrder() int32 {
-	if o == nil || o.DisplayOrder == nil {
+	if o == nil || isNil(o.DisplayOrder) {
 		var ret int32
 		return ret
 	}
@@ -257,7 +257,7 @@ func (o *PropertyUpdate) GetDisplayOrder() int32 {
 // GetDisplayOrderOk returns a tuple with the DisplayOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyUpdate) GetDisplayOrderOk() (*int32, bool) {
-	if o == nil || o.DisplayOrder == nil {
+	if o == nil || isNil(o.DisplayOrder) {
 		return nil, false
 	}
 	return o.DisplayOrder, true
@@ -265,7 +265,7 @@ func (o *PropertyUpdate) GetDisplayOrderOk() (*int32, bool) {
 
 // HasDisplayOrder returns a boolean if a field has been set.
 func (o *PropertyUpdate) HasDisplayOrder() bool {
-	if o != nil && o.DisplayOrder != nil {
+	if o != nil && !isNil(o.DisplayOrder) {
 		return true
 	}
 
@@ -279,7 +279,7 @@ func (o *PropertyUpdate) SetDisplayOrder(v int32) {
 
 // GetHidden returns the Hidden field value if set, zero value otherwise.
 func (o *PropertyUpdate) GetHidden() bool {
-	if o == nil || o.Hidden == nil {
+	if o == nil || isNil(o.Hidden) {
 		var ret bool
 		return ret
 	}
@@ -289,7 +289,7 @@ func (o *PropertyUpdate) GetHidden() bool {
 // GetHiddenOk returns a tuple with the Hidden field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyUpdate) GetHiddenOk() (*bool, bool) {
-	if o == nil || o.Hidden == nil {
+	if o == nil || isNil(o.Hidden) {
 		return nil, false
 	}
 	return o.Hidden, true
@@ -297,7 +297,7 @@ func (o *PropertyUpdate) GetHiddenOk() (*bool, bool) {
 
 // HasHidden returns a boolean if a field has been set.
 func (o *PropertyUpdate) HasHidden() bool {
-	if o != nil && o.Hidden != nil {
+	if o != nil && !isNil(o.Hidden) {
 		return true
 	}
 
@@ -311,7 +311,7 @@ func (o *PropertyUpdate) SetHidden(v bool) {
 
 // GetFormField returns the FormField field value if set, zero value otherwise.
 func (o *PropertyUpdate) GetFormField() bool {
-	if o == nil || o.FormField == nil {
+	if o == nil || isNil(o.FormField) {
 		var ret bool
 		return ret
 	}
@@ -321,7 +321,7 @@ func (o *PropertyUpdate) GetFormField() bool {
 // GetFormFieldOk returns a tuple with the FormField field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyUpdate) GetFormFieldOk() (*bool, bool) {
-	if o == nil || o.FormField == nil {
+	if o == nil || isNil(o.FormField) {
 		return nil, false
 	}
 	return o.FormField, true
@@ -329,7 +329,7 @@ func (o *PropertyUpdate) GetFormFieldOk() (*bool, bool) {
 
 // HasFormField returns a boolean if a field has been set.
 func (o *PropertyUpdate) HasFormField() bool {
-	if o != nil && o.FormField != nil {
+	if o != nil && !isNil(o.FormField) {
 		return true
 	}
 
@@ -343,31 +343,31 @@ func (o *PropertyUpdate) SetFormField(v bool) {
 
 func (o PropertyUpdate) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Label != nil {
+	if !isNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
-	if o.Type != nil {
+	if !isNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
-	if o.FieldType != nil {
+	if !isNil(o.FieldType) {
 		toSerialize["fieldType"] = o.FieldType
 	}
-	if o.GroupName != nil {
+	if !isNil(o.GroupName) {
 		toSerialize["groupName"] = o.GroupName
 	}
-	if o.Description != nil {
+	if !isNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if o.Options != nil {
+	if !isNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
-	if o.DisplayOrder != nil {
+	if !isNil(o.DisplayOrder) {
 		toSerialize["displayOrder"] = o.DisplayOrder
 	}
-	if o.Hidden != nil {
+	if !isNil(o.Hidden) {
 		toSerialize["hidden"] = o.Hidden
 	}
-	if o.FormField != nil {
+	if !isNil(o.FormField) {
 		toSerialize["formField"] = o.FormField
 	}
 	return json.Marshal(toSerialize)

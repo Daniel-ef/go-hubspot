@@ -43,7 +43,7 @@ func NewPipelinePatchInputWithDefaults() *PipelinePatchInput {
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *PipelinePatchInput) GetLabel() string {
-	if o == nil || o.Label == nil {
+	if o == nil || isNil(o.Label) {
 		var ret string
 		return ret
 	}
@@ -53,7 +53,7 @@ func (o *PipelinePatchInput) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PipelinePatchInput) GetLabelOk() (*string, bool) {
-	if o == nil || o.Label == nil {
+	if o == nil || isNil(o.Label) {
 		return nil, false
 	}
 	return o.Label, true
@@ -61,7 +61,7 @@ func (o *PipelinePatchInput) GetLabelOk() (*string, bool) {
 
 // HasLabel returns a boolean if a field has been set.
 func (o *PipelinePatchInput) HasLabel() bool {
-	if o != nil && o.Label != nil {
+	if o != nil && !isNil(o.Label) {
 		return true
 	}
 
@@ -75,7 +75,7 @@ func (o *PipelinePatchInput) SetLabel(v string) {
 
 // GetDisplayOrder returns the DisplayOrder field value if set, zero value otherwise.
 func (o *PipelinePatchInput) GetDisplayOrder() int32 {
-	if o == nil || o.DisplayOrder == nil {
+	if o == nil || isNil(o.DisplayOrder) {
 		var ret int32
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *PipelinePatchInput) GetDisplayOrder() int32 {
 // GetDisplayOrderOk returns a tuple with the DisplayOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PipelinePatchInput) GetDisplayOrderOk() (*int32, bool) {
-	if o == nil || o.DisplayOrder == nil {
+	if o == nil || isNil(o.DisplayOrder) {
 		return nil, false
 	}
 	return o.DisplayOrder, true
@@ -93,7 +93,7 @@ func (o *PipelinePatchInput) GetDisplayOrderOk() (*int32, bool) {
 
 // HasDisplayOrder returns a boolean if a field has been set.
 func (o *PipelinePatchInput) HasDisplayOrder() bool {
-	if o != nil && o.DisplayOrder != nil {
+	if o != nil && !isNil(o.DisplayOrder) {
 		return true
 	}
 
@@ -107,7 +107,7 @@ func (o *PipelinePatchInput) SetDisplayOrder(v int32) {
 
 // GetArchived returns the Archived field value if set, zero value otherwise.
 func (o *PipelinePatchInput) GetArchived() bool {
-	if o == nil || o.Archived == nil {
+	if o == nil || isNil(o.Archived) {
 		var ret bool
 		return ret
 	}
@@ -117,7 +117,7 @@ func (o *PipelinePatchInput) GetArchived() bool {
 // GetArchivedOk returns a tuple with the Archived field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PipelinePatchInput) GetArchivedOk() (*bool, bool) {
-	if o == nil || o.Archived == nil {
+	if o == nil || isNil(o.Archived) {
 		return nil, false
 	}
 	return o.Archived, true
@@ -125,7 +125,7 @@ func (o *PipelinePatchInput) GetArchivedOk() (*bool, bool) {
 
 // HasArchived returns a boolean if a field has been set.
 func (o *PipelinePatchInput) HasArchived() bool {
-	if o != nil && o.Archived != nil {
+	if o != nil && !isNil(o.Archived) {
 		return true
 	}
 
@@ -139,13 +139,13 @@ func (o *PipelinePatchInput) SetArchived(v bool) {
 
 func (o PipelinePatchInput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Label != nil {
+	if !isNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
-	if o.DisplayOrder != nil {
+	if !isNil(o.DisplayOrder) {
 		toSerialize["displayOrder"] = o.DisplayOrder
 	}
-	if o.Archived != nil {
+	if !isNil(o.Archived) {
 		toSerialize["archived"] = o.Archived
 	}
 	return json.Marshal(toSerialize)

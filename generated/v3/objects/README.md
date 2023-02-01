@@ -163,9 +163,6 @@ Note, each API key must be added to a map of `map[string]APIKey` where the key i
 - **Flow**: accessCode
 - **Authorization URL**: https://app.hubspot.com/oauth/authorize
 - **Scopes**: 
- - **crm.objects.quotes.write**: Quotes
- - **crm.objects.contacts.read**:  
- - **crm.objects.contacts.write**:  
  - **crm.objects.companies.write**:  
  - **crm.objects.companies.read**:  
  - **crm.objects.line_items.write**: Line Items
@@ -173,6 +170,9 @@ Note, each API key must be added to a map of `map[string]APIKey` where the key i
  - **crm.objects.deals.write**:  
  - **crm.objects.line_items.read**: Line Items
  - **crm.objects.deals.read**:  
+ - **crm.objects.quotes.write**: Quotes
+ - **crm.objects.contacts.read**:  
+ - **crm.objects.contacts.write**:  
 
 Example
 
@@ -201,12 +201,11 @@ r, err := client.Service.Operation(auth, args)
 - **Flow**: accessCode
 - **Authorization URL**: https://app.hubspot.com/oauth/authorize
 - **Scopes**: 
- - **crm.objects.custom.read**: View custom object records
- - **contacts**: Read from and write to my Contacts
- - **crm.objects.custom.write**: Change custom object records
  - **e-commerce**: e-commerce
- - **media_bridge.read**: Read media and media events
  - **tickets**: Read and write tickets
+ - **media_bridge.read**: Read media and media events
+ - **crm.objects.custom.write**: Change custom object records
+ - **crm.objects.custom.read**: View custom object records
 
 Example
 
@@ -226,6 +225,24 @@ tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
 auth := context.WithValue(oauth2.NoContext, sw.ContextOAuth2, tokenSource)
 r, err := client.Service.Operation(auth, args)
 ```
+
+
+### private_apps
+
+- **Type**: API key
+- **API key parameter name**: private-app
+- **Location**: HTTP header
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: private-app and passed in as the auth context for each request.
+
+
+### private_apps_legacy
+
+- **Type**: API key
+- **API key parameter name**: private-app-legacy
+- **Location**: HTTP header
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: private-app-legacy and passed in as the auth context for each request.
 
 
 ## Documentation for Utility Methods

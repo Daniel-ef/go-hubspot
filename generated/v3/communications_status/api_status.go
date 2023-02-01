@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"strings"
 )
@@ -39,9 +39,9 @@ GetEmailStatus Get subscription statuses for a contact
 
 Returns a list of subscriptions and their status for a given contact.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param emailAddress
- @return ApiGetEmailStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param emailAddress
+	@return ApiGetEmailStatusRequest
 */
 func (a *StatusApiService) GetEmailStatus(ctx context.Context, emailAddress string) ApiGetEmailStatusRequest {
 	return ApiGetEmailStatusRequest{
@@ -52,7 +52,8 @@ func (a *StatusApiService) GetEmailStatus(ctx context.Context, emailAddress stri
 }
 
 // Execute executes the request
-//  @return PublicSubscriptionStatusesResponse
+//
+//	@return PublicSubscriptionStatusesResponse
 func (a *StatusApiService) GetEmailStatusExecute(r ApiGetEmailStatusRequest) (*PublicSubscriptionStatusesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -100,6 +101,20 @@ func (a *StatusApiService) GetEmailStatusExecute(r ApiGetEmailStatusRequest) (*P
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -128,6 +143,7 @@ func (a *StatusApiService) GetEmailStatusExecute(r ApiGetEmailStatusRequest) (*P
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -164,8 +180,8 @@ Subscribe Subscribe a contact
 
 Subscribes a contact to the given subscription type. This API is not valid to use for subscribing a contact at a brand or portal level and will return an error.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSubscribeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSubscribeRequest
 */
 func (a *StatusApiService) Subscribe(ctx context.Context) ApiSubscribeRequest {
 	return ApiSubscribeRequest{
@@ -175,7 +191,8 @@ func (a *StatusApiService) Subscribe(ctx context.Context) ApiSubscribeRequest {
 }
 
 // Execute executes the request
-//  @return PublicSubscriptionStatus
+//
+//	@return PublicSubscriptionStatus
 func (a *StatusApiService) SubscribeExecute(r ApiSubscribeRequest) (*PublicSubscriptionStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -227,6 +244,20 @@ func (a *StatusApiService) SubscribeExecute(r ApiSubscribeRequest) (*PublicSubsc
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -255,6 +286,7 @@ func (a *StatusApiService) SubscribeExecute(r ApiSubscribeRequest) (*PublicSubsc
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -291,8 +323,8 @@ Unsubscribe Unsubscribe a contact
 
 Unsubscribes a contact from the given subscription type. This API is not valid to use for unsubscribing a contact at a brand or portal level and will return an error.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUnsubscribeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUnsubscribeRequest
 */
 func (a *StatusApiService) Unsubscribe(ctx context.Context) ApiUnsubscribeRequest {
 	return ApiUnsubscribeRequest{
@@ -302,7 +334,8 @@ func (a *StatusApiService) Unsubscribe(ctx context.Context) ApiUnsubscribeReques
 }
 
 // Execute executes the request
-//  @return PublicSubscriptionStatus
+//
+//	@return PublicSubscriptionStatus
 func (a *StatusApiService) UnsubscribeExecute(r ApiUnsubscribeRequest) (*PublicSubscriptionStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -354,6 +387,20 @@ func (a *StatusApiService) UnsubscribeExecute(r ApiUnsubscribeRequest) (*PublicS
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -382,6 +429,7 @@ func (a *StatusApiService) UnsubscribeExecute(r ApiUnsubscribeRequest) (*PublicS
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -35,9 +35,9 @@ func (r ApiArchiveRefreshTokenRequest) Execute() (*Error, *http.Response, error)
 /*
 ArchiveRefreshToken Method for ArchiveRefreshToken
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param token
- @return ApiArchiveRefreshTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param token
+	@return ApiArchiveRefreshTokenRequest
 */
 func (a *RefreshTokensApiService) ArchiveRefreshToken(ctx context.Context, token string) ApiArchiveRefreshTokenRequest {
 	return ApiArchiveRefreshTokenRequest{
@@ -48,7 +48,8 @@ func (a *RefreshTokensApiService) ArchiveRefreshToken(ctx context.Context, token
 }
 
 // Execute executes the request
-//  @return Error
+//
+//	@return Error
 func (a *RefreshTokensApiService) ArchiveRefreshTokenExecute(r ApiArchiveRefreshTokenRequest) (*Error, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodDelete
@@ -114,6 +115,7 @@ func (a *RefreshTokensApiService) ArchiveRefreshTokenExecute(r ApiArchiveRefresh
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -143,9 +145,9 @@ func (r ApiGetRefreshTokenRequest) Execute() (*RefreshTokenInfoResponse, *http.R
 /*
 GetRefreshToken Method for GetRefreshToken
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param token
- @return ApiGetRefreshTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param token
+	@return ApiGetRefreshTokenRequest
 */
 func (a *RefreshTokensApiService) GetRefreshToken(ctx context.Context, token string) ApiGetRefreshTokenRequest {
 	return ApiGetRefreshTokenRequest{
@@ -156,7 +158,8 @@ func (a *RefreshTokensApiService) GetRefreshToken(ctx context.Context, token str
 }
 
 // Execute executes the request
-//  @return RefreshTokenInfoResponse
+//
+//	@return RefreshTokenInfoResponse
 func (a *RefreshTokensApiService) GetRefreshTokenExecute(r ApiGetRefreshTokenRequest) (*RefreshTokenInfoResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -222,6 +225,7 @@ func (a *RefreshTokensApiService) GetRefreshTokenExecute(r ApiGetRefreshTokenReq
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

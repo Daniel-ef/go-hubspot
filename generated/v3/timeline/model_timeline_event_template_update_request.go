@@ -74,7 +74,7 @@ func (o *TimelineEventTemplateUpdateRequest) SetName(v string) {
 
 // GetHeaderTemplate returns the HeaderTemplate field value if set, zero value otherwise.
 func (o *TimelineEventTemplateUpdateRequest) GetHeaderTemplate() string {
-	if o == nil || o.HeaderTemplate == nil {
+	if o == nil || isNil(o.HeaderTemplate) {
 		var ret string
 		return ret
 	}
@@ -84,7 +84,7 @@ func (o *TimelineEventTemplateUpdateRequest) GetHeaderTemplate() string {
 // GetHeaderTemplateOk returns a tuple with the HeaderTemplate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TimelineEventTemplateUpdateRequest) GetHeaderTemplateOk() (*string, bool) {
-	if o == nil || o.HeaderTemplate == nil {
+	if o == nil || isNil(o.HeaderTemplate) {
 		return nil, false
 	}
 	return o.HeaderTemplate, true
@@ -92,7 +92,7 @@ func (o *TimelineEventTemplateUpdateRequest) GetHeaderTemplateOk() (*string, boo
 
 // HasHeaderTemplate returns a boolean if a field has been set.
 func (o *TimelineEventTemplateUpdateRequest) HasHeaderTemplate() bool {
-	if o != nil && o.HeaderTemplate != nil {
+	if o != nil && !isNil(o.HeaderTemplate) {
 		return true
 	}
 
@@ -106,7 +106,7 @@ func (o *TimelineEventTemplateUpdateRequest) SetHeaderTemplate(v string) {
 
 // GetDetailTemplate returns the DetailTemplate field value if set, zero value otherwise.
 func (o *TimelineEventTemplateUpdateRequest) GetDetailTemplate() string {
-	if o == nil || o.DetailTemplate == nil {
+	if o == nil || isNil(o.DetailTemplate) {
 		var ret string
 		return ret
 	}
@@ -116,7 +116,7 @@ func (o *TimelineEventTemplateUpdateRequest) GetDetailTemplate() string {
 // GetDetailTemplateOk returns a tuple with the DetailTemplate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TimelineEventTemplateUpdateRequest) GetDetailTemplateOk() (*string, bool) {
-	if o == nil || o.DetailTemplate == nil {
+	if o == nil || isNil(o.DetailTemplate) {
 		return nil, false
 	}
 	return o.DetailTemplate, true
@@ -124,7 +124,7 @@ func (o *TimelineEventTemplateUpdateRequest) GetDetailTemplateOk() (*string, boo
 
 // HasDetailTemplate returns a boolean if a field has been set.
 func (o *TimelineEventTemplateUpdateRequest) HasDetailTemplate() bool {
-	if o != nil && o.DetailTemplate != nil {
+	if o != nil && !isNil(o.DetailTemplate) {
 		return true
 	}
 
@@ -189,10 +189,10 @@ func (o TimelineEventTemplateUpdateRequest) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["name"] = o.Name
 	}
-	if o.HeaderTemplate != nil {
+	if !isNil(o.HeaderTemplate) {
 		toSerialize["headerTemplate"] = o.HeaderTemplate
 	}
-	if o.DetailTemplate != nil {
+	if !isNil(o.DetailTemplate) {
 		toSerialize["detailTemplate"] = o.DetailTemplate
 	}
 	if true {

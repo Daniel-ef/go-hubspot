@@ -69,7 +69,7 @@ func (o *MarketingEventEmailSubscriber) SetInteractionDateTime(v int64) {
 
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *MarketingEventEmailSubscriber) GetProperties() map[string]string {
-	if o == nil || o.Properties == nil {
+	if o == nil || isNil(o.Properties) {
 		var ret map[string]string
 		return ret
 	}
@@ -79,7 +79,7 @@ func (o *MarketingEventEmailSubscriber) GetProperties() map[string]string {
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MarketingEventEmailSubscriber) GetPropertiesOk() (*map[string]string, bool) {
-	if o == nil || o.Properties == nil {
+	if o == nil || isNil(o.Properties) {
 		return nil, false
 	}
 	return o.Properties, true
@@ -87,7 +87,7 @@ func (o *MarketingEventEmailSubscriber) GetPropertiesOk() (*map[string]string, b
 
 // HasProperties returns a boolean if a field has been set.
 func (o *MarketingEventEmailSubscriber) HasProperties() bool {
-	if o != nil && o.Properties != nil {
+	if o != nil && !isNil(o.Properties) {
 		return true
 	}
 
@@ -125,7 +125,7 @@ func (o *MarketingEventEmailSubscriber) SetEmail(v string) {
 
 // GetContactProperties returns the ContactProperties field value if set, zero value otherwise.
 func (o *MarketingEventEmailSubscriber) GetContactProperties() map[string]string {
-	if o == nil || o.ContactProperties == nil {
+	if o == nil || isNil(o.ContactProperties) {
 		var ret map[string]string
 		return ret
 	}
@@ -135,7 +135,7 @@ func (o *MarketingEventEmailSubscriber) GetContactProperties() map[string]string
 // GetContactPropertiesOk returns a tuple with the ContactProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MarketingEventEmailSubscriber) GetContactPropertiesOk() (*map[string]string, bool) {
-	if o == nil || o.ContactProperties == nil {
+	if o == nil || isNil(o.ContactProperties) {
 		return nil, false
 	}
 	return o.ContactProperties, true
@@ -143,7 +143,7 @@ func (o *MarketingEventEmailSubscriber) GetContactPropertiesOk() (*map[string]st
 
 // HasContactProperties returns a boolean if a field has been set.
 func (o *MarketingEventEmailSubscriber) HasContactProperties() bool {
-	if o != nil && o.ContactProperties != nil {
+	if o != nil && !isNil(o.ContactProperties) {
 		return true
 	}
 
@@ -160,13 +160,13 @@ func (o MarketingEventEmailSubscriber) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["interactionDateTime"] = o.InteractionDateTime
 	}
-	if o.Properties != nil {
+	if !isNil(o.Properties) {
 		toSerialize["properties"] = o.Properties
 	}
 	if true {
 		toSerialize["email"] = o.Email
 	}
-	if o.ContactProperties != nil {
+	if !isNil(o.ContactProperties) {
 		toSerialize["contactProperties"] = o.ContactProperties
 	}
 	return json.Marshal(toSerialize)

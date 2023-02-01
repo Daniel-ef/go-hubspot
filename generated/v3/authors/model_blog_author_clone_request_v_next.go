@@ -70,7 +70,7 @@ func (o *BlogAuthorCloneRequestVNext) SetId(v string) {
 
 // GetLanguage returns the Language field value if set, zero value otherwise.
 func (o *BlogAuthorCloneRequestVNext) GetLanguage() string {
-	if o == nil || o.Language == nil {
+	if o == nil || isNil(o.Language) {
 		var ret string
 		return ret
 	}
@@ -80,7 +80,7 @@ func (o *BlogAuthorCloneRequestVNext) GetLanguage() string {
 // GetLanguageOk returns a tuple with the Language field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BlogAuthorCloneRequestVNext) GetLanguageOk() (*string, bool) {
-	if o == nil || o.Language == nil {
+	if o == nil || isNil(o.Language) {
 		return nil, false
 	}
 	return o.Language, true
@@ -88,7 +88,7 @@ func (o *BlogAuthorCloneRequestVNext) GetLanguageOk() (*string, bool) {
 
 // HasLanguage returns a boolean if a field has been set.
 func (o *BlogAuthorCloneRequestVNext) HasLanguage() bool {
-	if o != nil && o.Language != nil {
+	if o != nil && !isNil(o.Language) {
 		return true
 	}
 
@@ -102,7 +102,7 @@ func (o *BlogAuthorCloneRequestVNext) SetLanguage(v string) {
 
 // GetPrimaryLanguage returns the PrimaryLanguage field value if set, zero value otherwise.
 func (o *BlogAuthorCloneRequestVNext) GetPrimaryLanguage() string {
-	if o == nil || o.PrimaryLanguage == nil {
+	if o == nil || isNil(o.PrimaryLanguage) {
 		var ret string
 		return ret
 	}
@@ -112,7 +112,7 @@ func (o *BlogAuthorCloneRequestVNext) GetPrimaryLanguage() string {
 // GetPrimaryLanguageOk returns a tuple with the PrimaryLanguage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BlogAuthorCloneRequestVNext) GetPrimaryLanguageOk() (*string, bool) {
-	if o == nil || o.PrimaryLanguage == nil {
+	if o == nil || isNil(o.PrimaryLanguage) {
 		return nil, false
 	}
 	return o.PrimaryLanguage, true
@@ -120,7 +120,7 @@ func (o *BlogAuthorCloneRequestVNext) GetPrimaryLanguageOk() (*string, bool) {
 
 // HasPrimaryLanguage returns a boolean if a field has been set.
 func (o *BlogAuthorCloneRequestVNext) HasPrimaryLanguage() bool {
-	if o != nil && o.PrimaryLanguage != nil {
+	if o != nil && !isNil(o.PrimaryLanguage) {
 		return true
 	}
 
@@ -161,10 +161,10 @@ func (o BlogAuthorCloneRequestVNext) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.Language != nil {
+	if !isNil(o.Language) {
 		toSerialize["language"] = o.Language
 	}
-	if o.PrimaryLanguage != nil {
+	if !isNil(o.PrimaryLanguage) {
 		toSerialize["primaryLanguage"] = o.PrimaryLanguage
 	}
 	if true {

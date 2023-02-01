@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"os"
 	"strings"
@@ -41,10 +41,10 @@ ContentArchive Delete a file
 
 Deletes the file at the specified path in the specified environment.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param environment The environment of the file (\"draft\" or \"published\").
- @param path The file system location of the file.
- @return ApiContentArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param environment The environment of the file (\"draft\" or \"published\").
+	@param path The file system location of the file.
+	@return ApiContentArchiveRequest
 */
 func (a *ContentApiService) ContentArchive(ctx context.Context, environment string, path string) ApiContentArchiveRequest {
 	return ApiContentArchiveRequest{
@@ -103,6 +103,20 @@ func (a *ContentApiService) ContentArchiveExecute(r ApiContentArchiveRequest) (*
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -131,6 +145,7 @@ func (a *ContentApiService) ContentArchiveExecute(r ApiContentArchiveRequest) (*
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -161,10 +176,10 @@ ContentCreate Create a file
 
 Creates a file at the specified path in the specified environment. Accepts multipart/form-data content type. Throws an error if a file already exists at the specified path.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param environment The environment of the file (\"draft\" or \"published\").
- @param path The file system location of the file.
- @return ApiContentCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param environment The environment of the file (\"draft\" or \"published\").
+	@param path The file system location of the file.
+	@return ApiContentCreateRequest
 
 Deprecated
 */
@@ -178,7 +193,9 @@ func (a *ContentApiService) ContentCreate(ctx context.Context, environment strin
 }
 
 // Execute executes the request
-//  @return AssetFileMetadata
+//
+//	@return AssetFileMetadata
+//
 // Deprecated
 func (a *ContentApiService) ContentCreateExecute(r ApiContentCreateRequest) (*AssetFileMetadata, *http.Response, error) {
 	var (
@@ -245,6 +262,20 @@ func (a *ContentApiService) ContentCreateExecute(r ApiContentCreateRequest) (*As
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -273,6 +304,7 @@ func (a *ContentApiService) ContentCreateExecute(r ApiContentCreateRequest) (*As
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -305,10 +337,10 @@ ContentGet Download a file
 
 Downloads the byte contents of the file at the specified path in the specified environment.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param environment The environment of the file (\"draft\" or \"published\").
- @param path The file system location of the file.
- @return ApiContentGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param environment The environment of the file (\"draft\" or \"published\").
+	@param path The file system location of the file.
+	@return ApiContentGetRequest
 */
 func (a *ContentApiService) ContentGet(ctx context.Context, environment string, path string) ApiContentGetRequest {
 	return ApiContentGetRequest{
@@ -320,7 +352,8 @@ func (a *ContentApiService) ContentGet(ctx context.Context, environment string, 
 }
 
 // Execute executes the request
-//  @return Error
+//
+//	@return Error
 func (a *ContentApiService) ContentGetExecute(r ApiContentGetRequest) (*Error, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -369,6 +402,20 @@ func (a *ContentApiService) ContentGetExecute(r ApiContentGetRequest) (*Error, *
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -397,6 +444,7 @@ func (a *ContentApiService) ContentGetExecute(r ApiContentGetRequest) (*Error, *
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -436,10 +484,10 @@ ContentReplace Create or update a file
 
 Upserts a file at the specified path in the specified environment. Accepts multipart/form-data content type.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param environment The environment of the file (\"draft\" or \"published\").
- @param path The file system location of the file.
- @return ApiContentReplaceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param environment The environment of the file (\"draft\" or \"published\").
+	@param path The file system location of the file.
+	@return ApiContentReplaceRequest
 */
 func (a *ContentApiService) ContentReplace(ctx context.Context, environment string, path string) ApiContentReplaceRequest {
 	return ApiContentReplaceRequest{
@@ -451,7 +499,8 @@ func (a *ContentApiService) ContentReplace(ctx context.Context, environment stri
 }
 
 // Execute executes the request
-//  @return AssetFileMetadata
+//
+//	@return AssetFileMetadata
 func (a *ContentApiService) ContentReplaceExecute(r ApiContentReplaceRequest) (*AssetFileMetadata, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
@@ -517,6 +566,20 @@ func (a *ContentApiService) ContentReplaceExecute(r ApiContentReplaceRequest) (*
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -545,6 +608,7 @@ func (a *ContentApiService) ContentReplaceExecute(r ApiContentReplaceRequest) (*
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

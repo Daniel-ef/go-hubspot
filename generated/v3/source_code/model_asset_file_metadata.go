@@ -128,7 +128,7 @@ func (o *AssetFileMetadata) SetFolder(v bool) {
 
 // GetChildren returns the Children field value if set, zero value otherwise.
 func (o *AssetFileMetadata) GetChildren() []string {
-	if o == nil || o.Children == nil {
+	if o == nil || isNil(o.Children) {
 		var ret []string
 		return ret
 	}
@@ -138,7 +138,7 @@ func (o *AssetFileMetadata) GetChildren() []string {
 // GetChildrenOk returns a tuple with the Children field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AssetFileMetadata) GetChildrenOk() ([]string, bool) {
-	if o == nil || o.Children == nil {
+	if o == nil || isNil(o.Children) {
 		return nil, false
 	}
 	return o.Children, true
@@ -146,7 +146,7 @@ func (o *AssetFileMetadata) GetChildrenOk() ([]string, bool) {
 
 // HasChildren returns a boolean if a field has been set.
 func (o *AssetFileMetadata) HasChildren() bool {
-	if o != nil && o.Children != nil {
+	if o != nil && !isNil(o.Children) {
 		return true
 	}
 
@@ -208,7 +208,7 @@ func (o *AssetFileMetadata) SetCreatedAt(v int32) {
 
 // GetArchivedAt returns the ArchivedAt field value if set, zero value otherwise.
 func (o *AssetFileMetadata) GetArchivedAt() int64 {
-	if o == nil || o.ArchivedAt == nil {
+	if o == nil || isNil(o.ArchivedAt) {
 		var ret int64
 		return ret
 	}
@@ -218,7 +218,7 @@ func (o *AssetFileMetadata) GetArchivedAt() int64 {
 // GetArchivedAtOk returns a tuple with the ArchivedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AssetFileMetadata) GetArchivedAtOk() (*int64, bool) {
-	if o == nil || o.ArchivedAt == nil {
+	if o == nil || isNil(o.ArchivedAt) {
 		return nil, false
 	}
 	return o.ArchivedAt, true
@@ -226,7 +226,7 @@ func (o *AssetFileMetadata) GetArchivedAtOk() (*int64, bool) {
 
 // HasArchivedAt returns a boolean if a field has been set.
 func (o *AssetFileMetadata) HasArchivedAt() bool {
-	if o != nil && o.ArchivedAt != nil {
+	if o != nil && !isNil(o.ArchivedAt) {
 		return true
 	}
 
@@ -249,7 +249,7 @@ func (o AssetFileMetadata) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["folder"] = o.Folder
 	}
-	if o.Children != nil {
+	if !isNil(o.Children) {
 		toSerialize["children"] = o.Children
 	}
 	if true {
@@ -258,7 +258,7 @@ func (o AssetFileMetadata) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
-	if o.ArchivedAt != nil {
+	if !isNil(o.ArchivedAt) {
 		toSerialize["archivedAt"] = o.ArchivedAt
 	}
 	return json.Marshal(toSerialize)

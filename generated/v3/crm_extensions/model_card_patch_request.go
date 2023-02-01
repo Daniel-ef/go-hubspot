@@ -42,7 +42,7 @@ func NewCardPatchRequestWithDefaults() *CardPatchRequest {
 
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *CardPatchRequest) GetTitle() string {
-	if o == nil || o.Title == nil {
+	if o == nil || isNil(o.Title) {
 		var ret string
 		return ret
 	}
@@ -52,7 +52,7 @@ func (o *CardPatchRequest) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CardPatchRequest) GetTitleOk() (*string, bool) {
-	if o == nil || o.Title == nil {
+	if o == nil || isNil(o.Title) {
 		return nil, false
 	}
 	return o.Title, true
@@ -60,7 +60,7 @@ func (o *CardPatchRequest) GetTitleOk() (*string, bool) {
 
 // HasTitle returns a boolean if a field has been set.
 func (o *CardPatchRequest) HasTitle() bool {
-	if o != nil && o.Title != nil {
+	if o != nil && !isNil(o.Title) {
 		return true
 	}
 
@@ -74,7 +74,7 @@ func (o *CardPatchRequest) SetTitle(v string) {
 
 // GetFetch returns the Fetch field value if set, zero value otherwise.
 func (o *CardPatchRequest) GetFetch() CardFetchBodyPatch {
-	if o == nil || o.Fetch == nil {
+	if o == nil || isNil(o.Fetch) {
 		var ret CardFetchBodyPatch
 		return ret
 	}
@@ -84,7 +84,7 @@ func (o *CardPatchRequest) GetFetch() CardFetchBodyPatch {
 // GetFetchOk returns a tuple with the Fetch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CardPatchRequest) GetFetchOk() (*CardFetchBodyPatch, bool) {
-	if o == nil || o.Fetch == nil {
+	if o == nil || isNil(o.Fetch) {
 		return nil, false
 	}
 	return o.Fetch, true
@@ -92,7 +92,7 @@ func (o *CardPatchRequest) GetFetchOk() (*CardFetchBodyPatch, bool) {
 
 // HasFetch returns a boolean if a field has been set.
 func (o *CardPatchRequest) HasFetch() bool {
-	if o != nil && o.Fetch != nil {
+	if o != nil && !isNil(o.Fetch) {
 		return true
 	}
 
@@ -106,7 +106,7 @@ func (o *CardPatchRequest) SetFetch(v CardFetchBodyPatch) {
 
 // GetDisplay returns the Display field value if set, zero value otherwise.
 func (o *CardPatchRequest) GetDisplay() CardDisplayBody {
-	if o == nil || o.Display == nil {
+	if o == nil || isNil(o.Display) {
 		var ret CardDisplayBody
 		return ret
 	}
@@ -116,7 +116,7 @@ func (o *CardPatchRequest) GetDisplay() CardDisplayBody {
 // GetDisplayOk returns a tuple with the Display field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CardPatchRequest) GetDisplayOk() (*CardDisplayBody, bool) {
-	if o == nil || o.Display == nil {
+	if o == nil || isNil(o.Display) {
 		return nil, false
 	}
 	return o.Display, true
@@ -124,7 +124,7 @@ func (o *CardPatchRequest) GetDisplayOk() (*CardDisplayBody, bool) {
 
 // HasDisplay returns a boolean if a field has been set.
 func (o *CardPatchRequest) HasDisplay() bool {
-	if o != nil && o.Display != nil {
+	if o != nil && !isNil(o.Display) {
 		return true
 	}
 
@@ -138,7 +138,7 @@ func (o *CardPatchRequest) SetDisplay(v CardDisplayBody) {
 
 // GetActions returns the Actions field value if set, zero value otherwise.
 func (o *CardPatchRequest) GetActions() CardActions {
-	if o == nil || o.Actions == nil {
+	if o == nil || isNil(o.Actions) {
 		var ret CardActions
 		return ret
 	}
@@ -148,7 +148,7 @@ func (o *CardPatchRequest) GetActions() CardActions {
 // GetActionsOk returns a tuple with the Actions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CardPatchRequest) GetActionsOk() (*CardActions, bool) {
-	if o == nil || o.Actions == nil {
+	if o == nil || isNil(o.Actions) {
 		return nil, false
 	}
 	return o.Actions, true
@@ -156,7 +156,7 @@ func (o *CardPatchRequest) GetActionsOk() (*CardActions, bool) {
 
 // HasActions returns a boolean if a field has been set.
 func (o *CardPatchRequest) HasActions() bool {
-	if o != nil && o.Actions != nil {
+	if o != nil && !isNil(o.Actions) {
 		return true
 	}
 
@@ -170,16 +170,16 @@ func (o *CardPatchRequest) SetActions(v CardActions) {
 
 func (o CardPatchRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Title != nil {
+	if !isNil(o.Title) {
 		toSerialize["title"] = o.Title
 	}
-	if o.Fetch != nil {
+	if !isNil(o.Fetch) {
 		toSerialize["fetch"] = o.Fetch
 	}
-	if o.Display != nil {
+	if !isNil(o.Display) {
 		toSerialize["display"] = o.Display
 	}
-	if o.Actions != nil {
+	if !isNil(o.Actions) {
 		toSerialize["actions"] = o.Actions
 	}
 	return json.Marshal(toSerialize)

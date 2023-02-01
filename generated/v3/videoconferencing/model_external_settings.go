@@ -70,7 +70,7 @@ func (o *ExternalSettings) SetCreateMeetingUrl(v string) {
 
 // GetUpdateMeetingUrl returns the UpdateMeetingUrl field value if set, zero value otherwise.
 func (o *ExternalSettings) GetUpdateMeetingUrl() string {
-	if o == nil || o.UpdateMeetingUrl == nil {
+	if o == nil || isNil(o.UpdateMeetingUrl) {
 		var ret string
 		return ret
 	}
@@ -80,7 +80,7 @@ func (o *ExternalSettings) GetUpdateMeetingUrl() string {
 // GetUpdateMeetingUrlOk returns a tuple with the UpdateMeetingUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExternalSettings) GetUpdateMeetingUrlOk() (*string, bool) {
-	if o == nil || o.UpdateMeetingUrl == nil {
+	if o == nil || isNil(o.UpdateMeetingUrl) {
 		return nil, false
 	}
 	return o.UpdateMeetingUrl, true
@@ -88,7 +88,7 @@ func (o *ExternalSettings) GetUpdateMeetingUrlOk() (*string, bool) {
 
 // HasUpdateMeetingUrl returns a boolean if a field has been set.
 func (o *ExternalSettings) HasUpdateMeetingUrl() bool {
-	if o != nil && o.UpdateMeetingUrl != nil {
+	if o != nil && !isNil(o.UpdateMeetingUrl) {
 		return true
 	}
 
@@ -102,7 +102,7 @@ func (o *ExternalSettings) SetUpdateMeetingUrl(v string) {
 
 // GetDeleteMeetingUrl returns the DeleteMeetingUrl field value if set, zero value otherwise.
 func (o *ExternalSettings) GetDeleteMeetingUrl() string {
-	if o == nil || o.DeleteMeetingUrl == nil {
+	if o == nil || isNil(o.DeleteMeetingUrl) {
 		var ret string
 		return ret
 	}
@@ -112,7 +112,7 @@ func (o *ExternalSettings) GetDeleteMeetingUrl() string {
 // GetDeleteMeetingUrlOk returns a tuple with the DeleteMeetingUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExternalSettings) GetDeleteMeetingUrlOk() (*string, bool) {
-	if o == nil || o.DeleteMeetingUrl == nil {
+	if o == nil || isNil(o.DeleteMeetingUrl) {
 		return nil, false
 	}
 	return o.DeleteMeetingUrl, true
@@ -120,7 +120,7 @@ func (o *ExternalSettings) GetDeleteMeetingUrlOk() (*string, bool) {
 
 // HasDeleteMeetingUrl returns a boolean if a field has been set.
 func (o *ExternalSettings) HasDeleteMeetingUrl() bool {
-	if o != nil && o.DeleteMeetingUrl != nil {
+	if o != nil && !isNil(o.DeleteMeetingUrl) {
 		return true
 	}
 
@@ -134,7 +134,7 @@ func (o *ExternalSettings) SetDeleteMeetingUrl(v string) {
 
 // GetUserVerifyUrl returns the UserVerifyUrl field value if set, zero value otherwise.
 func (o *ExternalSettings) GetUserVerifyUrl() string {
-	if o == nil || o.UserVerifyUrl == nil {
+	if o == nil || isNil(o.UserVerifyUrl) {
 		var ret string
 		return ret
 	}
@@ -144,7 +144,7 @@ func (o *ExternalSettings) GetUserVerifyUrl() string {
 // GetUserVerifyUrlOk returns a tuple with the UserVerifyUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExternalSettings) GetUserVerifyUrlOk() (*string, bool) {
-	if o == nil || o.UserVerifyUrl == nil {
+	if o == nil || isNil(o.UserVerifyUrl) {
 		return nil, false
 	}
 	return o.UserVerifyUrl, true
@@ -152,7 +152,7 @@ func (o *ExternalSettings) GetUserVerifyUrlOk() (*string, bool) {
 
 // HasUserVerifyUrl returns a boolean if a field has been set.
 func (o *ExternalSettings) HasUserVerifyUrl() bool {
-	if o != nil && o.UserVerifyUrl != nil {
+	if o != nil && !isNil(o.UserVerifyUrl) {
 		return true
 	}
 
@@ -169,13 +169,13 @@ func (o ExternalSettings) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["createMeetingUrl"] = o.CreateMeetingUrl
 	}
-	if o.UpdateMeetingUrl != nil {
+	if !isNil(o.UpdateMeetingUrl) {
 		toSerialize["updateMeetingUrl"] = o.UpdateMeetingUrl
 	}
-	if o.DeleteMeetingUrl != nil {
+	if !isNil(o.DeleteMeetingUrl) {
 		toSerialize["deleteMeetingUrl"] = o.DeleteMeetingUrl
 	}
-	if o.UserVerifyUrl != nil {
+	if !isNil(o.UserVerifyUrl) {
 		toSerialize["userVerifyUrl"] = o.UserVerifyUrl
 	}
 	return json.Marshal(toSerialize)

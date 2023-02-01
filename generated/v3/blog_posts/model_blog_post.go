@@ -600,7 +600,7 @@ func (o *BlogPost) GetWidgetContainers() map[string]map[string]interface{} {
 // and a boolean to check if the value has been set.
 func (o *BlogPost) GetWidgetContainersOk() (map[string]map[string]interface{}, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.WidgetContainers, true
 }
@@ -624,7 +624,7 @@ func (o *BlogPost) GetWidgets() map[string]map[string]interface{} {
 // and a boolean to check if the value has been set.
 func (o *BlogPost) GetWidgetsOk() (map[string]map[string]interface{}, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.Widgets, true
 }
@@ -1488,7 +1488,7 @@ func (o *BlogPost) GetThemeSettingsValues() map[string]map[string]interface{} {
 // and a boolean to check if the value has been set.
 func (o *BlogPost) GetThemeSettingsValuesOk() (map[string]map[string]interface{}, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ThemeSettingsValues, true
 }

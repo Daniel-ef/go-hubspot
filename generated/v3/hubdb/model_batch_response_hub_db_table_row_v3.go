@@ -44,7 +44,7 @@ func NewBatchResponseHubDbTableRowV3WithDefaults() *BatchResponseHubDbTableRowV3
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *BatchResponseHubDbTableRowV3) GetStatus() string {
-	if o == nil || o.Status == nil {
+	if o == nil || isNil(o.Status) {
 		var ret string
 		return ret
 	}
@@ -54,7 +54,7 @@ func (o *BatchResponseHubDbTableRowV3) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseHubDbTableRowV3) GetStatusOk() (*string, bool) {
-	if o == nil || o.Status == nil {
+	if o == nil || isNil(o.Status) {
 		return nil, false
 	}
 	return o.Status, true
@@ -62,7 +62,7 @@ func (o *BatchResponseHubDbTableRowV3) GetStatusOk() (*string, bool) {
 
 // HasStatus returns a boolean if a field has been set.
 func (o *BatchResponseHubDbTableRowV3) HasStatus() bool {
-	if o != nil && o.Status != nil {
+	if o != nil && !isNil(o.Status) {
 		return true
 	}
 
@@ -76,7 +76,7 @@ func (o *BatchResponseHubDbTableRowV3) SetStatus(v string) {
 
 // GetResults returns the Results field value if set, zero value otherwise.
 func (o *BatchResponseHubDbTableRowV3) GetResults() []HubDbTableRowV3 {
-	if o == nil || o.Results == nil {
+	if o == nil || isNil(o.Results) {
 		var ret []HubDbTableRowV3
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *BatchResponseHubDbTableRowV3) GetResults() []HubDbTableRowV3 {
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseHubDbTableRowV3) GetResultsOk() ([]HubDbTableRowV3, bool) {
-	if o == nil || o.Results == nil {
+	if o == nil || isNil(o.Results) {
 		return nil, false
 	}
 	return o.Results, true
@@ -94,7 +94,7 @@ func (o *BatchResponseHubDbTableRowV3) GetResultsOk() ([]HubDbTableRowV3, bool) 
 
 // HasResults returns a boolean if a field has been set.
 func (o *BatchResponseHubDbTableRowV3) HasResults() bool {
-	if o != nil && o.Results != nil {
+	if o != nil && !isNil(o.Results) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o *BatchResponseHubDbTableRowV3) SetResults(v []HubDbTableRowV3) {
 
 // GetRequestedAt returns the RequestedAt field value if set, zero value otherwise.
 func (o *BatchResponseHubDbTableRowV3) GetRequestedAt() time.Time {
-	if o == nil || o.RequestedAt == nil {
+	if o == nil || isNil(o.RequestedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -118,7 +118,7 @@ func (o *BatchResponseHubDbTableRowV3) GetRequestedAt() time.Time {
 // GetRequestedAtOk returns a tuple with the RequestedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseHubDbTableRowV3) GetRequestedAtOk() (*time.Time, bool) {
-	if o == nil || o.RequestedAt == nil {
+	if o == nil || isNil(o.RequestedAt) {
 		return nil, false
 	}
 	return o.RequestedAt, true
@@ -126,7 +126,7 @@ func (o *BatchResponseHubDbTableRowV3) GetRequestedAtOk() (*time.Time, bool) {
 
 // HasRequestedAt returns a boolean if a field has been set.
 func (o *BatchResponseHubDbTableRowV3) HasRequestedAt() bool {
-	if o != nil && o.RequestedAt != nil {
+	if o != nil && !isNil(o.RequestedAt) {
 		return true
 	}
 
@@ -140,7 +140,7 @@ func (o *BatchResponseHubDbTableRowV3) SetRequestedAt(v time.Time) {
 
 // GetStartedAt returns the StartedAt field value if set, zero value otherwise.
 func (o *BatchResponseHubDbTableRowV3) GetStartedAt() time.Time {
-	if o == nil || o.StartedAt == nil {
+	if o == nil || isNil(o.StartedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -150,7 +150,7 @@ func (o *BatchResponseHubDbTableRowV3) GetStartedAt() time.Time {
 // GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseHubDbTableRowV3) GetStartedAtOk() (*time.Time, bool) {
-	if o == nil || o.StartedAt == nil {
+	if o == nil || isNil(o.StartedAt) {
 		return nil, false
 	}
 	return o.StartedAt, true
@@ -158,7 +158,7 @@ func (o *BatchResponseHubDbTableRowV3) GetStartedAtOk() (*time.Time, bool) {
 
 // HasStartedAt returns a boolean if a field has been set.
 func (o *BatchResponseHubDbTableRowV3) HasStartedAt() bool {
-	if o != nil && o.StartedAt != nil {
+	if o != nil && !isNil(o.StartedAt) {
 		return true
 	}
 
@@ -172,7 +172,7 @@ func (o *BatchResponseHubDbTableRowV3) SetStartedAt(v time.Time) {
 
 // GetCompletedAt returns the CompletedAt field value if set, zero value otherwise.
 func (o *BatchResponseHubDbTableRowV3) GetCompletedAt() time.Time {
-	if o == nil || o.CompletedAt == nil {
+	if o == nil || isNil(o.CompletedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -182,7 +182,7 @@ func (o *BatchResponseHubDbTableRowV3) GetCompletedAt() time.Time {
 // GetCompletedAtOk returns a tuple with the CompletedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseHubDbTableRowV3) GetCompletedAtOk() (*time.Time, bool) {
-	if o == nil || o.CompletedAt == nil {
+	if o == nil || isNil(o.CompletedAt) {
 		return nil, false
 	}
 	return o.CompletedAt, true
@@ -190,7 +190,7 @@ func (o *BatchResponseHubDbTableRowV3) GetCompletedAtOk() (*time.Time, bool) {
 
 // HasCompletedAt returns a boolean if a field has been set.
 func (o *BatchResponseHubDbTableRowV3) HasCompletedAt() bool {
-	if o != nil && o.CompletedAt != nil {
+	if o != nil && !isNil(o.CompletedAt) {
 		return true
 	}
 
@@ -204,7 +204,7 @@ func (o *BatchResponseHubDbTableRowV3) SetCompletedAt(v time.Time) {
 
 // GetLinks returns the Links field value if set, zero value otherwise.
 func (o *BatchResponseHubDbTableRowV3) GetLinks() map[string]string {
-	if o == nil || o.Links == nil {
+	if o == nil || isNil(o.Links) {
 		var ret map[string]string
 		return ret
 	}
@@ -214,7 +214,7 @@ func (o *BatchResponseHubDbTableRowV3) GetLinks() map[string]string {
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseHubDbTableRowV3) GetLinksOk() (*map[string]string, bool) {
-	if o == nil || o.Links == nil {
+	if o == nil || isNil(o.Links) {
 		return nil, false
 	}
 	return o.Links, true
@@ -222,7 +222,7 @@ func (o *BatchResponseHubDbTableRowV3) GetLinksOk() (*map[string]string, bool) {
 
 // HasLinks returns a boolean if a field has been set.
 func (o *BatchResponseHubDbTableRowV3) HasLinks() bool {
-	if o != nil && o.Links != nil {
+	if o != nil && !isNil(o.Links) {
 		return true
 	}
 
@@ -236,22 +236,22 @@ func (o *BatchResponseHubDbTableRowV3) SetLinks(v map[string]string) {
 
 func (o BatchResponseHubDbTableRowV3) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Status != nil {
+	if !isNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	if o.Results != nil {
+	if !isNil(o.Results) {
 		toSerialize["results"] = o.Results
 	}
-	if o.RequestedAt != nil {
+	if !isNil(o.RequestedAt) {
 		toSerialize["requestedAt"] = o.RequestedAt
 	}
-	if o.StartedAt != nil {
+	if !isNil(o.StartedAt) {
 		toSerialize["startedAt"] = o.StartedAt
 	}
-	if o.CompletedAt != nil {
+	if !isNil(o.CompletedAt) {
 		toSerialize["completedAt"] = o.CompletedAt
 	}
-	if o.Links != nil {
+	if !isNil(o.Links) {
 		toSerialize["links"] = o.Links
 	}
 	return json.Marshal(toSerialize)

@@ -68,7 +68,7 @@ func (o *SubscriptionCreateRequest) SetEventType(v string) {
 
 // GetPropertyName returns the PropertyName field value if set, zero value otherwise.
 func (o *SubscriptionCreateRequest) GetPropertyName() string {
-	if o == nil || o.PropertyName == nil {
+	if o == nil || isNil(o.PropertyName) {
 		var ret string
 		return ret
 	}
@@ -78,7 +78,7 @@ func (o *SubscriptionCreateRequest) GetPropertyName() string {
 // GetPropertyNameOk returns a tuple with the PropertyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionCreateRequest) GetPropertyNameOk() (*string, bool) {
-	if o == nil || o.PropertyName == nil {
+	if o == nil || isNil(o.PropertyName) {
 		return nil, false
 	}
 	return o.PropertyName, true
@@ -86,7 +86,7 @@ func (o *SubscriptionCreateRequest) GetPropertyNameOk() (*string, bool) {
 
 // HasPropertyName returns a boolean if a field has been set.
 func (o *SubscriptionCreateRequest) HasPropertyName() bool {
-	if o != nil && o.PropertyName != nil {
+	if o != nil && !isNil(o.PropertyName) {
 		return true
 	}
 
@@ -100,7 +100,7 @@ func (o *SubscriptionCreateRequest) SetPropertyName(v string) {
 
 // GetActive returns the Active field value if set, zero value otherwise.
 func (o *SubscriptionCreateRequest) GetActive() bool {
-	if o == nil || o.Active == nil {
+	if o == nil || isNil(o.Active) {
 		var ret bool
 		return ret
 	}
@@ -110,7 +110,7 @@ func (o *SubscriptionCreateRequest) GetActive() bool {
 // GetActiveOk returns a tuple with the Active field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionCreateRequest) GetActiveOk() (*bool, bool) {
-	if o == nil || o.Active == nil {
+	if o == nil || isNil(o.Active) {
 		return nil, false
 	}
 	return o.Active, true
@@ -118,7 +118,7 @@ func (o *SubscriptionCreateRequest) GetActiveOk() (*bool, bool) {
 
 // HasActive returns a boolean if a field has been set.
 func (o *SubscriptionCreateRequest) HasActive() bool {
-	if o != nil && o.Active != nil {
+	if o != nil && !isNil(o.Active) {
 		return true
 	}
 
@@ -135,10 +135,10 @@ func (o SubscriptionCreateRequest) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["eventType"] = o.EventType
 	}
-	if o.PropertyName != nil {
+	if !isNil(o.PropertyName) {
 		toSerialize["propertyName"] = o.PropertyName
 	}
-	if o.Active != nil {
+	if !isNil(o.Active) {
 		toSerialize["active"] = o.Active
 	}
 	return json.Marshal(toSerialize)

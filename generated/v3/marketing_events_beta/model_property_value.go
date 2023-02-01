@@ -26,9 +26,11 @@ type PropertyValue struct {
 	SelectedByUserTimestamp int64   `json:"selectedByUserTimestamp"`
 	SourceVid               []int64 `json:"sourceVid"`
 	// Source metadata encoded as a base64 string. For example: `ZXhhbXBsZSBzdHJpbmc=`
-	SourceMetadata  string `json:"sourceMetadata"`
-	RequestId       string `json:"requestId"`
-	UpdatedByUserId *int32 `json:"updatedByUserId,omitempty"`
+	SourceMetadata                     string `json:"sourceMetadata"`
+	RequestId                          string `json:"requestId"`
+	UpdatedByUserId                    *int32 `json:"updatedByUserId,omitempty"`
+	PersistenceTimestamp               *int64 `json:"persistenceTimestamp,omitempty"`
+	UseTimestampAsPersistenceTimestamp *bool  `json:"useTimestampAsPersistenceTimestamp,omitempty"`
 }
 
 // NewPropertyValue instantiates a new PropertyValue object
@@ -325,7 +327,7 @@ func (o *PropertyValue) SetRequestId(v string) {
 
 // GetUpdatedByUserId returns the UpdatedByUserId field value if set, zero value otherwise.
 func (o *PropertyValue) GetUpdatedByUserId() int32 {
-	if o == nil || o.UpdatedByUserId == nil {
+	if o == nil || isNil(o.UpdatedByUserId) {
 		var ret int32
 		return ret
 	}
@@ -335,7 +337,7 @@ func (o *PropertyValue) GetUpdatedByUserId() int32 {
 // GetUpdatedByUserIdOk returns a tuple with the UpdatedByUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyValue) GetUpdatedByUserIdOk() (*int32, bool) {
-	if o == nil || o.UpdatedByUserId == nil {
+	if o == nil || isNil(o.UpdatedByUserId) {
 		return nil, false
 	}
 	return o.UpdatedByUserId, true
@@ -343,7 +345,7 @@ func (o *PropertyValue) GetUpdatedByUserIdOk() (*int32, bool) {
 
 // HasUpdatedByUserId returns a boolean if a field has been set.
 func (o *PropertyValue) HasUpdatedByUserId() bool {
-	if o != nil && o.UpdatedByUserId != nil {
+	if o != nil && !isNil(o.UpdatedByUserId) {
 		return true
 	}
 
@@ -353,6 +355,70 @@ func (o *PropertyValue) HasUpdatedByUserId() bool {
 // SetUpdatedByUserId gets a reference to the given int32 and assigns it to the UpdatedByUserId field.
 func (o *PropertyValue) SetUpdatedByUserId(v int32) {
 	o.UpdatedByUserId = &v
+}
+
+// GetPersistenceTimestamp returns the PersistenceTimestamp field value if set, zero value otherwise.
+func (o *PropertyValue) GetPersistenceTimestamp() int64 {
+	if o == nil || isNil(o.PersistenceTimestamp) {
+		var ret int64
+		return ret
+	}
+	return *o.PersistenceTimestamp
+}
+
+// GetPersistenceTimestampOk returns a tuple with the PersistenceTimestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PropertyValue) GetPersistenceTimestampOk() (*int64, bool) {
+	if o == nil || isNil(o.PersistenceTimestamp) {
+		return nil, false
+	}
+	return o.PersistenceTimestamp, true
+}
+
+// HasPersistenceTimestamp returns a boolean if a field has been set.
+func (o *PropertyValue) HasPersistenceTimestamp() bool {
+	if o != nil && !isNil(o.PersistenceTimestamp) {
+		return true
+	}
+
+	return false
+}
+
+// SetPersistenceTimestamp gets a reference to the given int64 and assigns it to the PersistenceTimestamp field.
+func (o *PropertyValue) SetPersistenceTimestamp(v int64) {
+	o.PersistenceTimestamp = &v
+}
+
+// GetUseTimestampAsPersistenceTimestamp returns the UseTimestampAsPersistenceTimestamp field value if set, zero value otherwise.
+func (o *PropertyValue) GetUseTimestampAsPersistenceTimestamp() bool {
+	if o == nil || isNil(o.UseTimestampAsPersistenceTimestamp) {
+		var ret bool
+		return ret
+	}
+	return *o.UseTimestampAsPersistenceTimestamp
+}
+
+// GetUseTimestampAsPersistenceTimestampOk returns a tuple with the UseTimestampAsPersistenceTimestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PropertyValue) GetUseTimestampAsPersistenceTimestampOk() (*bool, bool) {
+	if o == nil || isNil(o.UseTimestampAsPersistenceTimestamp) {
+		return nil, false
+	}
+	return o.UseTimestampAsPersistenceTimestamp, true
+}
+
+// HasUseTimestampAsPersistenceTimestamp returns a boolean if a field has been set.
+func (o *PropertyValue) HasUseTimestampAsPersistenceTimestamp() bool {
+	if o != nil && !isNil(o.UseTimestampAsPersistenceTimestamp) {
+		return true
+	}
+
+	return false
+}
+
+// SetUseTimestampAsPersistenceTimestamp gets a reference to the given bool and assigns it to the UseTimestampAsPersistenceTimestamp field.
+func (o *PropertyValue) SetUseTimestampAsPersistenceTimestamp(v bool) {
+	o.UseTimestampAsPersistenceTimestamp = &v
 }
 
 func (o PropertyValue) MarshalJSON() ([]byte, error) {
@@ -390,8 +456,14 @@ func (o PropertyValue) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["requestId"] = o.RequestId
 	}
-	if o.UpdatedByUserId != nil {
+	if !isNil(o.UpdatedByUserId) {
 		toSerialize["updatedByUserId"] = o.UpdatedByUserId
+	}
+	if !isNil(o.PersistenceTimestamp) {
+		toSerialize["persistenceTimestamp"] = o.PersistenceTimestamp
+	}
+	if !isNil(o.UseTimestampAsPersistenceTimestamp) {
+		toSerialize["useTimestampAsPersistenceTimestamp"] = o.UseTimestampAsPersistenceTimestamp
 	}
 	return json.Marshal(toSerialize)
 }

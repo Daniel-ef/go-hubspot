@@ -74,7 +74,11 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
+          "private_apps_legacy" : [ "communication_preferences.read" ]
+        }, {
           "oauth2_legacy" : [ "communication_preferences.read_write" ]
+        }, {
+          "private_apps_legacy" : [ "communication_preferences.read_write" ]
         }, {
           "oauth2_legacy" : [ "communication_preferences.read" ]
         } ]
@@ -135,7 +139,11 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
+          "private_apps_legacy" : [ "communication_preferences.read" ]
+        }, {
           "oauth2_legacy" : [ "communication_preferences.read_write" ]
+        }, {
+          "private_apps_legacy" : [ "communication_preferences.read_write" ]
         }, {
           "oauth2_legacy" : [ "communication_preferences.read" ]
         } ]
@@ -188,6 +196,10 @@
           "hapikey" : [ ]
         }, {
           "oauth2_legacy" : [ "communication_preferences.read_write" ]
+        }, {
+          "private_apps_legacy" : [ "communication_preferences.write" ]
+        }, {
+          "private_apps_legacy" : [ "communication_preferences.read_write" ]
         } ]
       }
     },
@@ -238,6 +250,10 @@
           "hapikey" : [ ]
         }, {
           "oauth2_legacy" : [ "communication_preferences.read_write" ]
+        }, {
+          "private_apps_legacy" : [ "communication_preferences.write" ]
+        }, {
+          "private_apps_legacy" : [ "communication_preferences.read_write" ]
         } ]
       }
     }
@@ -523,8 +539,13 @@
         "type" : "apiKey",
         "name" : "hapikey",
         "in" : "query"
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
       }
     }
   },
-  "x-hubspot-available-client-libraries" : [ "Python", "Ruby" ]
+  "x-hubspot-available-client-libraries" : [ "PHP", "Node", "Python", "Ruby" ]
 }

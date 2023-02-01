@@ -83,7 +83,7 @@ func (o *AccessTokenInfoResponse) SetToken(v string) {
 
 // GetUser returns the User field value if set, zero value otherwise.
 func (o *AccessTokenInfoResponse) GetUser() string {
-	if o == nil || o.User == nil {
+	if o == nil || isNil(o.User) {
 		var ret string
 		return ret
 	}
@@ -93,7 +93,7 @@ func (o *AccessTokenInfoResponse) GetUser() string {
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessTokenInfoResponse) GetUserOk() (*string, bool) {
-	if o == nil || o.User == nil {
+	if o == nil || isNil(o.User) {
 		return nil, false
 	}
 	return o.User, true
@@ -101,7 +101,7 @@ func (o *AccessTokenInfoResponse) GetUserOk() (*string, bool) {
 
 // HasUser returns a boolean if a field has been set.
 func (o *AccessTokenInfoResponse) HasUser() bool {
-	if o != nil && o.User != nil {
+	if o != nil && !isNil(o.User) {
 		return true
 	}
 
@@ -115,7 +115,7 @@ func (o *AccessTokenInfoResponse) SetUser(v string) {
 
 // GetHubDomain returns the HubDomain field value if set, zero value otherwise.
 func (o *AccessTokenInfoResponse) GetHubDomain() string {
-	if o == nil || o.HubDomain == nil {
+	if o == nil || isNil(o.HubDomain) {
 		var ret string
 		return ret
 	}
@@ -125,7 +125,7 @@ func (o *AccessTokenInfoResponse) GetHubDomain() string {
 // GetHubDomainOk returns a tuple with the HubDomain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessTokenInfoResponse) GetHubDomainOk() (*string, bool) {
-	if o == nil || o.HubDomain == nil {
+	if o == nil || isNil(o.HubDomain) {
 		return nil, false
 	}
 	return o.HubDomain, true
@@ -133,7 +133,7 @@ func (o *AccessTokenInfoResponse) GetHubDomainOk() (*string, bool) {
 
 // HasHubDomain returns a boolean if a field has been set.
 func (o *AccessTokenInfoResponse) HasHubDomain() bool {
-	if o != nil && o.HubDomain != nil {
+	if o != nil && !isNil(o.HubDomain) {
 		return true
 	}
 
@@ -366,10 +366,10 @@ func (o AccessTokenInfoResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["token"] = o.Token
 	}
-	if o.User != nil {
+	if !isNil(o.User) {
 		toSerialize["user"] = o.User
 	}
-	if o.HubDomain != nil {
+	if !isNil(o.HubDomain) {
 		toSerialize["hub_domain"] = o.HubDomain
 	}
 	if true {

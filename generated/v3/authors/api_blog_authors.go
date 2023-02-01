@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"reflect"
 	"strings"
@@ -48,9 +48,9 @@ Archive Delete a Blog Author
 
 Delete the Blog Author object identified by the id in the path.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectId The Blog Author id.
- @return ApiArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectId The Blog Author id.
+	@return ApiArchiveRequest
 */
 func (a *BlogAuthorsApiService) Archive(ctx context.Context, objectId string) ApiArchiveRequest {
 	return ApiArchiveRequest{
@@ -110,6 +110,20 @@ func (a *BlogAuthorsApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Respo
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -138,6 +152,7 @@ func (a *BlogAuthorsApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Respo
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -166,8 +181,8 @@ AttachToLanguageGroup Attach a Blog Author to a multi-language group
 
 Attach a Blog Author to a multi-language group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAttachToLanguageGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAttachToLanguageGroupRequest
 */
 func (a *BlogAuthorsApiService) AttachToLanguageGroup(ctx context.Context) ApiAttachToLanguageGroupRequest {
 	return ApiAttachToLanguageGroupRequest{
@@ -177,7 +192,8 @@ func (a *BlogAuthorsApiService) AttachToLanguageGroup(ctx context.Context) ApiAt
 }
 
 // Execute executes the request
-//  @return Error
+//
+//	@return Error
 func (a *BlogAuthorsApiService) AttachToLanguageGroupExecute(r ApiAttachToLanguageGroupRequest) (*Error, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -229,6 +245,20 @@ func (a *BlogAuthorsApiService) AttachToLanguageGroupExecute(r ApiAttachToLangua
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -257,6 +287,7 @@ func (a *BlogAuthorsApiService) AttachToLanguageGroupExecute(r ApiAttachToLangua
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -294,8 +325,8 @@ BatchArchive Delete a batch of Blog Authors
 
 Delete the Blog Author objects identified in the request body.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBatchArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBatchArchiveRequest
 */
 func (a *BlogAuthorsApiService) BatchArchive(ctx context.Context) ApiBatchArchiveRequest {
 	return ApiBatchArchiveRequest{
@@ -355,6 +386,20 @@ func (a *BlogAuthorsApiService) BatchArchiveExecute(r ApiBatchArchiveRequest) (*
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -383,6 +428,7 @@ func (a *BlogAuthorsApiService) BatchArchiveExecute(r ApiBatchArchiveRequest) (*
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -411,8 +457,8 @@ BatchCreate Create a batch of Blog Authors
 
 Create the Blog Author objects detailed in the request body.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBatchCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBatchCreateRequest
 */
 func (a *BlogAuthorsApiService) BatchCreate(ctx context.Context) ApiBatchCreateRequest {
 	return ApiBatchCreateRequest{
@@ -422,7 +468,8 @@ func (a *BlogAuthorsApiService) BatchCreate(ctx context.Context) ApiBatchCreateR
 }
 
 // Execute executes the request
-//  @return BatchResponseBlogAuthor
+//
+//	@return BatchResponseBlogAuthor
 func (a *BlogAuthorsApiService) BatchCreateExecute(r ApiBatchCreateRequest) (*BatchResponseBlogAuthor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -474,6 +521,20 @@ func (a *BlogAuthorsApiService) BatchCreateExecute(r ApiBatchCreateRequest) (*Ba
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -502,6 +563,7 @@ func (a *BlogAuthorsApiService) BatchCreateExecute(r ApiBatchCreateRequest) (*Ba
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -546,8 +608,8 @@ BatchRead Retrieve a batch of Blog Authors
 
 Retrieve the Blog Author objects identified in the request body.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBatchReadRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBatchReadRequest
 */
 func (a *BlogAuthorsApiService) BatchRead(ctx context.Context) ApiBatchReadRequest {
 	return ApiBatchReadRequest{
@@ -557,7 +619,8 @@ func (a *BlogAuthorsApiService) BatchRead(ctx context.Context) ApiBatchReadReque
 }
 
 // Execute executes the request
-//  @return BatchResponseBlogAuthor
+//
+//	@return BatchResponseBlogAuthor
 func (a *BlogAuthorsApiService) BatchReadExecute(r ApiBatchReadRequest) (*BatchResponseBlogAuthor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -612,6 +675,20 @@ func (a *BlogAuthorsApiService) BatchReadExecute(r ApiBatchReadRequest) (*BatchR
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -640,6 +717,7 @@ func (a *BlogAuthorsApiService) BatchReadExecute(r ApiBatchReadRequest) (*BatchR
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -684,8 +762,8 @@ BatchUpdate Update a batch of Blog Authors
 
 Update the Blog Author objects identified in the request body.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBatchUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBatchUpdateRequest
 */
 func (a *BlogAuthorsApiService) BatchUpdate(ctx context.Context) ApiBatchUpdateRequest {
 	return ApiBatchUpdateRequest{
@@ -695,7 +773,8 @@ func (a *BlogAuthorsApiService) BatchUpdate(ctx context.Context) ApiBatchUpdateR
 }
 
 // Execute executes the request
-//  @return BatchResponseBlogAuthor
+//
+//	@return BatchResponseBlogAuthor
 func (a *BlogAuthorsApiService) BatchUpdateExecute(r ApiBatchUpdateRequest) (*BatchResponseBlogAuthor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -750,6 +829,20 @@ func (a *BlogAuthorsApiService) BatchUpdateExecute(r ApiBatchUpdateRequest) (*Ba
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -778,6 +871,7 @@ func (a *BlogAuthorsApiService) BatchUpdateExecute(r ApiBatchUpdateRequest) (*Ba
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -815,8 +909,8 @@ Create Create a new Blog Author
 
 Create a new Blog Author.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateRequest
 */
 func (a *BlogAuthorsApiService) Create(ctx context.Context) ApiCreateRequest {
 	return ApiCreateRequest{
@@ -826,7 +920,8 @@ func (a *BlogAuthorsApiService) Create(ctx context.Context) ApiCreateRequest {
 }
 
 // Execute executes the request
-//  @return BlogAuthor
+//
+//	@return BlogAuthor
 func (a *BlogAuthorsApiService) CreateExecute(r ApiCreateRequest) (*BlogAuthor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -878,6 +973,20 @@ func (a *BlogAuthorsApiService) CreateExecute(r ApiCreateRequest) (*BlogAuthor, 
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -906,6 +1015,7 @@ func (a *BlogAuthorsApiService) CreateExecute(r ApiCreateRequest) (*BlogAuthor, 
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -943,8 +1053,8 @@ CreateLanguageVariation Create a new language variation
 
 Create a new language variation from an existing Blog Author.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateLanguageVariationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateLanguageVariationRequest
 */
 func (a *BlogAuthorsApiService) CreateLanguageVariation(ctx context.Context) ApiCreateLanguageVariationRequest {
 	return ApiCreateLanguageVariationRequest{
@@ -954,7 +1064,8 @@ func (a *BlogAuthorsApiService) CreateLanguageVariation(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return BlogAuthor
+//
+//	@return BlogAuthor
 func (a *BlogAuthorsApiService) CreateLanguageVariationExecute(r ApiCreateLanguageVariationRequest) (*BlogAuthor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -1006,6 +1117,20 @@ func (a *BlogAuthorsApiService) CreateLanguageVariationExecute(r ApiCreateLangua
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1034,6 +1159,7 @@ func (a *BlogAuthorsApiService) CreateLanguageVariationExecute(r ApiCreateLangua
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1071,8 +1197,8 @@ DetachFromLanguageGroup Detach a Blog Author from a multi-language group
 
 Detach a Blog Author from a multi-language group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDetachFromLanguageGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDetachFromLanguageGroupRequest
 */
 func (a *BlogAuthorsApiService) DetachFromLanguageGroup(ctx context.Context) ApiDetachFromLanguageGroupRequest {
 	return ApiDetachFromLanguageGroupRequest{
@@ -1082,7 +1208,8 @@ func (a *BlogAuthorsApiService) DetachFromLanguageGroup(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return Error
+//
+//	@return Error
 func (a *BlogAuthorsApiService) DetachFromLanguageGroupExecute(r ApiDetachFromLanguageGroupRequest) (*Error, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -1134,6 +1261,20 @@ func (a *BlogAuthorsApiService) DetachFromLanguageGroupExecute(r ApiDetachFromLa
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1162,6 +1303,7 @@ func (a *BlogAuthorsApiService) DetachFromLanguageGroupExecute(r ApiDetachFromLa
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1200,9 +1342,9 @@ GetByID Retrieve a Blog Author
 
 Retrieve the Blog Author object identified by the id in the path.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectId The Blog Author id.
- @return ApiGetByIDRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectId The Blog Author id.
+	@return ApiGetByIDRequest
 */
 func (a *BlogAuthorsApiService) GetByID(ctx context.Context, objectId string) ApiGetByIDRequest {
 	return ApiGetByIDRequest{
@@ -1213,7 +1355,8 @@ func (a *BlogAuthorsApiService) GetByID(ctx context.Context, objectId string) Ap
 }
 
 // Execute executes the request
-//  @return BlogAuthor
+//
+//	@return BlogAuthor
 func (a *BlogAuthorsApiService) GetByIDExecute(r ApiGetByIDRequest) (*BlogAuthor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -1264,6 +1407,20 @@ func (a *BlogAuthorsApiService) GetByIDExecute(r ApiGetByIDRequest) (*BlogAuthor
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1292,6 +1449,7 @@ func (a *BlogAuthorsApiService) GetByIDExecute(r ApiGetByIDRequest) (*BlogAuthor
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1392,9 +1550,8 @@ GetPage Get all Blog Authors
 
 Get the list of blog authors. Supports paging and filtering. This method would be useful for an integration that examined these models and used an external service to suggest edits.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetPageRequest
 */
 func (a *BlogAuthorsApiService) GetPage(ctx context.Context) ApiGetPageRequest {
 	return ApiGetPageRequest{
@@ -1404,7 +1561,8 @@ func (a *BlogAuthorsApiService) GetPage(ctx context.Context) ApiGetPageRequest {
 }
 
 // Execute executes the request
-//  @return CollectionResponseWithTotalBlogAuthorForwardPaging
+//
+//	@return CollectionResponseWithTotalBlogAuthorForwardPaging
 func (a *BlogAuthorsApiService) GetPageExecute(r ApiGetPageRequest) (*CollectionResponseWithTotalBlogAuthorForwardPaging, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -1489,6 +1647,20 @@ func (a *BlogAuthorsApiService) GetPageExecute(r ApiGetPageRequest) (*Collection
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1517,6 +1689,7 @@ func (a *BlogAuthorsApiService) GetPageExecute(r ApiGetPageRequest) (*Collection
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1554,8 +1727,8 @@ SetLanguagePrimary Set a new primary language
 
 Set a Blog Author as the primary language of a multi-language group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSetLanguagePrimaryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSetLanguagePrimaryRequest
 */
 func (a *BlogAuthorsApiService) SetLanguagePrimary(ctx context.Context) ApiSetLanguagePrimaryRequest {
 	return ApiSetLanguagePrimaryRequest{
@@ -1615,6 +1788,20 @@ func (a *BlogAuthorsApiService) SetLanguagePrimaryExecute(r ApiSetLanguagePrimar
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1643,6 +1830,7 @@ func (a *BlogAuthorsApiService) SetLanguagePrimaryExecute(r ApiSetLanguagePrimar
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -1680,10 +1868,9 @@ Update Update a Blog Author
 Sparse updates a single Blog Author object identified by the id in the path.
 All the column values need not be specified. Only the that need to be modified can be specified.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectId The Blog Author id.
- @return ApiUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectId The Blog Author id.
+	@return ApiUpdateRequest
 */
 func (a *BlogAuthorsApiService) Update(ctx context.Context, objectId string) ApiUpdateRequest {
 	return ApiUpdateRequest{
@@ -1694,7 +1881,8 @@ func (a *BlogAuthorsApiService) Update(ctx context.Context, objectId string) Api
 }
 
 // Execute executes the request
-//  @return BlogAuthor
+//
+//	@return BlogAuthor
 func (a *BlogAuthorsApiService) UpdateExecute(r ApiUpdateRequest) (*BlogAuthor, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPatch
@@ -1750,6 +1938,20 @@ func (a *BlogAuthorsApiService) UpdateExecute(r ApiUpdateRequest) (*BlogAuthor, 
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1778,6 +1980,7 @@ func (a *BlogAuthorsApiService) UpdateExecute(r ApiUpdateRequest) (*BlogAuthor, 
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1815,8 +2018,8 @@ UpdateLanguages Update languages of multi-language group
 
 Explicitly set new languages for each Blog Author in a multi-language group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUpdateLanguagesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUpdateLanguagesRequest
 */
 func (a *BlogAuthorsApiService) UpdateLanguages(ctx context.Context) ApiUpdateLanguagesRequest {
 	return ApiUpdateLanguagesRequest{
@@ -1826,7 +2029,8 @@ func (a *BlogAuthorsApiService) UpdateLanguages(ctx context.Context) ApiUpdateLa
 }
 
 // Execute executes the request
-//  @return Error
+//
+//	@return Error
 func (a *BlogAuthorsApiService) UpdateLanguagesExecute(r ApiUpdateLanguagesRequest) (*Error, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -1878,6 +2082,20 @@ func (a *BlogAuthorsApiService) UpdateLanguagesExecute(r ApiUpdateLanguagesReque
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1906,6 +2124,7 @@ func (a *BlogAuthorsApiService) UpdateLanguagesExecute(r ApiUpdateLanguagesReque
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -93,7 +93,7 @@ func (o *PropertyGroupCreate) SetLabel(v string) {
 
 // GetDisplayOrder returns the DisplayOrder field value if set, zero value otherwise.
 func (o *PropertyGroupCreate) GetDisplayOrder() int32 {
-	if o == nil || o.DisplayOrder == nil {
+	if o == nil || isNil(o.DisplayOrder) {
 		var ret int32
 		return ret
 	}
@@ -103,7 +103,7 @@ func (o *PropertyGroupCreate) GetDisplayOrder() int32 {
 // GetDisplayOrderOk returns a tuple with the DisplayOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyGroupCreate) GetDisplayOrderOk() (*int32, bool) {
-	if o == nil || o.DisplayOrder == nil {
+	if o == nil || isNil(o.DisplayOrder) {
 		return nil, false
 	}
 	return o.DisplayOrder, true
@@ -111,7 +111,7 @@ func (o *PropertyGroupCreate) GetDisplayOrderOk() (*int32, bool) {
 
 // HasDisplayOrder returns a boolean if a field has been set.
 func (o *PropertyGroupCreate) HasDisplayOrder() bool {
-	if o != nil && o.DisplayOrder != nil {
+	if o != nil && !isNil(o.DisplayOrder) {
 		return true
 	}
 
@@ -131,7 +131,7 @@ func (o PropertyGroupCreate) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["label"] = o.Label
 	}
-	if o.DisplayOrder != nil {
+	if !isNil(o.DisplayOrder) {
 		toSerialize["displayOrder"] = o.DisplayOrder
 	}
 	return json.Marshal(toSerialize)

@@ -69,7 +69,7 @@ func (o *TimelineEventTemplateTokenUpdateRequest) SetLabel(v string) {
 
 // GetObjectPropertyName returns the ObjectPropertyName field value if set, zero value otherwise.
 func (o *TimelineEventTemplateTokenUpdateRequest) GetObjectPropertyName() string {
-	if o == nil || o.ObjectPropertyName == nil {
+	if o == nil || isNil(o.ObjectPropertyName) {
 		var ret string
 		return ret
 	}
@@ -79,7 +79,7 @@ func (o *TimelineEventTemplateTokenUpdateRequest) GetObjectPropertyName() string
 // GetObjectPropertyNameOk returns a tuple with the ObjectPropertyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TimelineEventTemplateTokenUpdateRequest) GetObjectPropertyNameOk() (*string, bool) {
-	if o == nil || o.ObjectPropertyName == nil {
+	if o == nil || isNil(o.ObjectPropertyName) {
 		return nil, false
 	}
 	return o.ObjectPropertyName, true
@@ -87,7 +87,7 @@ func (o *TimelineEventTemplateTokenUpdateRequest) GetObjectPropertyNameOk() (*st
 
 // HasObjectPropertyName returns a boolean if a field has been set.
 func (o *TimelineEventTemplateTokenUpdateRequest) HasObjectPropertyName() bool {
-	if o != nil && o.ObjectPropertyName != nil {
+	if o != nil && !isNil(o.ObjectPropertyName) {
 		return true
 	}
 
@@ -128,7 +128,7 @@ func (o TimelineEventTemplateTokenUpdateRequest) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["label"] = o.Label
 	}
-	if o.ObjectPropertyName != nil {
+	if !isNil(o.ObjectPropertyName) {
 		toSerialize["objectPropertyName"] = o.ObjectPropertyName
 	}
 	if true {

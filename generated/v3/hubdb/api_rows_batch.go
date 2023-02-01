@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"strings"
 )
@@ -46,9 +46,9 @@ BatchCloneDraftTableRows Clone rows in batch
 
 Clones rows in the `draft` version of the specified table, given a set of row ids.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tableIdOrName The ID or name of the table
- @return ApiBatchCloneDraftTableRowsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tableIdOrName The ID or name of the table
+	@return ApiBatchCloneDraftTableRowsRequest
 */
 func (a *RowsBatchApiService) BatchCloneDraftTableRows(ctx context.Context, tableIdOrName string) ApiBatchCloneDraftTableRowsRequest {
 	return ApiBatchCloneDraftTableRowsRequest{
@@ -59,7 +59,8 @@ func (a *RowsBatchApiService) BatchCloneDraftTableRows(ctx context.Context, tabl
 }
 
 // Execute executes the request
-//  @return BatchResponseHubDbTableRowV3
+//
+//	@return BatchResponseHubDbTableRowV3
 func (a *RowsBatchApiService) BatchCloneDraftTableRowsExecute(r ApiBatchCloneDraftTableRowsRequest) (*BatchResponseHubDbTableRowV3, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -112,6 +113,20 @@ func (a *RowsBatchApiService) BatchCloneDraftTableRowsExecute(r ApiBatchCloneDra
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -140,6 +155,7 @@ func (a *RowsBatchApiService) BatchCloneDraftTableRowsExecute(r ApiBatchCloneDra
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -178,9 +194,9 @@ BatchCreateDraftTableRows Create rows in batch
 
 Creates rows in the `draft` version of the specified table, given an array of row objects. See the overview section for more details with an example.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tableIdOrName The ID or name of the table
- @return ApiBatchCreateDraftTableRowsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tableIdOrName The ID or name of the table
+	@return ApiBatchCreateDraftTableRowsRequest
 */
 func (a *RowsBatchApiService) BatchCreateDraftTableRows(ctx context.Context, tableIdOrName string) ApiBatchCreateDraftTableRowsRequest {
 	return ApiBatchCreateDraftTableRowsRequest{
@@ -191,7 +207,8 @@ func (a *RowsBatchApiService) BatchCreateDraftTableRows(ctx context.Context, tab
 }
 
 // Execute executes the request
-//  @return BatchResponseHubDbTableRowV3
+//
+//	@return BatchResponseHubDbTableRowV3
 func (a *RowsBatchApiService) BatchCreateDraftTableRowsExecute(r ApiBatchCreateDraftTableRowsRequest) (*BatchResponseHubDbTableRowV3, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -244,6 +261,20 @@ func (a *RowsBatchApiService) BatchCreateDraftTableRowsExecute(r ApiBatchCreateD
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -272,6 +303,7 @@ func (a *RowsBatchApiService) BatchCreateDraftTableRowsExecute(r ApiBatchCreateD
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -310,9 +342,9 @@ BatchPurgeDraftTableRows Permanently deletes rows
 
 Permanently deletes rows from the `draft` version of the table, given a set of row ids.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tableIdOrName The ID or name of the table
- @return ApiBatchPurgeDraftTableRowsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tableIdOrName The ID or name of the table
+	@return ApiBatchPurgeDraftTableRowsRequest
 */
 func (a *RowsBatchApiService) BatchPurgeDraftTableRows(ctx context.Context, tableIdOrName string) ApiBatchPurgeDraftTableRowsRequest {
 	return ApiBatchPurgeDraftTableRowsRequest{
@@ -374,6 +406,20 @@ func (a *RowsBatchApiService) BatchPurgeDraftTableRowsExecute(r ApiBatchPurgeDra
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -402,6 +448,7 @@ func (a *RowsBatchApiService) BatchPurgeDraftTableRowsExecute(r ApiBatchPurgeDra
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -431,9 +478,9 @@ BatchReadDraftTableRows Get a set of rows from draft table
 
 Returns rows in the `draft` version of the specified table, given a set of row ids.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tableIdOrName The ID or name of the table
- @return ApiBatchReadDraftTableRowsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tableIdOrName The ID or name of the table
+	@return ApiBatchReadDraftTableRowsRequest
 */
 func (a *RowsBatchApiService) BatchReadDraftTableRows(ctx context.Context, tableIdOrName string) ApiBatchReadDraftTableRowsRequest {
 	return ApiBatchReadDraftTableRowsRequest{
@@ -444,7 +491,8 @@ func (a *RowsBatchApiService) BatchReadDraftTableRows(ctx context.Context, table
 }
 
 // Execute executes the request
-//  @return BatchResponseHubDbTableRowV3
+//
+//	@return BatchResponseHubDbTableRowV3
 func (a *RowsBatchApiService) BatchReadDraftTableRowsExecute(r ApiBatchReadDraftTableRowsRequest) (*BatchResponseHubDbTableRowV3, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -497,6 +545,20 @@ func (a *RowsBatchApiService) BatchReadDraftTableRowsExecute(r ApiBatchReadDraft
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -525,6 +587,7 @@ func (a *RowsBatchApiService) BatchReadDraftTableRowsExecute(r ApiBatchReadDraft
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -564,9 +627,9 @@ BatchReadTableRows Get a set of rows
 Returns rows in the `published` version of the specified table, given a set of row ids.
 **Note:** This endpoint can be accessed without any authentication if the table is set to be allowed for public access.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tableIdOrName The ID or name of the table to query.
- @return ApiBatchReadTableRowsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tableIdOrName The ID or name of the table to query.
+	@return ApiBatchReadTableRowsRequest
 */
 func (a *RowsBatchApiService) BatchReadTableRows(ctx context.Context, tableIdOrName string) ApiBatchReadTableRowsRequest {
 	return ApiBatchReadTableRowsRequest{
@@ -577,7 +640,8 @@ func (a *RowsBatchApiService) BatchReadTableRows(ctx context.Context, tableIdOrN
 }
 
 // Execute executes the request
-//  @return BatchResponseHubDbTableRowV3
+//
+//	@return BatchResponseHubDbTableRowV3
 func (a *RowsBatchApiService) BatchReadTableRowsExecute(r ApiBatchReadTableRowsRequest) (*BatchResponseHubDbTableRowV3, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -630,6 +694,20 @@ func (a *RowsBatchApiService) BatchReadTableRowsExecute(r ApiBatchReadTableRowsR
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -658,6 +736,7 @@ func (a *RowsBatchApiService) BatchReadTableRowsExecute(r ApiBatchReadTableRowsR
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -696,9 +775,9 @@ BatchReplaceDraftTableRows Replace rows in batch in draft table
 
 Replaces multiple rows as a batch in the `draft` version of the table. See the endpoint `PUT /tables/{tableIdOrName}/rows/{rowId}/draft` for details on updating a single row.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tableIdOrName The ID or name of the table
- @return ApiBatchReplaceDraftTableRowsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tableIdOrName The ID or name of the table
+	@return ApiBatchReplaceDraftTableRowsRequest
 */
 func (a *RowsBatchApiService) BatchReplaceDraftTableRows(ctx context.Context, tableIdOrName string) ApiBatchReplaceDraftTableRowsRequest {
 	return ApiBatchReplaceDraftTableRowsRequest{
@@ -709,7 +788,8 @@ func (a *RowsBatchApiService) BatchReplaceDraftTableRows(ctx context.Context, ta
 }
 
 // Execute executes the request
-//  @return BatchResponseHubDbTableRowV3
+//
+//	@return BatchResponseHubDbTableRowV3
 func (a *RowsBatchApiService) BatchReplaceDraftTableRowsExecute(r ApiBatchReplaceDraftTableRowsRequest) (*BatchResponseHubDbTableRowV3, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -762,6 +842,20 @@ func (a *RowsBatchApiService) BatchReplaceDraftTableRowsExecute(r ApiBatchReplac
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -790,6 +884,7 @@ func (a *RowsBatchApiService) BatchReplaceDraftTableRowsExecute(r ApiBatchReplac
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -828,9 +923,9 @@ BatchUpdateDraftTableRows Update rows in batch in draft table
 
 Updates multiple rows as a batch in the `draft` version of the table. See the endpoint `PATCH /tables/{tableIdOrName}/rows/{rowId}/draft` for details on updating a single row.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tableIdOrName The ID or name of the table
- @return ApiBatchUpdateDraftTableRowsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tableIdOrName The ID or name of the table
+	@return ApiBatchUpdateDraftTableRowsRequest
 */
 func (a *RowsBatchApiService) BatchUpdateDraftTableRows(ctx context.Context, tableIdOrName string) ApiBatchUpdateDraftTableRowsRequest {
 	return ApiBatchUpdateDraftTableRowsRequest{
@@ -841,7 +936,8 @@ func (a *RowsBatchApiService) BatchUpdateDraftTableRows(ctx context.Context, tab
 }
 
 // Execute executes the request
-//  @return BatchResponseHubDbTableRowV3
+//
+//	@return BatchResponseHubDbTableRowV3
 func (a *RowsBatchApiService) BatchUpdateDraftTableRowsExecute(r ApiBatchUpdateDraftTableRowsRequest) (*BatchResponseHubDbTableRowV3, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -894,6 +990,20 @@ func (a *RowsBatchApiService) BatchUpdateDraftTableRowsExecute(r ApiBatchUpdateD
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -922,6 +1032,7 @@ func (a *RowsBatchApiService) BatchUpdateDraftTableRowsExecute(r ApiBatchUpdateD
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

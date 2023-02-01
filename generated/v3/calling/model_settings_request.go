@@ -99,7 +99,7 @@ func (o *SettingsRequest) SetUrl(v string) {
 
 // GetHeight returns the Height field value if set, zero value otherwise.
 func (o *SettingsRequest) GetHeight() int32 {
-	if o == nil || o.Height == nil {
+	if o == nil || isNil(o.Height) {
 		var ret int32
 		return ret
 	}
@@ -109,7 +109,7 @@ func (o *SettingsRequest) GetHeight() int32 {
 // GetHeightOk returns a tuple with the Height field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SettingsRequest) GetHeightOk() (*int32, bool) {
-	if o == nil || o.Height == nil {
+	if o == nil || isNil(o.Height) {
 		return nil, false
 	}
 	return o.Height, true
@@ -117,7 +117,7 @@ func (o *SettingsRequest) GetHeightOk() (*int32, bool) {
 
 // HasHeight returns a boolean if a field has been set.
 func (o *SettingsRequest) HasHeight() bool {
-	if o != nil && o.Height != nil {
+	if o != nil && !isNil(o.Height) {
 		return true
 	}
 
@@ -131,7 +131,7 @@ func (o *SettingsRequest) SetHeight(v int32) {
 
 // GetWidth returns the Width field value if set, zero value otherwise.
 func (o *SettingsRequest) GetWidth() int32 {
-	if o == nil || o.Width == nil {
+	if o == nil || isNil(o.Width) {
 		var ret int32
 		return ret
 	}
@@ -141,7 +141,7 @@ func (o *SettingsRequest) GetWidth() int32 {
 // GetWidthOk returns a tuple with the Width field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SettingsRequest) GetWidthOk() (*int32, bool) {
-	if o == nil || o.Width == nil {
+	if o == nil || isNil(o.Width) {
 		return nil, false
 	}
 	return o.Width, true
@@ -149,7 +149,7 @@ func (o *SettingsRequest) GetWidthOk() (*int32, bool) {
 
 // HasWidth returns a boolean if a field has been set.
 func (o *SettingsRequest) HasWidth() bool {
-	if o != nil && o.Width != nil {
+	if o != nil && !isNil(o.Width) {
 		return true
 	}
 
@@ -163,7 +163,7 @@ func (o *SettingsRequest) SetWidth(v int32) {
 
 // GetIsReady returns the IsReady field value if set, zero value otherwise.
 func (o *SettingsRequest) GetIsReady() bool {
-	if o == nil || o.IsReady == nil {
+	if o == nil || isNil(o.IsReady) {
 		var ret bool
 		return ret
 	}
@@ -173,7 +173,7 @@ func (o *SettingsRequest) GetIsReady() bool {
 // GetIsReadyOk returns a tuple with the IsReady field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SettingsRequest) GetIsReadyOk() (*bool, bool) {
-	if o == nil || o.IsReady == nil {
+	if o == nil || isNil(o.IsReady) {
 		return nil, false
 	}
 	return o.IsReady, true
@@ -181,7 +181,7 @@ func (o *SettingsRequest) GetIsReadyOk() (*bool, bool) {
 
 // HasIsReady returns a boolean if a field has been set.
 func (o *SettingsRequest) HasIsReady() bool {
-	if o != nil && o.IsReady != nil {
+	if o != nil && !isNil(o.IsReady) {
 		return true
 	}
 
@@ -195,7 +195,7 @@ func (o *SettingsRequest) SetIsReady(v bool) {
 
 // GetSupportsCustomObjects returns the SupportsCustomObjects field value if set, zero value otherwise.
 func (o *SettingsRequest) GetSupportsCustomObjects() bool {
-	if o == nil || o.SupportsCustomObjects == nil {
+	if o == nil || isNil(o.SupportsCustomObjects) {
 		var ret bool
 		return ret
 	}
@@ -205,7 +205,7 @@ func (o *SettingsRequest) GetSupportsCustomObjects() bool {
 // GetSupportsCustomObjectsOk returns a tuple with the SupportsCustomObjects field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SettingsRequest) GetSupportsCustomObjectsOk() (*bool, bool) {
-	if o == nil || o.SupportsCustomObjects == nil {
+	if o == nil || isNil(o.SupportsCustomObjects) {
 		return nil, false
 	}
 	return o.SupportsCustomObjects, true
@@ -213,7 +213,7 @@ func (o *SettingsRequest) GetSupportsCustomObjectsOk() (*bool, bool) {
 
 // HasSupportsCustomObjects returns a boolean if a field has been set.
 func (o *SettingsRequest) HasSupportsCustomObjects() bool {
-	if o != nil && o.SupportsCustomObjects != nil {
+	if o != nil && !isNil(o.SupportsCustomObjects) {
 		return true
 	}
 
@@ -233,16 +233,16 @@ func (o SettingsRequest) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["url"] = o.Url
 	}
-	if o.Height != nil {
+	if !isNil(o.Height) {
 		toSerialize["height"] = o.Height
 	}
-	if o.Width != nil {
+	if !isNil(o.Width) {
 		toSerialize["width"] = o.Width
 	}
-	if o.IsReady != nil {
+	if !isNil(o.IsReady) {
 		toSerialize["isReady"] = o.IsReady
 	}
-	if o.SupportsCustomObjects != nil {
+	if !isNil(o.SupportsCustomObjects) {
 		toSerialize["supportsCustomObjects"] = o.SupportsCustomObjects
 	}
 	return json.Marshal(toSerialize)

@@ -126,7 +126,7 @@ func (o *Error) SetCategory(v string) {
 
 // GetSubCategory returns the SubCategory field value if set, zero value otherwise.
 func (o *Error) GetSubCategory() string {
-	if o == nil || o.SubCategory == nil {
+	if o == nil || isNil(o.SubCategory) {
 		var ret string
 		return ret
 	}
@@ -136,7 +136,7 @@ func (o *Error) GetSubCategory() string {
 // GetSubCategoryOk returns a tuple with the SubCategory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Error) GetSubCategoryOk() (*string, bool) {
-	if o == nil || o.SubCategory == nil {
+	if o == nil || isNil(o.SubCategory) {
 		return nil, false
 	}
 	return o.SubCategory, true
@@ -144,7 +144,7 @@ func (o *Error) GetSubCategoryOk() (*string, bool) {
 
 // HasSubCategory returns a boolean if a field has been set.
 func (o *Error) HasSubCategory() bool {
-	if o != nil && o.SubCategory != nil {
+	if o != nil && !isNil(o.SubCategory) {
 		return true
 	}
 
@@ -158,7 +158,7 @@ func (o *Error) SetSubCategory(v string) {
 
 // GetErrors returns the Errors field value if set, zero value otherwise.
 func (o *Error) GetErrors() []ErrorDetail {
-	if o == nil || o.Errors == nil {
+	if o == nil || isNil(o.Errors) {
 		var ret []ErrorDetail
 		return ret
 	}
@@ -168,7 +168,7 @@ func (o *Error) GetErrors() []ErrorDetail {
 // GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Error) GetErrorsOk() ([]ErrorDetail, bool) {
-	if o == nil || o.Errors == nil {
+	if o == nil || isNil(o.Errors) {
 		return nil, false
 	}
 	return o.Errors, true
@@ -176,7 +176,7 @@ func (o *Error) GetErrorsOk() ([]ErrorDetail, bool) {
 
 // HasErrors returns a boolean if a field has been set.
 func (o *Error) HasErrors() bool {
-	if o != nil && o.Errors != nil {
+	if o != nil && !isNil(o.Errors) {
 		return true
 	}
 
@@ -190,7 +190,7 @@ func (o *Error) SetErrors(v []ErrorDetail) {
 
 // GetContext returns the Context field value if set, zero value otherwise.
 func (o *Error) GetContext() map[string][]string {
-	if o == nil || o.Context == nil {
+	if o == nil || isNil(o.Context) {
 		var ret map[string][]string
 		return ret
 	}
@@ -200,7 +200,7 @@ func (o *Error) GetContext() map[string][]string {
 // GetContextOk returns a tuple with the Context field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Error) GetContextOk() (*map[string][]string, bool) {
-	if o == nil || o.Context == nil {
+	if o == nil || isNil(o.Context) {
 		return nil, false
 	}
 	return o.Context, true
@@ -208,7 +208,7 @@ func (o *Error) GetContextOk() (*map[string][]string, bool) {
 
 // HasContext returns a boolean if a field has been set.
 func (o *Error) HasContext() bool {
-	if o != nil && o.Context != nil {
+	if o != nil && !isNil(o.Context) {
 		return true
 	}
 
@@ -222,7 +222,7 @@ func (o *Error) SetContext(v map[string][]string) {
 
 // GetLinks returns the Links field value if set, zero value otherwise.
 func (o *Error) GetLinks() map[string]string {
-	if o == nil || o.Links == nil {
+	if o == nil || isNil(o.Links) {
 		var ret map[string]string
 		return ret
 	}
@@ -232,7 +232,7 @@ func (o *Error) GetLinks() map[string]string {
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Error) GetLinksOk() (*map[string]string, bool) {
-	if o == nil || o.Links == nil {
+	if o == nil || isNil(o.Links) {
 		return nil, false
 	}
 	return o.Links, true
@@ -240,7 +240,7 @@ func (o *Error) GetLinksOk() (*map[string]string, bool) {
 
 // HasLinks returns a boolean if a field has been set.
 func (o *Error) HasLinks() bool {
-	if o != nil && o.Links != nil {
+	if o != nil && !isNil(o.Links) {
 		return true
 	}
 
@@ -263,16 +263,16 @@ func (o Error) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["category"] = o.Category
 	}
-	if o.SubCategory != nil {
+	if !isNil(o.SubCategory) {
 		toSerialize["subCategory"] = o.SubCategory
 	}
-	if o.Errors != nil {
+	if !isNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
-	if o.Context != nil {
+	if !isNil(o.Context) {
 		toSerialize["context"] = o.Context
 	}
-	if o.Links != nil {
+	if !isNil(o.Links) {
 		toSerialize["links"] = o.Links
 	}
 	return json.Marshal(toSerialize)

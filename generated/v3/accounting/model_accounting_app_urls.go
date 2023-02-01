@@ -215,7 +215,7 @@ func (o *AccountingAppUrls) SetInvoiceUrlTemplate(v string) {
 
 // GetCreateInvoiceUrl returns the CreateInvoiceUrl field value if set, zero value otherwise.
 func (o *AccountingAppUrls) GetCreateInvoiceUrl() string {
-	if o == nil || o.CreateInvoiceUrl == nil {
+	if o == nil || isNil(o.CreateInvoiceUrl) {
 		var ret string
 		return ret
 	}
@@ -225,7 +225,7 @@ func (o *AccountingAppUrls) GetCreateInvoiceUrl() string {
 // GetCreateInvoiceUrlOk returns a tuple with the CreateInvoiceUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingAppUrls) GetCreateInvoiceUrlOk() (*string, bool) {
-	if o == nil || o.CreateInvoiceUrl == nil {
+	if o == nil || isNil(o.CreateInvoiceUrl) {
 		return nil, false
 	}
 	return o.CreateInvoiceUrl, true
@@ -233,7 +233,7 @@ func (o *AccountingAppUrls) GetCreateInvoiceUrlOk() (*string, bool) {
 
 // HasCreateInvoiceUrl returns a boolean if a field has been set.
 func (o *AccountingAppUrls) HasCreateInvoiceUrl() bool {
-	if o != nil && o.CreateInvoiceUrl != nil {
+	if o != nil && !isNil(o.CreateInvoiceUrl) {
 		return true
 	}
 
@@ -247,7 +247,7 @@ func (o *AccountingAppUrls) SetCreateInvoiceUrl(v string) {
 
 // GetSearchInvoiceUrl returns the SearchInvoiceUrl field value if set, zero value otherwise.
 func (o *AccountingAppUrls) GetSearchInvoiceUrl() string {
-	if o == nil || o.SearchInvoiceUrl == nil {
+	if o == nil || isNil(o.SearchInvoiceUrl) {
 		var ret string
 		return ret
 	}
@@ -257,7 +257,7 @@ func (o *AccountingAppUrls) GetSearchInvoiceUrl() string {
 // GetSearchInvoiceUrlOk returns a tuple with the SearchInvoiceUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingAppUrls) GetSearchInvoiceUrlOk() (*string, bool) {
-	if o == nil || o.SearchInvoiceUrl == nil {
+	if o == nil || isNil(o.SearchInvoiceUrl) {
 		return nil, false
 	}
 	return o.SearchInvoiceUrl, true
@@ -265,7 +265,7 @@ func (o *AccountingAppUrls) GetSearchInvoiceUrlOk() (*string, bool) {
 
 // HasSearchInvoiceUrl returns a boolean if a field has been set.
 func (o *AccountingAppUrls) HasSearchInvoiceUrl() bool {
-	if o != nil && o.SearchInvoiceUrl != nil {
+	if o != nil && !isNil(o.SearchInvoiceUrl) {
 		return true
 	}
 
@@ -279,7 +279,7 @@ func (o *AccountingAppUrls) SetSearchInvoiceUrl(v string) {
 
 // GetSearchProductUrl returns the SearchProductUrl field value if set, zero value otherwise.
 func (o *AccountingAppUrls) GetSearchProductUrl() string {
-	if o == nil || o.SearchProductUrl == nil {
+	if o == nil || isNil(o.SearchProductUrl) {
 		var ret string
 		return ret
 	}
@@ -289,7 +289,7 @@ func (o *AccountingAppUrls) GetSearchProductUrl() string {
 // GetSearchProductUrlOk returns a tuple with the SearchProductUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingAppUrls) GetSearchProductUrlOk() (*string, bool) {
-	if o == nil || o.SearchProductUrl == nil {
+	if o == nil || isNil(o.SearchProductUrl) {
 		return nil, false
 	}
 	return o.SearchProductUrl, true
@@ -297,7 +297,7 @@ func (o *AccountingAppUrls) GetSearchProductUrlOk() (*string, bool) {
 
 // HasSearchProductUrl returns a boolean if a field has been set.
 func (o *AccountingAppUrls) HasSearchProductUrl() bool {
-	if o != nil && o.SearchProductUrl != nil {
+	if o != nil && !isNil(o.SearchProductUrl) {
 		return true
 	}
 
@@ -311,7 +311,7 @@ func (o *AccountingAppUrls) SetSearchProductUrl(v string) {
 
 // GetGetTermsUrl returns the GetTermsUrl field value if set, zero value otherwise.
 func (o *AccountingAppUrls) GetGetTermsUrl() string {
-	if o == nil || o.GetTermsUrl == nil {
+	if o == nil || isNil(o.GetTermsUrl) {
 		var ret string
 		return ret
 	}
@@ -321,7 +321,7 @@ func (o *AccountingAppUrls) GetGetTermsUrl() string {
 // GetGetTermsUrlOk returns a tuple with the GetTermsUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingAppUrls) GetGetTermsUrlOk() (*string, bool) {
-	if o == nil || o.GetTermsUrl == nil {
+	if o == nil || isNil(o.GetTermsUrl) {
 		return nil, false
 	}
 	return o.GetTermsUrl, true
@@ -329,7 +329,7 @@ func (o *AccountingAppUrls) GetGetTermsUrlOk() (*string, bool) {
 
 // HasGetTermsUrl returns a boolean if a field has been set.
 func (o *AccountingAppUrls) HasGetTermsUrl() bool {
-	if o != nil && o.GetTermsUrl != nil {
+	if o != nil && !isNil(o.GetTermsUrl) {
 		return true
 	}
 
@@ -343,7 +343,7 @@ func (o *AccountingAppUrls) SetGetTermsUrl(v string) {
 
 // GetCreateCustomerUrl returns the CreateCustomerUrl field value if set, zero value otherwise.
 func (o *AccountingAppUrls) GetCreateCustomerUrl() string {
-	if o == nil || o.CreateCustomerUrl == nil {
+	if o == nil || isNil(o.CreateCustomerUrl) {
 		var ret string
 		return ret
 	}
@@ -353,7 +353,7 @@ func (o *AccountingAppUrls) GetCreateCustomerUrl() string {
 // GetCreateCustomerUrlOk returns a tuple with the CreateCustomerUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingAppUrls) GetCreateCustomerUrlOk() (*string, bool) {
-	if o == nil || o.CreateCustomerUrl == nil {
+	if o == nil || isNil(o.CreateCustomerUrl) {
 		return nil, false
 	}
 	return o.CreateCustomerUrl, true
@@ -361,7 +361,7 @@ func (o *AccountingAppUrls) GetCreateCustomerUrlOk() (*string, bool) {
 
 // HasCreateCustomerUrl returns a boolean if a field has been set.
 func (o *AccountingAppUrls) HasCreateCustomerUrl() bool {
-	if o != nil && o.CreateCustomerUrl != nil {
+	if o != nil && !isNil(o.CreateCustomerUrl) {
 		return true
 	}
 
@@ -375,7 +375,7 @@ func (o *AccountingAppUrls) SetCreateCustomerUrl(v string) {
 
 // GetSearchTaxUrl returns the SearchTaxUrl field value if set, zero value otherwise.
 func (o *AccountingAppUrls) GetSearchTaxUrl() string {
-	if o == nil || o.SearchTaxUrl == nil {
+	if o == nil || isNil(o.SearchTaxUrl) {
 		var ret string
 		return ret
 	}
@@ -385,7 +385,7 @@ func (o *AccountingAppUrls) GetSearchTaxUrl() string {
 // GetSearchTaxUrlOk returns a tuple with the SearchTaxUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingAppUrls) GetSearchTaxUrlOk() (*string, bool) {
-	if o == nil || o.SearchTaxUrl == nil {
+	if o == nil || isNil(o.SearchTaxUrl) {
 		return nil, false
 	}
 	return o.SearchTaxUrl, true
@@ -393,7 +393,7 @@ func (o *AccountingAppUrls) GetSearchTaxUrlOk() (*string, bool) {
 
 // HasSearchTaxUrl returns a boolean if a field has been set.
 func (o *AccountingAppUrls) HasSearchTaxUrl() bool {
-	if o != nil && o.SearchTaxUrl != nil {
+	if o != nil && !isNil(o.SearchTaxUrl) {
 		return true
 	}
 
@@ -407,7 +407,7 @@ func (o *AccountingAppUrls) SetSearchTaxUrl(v string) {
 
 // GetExchangeRateUrl returns the ExchangeRateUrl field value if set, zero value otherwise.
 func (o *AccountingAppUrls) GetExchangeRateUrl() string {
-	if o == nil || o.ExchangeRateUrl == nil {
+	if o == nil || isNil(o.ExchangeRateUrl) {
 		var ret string
 		return ret
 	}
@@ -417,7 +417,7 @@ func (o *AccountingAppUrls) GetExchangeRateUrl() string {
 // GetExchangeRateUrlOk returns a tuple with the ExchangeRateUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingAppUrls) GetExchangeRateUrlOk() (*string, bool) {
-	if o == nil || o.ExchangeRateUrl == nil {
+	if o == nil || isNil(o.ExchangeRateUrl) {
 		return nil, false
 	}
 	return o.ExchangeRateUrl, true
@@ -425,7 +425,7 @@ func (o *AccountingAppUrls) GetExchangeRateUrlOk() (*string, bool) {
 
 // HasExchangeRateUrl returns a boolean if a field has been set.
 func (o *AccountingAppUrls) HasExchangeRateUrl() bool {
-	if o != nil && o.ExchangeRateUrl != nil {
+	if o != nil && !isNil(o.ExchangeRateUrl) {
 		return true
 	}
 
@@ -439,7 +439,7 @@ func (o *AccountingAppUrls) SetExchangeRateUrl(v string) {
 
 // GetSearchUrl returns the SearchUrl field value if set, zero value otherwise.
 func (o *AccountingAppUrls) GetSearchUrl() string {
-	if o == nil || o.SearchUrl == nil {
+	if o == nil || isNil(o.SearchUrl) {
 		var ret string
 		return ret
 	}
@@ -449,7 +449,7 @@ func (o *AccountingAppUrls) GetSearchUrl() string {
 // GetSearchUrlOk returns a tuple with the SearchUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingAppUrls) GetSearchUrlOk() (*string, bool) {
-	if o == nil || o.SearchUrl == nil {
+	if o == nil || isNil(o.SearchUrl) {
 		return nil, false
 	}
 	return o.SearchUrl, true
@@ -457,7 +457,7 @@ func (o *AccountingAppUrls) GetSearchUrlOk() (*string, bool) {
 
 // HasSearchUrl returns a boolean if a field has been set.
 func (o *AccountingAppUrls) HasSearchUrl() bool {
-	if o != nil && o.SearchUrl != nil {
+	if o != nil && !isNil(o.SearchUrl) {
 		return true
 	}
 
@@ -471,7 +471,7 @@ func (o *AccountingAppUrls) SetSearchUrl(v string) {
 
 // GetSearchCountUrl returns the SearchCountUrl field value if set, zero value otherwise.
 func (o *AccountingAppUrls) GetSearchCountUrl() string {
-	if o == nil || o.SearchCountUrl == nil {
+	if o == nil || isNil(o.SearchCountUrl) {
 		var ret string
 		return ret
 	}
@@ -481,7 +481,7 @@ func (o *AccountingAppUrls) GetSearchCountUrl() string {
 // GetSearchCountUrlOk returns a tuple with the SearchCountUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccountingAppUrls) GetSearchCountUrlOk() (*string, bool) {
-	if o == nil || o.SearchCountUrl == nil {
+	if o == nil || isNil(o.SearchCountUrl) {
 		return nil, false
 	}
 	return o.SearchCountUrl, true
@@ -489,7 +489,7 @@ func (o *AccountingAppUrls) GetSearchCountUrlOk() (*string, bool) {
 
 // HasSearchCountUrl returns a boolean if a field has been set.
 func (o *AccountingAppUrls) HasSearchCountUrl() bool {
-	if o != nil && o.SearchCountUrl != nil {
+	if o != nil && !isNil(o.SearchCountUrl) {
 		return true
 	}
 
@@ -521,31 +521,31 @@ func (o AccountingAppUrls) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["invoiceUrlTemplate"] = o.InvoiceUrlTemplate
 	}
-	if o.CreateInvoiceUrl != nil {
+	if !isNil(o.CreateInvoiceUrl) {
 		toSerialize["createInvoiceUrl"] = o.CreateInvoiceUrl
 	}
-	if o.SearchInvoiceUrl != nil {
+	if !isNil(o.SearchInvoiceUrl) {
 		toSerialize["searchInvoiceUrl"] = o.SearchInvoiceUrl
 	}
-	if o.SearchProductUrl != nil {
+	if !isNil(o.SearchProductUrl) {
 		toSerialize["searchProductUrl"] = o.SearchProductUrl
 	}
-	if o.GetTermsUrl != nil {
+	if !isNil(o.GetTermsUrl) {
 		toSerialize["getTermsUrl"] = o.GetTermsUrl
 	}
-	if o.CreateCustomerUrl != nil {
+	if !isNil(o.CreateCustomerUrl) {
 		toSerialize["createCustomerUrl"] = o.CreateCustomerUrl
 	}
-	if o.SearchTaxUrl != nil {
+	if !isNil(o.SearchTaxUrl) {
 		toSerialize["searchTaxUrl"] = o.SearchTaxUrl
 	}
-	if o.ExchangeRateUrl != nil {
+	if !isNil(o.ExchangeRateUrl) {
 		toSerialize["exchangeRateUrl"] = o.ExchangeRateUrl
 	}
-	if o.SearchUrl != nil {
+	if !isNil(o.SearchUrl) {
 		toSerialize["searchUrl"] = o.SearchUrl
 	}
-	if o.SearchCountUrl != nil {
+	if !isNil(o.SearchCountUrl) {
 		toSerialize["searchCountUrl"] = o.SearchCountUrl
 	}
 	return json.Marshal(toSerialize)

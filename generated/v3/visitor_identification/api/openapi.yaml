@@ -40,6 +40,8 @@ paths:
       - hapikey: []
       - oauth2_legacy:
         - conversations.visitor_identification.tokens.create
+      - private_apps_legacy:
+        - conversations.visitor_identification.tokens.create
       summary: Generate a token
       tags:
       - Generate
@@ -185,6 +187,10 @@ components:
     hapikey:
       in: query
       name: hapikey
+      type: apiKey
+    private_apps_legacy:
+      in: header
+      name: private-app-legacy
       type: apiKey
 x-hubspot-available-client-libraries:
 - PHP

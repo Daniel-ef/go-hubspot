@@ -66,7 +66,7 @@ func (o *ContentCloneRequestVNext) SetId(v string) {
 
 // GetCloneName returns the CloneName field value if set, zero value otherwise.
 func (o *ContentCloneRequestVNext) GetCloneName() string {
-	if o == nil || o.CloneName == nil {
+	if o == nil || isNil(o.CloneName) {
 		var ret string
 		return ret
 	}
@@ -76,7 +76,7 @@ func (o *ContentCloneRequestVNext) GetCloneName() string {
 // GetCloneNameOk returns a tuple with the CloneName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentCloneRequestVNext) GetCloneNameOk() (*string, bool) {
-	if o == nil || o.CloneName == nil {
+	if o == nil || isNil(o.CloneName) {
 		return nil, false
 	}
 	return o.CloneName, true
@@ -84,7 +84,7 @@ func (o *ContentCloneRequestVNext) GetCloneNameOk() (*string, bool) {
 
 // HasCloneName returns a boolean if a field has been set.
 func (o *ContentCloneRequestVNext) HasCloneName() bool {
-	if o != nil && o.CloneName != nil {
+	if o != nil && !isNil(o.CloneName) {
 		return true
 	}
 
@@ -101,7 +101,7 @@ func (o ContentCloneRequestVNext) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.CloneName != nil {
+	if !isNil(o.CloneName) {
 		toSerialize["cloneName"] = o.CloneName
 	}
 	return json.Marshal(toSerialize)

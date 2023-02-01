@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"strings"
 )
@@ -46,10 +46,10 @@ Archive Delete a pipeline
 
 Delete the pipeline identified by `{pipelineId}`.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType
- @param pipelineId
- @return ApiArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType
+	@param pipelineId
+	@return ApiArchiveRequest
 */
 func (a *PipelinesApiService) Archive(ctx context.Context, objectType string, pipelineId string) ApiArchiveRequest {
 	return ApiArchiveRequest{
@@ -111,6 +111,34 @@ func (a *PipelinesApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Respons
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -139,6 +167,7 @@ func (a *PipelinesApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Respons
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -167,9 +196,9 @@ Create Create a pipeline
 
 Create a new pipeline with the provided property values. The entire pipeline object, including its unique ID, will be returned in the response.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType
- @return ApiCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType
+	@return ApiCreateRequest
 */
 func (a *PipelinesApiService) Create(ctx context.Context, objectType string) ApiCreateRequest {
 	return ApiCreateRequest{
@@ -180,7 +209,8 @@ func (a *PipelinesApiService) Create(ctx context.Context, objectType string) Api
 }
 
 // Execute executes the request
-//  @return Pipeline
+//
+//	@return Pipeline
 func (a *PipelinesApiService) CreateExecute(r ApiCreateRequest) (*Pipeline, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -233,6 +263,34 @@ func (a *PipelinesApiService) CreateExecute(r ApiCreateRequest) (*Pipeline, *htt
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -261,6 +319,7 @@ func (a *PipelinesApiService) CreateExecute(r ApiCreateRequest) (*Pipeline, *htt
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -292,9 +351,9 @@ GetAll Retrieve all pipelines
 
 Return all pipelines for the object type specified by `{objectType}`.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType
- @return ApiGetAllRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType
+	@return ApiGetAllRequest
 */
 func (a *PipelinesApiService) GetAll(ctx context.Context, objectType string) ApiGetAllRequest {
 	return ApiGetAllRequest{
@@ -305,7 +364,8 @@ func (a *PipelinesApiService) GetAll(ctx context.Context, objectType string) Api
 }
 
 // Execute executes the request
-//  @return CollectionResponsePipelineNoPaging
+//
+//	@return CollectionResponsePipelineNoPaging
 func (a *PipelinesApiService) GetAllExecute(r ApiGetAllRequest) (*CollectionResponsePipelineNoPaging, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -353,6 +413,34 @@ func (a *PipelinesApiService) GetAllExecute(r ApiGetAllRequest) (*CollectionResp
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -381,6 +469,7 @@ func (a *PipelinesApiService) GetAllExecute(r ApiGetAllRequest) (*CollectionResp
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -413,10 +502,10 @@ GetByID Return a pipeline by ID
 
 Return a single pipeline object identified by its unique `{pipelineId}`.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType
- @param pipelineId
- @return ApiGetByIDRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType
+	@param pipelineId
+	@return ApiGetByIDRequest
 */
 func (a *PipelinesApiService) GetByID(ctx context.Context, objectType string, pipelineId string) ApiGetByIDRequest {
 	return ApiGetByIDRequest{
@@ -428,7 +517,8 @@ func (a *PipelinesApiService) GetByID(ctx context.Context, objectType string, pi
 }
 
 // Execute executes the request
-//  @return Pipeline
+//
+//	@return Pipeline
 func (a *PipelinesApiService) GetByIDExecute(r ApiGetByIDRequest) (*Pipeline, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -477,6 +567,34 @@ func (a *PipelinesApiService) GetByIDExecute(r ApiGetByIDRequest) (*Pipeline, *h
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -505,6 +623,7 @@ func (a *PipelinesApiService) GetByIDExecute(r ApiGetByIDRequest) (*Pipeline, *h
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -549,10 +668,10 @@ Replace Replace a pipeline
 
 Replace all the properties of an existing pipeline with the values provided. This will overwrite any existing pipeline stages. The updated pipeline will be returned in the response.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType
- @param pipelineId
- @return ApiReplaceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType
+	@param pipelineId
+	@return ApiReplaceRequest
 */
 func (a *PipelinesApiService) Replace(ctx context.Context, objectType string, pipelineId string) ApiReplaceRequest {
 	return ApiReplaceRequest{
@@ -564,7 +683,8 @@ func (a *PipelinesApiService) Replace(ctx context.Context, objectType string, pi
 }
 
 // Execute executes the request
-//  @return Pipeline
+//
+//	@return Pipeline
 func (a *PipelinesApiService) ReplaceExecute(r ApiReplaceRequest) (*Pipeline, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
@@ -621,6 +741,34 @@ func (a *PipelinesApiService) ReplaceExecute(r ApiReplaceRequest) (*Pipeline, *h
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -649,6 +797,7 @@ func (a *PipelinesApiService) ReplaceExecute(r ApiReplaceRequest) (*Pipeline, *h
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -693,10 +842,10 @@ Update Update a pipeline
 
 Perform a partial update of the pipeline identified by `{pipelineId}`. The updated pipeline will be returned in the response.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType
- @param pipelineId
- @return ApiUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType
+	@param pipelineId
+	@return ApiUpdateRequest
 */
 func (a *PipelinesApiService) Update(ctx context.Context, objectType string, pipelineId string) ApiUpdateRequest {
 	return ApiUpdateRequest{
@@ -708,7 +857,8 @@ func (a *PipelinesApiService) Update(ctx context.Context, objectType string, pip
 }
 
 // Execute executes the request
-//  @return Pipeline
+//
+//	@return Pipeline
 func (a *PipelinesApiService) UpdateExecute(r ApiUpdateRequest) (*Pipeline, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPatch
@@ -765,6 +915,34 @@ func (a *PipelinesApiService) UpdateExecute(r ApiUpdateRequest) (*Pipeline, *htt
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -793,6 +971,7 @@ func (a *PipelinesApiService) UpdateExecute(r ApiUpdateRequest) (*Pipeline, *htt
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

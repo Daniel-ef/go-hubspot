@@ -50,7 +50,7 @@ func NewPublicSingleSendEmailWithDefaults() *PublicSingleSendEmail {
 
 // GetFrom returns the From field value if set, zero value otherwise.
 func (o *PublicSingleSendEmail) GetFrom() string {
-	if o == nil || o.From == nil {
+	if o == nil || isNil(o.From) {
 		var ret string
 		return ret
 	}
@@ -60,7 +60,7 @@ func (o *PublicSingleSendEmail) GetFrom() string {
 // GetFromOk returns a tuple with the From field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicSingleSendEmail) GetFromOk() (*string, bool) {
-	if o == nil || o.From == nil {
+	if o == nil || isNil(o.From) {
 		return nil, false
 	}
 	return o.From, true
@@ -68,7 +68,7 @@ func (o *PublicSingleSendEmail) GetFromOk() (*string, bool) {
 
 // HasFrom returns a boolean if a field has been set.
 func (o *PublicSingleSendEmail) HasFrom() bool {
-	if o != nil && o.From != nil {
+	if o != nil && !isNil(o.From) {
 		return true
 	}
 
@@ -106,7 +106,7 @@ func (o *PublicSingleSendEmail) SetTo(v string) {
 
 // GetSendId returns the SendId field value if set, zero value otherwise.
 func (o *PublicSingleSendEmail) GetSendId() string {
-	if o == nil || o.SendId == nil {
+	if o == nil || isNil(o.SendId) {
 		var ret string
 		return ret
 	}
@@ -116,7 +116,7 @@ func (o *PublicSingleSendEmail) GetSendId() string {
 // GetSendIdOk returns a tuple with the SendId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicSingleSendEmail) GetSendIdOk() (*string, bool) {
-	if o == nil || o.SendId == nil {
+	if o == nil || isNil(o.SendId) {
 		return nil, false
 	}
 	return o.SendId, true
@@ -124,7 +124,7 @@ func (o *PublicSingleSendEmail) GetSendIdOk() (*string, bool) {
 
 // HasSendId returns a boolean if a field has been set.
 func (o *PublicSingleSendEmail) HasSendId() bool {
-	if o != nil && o.SendId != nil {
+	if o != nil && !isNil(o.SendId) {
 		return true
 	}
 
@@ -138,7 +138,7 @@ func (o *PublicSingleSendEmail) SetSendId(v string) {
 
 // GetReplyTo returns the ReplyTo field value if set, zero value otherwise.
 func (o *PublicSingleSendEmail) GetReplyTo() []string {
-	if o == nil || o.ReplyTo == nil {
+	if o == nil || isNil(o.ReplyTo) {
 		var ret []string
 		return ret
 	}
@@ -148,7 +148,7 @@ func (o *PublicSingleSendEmail) GetReplyTo() []string {
 // GetReplyToOk returns a tuple with the ReplyTo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicSingleSendEmail) GetReplyToOk() ([]string, bool) {
-	if o == nil || o.ReplyTo == nil {
+	if o == nil || isNil(o.ReplyTo) {
 		return nil, false
 	}
 	return o.ReplyTo, true
@@ -156,7 +156,7 @@ func (o *PublicSingleSendEmail) GetReplyToOk() ([]string, bool) {
 
 // HasReplyTo returns a boolean if a field has been set.
 func (o *PublicSingleSendEmail) HasReplyTo() bool {
-	if o != nil && o.ReplyTo != nil {
+	if o != nil && !isNil(o.ReplyTo) {
 		return true
 	}
 
@@ -170,7 +170,7 @@ func (o *PublicSingleSendEmail) SetReplyTo(v []string) {
 
 // GetCc returns the Cc field value if set, zero value otherwise.
 func (o *PublicSingleSendEmail) GetCc() []string {
-	if o == nil || o.Cc == nil {
+	if o == nil || isNil(o.Cc) {
 		var ret []string
 		return ret
 	}
@@ -180,7 +180,7 @@ func (o *PublicSingleSendEmail) GetCc() []string {
 // GetCcOk returns a tuple with the Cc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicSingleSendEmail) GetCcOk() ([]string, bool) {
-	if o == nil || o.Cc == nil {
+	if o == nil || isNil(o.Cc) {
 		return nil, false
 	}
 	return o.Cc, true
@@ -188,7 +188,7 @@ func (o *PublicSingleSendEmail) GetCcOk() ([]string, bool) {
 
 // HasCc returns a boolean if a field has been set.
 func (o *PublicSingleSendEmail) HasCc() bool {
-	if o != nil && o.Cc != nil {
+	if o != nil && !isNil(o.Cc) {
 		return true
 	}
 
@@ -202,7 +202,7 @@ func (o *PublicSingleSendEmail) SetCc(v []string) {
 
 // GetBcc returns the Bcc field value if set, zero value otherwise.
 func (o *PublicSingleSendEmail) GetBcc() []string {
-	if o == nil || o.Bcc == nil {
+	if o == nil || isNil(o.Bcc) {
 		var ret []string
 		return ret
 	}
@@ -212,7 +212,7 @@ func (o *PublicSingleSendEmail) GetBcc() []string {
 // GetBccOk returns a tuple with the Bcc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicSingleSendEmail) GetBccOk() ([]string, bool) {
-	if o == nil || o.Bcc == nil {
+	if o == nil || isNil(o.Bcc) {
 		return nil, false
 	}
 	return o.Bcc, true
@@ -220,7 +220,7 @@ func (o *PublicSingleSendEmail) GetBccOk() ([]string, bool) {
 
 // HasBcc returns a boolean if a field has been set.
 func (o *PublicSingleSendEmail) HasBcc() bool {
-	if o != nil && o.Bcc != nil {
+	if o != nil && !isNil(o.Bcc) {
 		return true
 	}
 
@@ -234,22 +234,22 @@ func (o *PublicSingleSendEmail) SetBcc(v []string) {
 
 func (o PublicSingleSendEmail) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.From != nil {
+	if !isNil(o.From) {
 		toSerialize["from"] = o.From
 	}
 	if true {
 		toSerialize["to"] = o.To
 	}
-	if o.SendId != nil {
+	if !isNil(o.SendId) {
 		toSerialize["sendId"] = o.SendId
 	}
-	if o.ReplyTo != nil {
+	if !isNil(o.ReplyTo) {
 		toSerialize["replyTo"] = o.ReplyTo
 	}
-	if o.Cc != nil {
+	if !isNil(o.Cc) {
 		toSerialize["cc"] = o.Cc
 	}
-	if o.Bcc != nil {
+	if !isNil(o.Bcc) {
 		toSerialize["bcc"] = o.Bcc
 	}
 	return json.Marshal(toSerialize)

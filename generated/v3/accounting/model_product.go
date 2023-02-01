@@ -99,7 +99,7 @@ func (o *Product) SetTaxExempt(v bool) {
 
 // GetSalesTaxType returns the SalesTaxType field value if set, zero value otherwise.
 func (o *Product) GetSalesTaxType() TaxType {
-	if o == nil || o.SalesTaxType == nil {
+	if o == nil || isNil(o.SalesTaxType) {
 		var ret TaxType
 		return ret
 	}
@@ -109,7 +109,7 @@ func (o *Product) GetSalesTaxType() TaxType {
 // GetSalesTaxTypeOk returns a tuple with the SalesTaxType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Product) GetSalesTaxTypeOk() (*TaxType, bool) {
-	if o == nil || o.SalesTaxType == nil {
+	if o == nil || isNil(o.SalesTaxType) {
 		return nil, false
 	}
 	return o.SalesTaxType, true
@@ -117,7 +117,7 @@ func (o *Product) GetSalesTaxTypeOk() (*TaxType, bool) {
 
 // HasSalesTaxType returns a boolean if a field has been set.
 func (o *Product) HasSalesTaxType() bool {
-	if o != nil && o.SalesTaxType != nil {
+	if o != nil && !isNil(o.SalesTaxType) {
 		return true
 	}
 
@@ -155,7 +155,7 @@ func (o *Product) SetName(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *Product) GetDescription() string {
-	if o == nil || o.Description == nil {
+	if o == nil || isNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -165,7 +165,7 @@ func (o *Product) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Product) GetDescriptionOk() (*string, bool) {
-	if o == nil || o.Description == nil {
+	if o == nil || isNil(o.Description) {
 		return nil, false
 	}
 	return o.Description, true
@@ -173,7 +173,7 @@ func (o *Product) GetDescriptionOk() (*string, bool) {
 
 // HasDescription returns a boolean if a field has been set.
 func (o *Product) HasDescription() bool {
-	if o != nil && o.Description != nil {
+	if o != nil && !isNil(o.Description) {
 		return true
 	}
 
@@ -217,13 +217,13 @@ func (o Product) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["taxExempt"] = o.TaxExempt
 	}
-	if o.SalesTaxType != nil {
+	if !isNil(o.SalesTaxType) {
 		toSerialize["salesTaxType"] = o.SalesTaxType
 	}
 	if true {
 		toSerialize["name"] = o.Name
 	}
-	if o.Description != nil {
+	if !isNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
 	if true {

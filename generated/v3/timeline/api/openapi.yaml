@@ -70,9 +70,39 @@ paths:
           description: An error occurred.
       security:
       - oauth2_legacy:
-        - contacts
-        - timeline
         - tickets
+      - oauth2:
+        - crm.schemas.deals.write
+      - private_apps_legacy:
+        - timeline
+      - oauth2:
+        - crm.schemas.contacts.write
+      - oauth2:
+        - crm.objects.contacts.write
+      - private_apps:
+        - crm.objects.contacts.write
+      - oauth2:
+        - crm.schemas.companies.write
+      - private_apps_legacy:
+        - contacts
+      - private_apps:
+        - crm.schemas.contacts.write
+      - private_apps:
+        - crm.schemas.companies.write
+      - private_apps:
+        - crm.objects.deals.write
+      - oauth2:
+        - crm.objects.deals.write
+      - private_apps_legacy:
+        - tickets
+      - oauth2_legacy:
+        - timeline
+      - private_apps:
+        - crm.objects.companies.write
+      - private_apps:
+        - crm.schemas.deals.write
+      - oauth2:
+        - crm.objects.companies.write
       summary: Create a single event
       tags:
       - Events
@@ -112,9 +142,39 @@ paths:
           description: An error occurred.
       security:
       - oauth2_legacy:
-        - contacts
-        - timeline
         - tickets
+      - oauth2:
+        - crm.schemas.deals.write
+      - private_apps_legacy:
+        - timeline
+      - oauth2:
+        - crm.schemas.contacts.write
+      - oauth2:
+        - crm.objects.contacts.write
+      - private_apps:
+        - crm.objects.contacts.write
+      - oauth2:
+        - crm.schemas.companies.write
+      - private_apps_legacy:
+        - contacts
+      - private_apps:
+        - crm.schemas.contacts.write
+      - private_apps:
+        - crm.schemas.companies.write
+      - private_apps:
+        - crm.objects.deals.write
+      - oauth2:
+        - crm.objects.deals.write
+      - private_apps_legacy:
+        - tickets
+      - oauth2_legacy:
+        - timeline
+      - private_apps:
+        - crm.objects.companies.write
+      - private_apps:
+        - crm.schemas.deals.write
+      - oauth2:
+        - crm.objects.companies.write
       summary: Creates multiple events
       tags:
       - Events
@@ -154,10 +214,40 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - oauth2:
+        - crm.schemas.contacts.read
+      - private_apps:
+        - crm.schemas.contacts.read
       - oauth2_legacy:
-        - contacts
-        - timeline
         - tickets
+      - oauth2:
+        - crm.objects.contacts.read
+      - private_apps:
+        - crm.objects.deals.read
+      - private_apps_legacy:
+        - timeline
+      - oauth2:
+        - crm.objects.deals.read
+      - private_apps_legacy:
+        - contacts
+      - private_apps:
+        - crm.objects.contacts.read
+      - private_apps:
+        - crm.objects.companies.read
+      - oauth2:
+        - crm.objects.companies.read
+      - private_apps:
+        - crm.schemas.companies.read
+      - oauth2:
+        - crm.schemas.companies.read
+      - private_apps_legacy:
+        - tickets
+      - private_apps:
+        - crm.schemas.deals.read
+      - oauth2:
+        - crm.schemas.deals.read
+      - oauth2_legacy:
+        - timeline
       summary: Gets the event
       tags:
       - Events
@@ -199,10 +289,40 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - oauth2:
+        - crm.schemas.contacts.read
+      - private_apps:
+        - crm.schemas.contacts.read
       - oauth2_legacy:
-        - contacts
-        - timeline
         - tickets
+      - oauth2:
+        - crm.objects.contacts.read
+      - private_apps:
+        - crm.objects.deals.read
+      - private_apps_legacy:
+        - timeline
+      - oauth2:
+        - crm.objects.deals.read
+      - private_apps_legacy:
+        - contacts
+      - private_apps:
+        - crm.objects.contacts.read
+      - private_apps:
+        - crm.objects.companies.read
+      - oauth2:
+        - crm.objects.companies.read
+      - private_apps:
+        - crm.schemas.companies.read
+      - oauth2:
+        - crm.schemas.companies.read
+      - private_apps_legacy:
+        - tickets
+      - private_apps:
+        - crm.schemas.deals.read
+      - oauth2:
+        - crm.schemas.deals.read
+      - oauth2_legacy:
+        - timeline
       summary: Gets the detailTemplate as rendered
       tags:
       - Events
@@ -253,10 +373,40 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
+      - oauth2:
+        - crm.schemas.contacts.read
+      - private_apps:
+        - crm.schemas.contacts.read
       - oauth2_legacy:
-        - contacts
-        - timeline
         - tickets
+      - oauth2:
+        - crm.objects.contacts.read
+      - private_apps:
+        - crm.objects.deals.read
+      - private_apps_legacy:
+        - timeline
+      - oauth2:
+        - crm.objects.deals.read
+      - private_apps_legacy:
+        - contacts
+      - private_apps:
+        - crm.objects.contacts.read
+      - private_apps:
+        - crm.objects.companies.read
+      - oauth2:
+        - crm.objects.companies.read
+      - private_apps:
+        - crm.schemas.companies.read
+      - oauth2:
+        - crm.schemas.companies.read
+      - private_apps_legacy:
+        - tickets
+      - private_apps:
+        - crm.schemas.deals.read
+      - oauth2:
+        - crm.schemas.deals.read
+      - oauth2_legacy:
+        - timeline
       summary: Renders the header or detail as HTML
       tags:
       - Events
@@ -1803,14 +1953,40 @@ components:
         authorizationCode:
           authorizationUrl: https://app.hubspot.com/oauth/authorize
           scopes:
-            contacts: Read from and write to my Contacts
-            timeline: Create timeline events
             tickets: Read and write tickets
+            timeline: Create timeline events
           tokenUrl: https://api.hubapi.com/oauth/v1/token
       type: oauth2
     developer_hapikey:
       in: query
       name: hapikey
+      type: apiKey
+    oauth2:
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.hubspot.com/oauth/authorize
+          scopes:
+            crm.schemas.contacts.write: ' '
+            crm.objects.contacts.write: ' '
+            crm.schemas.companies.write: ' '
+            crm.objects.companies.write: ' '
+            crm.objects.deals.write: ' '
+            crm.schemas.deals.write: ' '
+            crm.objects.contacts.read: ' '
+            crm.schemas.contacts.read: ' '
+            crm.schemas.companies.read: ' '
+            crm.objects.companies.read: ' '
+            crm.objects.deals.read: ' '
+            crm.schemas.deals.read: ' '
+          tokenUrl: https://api.hubapi.com/oauth/v1/token
+      type: oauth2
+    private_apps_legacy:
+      in: header
+      name: private-app-legacy
+      type: apiKey
+    private_apps:
+      in: header
+      name: private-app
       type: apiKey
 x-hubspot-available-client-libraries:
 - PHP

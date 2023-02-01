@@ -78,7 +78,7 @@ func (o *PublicImportResponse) SetState(v string) {
 
 // GetImportRequestJson returns the ImportRequestJson field value if set, zero value otherwise.
 func (o *PublicImportResponse) GetImportRequestJson() map[string]interface{} {
-	if o == nil || o.ImportRequestJson == nil {
+	if o == nil || isNil(o.ImportRequestJson) {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -88,15 +88,15 @@ func (o *PublicImportResponse) GetImportRequestJson() map[string]interface{} {
 // GetImportRequestJsonOk returns a tuple with the ImportRequestJson field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicImportResponse) GetImportRequestJsonOk() (map[string]interface{}, bool) {
-	if o == nil || o.ImportRequestJson == nil {
-		return nil, false
+	if o == nil || isNil(o.ImportRequestJson) {
+		return map[string]interface{}{}, false
 	}
 	return o.ImportRequestJson, true
 }
 
 // HasImportRequestJson returns a boolean if a field has been set.
 func (o *PublicImportResponse) HasImportRequestJson() bool {
-	if o != nil && o.ImportRequestJson != nil {
+	if o != nil && !isNil(o.ImportRequestJson) {
 		return true
 	}
 
@@ -158,7 +158,7 @@ func (o *PublicImportResponse) SetMetadata(v PublicImportMetadata) {
 
 // GetImportName returns the ImportName field value if set, zero value otherwise.
 func (o *PublicImportResponse) GetImportName() string {
-	if o == nil || o.ImportName == nil {
+	if o == nil || isNil(o.ImportName) {
 		var ret string
 		return ret
 	}
@@ -168,7 +168,7 @@ func (o *PublicImportResponse) GetImportName() string {
 // GetImportNameOk returns a tuple with the ImportName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicImportResponse) GetImportNameOk() (*string, bool) {
-	if o == nil || o.ImportName == nil {
+	if o == nil || isNil(o.ImportName) {
 		return nil, false
 	}
 	return o.ImportName, true
@@ -176,7 +176,7 @@ func (o *PublicImportResponse) GetImportNameOk() (*string, bool) {
 
 // HasImportName returns a boolean if a field has been set.
 func (o *PublicImportResponse) HasImportName() bool {
-	if o != nil && o.ImportName != nil {
+	if o != nil && !isNil(o.ImportName) {
 		return true
 	}
 
@@ -265,7 +265,7 @@ func (o PublicImportResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["state"] = o.State
 	}
-	if o.ImportRequestJson != nil {
+	if !isNil(o.ImportRequestJson) {
 		toSerialize["importRequestJson"] = o.ImportRequestJson
 	}
 	if true {
@@ -274,7 +274,7 @@ func (o PublicImportResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["metadata"] = o.Metadata
 	}
-	if o.ImportName != nil {
+	if !isNil(o.ImportName) {
 		toSerialize["importName"] = o.ImportName
 	}
 	if true {

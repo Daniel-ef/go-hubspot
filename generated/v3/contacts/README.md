@@ -78,9 +78,9 @@ All URIs are relative to *https://api.hubapi.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AssociationsApi* | [**AssociationsArchive**](docs/AssociationsApi.md#associationsarchive) | **Delete** /crm/v3/objects/contacts/{contactId}/associations/{toObjectType}/{toObjectId}/{associationType} | Remove an association between two contacts
-*AssociationsApi* | [**AssociationsCreate**](docs/AssociationsApi.md#associationscreate) | **Put** /crm/v3/objects/contacts/{contactId}/associations/{toObjectType}/{toObjectId}/{associationType} | Associate a contact with another object
-*AssociationsApi* | [**AssociationsGetAll**](docs/AssociationsApi.md#associationsgetall) | **Get** /crm/v3/objects/contacts/{contactId}/associations/{toObjectType} | List associations of a contact by type
+*AssociationsApi* | [**AssociationsGetAll**](docs/AssociationsApi.md#associationsgetall) | **Get** /crm/v4/objects/contacts/{contactId}/associations/{toObjectType} | List
+*AssociationsApi* | [**DeleteCrmV4ObjectsContactsContactIdAssociationsToObjectTypeToObjectIdArchive**](docs/AssociationsApi.md#deletecrmv4objectscontactscontactidassociationstoobjecttypetoobjectidarchive) | **Delete** /crm/v4/objects/contacts/{contactId}/associations/{toObjectType}/{toObjectId} | Delete
+*AssociationsApi* | [**PutCrmV4ObjectsContactsContactIdAssociationsToObjectTypeToObjectIdCreate**](docs/AssociationsApi.md#putcrmv4objectscontactscontactidassociationstoobjecttypetoobjectidcreate) | **Put** /crm/v4/objects/contacts/{contactId}/associations/{toObjectType}/{toObjectId} | Create
 *BasicApi* | [**Archive**](docs/BasicApi.md#archive) | **Delete** /crm/v3/objects/contacts/{contactId} | Archive
 *BasicApi* | [**Create**](docs/BasicApi.md#create) | **Post** /crm/v3/objects/contacts | Create
 *BasicApi* | [**GetByID**](docs/BasicApi.md#getbyid) | **Get** /crm/v3/objects/contacts/{contactId} | Read
@@ -98,6 +98,8 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AssociatedId](docs/AssociatedId.md)
+ - [AssociationSpec](docs/AssociationSpec.md)
+ - [AssociationSpecWithLabel](docs/AssociationSpecWithLabel.md)
  - [BatchInputSimplePublicObjectBatchInput](docs/BatchInputSimplePublicObjectBatchInput.md)
  - [BatchInputSimplePublicObjectId](docs/BatchInputSimplePublicObjectId.md)
  - [BatchInputSimplePublicObjectInput](docs/BatchInputSimplePublicObjectInput.md)
@@ -105,7 +107,7 @@ Class | Method | HTTP request | Description
  - [BatchResponseSimplePublicObject](docs/BatchResponseSimplePublicObject.md)
  - [BatchResponseSimplePublicObjectWithErrors](docs/BatchResponseSimplePublicObjectWithErrors.md)
  - [CollectionResponseAssociatedId](docs/CollectionResponseAssociatedId.md)
- - [CollectionResponseAssociatedIdForwardPaging](docs/CollectionResponseAssociatedIdForwardPaging.md)
+ - [CollectionResponseMultiAssociatedObjectWithLabelForwardPaging](docs/CollectionResponseMultiAssociatedObjectWithLabelForwardPaging.md)
  - [CollectionResponseSimplePublicObjectWithAssociationsForwardPaging](docs/CollectionResponseSimplePublicObjectWithAssociationsForwardPaging.md)
  - [CollectionResponseWithTotalSimplePublicObjectForwardPaging](docs/CollectionResponseWithTotalSimplePublicObjectForwardPaging.md)
  - [Error](docs/Error.md)
@@ -114,6 +116,8 @@ Class | Method | HTTP request | Description
  - [Filter](docs/Filter.md)
  - [FilterGroup](docs/FilterGroup.md)
  - [ForwardPaging](docs/ForwardPaging.md)
+ - [LabelsBetweenObjectPair](docs/LabelsBetweenObjectPair.md)
+ - [MultiAssociatedObjectWithLabel](docs/MultiAssociatedObjectWithLabel.md)
  - [NextPage](docs/NextPage.md)
  - [Paging](docs/Paging.md)
  - [PreviousPage](docs/PreviousPage.md)
@@ -172,33 +176,22 @@ r, err := client.Service.Operation(auth, args)
 ```
 
 
-### oauth2_legacy
+### private_apps
+
+- **Type**: API key
+- **API key parameter name**: private-app
+- **Location**: HTTP header
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: private-app and passed in as the auth context for each request.
 
 
-- **Type**: OAuth
-- **Flow**: accessCode
-- **Authorization URL**: https://app.hubspot.com/oauth/authorize
-- **Scopes**: 
- - **contacts**: Read from and write to my Contacts
+### private_apps_legacy
 
-Example
+- **Type**: API key
+- **API key parameter name**: private-app-legacy
+- **Location**: HTTP header
 
-```golang
-auth := context.WithValue(context.Background(), sw.ContextAccessToken, "ACCESSTOKENSTRING")
-r, err := client.Service.Operation(auth, args)
-```
-
-Or via OAuth2 module to automatically refresh tokens and perform user authentication.
-
-```golang
-import "golang.org/x/oauth2"
-
-/* Perform OAuth2 round trip request and obtain a token */
-
-tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
-auth := context.WithValue(oauth2.NoContext, sw.ContextOAuth2, tokenSource)
-r, err := client.Service.Operation(auth, args)
-```
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: private-app-legacy and passed in as the auth context for each request.
 
 
 ## Documentation for Utility Methods

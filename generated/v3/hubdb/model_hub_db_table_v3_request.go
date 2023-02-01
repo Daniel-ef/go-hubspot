@@ -103,7 +103,7 @@ func (o *HubDbTableV3Request) SetLabel(v string) {
 
 // GetUseForPages returns the UseForPages field value if set, zero value otherwise.
 func (o *HubDbTableV3Request) GetUseForPages() bool {
-	if o == nil || o.UseForPages == nil {
+	if o == nil || isNil(o.UseForPages) {
 		var ret bool
 		return ret
 	}
@@ -113,7 +113,7 @@ func (o *HubDbTableV3Request) GetUseForPages() bool {
 // GetUseForPagesOk returns a tuple with the UseForPages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3Request) GetUseForPagesOk() (*bool, bool) {
-	if o == nil || o.UseForPages == nil {
+	if o == nil || isNil(o.UseForPages) {
 		return nil, false
 	}
 	return o.UseForPages, true
@@ -121,7 +121,7 @@ func (o *HubDbTableV3Request) GetUseForPagesOk() (*bool, bool) {
 
 // HasUseForPages returns a boolean if a field has been set.
 func (o *HubDbTableV3Request) HasUseForPages() bool {
-	if o != nil && o.UseForPages != nil {
+	if o != nil && !isNil(o.UseForPages) {
 		return true
 	}
 
@@ -135,7 +135,7 @@ func (o *HubDbTableV3Request) SetUseForPages(v bool) {
 
 // GetAllowPublicApiAccess returns the AllowPublicApiAccess field value if set, zero value otherwise.
 func (o *HubDbTableV3Request) GetAllowPublicApiAccess() bool {
-	if o == nil || o.AllowPublicApiAccess == nil {
+	if o == nil || isNil(o.AllowPublicApiAccess) {
 		var ret bool
 		return ret
 	}
@@ -145,7 +145,7 @@ func (o *HubDbTableV3Request) GetAllowPublicApiAccess() bool {
 // GetAllowPublicApiAccessOk returns a tuple with the AllowPublicApiAccess field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3Request) GetAllowPublicApiAccessOk() (*bool, bool) {
-	if o == nil || o.AllowPublicApiAccess == nil {
+	if o == nil || isNil(o.AllowPublicApiAccess) {
 		return nil, false
 	}
 	return o.AllowPublicApiAccess, true
@@ -153,7 +153,7 @@ func (o *HubDbTableV3Request) GetAllowPublicApiAccessOk() (*bool, bool) {
 
 // HasAllowPublicApiAccess returns a boolean if a field has been set.
 func (o *HubDbTableV3Request) HasAllowPublicApiAccess() bool {
-	if o != nil && o.AllowPublicApiAccess != nil {
+	if o != nil && !isNil(o.AllowPublicApiAccess) {
 		return true
 	}
 
@@ -167,7 +167,7 @@ func (o *HubDbTableV3Request) SetAllowPublicApiAccess(v bool) {
 
 // GetAllowChildTables returns the AllowChildTables field value if set, zero value otherwise.
 func (o *HubDbTableV3Request) GetAllowChildTables() bool {
-	if o == nil || o.AllowChildTables == nil {
+	if o == nil || isNil(o.AllowChildTables) {
 		var ret bool
 		return ret
 	}
@@ -177,7 +177,7 @@ func (o *HubDbTableV3Request) GetAllowChildTables() bool {
 // GetAllowChildTablesOk returns a tuple with the AllowChildTables field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3Request) GetAllowChildTablesOk() (*bool, bool) {
-	if o == nil || o.AllowChildTables == nil {
+	if o == nil || isNil(o.AllowChildTables) {
 		return nil, false
 	}
 	return o.AllowChildTables, true
@@ -185,7 +185,7 @@ func (o *HubDbTableV3Request) GetAllowChildTablesOk() (*bool, bool) {
 
 // HasAllowChildTables returns a boolean if a field has been set.
 func (o *HubDbTableV3Request) HasAllowChildTables() bool {
-	if o != nil && o.AllowChildTables != nil {
+	if o != nil && !isNil(o.AllowChildTables) {
 		return true
 	}
 
@@ -199,7 +199,7 @@ func (o *HubDbTableV3Request) SetAllowChildTables(v bool) {
 
 // GetEnableChildTablePages returns the EnableChildTablePages field value if set, zero value otherwise.
 func (o *HubDbTableV3Request) GetEnableChildTablePages() bool {
-	if o == nil || o.EnableChildTablePages == nil {
+	if o == nil || isNil(o.EnableChildTablePages) {
 		var ret bool
 		return ret
 	}
@@ -209,7 +209,7 @@ func (o *HubDbTableV3Request) GetEnableChildTablePages() bool {
 // GetEnableChildTablePagesOk returns a tuple with the EnableChildTablePages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3Request) GetEnableChildTablePagesOk() (*bool, bool) {
-	if o == nil || o.EnableChildTablePages == nil {
+	if o == nil || isNil(o.EnableChildTablePages) {
 		return nil, false
 	}
 	return o.EnableChildTablePages, true
@@ -217,7 +217,7 @@ func (o *HubDbTableV3Request) GetEnableChildTablePagesOk() (*bool, bool) {
 
 // HasEnableChildTablePages returns a boolean if a field has been set.
 func (o *HubDbTableV3Request) HasEnableChildTablePages() bool {
-	if o != nil && o.EnableChildTablePages != nil {
+	if o != nil && !isNil(o.EnableChildTablePages) {
 		return true
 	}
 
@@ -231,7 +231,7 @@ func (o *HubDbTableV3Request) SetEnableChildTablePages(v bool) {
 
 // GetColumns returns the Columns field value if set, zero value otherwise.
 func (o *HubDbTableV3Request) GetColumns() []ColumnRequest {
-	if o == nil || o.Columns == nil {
+	if o == nil || isNil(o.Columns) {
 		var ret []ColumnRequest
 		return ret
 	}
@@ -241,7 +241,7 @@ func (o *HubDbTableV3Request) GetColumns() []ColumnRequest {
 // GetColumnsOk returns a tuple with the Columns field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3Request) GetColumnsOk() ([]ColumnRequest, bool) {
-	if o == nil || o.Columns == nil {
+	if o == nil || isNil(o.Columns) {
 		return nil, false
 	}
 	return o.Columns, true
@@ -249,7 +249,7 @@ func (o *HubDbTableV3Request) GetColumnsOk() ([]ColumnRequest, bool) {
 
 // HasColumns returns a boolean if a field has been set.
 func (o *HubDbTableV3Request) HasColumns() bool {
-	if o != nil && o.Columns != nil {
+	if o != nil && !isNil(o.Columns) {
 		return true
 	}
 
@@ -263,7 +263,7 @@ func (o *HubDbTableV3Request) SetColumns(v []ColumnRequest) {
 
 // GetDynamicMetaTags returns the DynamicMetaTags field value if set, zero value otherwise.
 func (o *HubDbTableV3Request) GetDynamicMetaTags() map[string]int32 {
-	if o == nil || o.DynamicMetaTags == nil {
+	if o == nil || isNil(o.DynamicMetaTags) {
 		var ret map[string]int32
 		return ret
 	}
@@ -273,7 +273,7 @@ func (o *HubDbTableV3Request) GetDynamicMetaTags() map[string]int32 {
 // GetDynamicMetaTagsOk returns a tuple with the DynamicMetaTags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HubDbTableV3Request) GetDynamicMetaTagsOk() (*map[string]int32, bool) {
-	if o == nil || o.DynamicMetaTags == nil {
+	if o == nil || isNil(o.DynamicMetaTags) {
 		return nil, false
 	}
 	return o.DynamicMetaTags, true
@@ -281,7 +281,7 @@ func (o *HubDbTableV3Request) GetDynamicMetaTagsOk() (*map[string]int32, bool) {
 
 // HasDynamicMetaTags returns a boolean if a field has been set.
 func (o *HubDbTableV3Request) HasDynamicMetaTags() bool {
-	if o != nil && o.DynamicMetaTags != nil {
+	if o != nil && !isNil(o.DynamicMetaTags) {
 		return true
 	}
 
@@ -301,22 +301,22 @@ func (o HubDbTableV3Request) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["label"] = o.Label
 	}
-	if o.UseForPages != nil {
+	if !isNil(o.UseForPages) {
 		toSerialize["useForPages"] = o.UseForPages
 	}
-	if o.AllowPublicApiAccess != nil {
+	if !isNil(o.AllowPublicApiAccess) {
 		toSerialize["allowPublicApiAccess"] = o.AllowPublicApiAccess
 	}
-	if o.AllowChildTables != nil {
+	if !isNil(o.AllowChildTables) {
 		toSerialize["allowChildTables"] = o.AllowChildTables
 	}
-	if o.EnableChildTablePages != nil {
+	if !isNil(o.EnableChildTablePages) {
 		toSerialize["enableChildTablePages"] = o.EnableChildTablePages
 	}
-	if o.Columns != nil {
+	if !isNil(o.Columns) {
 		toSerialize["columns"] = o.Columns
 	}
-	if o.DynamicMetaTags != nil {
+	if !isNil(o.DynamicMetaTags) {
 		toSerialize["dynamicMetaTags"] = o.DynamicMetaTags
 	}
 	return json.Marshal(toSerialize)

@@ -66,7 +66,7 @@ func (o *ActionFunctionIdentifier) SetFunctionType(v string) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ActionFunctionIdentifier) GetId() string {
-	if o == nil || o.Id == nil {
+	if o == nil || isNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -76,7 +76,7 @@ func (o *ActionFunctionIdentifier) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionFunctionIdentifier) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
+	if o == nil || isNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -84,7 +84,7 @@ func (o *ActionFunctionIdentifier) GetIdOk() (*string, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *ActionFunctionIdentifier) HasId() bool {
-	if o != nil && o.Id != nil {
+	if o != nil && !isNil(o.Id) {
 		return true
 	}
 
@@ -101,7 +101,7 @@ func (o ActionFunctionIdentifier) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["functionType"] = o.FunctionType
 	}
-	if o.Id != nil {
+	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
 	return json.Marshal(toSerialize)

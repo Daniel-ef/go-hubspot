@@ -39,7 +39,7 @@ func NewSubscriptionPatchRequestWithDefaults() *SubscriptionPatchRequest {
 
 // GetActive returns the Active field value if set, zero value otherwise.
 func (o *SubscriptionPatchRequest) GetActive() bool {
-	if o == nil || o.Active == nil {
+	if o == nil || isNil(o.Active) {
 		var ret bool
 		return ret
 	}
@@ -49,7 +49,7 @@ func (o *SubscriptionPatchRequest) GetActive() bool {
 // GetActiveOk returns a tuple with the Active field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionPatchRequest) GetActiveOk() (*bool, bool) {
-	if o == nil || o.Active == nil {
+	if o == nil || isNil(o.Active) {
 		return nil, false
 	}
 	return o.Active, true
@@ -57,7 +57,7 @@ func (o *SubscriptionPatchRequest) GetActiveOk() (*bool, bool) {
 
 // HasActive returns a boolean if a field has been set.
 func (o *SubscriptionPatchRequest) HasActive() bool {
-	if o != nil && o.Active != nil {
+	if o != nil && !isNil(o.Active) {
 		return true
 	}
 
@@ -71,7 +71,7 @@ func (o *SubscriptionPatchRequest) SetActive(v bool) {
 
 func (o SubscriptionPatchRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Active != nil {
+	if !isNil(o.Active) {
 		toSerialize["active"] = o.Active
 	}
 	return json.Marshal(toSerialize)

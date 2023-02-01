@@ -139,17 +139,17 @@ Note, each API key must be added to a map of `map[string]APIKey` where the key i
 - **Flow**: accessCode
 - **Authorization URL**: https://app.hubspot.com/oauth/authorize
 - **Scopes**: 
- - **crm.schemas.companies.read**:  
- - **crm.objects.deals.read**:  
- - **crm.schemas.line_items.read**: Line Items schemas
- - **crm.objects.deals.write**:  
- - **crm.schemas.deals.read**:  
  - **crm.objects.contacts.read**:  
  - **crm.schemas.quotes.read**: Quotes schemas
  - **crm.objects.contacts.write**:  
  - **crm.schemas.contacts.read**:  
  - **crm.objects.companies.write**:  
  - **crm.objects.companies.read**:  
+ - **crm.schemas.companies.read**:  
+ - **crm.objects.deals.read**:  
+ - **crm.schemas.line_items.read**: Line Items schemas
+ - **crm.objects.deals.write**:  
+ - **crm.schemas.deals.read**:  
  - **crm.schemas.deals.write**:  
  - **crm.schemas.contacts.write**:  
  - **crm.schemas.companies.write**:  
@@ -181,12 +181,11 @@ r, err := client.Service.Operation(auth, args)
 - **Flow**: accessCode
 - **Authorization URL**: https://app.hubspot.com/oauth/authorize
 - **Scopes**: 
- - **media_bridge.read**: Read media and media events
- - **contacts**: Read from and write to my Contacts
- - **e-commerce**: e-commerce
  - **timeline**: Create timeline events
- - **crm.schemas.custom.read**: View custom object definitions
  - **tickets**: Read and write tickets
+ - **media_bridge.read**: Read media and media events
+ - **crm.schemas.custom.read**: View custom object definitions
+ - **e-commerce**: e-commerce
 
 Example
 
@@ -206,6 +205,24 @@ tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
 auth := context.WithValue(oauth2.NoContext, sw.ContextOAuth2, tokenSource)
 r, err := client.Service.Operation(auth, args)
 ```
+
+
+### private_apps
+
+- **Type**: API key
+- **API key parameter name**: private-app
+- **Location**: HTTP header
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: private-app and passed in as the auth context for each request.
+
+
+### private_apps_legacy
+
+- **Type**: API key
+- **API key parameter name**: private-app-legacy
+- **Location**: HTTP header
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: private-app-legacy and passed in as the auth context for each request.
 
 
 ## Documentation for Utility Methods

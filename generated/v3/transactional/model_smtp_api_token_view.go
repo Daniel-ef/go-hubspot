@@ -106,7 +106,7 @@ func (o *SmtpApiTokenView) SetCreatedBy(v string) {
 
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *SmtpApiTokenView) GetPassword() string {
-	if o == nil || o.Password == nil {
+	if o == nil || isNil(o.Password) {
 		var ret string
 		return ret
 	}
@@ -116,7 +116,7 @@ func (o *SmtpApiTokenView) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SmtpApiTokenView) GetPasswordOk() (*string, bool) {
-	if o == nil || o.Password == nil {
+	if o == nil || isNil(o.Password) {
 		return nil, false
 	}
 	return o.Password, true
@@ -124,7 +124,7 @@ func (o *SmtpApiTokenView) GetPasswordOk() (*string, bool) {
 
 // HasPassword returns a boolean if a field has been set.
 func (o *SmtpApiTokenView) HasPassword() bool {
-	if o != nil && o.Password != nil {
+	if o != nil && !isNil(o.Password) {
 		return true
 	}
 
@@ -240,7 +240,7 @@ func (o SmtpApiTokenView) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-	if o.Password != nil {
+	if !isNil(o.Password) {
 		toSerialize["password"] = o.Password
 	}
 	if true {

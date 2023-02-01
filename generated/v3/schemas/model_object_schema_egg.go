@@ -131,7 +131,7 @@ func (o *ObjectSchemaEgg) SetSearchableProperties(v []string) {
 
 // GetPrimaryDisplayProperty returns the PrimaryDisplayProperty field value if set, zero value otherwise.
 func (o *ObjectSchemaEgg) GetPrimaryDisplayProperty() string {
-	if o == nil || o.PrimaryDisplayProperty == nil {
+	if o == nil || isNil(o.PrimaryDisplayProperty) {
 		var ret string
 		return ret
 	}
@@ -141,7 +141,7 @@ func (o *ObjectSchemaEgg) GetPrimaryDisplayProperty() string {
 // GetPrimaryDisplayPropertyOk returns a tuple with the PrimaryDisplayProperty field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ObjectSchemaEgg) GetPrimaryDisplayPropertyOk() (*string, bool) {
-	if o == nil || o.PrimaryDisplayProperty == nil {
+	if o == nil || isNil(o.PrimaryDisplayProperty) {
 		return nil, false
 	}
 	return o.PrimaryDisplayProperty, true
@@ -149,7 +149,7 @@ func (o *ObjectSchemaEgg) GetPrimaryDisplayPropertyOk() (*string, bool) {
 
 // HasPrimaryDisplayProperty returns a boolean if a field has been set.
 func (o *ObjectSchemaEgg) HasPrimaryDisplayProperty() bool {
-	if o != nil && o.PrimaryDisplayProperty != nil {
+	if o != nil && !isNil(o.PrimaryDisplayProperty) {
 		return true
 	}
 
@@ -268,7 +268,7 @@ func (o ObjectSchemaEgg) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["searchableProperties"] = o.SearchableProperties
 	}
-	if o.PrimaryDisplayProperty != nil {
+	if !isNil(o.PrimaryDisplayProperty) {
 		toSerialize["primaryDisplayProperty"] = o.PrimaryDisplayProperty
 	}
 	if true {

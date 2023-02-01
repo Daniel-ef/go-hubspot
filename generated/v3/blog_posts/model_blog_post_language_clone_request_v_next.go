@@ -66,7 +66,7 @@ func (o *BlogPostLanguageCloneRequestVNext) SetId(v string) {
 
 // GetLanguage returns the Language field value if set, zero value otherwise.
 func (o *BlogPostLanguageCloneRequestVNext) GetLanguage() string {
-	if o == nil || o.Language == nil {
+	if o == nil || isNil(o.Language) {
 		var ret string
 		return ret
 	}
@@ -76,7 +76,7 @@ func (o *BlogPostLanguageCloneRequestVNext) GetLanguage() string {
 // GetLanguageOk returns a tuple with the Language field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BlogPostLanguageCloneRequestVNext) GetLanguageOk() (*string, bool) {
-	if o == nil || o.Language == nil {
+	if o == nil || isNil(o.Language) {
 		return nil, false
 	}
 	return o.Language, true
@@ -84,7 +84,7 @@ func (o *BlogPostLanguageCloneRequestVNext) GetLanguageOk() (*string, bool) {
 
 // HasLanguage returns a boolean if a field has been set.
 func (o *BlogPostLanguageCloneRequestVNext) HasLanguage() bool {
-	if o != nil && o.Language != nil {
+	if o != nil && !isNil(o.Language) {
 		return true
 	}
 
@@ -101,7 +101,7 @@ func (o BlogPostLanguageCloneRequestVNext) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.Language != nil {
+	if !isNil(o.Language) {
 		toSerialize["language"] = o.Language
 	}
 	return json.Marshal(toSerialize)

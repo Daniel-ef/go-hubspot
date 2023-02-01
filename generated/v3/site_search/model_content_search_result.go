@@ -196,7 +196,7 @@ func (o *ContentSearchResult) SetUrl(v string) {
 
 // GetFeaturedImageUrl returns the FeaturedImageUrl field value if set, zero value otherwise.
 func (o *ContentSearchResult) GetFeaturedImageUrl() string {
-	if o == nil || o.FeaturedImageUrl == nil {
+	if o == nil || isNil(o.FeaturedImageUrl) {
 		var ret string
 		return ret
 	}
@@ -206,7 +206,7 @@ func (o *ContentSearchResult) GetFeaturedImageUrl() string {
 // GetFeaturedImageUrlOk returns a tuple with the FeaturedImageUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentSearchResult) GetFeaturedImageUrlOk() (*string, bool) {
-	if o == nil || o.FeaturedImageUrl == nil {
+	if o == nil || isNil(o.FeaturedImageUrl) {
 		return nil, false
 	}
 	return o.FeaturedImageUrl, true
@@ -214,7 +214,7 @@ func (o *ContentSearchResult) GetFeaturedImageUrlOk() (*string, bool) {
 
 // HasFeaturedImageUrl returns a boolean if a field has been set.
 func (o *ContentSearchResult) HasFeaturedImageUrl() bool {
-	if o != nil && o.FeaturedImageUrl != nil {
+	if o != nil && !isNil(o.FeaturedImageUrl) {
 		return true
 	}
 
@@ -228,7 +228,7 @@ func (o *ContentSearchResult) SetFeaturedImageUrl(v string) {
 
 // GetLanguage returns the Language field value if set, zero value otherwise.
 func (o *ContentSearchResult) GetLanguage() string {
-	if o == nil || o.Language == nil {
+	if o == nil || isNil(o.Language) {
 		var ret string
 		return ret
 	}
@@ -238,7 +238,7 @@ func (o *ContentSearchResult) GetLanguage() string {
 // GetLanguageOk returns a tuple with the Language field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentSearchResult) GetLanguageOk() (*string, bool) {
-	if o == nil || o.Language == nil {
+	if o == nil || isNil(o.Language) {
 		return nil, false
 	}
 	return o.Language, true
@@ -246,7 +246,7 @@ func (o *ContentSearchResult) GetLanguageOk() (*string, bool) {
 
 // HasLanguage returns a boolean if a field has been set.
 func (o *ContentSearchResult) HasLanguage() bool {
-	if o != nil && o.Language != nil {
+	if o != nil && !isNil(o.Language) {
 		return true
 	}
 
@@ -260,7 +260,7 @@ func (o *ContentSearchResult) SetLanguage(v string) {
 
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *ContentSearchResult) GetTitle() string {
-	if o == nil || o.Title == nil {
+	if o == nil || isNil(o.Title) {
 		var ret string
 		return ret
 	}
@@ -270,7 +270,7 @@ func (o *ContentSearchResult) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentSearchResult) GetTitleOk() (*string, bool) {
-	if o == nil || o.Title == nil {
+	if o == nil || isNil(o.Title) {
 		return nil, false
 	}
 	return o.Title, true
@@ -278,7 +278,7 @@ func (o *ContentSearchResult) GetTitleOk() (*string, bool) {
 
 // HasTitle returns a boolean if a field has been set.
 func (o *ContentSearchResult) HasTitle() bool {
-	if o != nil && o.Title != nil {
+	if o != nil && !isNil(o.Title) {
 		return true
 	}
 
@@ -292,7 +292,7 @@ func (o *ContentSearchResult) SetTitle(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ContentSearchResult) GetDescription() string {
-	if o == nil || o.Description == nil {
+	if o == nil || isNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -302,7 +302,7 @@ func (o *ContentSearchResult) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentSearchResult) GetDescriptionOk() (*string, bool) {
-	if o == nil || o.Description == nil {
+	if o == nil || isNil(o.Description) {
 		return nil, false
 	}
 	return o.Description, true
@@ -310,7 +310,7 @@ func (o *ContentSearchResult) GetDescriptionOk() (*string, bool) {
 
 // HasDescription returns a boolean if a field has been set.
 func (o *ContentSearchResult) HasDescription() bool {
-	if o != nil && o.Description != nil {
+	if o != nil && !isNil(o.Description) {
 		return true
 	}
 
@@ -324,7 +324,7 @@ func (o *ContentSearchResult) SetDescription(v string) {
 
 // GetCategory returns the Category field value if set, zero value otherwise.
 func (o *ContentSearchResult) GetCategory() string {
-	if o == nil || o.Category == nil {
+	if o == nil || isNil(o.Category) {
 		var ret string
 		return ret
 	}
@@ -334,7 +334,7 @@ func (o *ContentSearchResult) GetCategory() string {
 // GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentSearchResult) GetCategoryOk() (*string, bool) {
-	if o == nil || o.Category == nil {
+	if o == nil || isNil(o.Category) {
 		return nil, false
 	}
 	return o.Category, true
@@ -342,7 +342,7 @@ func (o *ContentSearchResult) GetCategoryOk() (*string, bool) {
 
 // HasCategory returns a boolean if a field has been set.
 func (o *ContentSearchResult) HasCategory() bool {
-	if o != nil && o.Category != nil {
+	if o != nil && !isNil(o.Category) {
 		return true
 	}
 
@@ -356,7 +356,7 @@ func (o *ContentSearchResult) SetCategory(v string) {
 
 // GetSubcategory returns the Subcategory field value if set, zero value otherwise.
 func (o *ContentSearchResult) GetSubcategory() string {
-	if o == nil || o.Subcategory == nil {
+	if o == nil || isNil(o.Subcategory) {
 		var ret string
 		return ret
 	}
@@ -366,7 +366,7 @@ func (o *ContentSearchResult) GetSubcategory() string {
 // GetSubcategoryOk returns a tuple with the Subcategory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentSearchResult) GetSubcategoryOk() (*string, bool) {
-	if o == nil || o.Subcategory == nil {
+	if o == nil || isNil(o.Subcategory) {
 		return nil, false
 	}
 	return o.Subcategory, true
@@ -374,7 +374,7 @@ func (o *ContentSearchResult) GetSubcategoryOk() (*string, bool) {
 
 // HasSubcategory returns a boolean if a field has been set.
 func (o *ContentSearchResult) HasSubcategory() bool {
-	if o != nil && o.Subcategory != nil {
+	if o != nil && !isNil(o.Subcategory) {
 		return true
 	}
 
@@ -388,7 +388,7 @@ func (o *ContentSearchResult) SetSubcategory(v string) {
 
 // GetAuthorFullName returns the AuthorFullName field value if set, zero value otherwise.
 func (o *ContentSearchResult) GetAuthorFullName() string {
-	if o == nil || o.AuthorFullName == nil {
+	if o == nil || isNil(o.AuthorFullName) {
 		var ret string
 		return ret
 	}
@@ -398,7 +398,7 @@ func (o *ContentSearchResult) GetAuthorFullName() string {
 // GetAuthorFullNameOk returns a tuple with the AuthorFullName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentSearchResult) GetAuthorFullNameOk() (*string, bool) {
-	if o == nil || o.AuthorFullName == nil {
+	if o == nil || isNil(o.AuthorFullName) {
 		return nil, false
 	}
 	return o.AuthorFullName, true
@@ -406,7 +406,7 @@ func (o *ContentSearchResult) GetAuthorFullNameOk() (*string, bool) {
 
 // HasAuthorFullName returns a boolean if a field has been set.
 func (o *ContentSearchResult) HasAuthorFullName() bool {
-	if o != nil && o.AuthorFullName != nil {
+	if o != nil && !isNil(o.AuthorFullName) {
 		return true
 	}
 
@@ -420,7 +420,7 @@ func (o *ContentSearchResult) SetAuthorFullName(v string) {
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *ContentSearchResult) GetTags() []string {
-	if o == nil || o.Tags == nil {
+	if o == nil || isNil(o.Tags) {
 		var ret []string
 		return ret
 	}
@@ -430,7 +430,7 @@ func (o *ContentSearchResult) GetTags() []string {
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentSearchResult) GetTagsOk() ([]string, bool) {
-	if o == nil || o.Tags == nil {
+	if o == nil || isNil(o.Tags) {
 		return nil, false
 	}
 	return o.Tags, true
@@ -438,7 +438,7 @@ func (o *ContentSearchResult) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *ContentSearchResult) HasTags() bool {
-	if o != nil && o.Tags != nil {
+	if o != nil && !isNil(o.Tags) {
 		return true
 	}
 
@@ -452,7 +452,7 @@ func (o *ContentSearchResult) SetTags(v []string) {
 
 // GetTableId returns the TableId field value if set, zero value otherwise.
 func (o *ContentSearchResult) GetTableId() int64 {
-	if o == nil || o.TableId == nil {
+	if o == nil || isNil(o.TableId) {
 		var ret int64
 		return ret
 	}
@@ -462,7 +462,7 @@ func (o *ContentSearchResult) GetTableId() int64 {
 // GetTableIdOk returns a tuple with the TableId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentSearchResult) GetTableIdOk() (*int64, bool) {
-	if o == nil || o.TableId == nil {
+	if o == nil || isNil(o.TableId) {
 		return nil, false
 	}
 	return o.TableId, true
@@ -470,7 +470,7 @@ func (o *ContentSearchResult) GetTableIdOk() (*int64, bool) {
 
 // HasTableId returns a boolean if a field has been set.
 func (o *ContentSearchResult) HasTableId() bool {
-	if o != nil && o.TableId != nil {
+	if o != nil && !isNil(o.TableId) {
 		return true
 	}
 
@@ -484,7 +484,7 @@ func (o *ContentSearchResult) SetTableId(v int64) {
 
 // GetRowId returns the RowId field value if set, zero value otherwise.
 func (o *ContentSearchResult) GetRowId() int64 {
-	if o == nil || o.RowId == nil {
+	if o == nil || isNil(o.RowId) {
 		var ret int64
 		return ret
 	}
@@ -494,7 +494,7 @@ func (o *ContentSearchResult) GetRowId() int64 {
 // GetRowIdOk returns a tuple with the RowId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentSearchResult) GetRowIdOk() (*int64, bool) {
-	if o == nil || o.RowId == nil {
+	if o == nil || isNil(o.RowId) {
 		return nil, false
 	}
 	return o.RowId, true
@@ -502,7 +502,7 @@ func (o *ContentSearchResult) GetRowIdOk() (*int64, bool) {
 
 // HasRowId returns a boolean if a field has been set.
 func (o *ContentSearchResult) HasRowId() bool {
-	if o != nil && o.RowId != nil {
+	if o != nil && !isNil(o.RowId) {
 		return true
 	}
 
@@ -516,7 +516,7 @@ func (o *ContentSearchResult) SetRowId(v int64) {
 
 // GetPublishedDate returns the PublishedDate field value if set, zero value otherwise.
 func (o *ContentSearchResult) GetPublishedDate() int64 {
-	if o == nil || o.PublishedDate == nil {
+	if o == nil || isNil(o.PublishedDate) {
 		var ret int64
 		return ret
 	}
@@ -526,7 +526,7 @@ func (o *ContentSearchResult) GetPublishedDate() int64 {
 // GetPublishedDateOk returns a tuple with the PublishedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentSearchResult) GetPublishedDateOk() (*int64, bool) {
-	if o == nil || o.PublishedDate == nil {
+	if o == nil || isNil(o.PublishedDate) {
 		return nil, false
 	}
 	return o.PublishedDate, true
@@ -534,7 +534,7 @@ func (o *ContentSearchResult) GetPublishedDateOk() (*int64, bool) {
 
 // HasPublishedDate returns a boolean if a field has been set.
 func (o *ContentSearchResult) HasPublishedDate() bool {
-	if o != nil && o.PublishedDate != nil {
+	if o != nil && !isNil(o.PublishedDate) {
 		return true
 	}
 
@@ -548,7 +548,7 @@ func (o *ContentSearchResult) SetPublishedDate(v int64) {
 
 // GetCombinedId returns the CombinedId field value if set, zero value otherwise.
 func (o *ContentSearchResult) GetCombinedId() string {
-	if o == nil || o.CombinedId == nil {
+	if o == nil || isNil(o.CombinedId) {
 		var ret string
 		return ret
 	}
@@ -558,7 +558,7 @@ func (o *ContentSearchResult) GetCombinedId() string {
 // GetCombinedIdOk returns a tuple with the CombinedId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentSearchResult) GetCombinedIdOk() (*string, bool) {
-	if o == nil || o.CombinedId == nil {
+	if o == nil || isNil(o.CombinedId) {
 		return nil, false
 	}
 	return o.CombinedId, true
@@ -566,7 +566,7 @@ func (o *ContentSearchResult) GetCombinedIdOk() (*string, bool) {
 
 // HasCombinedId returns a boolean if a field has been set.
 func (o *ContentSearchResult) HasCombinedId() bool {
-	if o != nil && o.CombinedId != nil {
+	if o != nil && !isNil(o.CombinedId) {
 		return true
 	}
 
@@ -595,40 +595,40 @@ func (o ContentSearchResult) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["url"] = o.Url
 	}
-	if o.FeaturedImageUrl != nil {
+	if !isNil(o.FeaturedImageUrl) {
 		toSerialize["featuredImageUrl"] = o.FeaturedImageUrl
 	}
-	if o.Language != nil {
+	if !isNil(o.Language) {
 		toSerialize["language"] = o.Language
 	}
-	if o.Title != nil {
+	if !isNil(o.Title) {
 		toSerialize["title"] = o.Title
 	}
-	if o.Description != nil {
+	if !isNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if o.Category != nil {
+	if !isNil(o.Category) {
 		toSerialize["category"] = o.Category
 	}
-	if o.Subcategory != nil {
+	if !isNil(o.Subcategory) {
 		toSerialize["subcategory"] = o.Subcategory
 	}
-	if o.AuthorFullName != nil {
+	if !isNil(o.AuthorFullName) {
 		toSerialize["authorFullName"] = o.AuthorFullName
 	}
-	if o.Tags != nil {
+	if !isNil(o.Tags) {
 		toSerialize["tags"] = o.Tags
 	}
-	if o.TableId != nil {
+	if !isNil(o.TableId) {
 		toSerialize["tableId"] = o.TableId
 	}
-	if o.RowId != nil {
+	if !isNil(o.RowId) {
 		toSerialize["rowId"] = o.RowId
 	}
-	if o.PublishedDate != nil {
+	if !isNil(o.PublishedDate) {
 		toSerialize["publishedDate"] = o.PublishedDate
 	}
-	if o.CombinedId != nil {
+	if !isNil(o.CombinedId) {
 		toSerialize["combinedId"] = o.CombinedId
 	}
 	return json.Marshal(toSerialize)

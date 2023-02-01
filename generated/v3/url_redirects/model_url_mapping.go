@@ -337,7 +337,7 @@ func (o *UrlMapping) SetPrecedence(v int32) {
 
 // GetCreated returns the Created field value if set, zero value otherwise.
 func (o *UrlMapping) GetCreated() time.Time {
-	if o == nil || o.Created == nil {
+	if o == nil || isNil(o.Created) {
 		var ret time.Time
 		return ret
 	}
@@ -347,7 +347,7 @@ func (o *UrlMapping) GetCreated() time.Time {
 // GetCreatedOk returns a tuple with the Created field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UrlMapping) GetCreatedOk() (*time.Time, bool) {
-	if o == nil || o.Created == nil {
+	if o == nil || isNil(o.Created) {
 		return nil, false
 	}
 	return o.Created, true
@@ -355,7 +355,7 @@ func (o *UrlMapping) GetCreatedOk() (*time.Time, bool) {
 
 // HasCreated returns a boolean if a field has been set.
 func (o *UrlMapping) HasCreated() bool {
-	if o != nil && o.Created != nil {
+	if o != nil && !isNil(o.Created) {
 		return true
 	}
 
@@ -369,7 +369,7 @@ func (o *UrlMapping) SetCreated(v time.Time) {
 
 // GetUpdated returns the Updated field value if set, zero value otherwise.
 func (o *UrlMapping) GetUpdated() time.Time {
-	if o == nil || o.Updated == nil {
+	if o == nil || isNil(o.Updated) {
 		var ret time.Time
 		return ret
 	}
@@ -379,7 +379,7 @@ func (o *UrlMapping) GetUpdated() time.Time {
 // GetUpdatedOk returns a tuple with the Updated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UrlMapping) GetUpdatedOk() (*time.Time, bool) {
-	if o == nil || o.Updated == nil {
+	if o == nil || isNil(o.Updated) {
 		return nil, false
 	}
 	return o.Updated, true
@@ -387,7 +387,7 @@ func (o *UrlMapping) GetUpdatedOk() (*time.Time, bool) {
 
 // HasUpdated returns a boolean if a field has been set.
 func (o *UrlMapping) HasUpdated() bool {
-	if o != nil && o.Updated != nil {
+	if o != nil && !isNil(o.Updated) {
 		return true
 	}
 
@@ -434,10 +434,10 @@ func (o UrlMapping) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["precedence"] = o.Precedence
 	}
-	if o.Created != nil {
+	if !isNil(o.Created) {
 		toSerialize["created"] = o.Created
 	}
-	if o.Updated != nil {
+	if !isNil(o.Updated) {
 		toSerialize["updated"] = o.Updated
 	}
 	return json.Marshal(toSerialize)

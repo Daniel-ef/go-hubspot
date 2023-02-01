@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"strings"
 )
@@ -51,9 +51,9 @@ func (r ApiGetErrorsRequest) Execute() (*CollectionResponsePublicImportErrorForw
 /*
 GetErrors Method for GetErrors
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param importId
- @return ApiGetErrorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param importId
+	@return ApiGetErrorsRequest
 */
 func (a *PublicImportsApiService) GetErrors(ctx context.Context, importId int64) ApiGetErrorsRequest {
 	return ApiGetErrorsRequest{
@@ -64,7 +64,8 @@ func (a *PublicImportsApiService) GetErrors(ctx context.Context, importId int64)
 }
 
 // Execute executes the request
-//  @return CollectionResponsePublicImportErrorForwardPaging
+//
+//	@return CollectionResponsePublicImportErrorForwardPaging
 func (a *PublicImportsApiService) GetErrorsExecute(r ApiGetErrorsRequest) (*CollectionResponsePublicImportErrorForwardPaging, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -118,6 +119,20 @@ func (a *PublicImportsApiService) GetErrorsExecute(r ApiGetErrorsRequest) (*Coll
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -146,6 +161,7 @@ func (a *PublicImportsApiService) GetErrorsExecute(r ApiGetErrorsRequest) (*Coll
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

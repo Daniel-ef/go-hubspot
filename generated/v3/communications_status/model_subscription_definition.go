@@ -138,7 +138,7 @@ func (o *SubscriptionDefinition) SetDescription(v string) {
 
 // GetPurpose returns the Purpose field value if set, zero value otherwise.
 func (o *SubscriptionDefinition) GetPurpose() string {
-	if o == nil || o.Purpose == nil {
+	if o == nil || isNil(o.Purpose) {
 		var ret string
 		return ret
 	}
@@ -148,7 +148,7 @@ func (o *SubscriptionDefinition) GetPurpose() string {
 // GetPurposeOk returns a tuple with the Purpose field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDefinition) GetPurposeOk() (*string, bool) {
-	if o == nil || o.Purpose == nil {
+	if o == nil || isNil(o.Purpose) {
 		return nil, false
 	}
 	return o.Purpose, true
@@ -156,7 +156,7 @@ func (o *SubscriptionDefinition) GetPurposeOk() (*string, bool) {
 
 // HasPurpose returns a boolean if a field has been set.
 func (o *SubscriptionDefinition) HasPurpose() bool {
-	if o != nil && o.Purpose != nil {
+	if o != nil && !isNil(o.Purpose) {
 		return true
 	}
 
@@ -170,7 +170,7 @@ func (o *SubscriptionDefinition) SetPurpose(v string) {
 
 // GetCommunicationMethod returns the CommunicationMethod field value if set, zero value otherwise.
 func (o *SubscriptionDefinition) GetCommunicationMethod() string {
-	if o == nil || o.CommunicationMethod == nil {
+	if o == nil || isNil(o.CommunicationMethod) {
 		var ret string
 		return ret
 	}
@@ -180,7 +180,7 @@ func (o *SubscriptionDefinition) GetCommunicationMethod() string {
 // GetCommunicationMethodOk returns a tuple with the CommunicationMethod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDefinition) GetCommunicationMethodOk() (*string, bool) {
-	if o == nil || o.CommunicationMethod == nil {
+	if o == nil || isNil(o.CommunicationMethod) {
 		return nil, false
 	}
 	return o.CommunicationMethod, true
@@ -188,7 +188,7 @@ func (o *SubscriptionDefinition) GetCommunicationMethodOk() (*string, bool) {
 
 // HasCommunicationMethod returns a boolean if a field has been set.
 func (o *SubscriptionDefinition) HasCommunicationMethod() bool {
-	if o != nil && o.CommunicationMethod != nil {
+	if o != nil && !isNil(o.CommunicationMethod) {
 		return true
 	}
 
@@ -331,10 +331,10 @@ func (o SubscriptionDefinition) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["description"] = o.Description
 	}
-	if o.Purpose != nil {
+	if !isNil(o.Purpose) {
 		toSerialize["purpose"] = o.Purpose
 	}
-	if o.CommunicationMethod != nil {
+	if !isNil(o.CommunicationMethod) {
 		toSerialize["communicationMethod"] = o.CommunicationMethod
 	}
 	if true {

@@ -66,7 +66,7 @@ func (o *MarketingEventSubscriber) SetInteractionDateTime(v int64) {
 
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *MarketingEventSubscriber) GetProperties() map[string]string {
-	if o == nil || o.Properties == nil {
+	if o == nil || isNil(o.Properties) {
 		var ret map[string]string
 		return ret
 	}
@@ -76,7 +76,7 @@ func (o *MarketingEventSubscriber) GetProperties() map[string]string {
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MarketingEventSubscriber) GetPropertiesOk() (*map[string]string, bool) {
-	if o == nil || o.Properties == nil {
+	if o == nil || isNil(o.Properties) {
 		return nil, false
 	}
 	return o.Properties, true
@@ -84,7 +84,7 @@ func (o *MarketingEventSubscriber) GetPropertiesOk() (*map[string]string, bool) 
 
 // HasProperties returns a boolean if a field has been set.
 func (o *MarketingEventSubscriber) HasProperties() bool {
-	if o != nil && o.Properties != nil {
+	if o != nil && !isNil(o.Properties) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *MarketingEventSubscriber) SetProperties(v map[string]string) {
 
 // GetVid returns the Vid field value if set, zero value otherwise.
 func (o *MarketingEventSubscriber) GetVid() int32 {
-	if o == nil || o.Vid == nil {
+	if o == nil || isNil(o.Vid) {
 		var ret int32
 		return ret
 	}
@@ -108,7 +108,7 @@ func (o *MarketingEventSubscriber) GetVid() int32 {
 // GetVidOk returns a tuple with the Vid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MarketingEventSubscriber) GetVidOk() (*int32, bool) {
-	if o == nil || o.Vid == nil {
+	if o == nil || isNil(o.Vid) {
 		return nil, false
 	}
 	return o.Vid, true
@@ -116,7 +116,7 @@ func (o *MarketingEventSubscriber) GetVidOk() (*int32, bool) {
 
 // HasVid returns a boolean if a field has been set.
 func (o *MarketingEventSubscriber) HasVid() bool {
-	if o != nil && o.Vid != nil {
+	if o != nil && !isNil(o.Vid) {
 		return true
 	}
 
@@ -133,10 +133,10 @@ func (o MarketingEventSubscriber) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["interactionDateTime"] = o.InteractionDateTime
 	}
-	if o.Properties != nil {
+	if !isNil(o.Properties) {
 		toSerialize["properties"] = o.Properties
 	}
-	if o.Vid != nil {
+	if !isNil(o.Vid) {
 		toSerialize["vid"] = o.Vid
 	}
 	return json.Marshal(toSerialize)

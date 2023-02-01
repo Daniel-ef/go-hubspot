@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"strings"
 )
@@ -40,10 +40,10 @@ StagesGetAudit Return an audit of all changes to the pipeline stage
 
 Return a reverse chronological list of all mutations that have occurred on the pipeline stage identified by `{stageId}`.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType
- @param stageId
- @return ApiStagesGetAuditRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType
+	@param stageId
+	@return ApiStagesGetAuditRequest
 */
 func (a *PipelineStageAuditsApiService) StagesGetAudit(ctx context.Context, objectType string, stageId string) ApiStagesGetAuditRequest {
 	return ApiStagesGetAuditRequest{
@@ -55,7 +55,8 @@ func (a *PipelineStageAuditsApiService) StagesGetAudit(ctx context.Context, obje
 }
 
 // Execute executes the request
-//  @return CollectionResponsePublicAuditInfoNoPaging
+//
+//	@return CollectionResponsePublicAuditInfoNoPaging
 func (a *PipelineStageAuditsApiService) StagesGetAuditExecute(r ApiStagesGetAuditRequest) (*CollectionResponsePublicAuditInfoNoPaging, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -104,6 +105,34 @@ func (a *PipelineStageAuditsApiService) StagesGetAuditExecute(r ApiStagesGetAudi
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -132,6 +161,7 @@ func (a *PipelineStageAuditsApiService) StagesGetAuditExecute(r ApiStagesGetAudi
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

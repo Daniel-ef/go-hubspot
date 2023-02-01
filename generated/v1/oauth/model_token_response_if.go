@@ -118,7 +118,7 @@ func (o *TokenResponseIF) SetAccessToken(v string) {
 
 // GetIdToken returns the IdToken field value if set, zero value otherwise.
 func (o *TokenResponseIF) GetIdToken() string {
-	if o == nil || o.IdToken == nil {
+	if o == nil || isNil(o.IdToken) {
 		var ret string
 		return ret
 	}
@@ -128,7 +128,7 @@ func (o *TokenResponseIF) GetIdToken() string {
 // GetIdTokenOk returns a tuple with the IdToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TokenResponseIF) GetIdTokenOk() (*string, bool) {
-	if o == nil || o.IdToken == nil {
+	if o == nil || isNil(o.IdToken) {
 		return nil, false
 	}
 	return o.IdToken, true
@@ -136,7 +136,7 @@ func (o *TokenResponseIF) GetIdTokenOk() (*string, bool) {
 
 // HasIdToken returns a boolean if a field has been set.
 func (o *TokenResponseIF) HasIdToken() bool {
-	if o != nil && o.IdToken != nil {
+	if o != nil && !isNil(o.IdToken) {
 		return true
 	}
 
@@ -183,7 +183,7 @@ func (o TokenResponseIF) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["access_token"] = o.AccessToken
 	}
-	if o.IdToken != nil {
+	if !isNil(o.IdToken) {
 		toSerialize["id_token"] = o.IdToken
 	}
 	if true {

@@ -92,7 +92,7 @@ func (o *CollectionResponseWithTotalBlogAuthorForwardPaging) SetResults(v []Blog
 
 // GetPaging returns the Paging field value if set, zero value otherwise.
 func (o *CollectionResponseWithTotalBlogAuthorForwardPaging) GetPaging() ForwardPaging {
-	if o == nil || o.Paging == nil {
+	if o == nil || isNil(o.Paging) {
 		var ret ForwardPaging
 		return ret
 	}
@@ -102,7 +102,7 @@ func (o *CollectionResponseWithTotalBlogAuthorForwardPaging) GetPaging() Forward
 // GetPagingOk returns a tuple with the Paging field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CollectionResponseWithTotalBlogAuthorForwardPaging) GetPagingOk() (*ForwardPaging, bool) {
-	if o == nil || o.Paging == nil {
+	if o == nil || isNil(o.Paging) {
 		return nil, false
 	}
 	return o.Paging, true
@@ -110,7 +110,7 @@ func (o *CollectionResponseWithTotalBlogAuthorForwardPaging) GetPagingOk() (*For
 
 // HasPaging returns a boolean if a field has been set.
 func (o *CollectionResponseWithTotalBlogAuthorForwardPaging) HasPaging() bool {
-	if o != nil && o.Paging != nil {
+	if o != nil && !isNil(o.Paging) {
 		return true
 	}
 
@@ -130,7 +130,7 @@ func (o CollectionResponseWithTotalBlogAuthorForwardPaging) MarshalJSON() ([]byt
 	if true {
 		toSerialize["results"] = o.Results
 	}
-	if o.Paging != nil {
+	if !isNil(o.Paging) {
 		toSerialize["paging"] = o.Paging
 	}
 	return json.Marshal(toSerialize)

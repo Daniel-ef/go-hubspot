@@ -48,6 +48,8 @@
           "hapikey" : [ ]
         }, {
           "oauth2_legacy" : [ "conversations.visitor_identification.tokens.create" ]
+        }, {
+          "private_apps_legacy" : [ "conversations.visitor_identification.tokens.create" ]
         } ]
       }
     }
@@ -217,6 +219,11 @@
         "type" : "apiKey",
         "name" : "hapikey",
         "in" : "query"
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
       }
     }
   },

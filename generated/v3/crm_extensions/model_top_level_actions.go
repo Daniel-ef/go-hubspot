@@ -41,7 +41,7 @@ func NewTopLevelActionsWithDefaults() *TopLevelActions {
 
 // GetSettings returns the Settings field value if set, zero value otherwise.
 func (o *TopLevelActions) GetSettings() IFrameActionBody {
-	if o == nil || o.Settings == nil {
+	if o == nil || isNil(o.Settings) {
 		var ret IFrameActionBody
 		return ret
 	}
@@ -51,7 +51,7 @@ func (o *TopLevelActions) GetSettings() IFrameActionBody {
 // GetSettingsOk returns a tuple with the Settings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TopLevelActions) GetSettingsOk() (*IFrameActionBody, bool) {
-	if o == nil || o.Settings == nil {
+	if o == nil || isNil(o.Settings) {
 		return nil, false
 	}
 	return o.Settings, true
@@ -59,7 +59,7 @@ func (o *TopLevelActions) GetSettingsOk() (*IFrameActionBody, bool) {
 
 // HasSettings returns a boolean if a field has been set.
 func (o *TopLevelActions) HasSettings() bool {
-	if o != nil && o.Settings != nil {
+	if o != nil && !isNil(o.Settings) {
 		return true
 	}
 
@@ -73,7 +73,7 @@ func (o *TopLevelActions) SetSettings(v IFrameActionBody) {
 
 // GetPrimary returns the Primary field value if set, zero value otherwise.
 func (o *TopLevelActions) GetPrimary() IntegratorObjectResultActionsInner {
-	if o == nil || o.Primary == nil {
+	if o == nil || isNil(o.Primary) {
 		var ret IntegratorObjectResultActionsInner
 		return ret
 	}
@@ -83,7 +83,7 @@ func (o *TopLevelActions) GetPrimary() IntegratorObjectResultActionsInner {
 // GetPrimaryOk returns a tuple with the Primary field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TopLevelActions) GetPrimaryOk() (*IntegratorObjectResultActionsInner, bool) {
-	if o == nil || o.Primary == nil {
+	if o == nil || isNil(o.Primary) {
 		return nil, false
 	}
 	return o.Primary, true
@@ -91,7 +91,7 @@ func (o *TopLevelActions) GetPrimaryOk() (*IntegratorObjectResultActionsInner, b
 
 // HasPrimary returns a boolean if a field has been set.
 func (o *TopLevelActions) HasPrimary() bool {
-	if o != nil && o.Primary != nil {
+	if o != nil && !isNil(o.Primary) {
 		return true
 	}
 
@@ -129,10 +129,10 @@ func (o *TopLevelActions) SetSecondary(v []IntegratorObjectResultActionsInner) {
 
 func (o TopLevelActions) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Settings != nil {
+	if !isNil(o.Settings) {
 		toSerialize["settings"] = o.Settings
 	}
-	if o.Primary != nil {
+	if !isNil(o.Primary) {
 		toSerialize["primary"] = o.Primary
 	}
 	if true {

@@ -114,7 +114,7 @@ func (o *Column) SetLabel(v string) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Column) GetId() string {
-	if o == nil || o.Id == nil {
+	if o == nil || isNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -124,7 +124,7 @@ func (o *Column) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Column) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
+	if o == nil || isNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -132,7 +132,7 @@ func (o *Column) GetIdOk() (*string, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *Column) HasId() bool {
-	if o != nil && o.Id != nil {
+	if o != nil && !isNil(o.Id) {
 		return true
 	}
 
@@ -146,7 +146,7 @@ func (o *Column) SetId(v string) {
 
 // GetWidth returns the Width field value if set, zero value otherwise.
 func (o *Column) GetWidth() int32 {
-	if o == nil || o.Width == nil {
+	if o == nil || isNil(o.Width) {
 		var ret int32
 		return ret
 	}
@@ -156,7 +156,7 @@ func (o *Column) GetWidth() int32 {
 // GetWidthOk returns a tuple with the Width field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Column) GetWidthOk() (*int32, bool) {
-	if o == nil || o.Width == nil {
+	if o == nil || isNil(o.Width) {
 		return nil, false
 	}
 	return o.Width, true
@@ -164,7 +164,7 @@ func (o *Column) GetWidthOk() (*int32, bool) {
 
 // HasWidth returns a boolean if a field has been set.
 func (o *Column) HasWidth() bool {
-	if o != nil && o.Width != nil {
+	if o != nil && !isNil(o.Width) {
 		return true
 	}
 
@@ -178,7 +178,7 @@ func (o *Column) SetWidth(v int32) {
 
 // GetForeignTableId returns the ForeignTableId field value if set, zero value otherwise.
 func (o *Column) GetForeignTableId() int64 {
-	if o == nil || o.ForeignTableId == nil {
+	if o == nil || isNil(o.ForeignTableId) {
 		var ret int64
 		return ret
 	}
@@ -188,7 +188,7 @@ func (o *Column) GetForeignTableId() int64 {
 // GetForeignTableIdOk returns a tuple with the ForeignTableId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Column) GetForeignTableIdOk() (*int64, bool) {
-	if o == nil || o.ForeignTableId == nil {
+	if o == nil || isNil(o.ForeignTableId) {
 		return nil, false
 	}
 	return o.ForeignTableId, true
@@ -196,7 +196,7 @@ func (o *Column) GetForeignTableIdOk() (*int64, bool) {
 
 // HasForeignTableId returns a boolean if a field has been set.
 func (o *Column) HasForeignTableId() bool {
-	if o != nil && o.ForeignTableId != nil {
+	if o != nil && !isNil(o.ForeignTableId) {
 		return true
 	}
 
@@ -210,7 +210,7 @@ func (o *Column) SetForeignTableId(v int64) {
 
 // GetForeignColumnId returns the ForeignColumnId field value if set, zero value otherwise.
 func (o *Column) GetForeignColumnId() int32 {
-	if o == nil || o.ForeignColumnId == nil {
+	if o == nil || isNil(o.ForeignColumnId) {
 		var ret int32
 		return ret
 	}
@@ -220,7 +220,7 @@ func (o *Column) GetForeignColumnId() int32 {
 // GetForeignColumnIdOk returns a tuple with the ForeignColumnId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Column) GetForeignColumnIdOk() (*int32, bool) {
-	if o == nil || o.ForeignColumnId == nil {
+	if o == nil || isNil(o.ForeignColumnId) {
 		return nil, false
 	}
 	return o.ForeignColumnId, true
@@ -228,7 +228,7 @@ func (o *Column) GetForeignColumnIdOk() (*int32, bool) {
 
 // HasForeignColumnId returns a boolean if a field has been set.
 func (o *Column) HasForeignColumnId() bool {
-	if o != nil && o.ForeignColumnId != nil {
+	if o != nil && !isNil(o.ForeignColumnId) {
 		return true
 	}
 
@@ -242,7 +242,7 @@ func (o *Column) SetForeignColumnId(v int32) {
 
 // GetForeignIds returns the ForeignIds field value if set, zero value otherwise.
 func (o *Column) GetForeignIds() []ForeignId {
-	if o == nil || o.ForeignIds == nil {
+	if o == nil || isNil(o.ForeignIds) {
 		var ret []ForeignId
 		return ret
 	}
@@ -252,7 +252,7 @@ func (o *Column) GetForeignIds() []ForeignId {
 // GetForeignIdsOk returns a tuple with the ForeignIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Column) GetForeignIdsOk() ([]ForeignId, bool) {
-	if o == nil || o.ForeignIds == nil {
+	if o == nil || isNil(o.ForeignIds) {
 		return nil, false
 	}
 	return o.ForeignIds, true
@@ -260,7 +260,7 @@ func (o *Column) GetForeignIdsOk() ([]ForeignId, bool) {
 
 // HasForeignIds returns a boolean if a field has been set.
 func (o *Column) HasForeignIds() bool {
-	if o != nil && o.ForeignIds != nil {
+	if o != nil && !isNil(o.ForeignIds) {
 		return true
 	}
 
@@ -274,7 +274,7 @@ func (o *Column) SetForeignIds(v []ForeignId) {
 
 // GetForeignIdsById returns the ForeignIdsById field value if set, zero value otherwise.
 func (o *Column) GetForeignIdsById() map[string]ForeignId {
-	if o == nil || o.ForeignIdsById == nil {
+	if o == nil || isNil(o.ForeignIdsById) {
 		var ret map[string]ForeignId
 		return ret
 	}
@@ -284,7 +284,7 @@ func (o *Column) GetForeignIdsById() map[string]ForeignId {
 // GetForeignIdsByIdOk returns a tuple with the ForeignIdsById field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Column) GetForeignIdsByIdOk() (*map[string]ForeignId, bool) {
-	if o == nil || o.ForeignIdsById == nil {
+	if o == nil || isNil(o.ForeignIdsById) {
 		return nil, false
 	}
 	return o.ForeignIdsById, true
@@ -292,7 +292,7 @@ func (o *Column) GetForeignIdsByIdOk() (*map[string]ForeignId, bool) {
 
 // HasForeignIdsById returns a boolean if a field has been set.
 func (o *Column) HasForeignIdsById() bool {
-	if o != nil && o.ForeignIdsById != nil {
+	if o != nil && !isNil(o.ForeignIdsById) {
 		return true
 	}
 
@@ -306,7 +306,7 @@ func (o *Column) SetForeignIdsById(v map[string]ForeignId) {
 
 // GetForeignIdsByName returns the ForeignIdsByName field value if set, zero value otherwise.
 func (o *Column) GetForeignIdsByName() map[string]ForeignId {
-	if o == nil || o.ForeignIdsByName == nil {
+	if o == nil || isNil(o.ForeignIdsByName) {
 		var ret map[string]ForeignId
 		return ret
 	}
@@ -316,7 +316,7 @@ func (o *Column) GetForeignIdsByName() map[string]ForeignId {
 // GetForeignIdsByNameOk returns a tuple with the ForeignIdsByName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Column) GetForeignIdsByNameOk() (*map[string]ForeignId, bool) {
-	if o == nil || o.ForeignIdsByName == nil {
+	if o == nil || isNil(o.ForeignIdsByName) {
 		return nil, false
 	}
 	return o.ForeignIdsByName, true
@@ -324,7 +324,7 @@ func (o *Column) GetForeignIdsByNameOk() (*map[string]ForeignId, bool) {
 
 // HasForeignIdsByName returns a boolean if a field has been set.
 func (o *Column) HasForeignIdsByName() bool {
-	if o != nil && o.ForeignIdsByName != nil {
+	if o != nil && !isNil(o.ForeignIdsByName) {
 		return true
 	}
 
@@ -362,7 +362,7 @@ func (o *Column) SetType(v string) {
 
 // GetOptionCount returns the OptionCount field value if set, zero value otherwise.
 func (o *Column) GetOptionCount() int32 {
-	if o == nil || o.OptionCount == nil {
+	if o == nil || isNil(o.OptionCount) {
 		var ret int32
 		return ret
 	}
@@ -372,7 +372,7 @@ func (o *Column) GetOptionCount() int32 {
 // GetOptionCountOk returns a tuple with the OptionCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Column) GetOptionCountOk() (*int32, bool) {
-	if o == nil || o.OptionCount == nil {
+	if o == nil || isNil(o.OptionCount) {
 		return nil, false
 	}
 	return o.OptionCount, true
@@ -380,7 +380,7 @@ func (o *Column) GetOptionCountOk() (*int32, bool) {
 
 // HasOptionCount returns a boolean if a field has been set.
 func (o *Column) HasOptionCount() bool {
-	if o != nil && o.OptionCount != nil {
+	if o != nil && !isNil(o.OptionCount) {
 		return true
 	}
 
@@ -394,7 +394,7 @@ func (o *Column) SetOptionCount(v int32) {
 
 // GetArchived returns the Archived field value if set, zero value otherwise.
 func (o *Column) GetArchived() bool {
-	if o == nil || o.Archived == nil {
+	if o == nil || isNil(o.Archived) {
 		var ret bool
 		return ret
 	}
@@ -404,7 +404,7 @@ func (o *Column) GetArchived() bool {
 // GetArchivedOk returns a tuple with the Archived field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Column) GetArchivedOk() (*bool, bool) {
-	if o == nil || o.Archived == nil {
+	if o == nil || isNil(o.Archived) {
 		return nil, false
 	}
 	return o.Archived, true
@@ -412,7 +412,7 @@ func (o *Column) GetArchivedOk() (*bool, bool) {
 
 // HasArchived returns a boolean if a field has been set.
 func (o *Column) HasArchived() bool {
-	if o != nil && o.Archived != nil {
+	if o != nil && !isNil(o.Archived) {
 		return true
 	}
 
@@ -426,7 +426,7 @@ func (o *Column) SetArchived(v bool) {
 
 // GetOptions returns the Options field value if set, zero value otherwise.
 func (o *Column) GetOptions() []Option {
-	if o == nil || o.Options == nil {
+	if o == nil || isNil(o.Options) {
 		var ret []Option
 		return ret
 	}
@@ -436,7 +436,7 @@ func (o *Column) GetOptions() []Option {
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Column) GetOptionsOk() ([]Option, bool) {
-	if o == nil || o.Options == nil {
+	if o == nil || isNil(o.Options) {
 		return nil, false
 	}
 	return o.Options, true
@@ -444,7 +444,7 @@ func (o *Column) GetOptionsOk() ([]Option, bool) {
 
 // HasOptions returns a boolean if a field has been set.
 func (o *Column) HasOptions() bool {
-	if o != nil && o.Options != nil {
+	if o != nil && !isNil(o.Options) {
 		return true
 	}
 
@@ -464,37 +464,37 @@ func (o Column) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["label"] = o.Label
 	}
-	if o.Id != nil {
+	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.Width != nil {
+	if !isNil(o.Width) {
 		toSerialize["width"] = o.Width
 	}
-	if o.ForeignTableId != nil {
+	if !isNil(o.ForeignTableId) {
 		toSerialize["foreignTableId"] = o.ForeignTableId
 	}
-	if o.ForeignColumnId != nil {
+	if !isNil(o.ForeignColumnId) {
 		toSerialize["foreignColumnId"] = o.ForeignColumnId
 	}
-	if o.ForeignIds != nil {
+	if !isNil(o.ForeignIds) {
 		toSerialize["foreignIds"] = o.ForeignIds
 	}
-	if o.ForeignIdsById != nil {
+	if !isNil(o.ForeignIdsById) {
 		toSerialize["foreignIdsById"] = o.ForeignIdsById
 	}
-	if o.ForeignIdsByName != nil {
+	if !isNil(o.ForeignIdsByName) {
 		toSerialize["foreignIdsByName"] = o.ForeignIdsByName
 	}
 	if true {
 		toSerialize["type"] = o.Type
 	}
-	if o.OptionCount != nil {
+	if !isNil(o.OptionCount) {
 		toSerialize["optionCount"] = o.OptionCount
 	}
-	if o.Archived != nil {
+	if !isNil(o.Archived) {
 		toSerialize["archived"] = o.Archived
 	}
-	if o.Options != nil {
+	if !isNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
 	return json.Marshal(toSerialize)

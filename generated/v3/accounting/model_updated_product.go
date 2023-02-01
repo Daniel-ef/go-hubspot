@@ -127,7 +127,7 @@ func (o *UpdatedProduct) SetPrice(v float32) {
 
 // GetCurrencyCode returns the CurrencyCode field value if set, zero value otherwise.
 func (o *UpdatedProduct) GetCurrencyCode() string {
-	if o == nil || o.CurrencyCode == nil {
+	if o == nil || isNil(o.CurrencyCode) {
 		var ret string
 		return ret
 	}
@@ -137,7 +137,7 @@ func (o *UpdatedProduct) GetCurrencyCode() string {
 // GetCurrencyCodeOk returns a tuple with the CurrencyCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdatedProduct) GetCurrencyCodeOk() (*string, bool) {
-	if o == nil || o.CurrencyCode == nil {
+	if o == nil || isNil(o.CurrencyCode) {
 		return nil, false
 	}
 	return o.CurrencyCode, true
@@ -145,7 +145,7 @@ func (o *UpdatedProduct) GetCurrencyCodeOk() (*string, bool) {
 
 // HasCurrencyCode returns a boolean if a field has been set.
 func (o *UpdatedProduct) HasCurrencyCode() bool {
-	if o != nil && o.CurrencyCode != nil {
+	if o != nil && !isNil(o.CurrencyCode) {
 		return true
 	}
 
@@ -216,7 +216,7 @@ func (o UpdatedProduct) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["price"] = o.Price
 	}
-	if o.CurrencyCode != nil {
+	if !isNil(o.CurrencyCode) {
 		toSerialize["currencyCode"] = o.CurrencyCode
 	}
 	if true {

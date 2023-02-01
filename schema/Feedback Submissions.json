@@ -118,7 +118,11 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       },
       "post" : {
@@ -157,7 +161,11 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       }
     },
@@ -191,7 +199,11 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       }
     },
@@ -241,7 +253,11 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       }
     },
@@ -302,7 +318,11 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       }
     },
@@ -352,7 +372,11 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       }
     },
@@ -392,7 +416,11 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       }
     },
@@ -431,7 +459,11 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ],
         "x-hubspot-rate-limit-exemptions" : [ "ten-secondly" ]
       }
@@ -532,7 +564,11 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       },
       "delete" : {
@@ -564,7 +600,11 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       },
       "patch" : {
@@ -622,14 +662,19 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       }
     },
-    "/crm/v3/objects/feedback_submissions/{feedbackSubmissionId}/associations/{toObjectType}" : {
+    "/crm/v4/objects/feedback_submissions/{feedbackSubmissionId}/associations/{toObjectType}" : {
       "get" : {
         "tags" : [ "Associations" ],
-        "summary" : "List associations of a feedback submission by type",
+        "summary" : "List",
+        "description" : "List all associations of a feedback submission by object type. Limit 1000 per call.",
         "operationId" : "AssociationsGetPage",
         "parameters" : [ {
           "name" : "feedbackSubmissionId",
@@ -638,7 +683,8 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         }, {
           "name" : "toObjectType",
@@ -678,7 +724,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/CollectionResponseAssociatedIdForwardPaging"
+                  "$ref" : "#/components/schemas/CollectionResponseMultiAssociatedObjectWithLabelForwardPaging"
                 }
               }
             }
@@ -692,15 +738,20 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       }
     },
-    "/crm/v3/objects/feedback_submissions/{feedbackSubmissionId}/associations/{toObjectType}/{toObjectId}/{associationType}" : {
+    "/crm/v4/objects/feedback_submissions/{feedbackSubmissionId}/associations/{toObjectType}/{toObjectId}" : {
       "put" : {
         "tags" : [ "Associations" ],
-        "summary" : "Associate a feedback submission with another object",
-        "operationId" : "AssociationsCreate",
+        "summary" : "Create",
+        "description" : "Set association labels between two records.",
+        "operationId" : "put-/crm/v4/objects/feedback-submissions/{feedbackSubmissionId}/associations/{toObjectType}/{toObjectId}_create",
         "parameters" : [ {
           "name" : "feedbackSubmissionId",
           "in" : "path",
@@ -708,7 +759,8 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         }, {
           "name" : "toObjectType",
@@ -726,25 +778,30 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "associationType",
-          "in" : "path",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/components/schemas/AssociationSpec"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
-          "200" : {
+          "201" : {
             "description" : "successful operation",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/SimplePublicObjectWithAssociations"
+                  "$ref" : "#/components/schemas/LabelsBetweenObjectPair"
                 }
               }
             }
@@ -758,13 +815,18 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       },
       "delete" : {
         "tags" : [ "Associations" ],
-        "summary" : "Remove an association between two feedback submissions",
-        "operationId" : "AssociationsArchive",
+        "summary" : "Delete",
+        "description" : "deletes all associations between two records.",
+        "operationId" : "delete-/crm/v4/objects/feedback-submissions/{feedbackSubmissionId}/associations/{toObjectType}/{toObjectId}_archive",
         "parameters" : [ {
           "name" : "feedbackSubmissionId",
           "in" : "path",
@@ -772,7 +834,8 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         }, {
           "name" : "toObjectType",
@@ -790,16 +853,8 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "associationType",
-          "in" : "path",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         } ],
         "responses" : {
@@ -816,7 +871,11 @@
         }, {
           "oauth2_legacy" : [ ]
         }, {
+          "private_apps_legacy" : [ ]
+        }, {
           "oauth2" : [ ]
+        }, {
+          "private_apps" : [ ]
         } ]
       }
     }
@@ -881,6 +940,32 @@
           }
         }
       },
+      "LabelsBetweenObjectPair" : {
+        "required" : [ "fromObjectId", "fromObjectTypeId", "labels", "toObjectId", "toObjectTypeId" ],
+        "type" : "object",
+        "properties" : {
+          "fromObjectTypeId" : {
+            "type" : "string"
+          },
+          "fromObjectId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "toObjectTypeId" : {
+            "type" : "string"
+          },
+          "toObjectId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "labels" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
       "BatchResponseSimplePublicObject" : {
         "required" : [ "completedAt", "results", "startedAt", "status" ],
         "type" : "object",
@@ -923,6 +1008,22 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/Filter"
+            }
+          }
+        }
+      },
+      "MultiAssociatedObjectWithLabel" : {
+        "required" : [ "associationTypes", "toObjectId" ],
+        "type" : "object",
+        "properties" : {
+          "toObjectId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "associationTypes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/AssociationSpecWithLabel"
             }
           }
         }
@@ -975,6 +1076,23 @@
         "type" : "object",
         "properties" : {
           "id" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AssociationSpecWithLabel" : {
+        "required" : [ "category", "typeId" ],
+        "type" : "object",
+        "properties" : {
+          "category" : {
+            "type" : "string",
+            "enum" : [ "HUBSPOT_DEFINED", "USER_DEFINED", "INTEGRATOR_DEFINED" ]
+          },
+          "typeId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "label" : {
             "type" : "string"
           }
         }
@@ -1320,6 +1438,20 @@
           }
         }
       },
+      "AssociationSpec" : {
+        "required" : [ "associationCategory", "associationTypeId" ],
+        "type" : "object",
+        "properties" : {
+          "associationCategory" : {
+            "type" : "string",
+            "enum" : [ "HUBSPOT_DEFINED", "USER_DEFINED", "INTEGRATOR_DEFINED" ]
+          },
+          "associationTypeId" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
       "PublicMergeInput" : {
         "required" : [ "objectIdToMerge", "primaryObjectId" ],
         "type" : "object",
@@ -1450,14 +1582,14 @@
           }
         }
       },
-      "CollectionResponseAssociatedIdForwardPaging" : {
+      "CollectionResponseMultiAssociatedObjectWithLabelForwardPaging" : {
         "required" : [ "results" ],
         "type" : "object",
         "properties" : {
           "results" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AssociatedId"
+              "$ref" : "#/components/schemas/MultiAssociatedObjectWithLabel"
             }
           },
           "paging" : {
@@ -1544,6 +1676,16 @@
             "tokenUrl" : "https://api.hubapi.com/oauth/v1/token"
           }
         }
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
+      },
+      "private_apps" : {
+        "type" : "apiKey",
+        "name" : "private-app",
+        "in" : "header"
       }
     }
   },

@@ -47,7 +47,7 @@
               }
             }
           },
-          "required" : false
+          "required" : true
         },
         "responses" : {
           "204" : {
@@ -59,39 +59,69 @@
           }
         },
         "security" : [ {
-          "oauth2" : [ "crm.objects.quotes.write" ]
-        }, {
           "oauth2_legacy" : [ "media_bridge.read" ]
-        }, {
-          "oauth2_legacy" : [ "tickets" ]
         }, {
           "oauth2" : [ "crm.objects.contacts.read" ]
         }, {
-          "hapikey" : [ ]
-        }, {
-          "oauth2" : [ "crm.objects.contacts.write" ]
-        }, {
-          "oauth2" : [ "crm.objects.line_items.read" ]
+          "private_apps" : [ "crm.objects.deals.read" ]
         }, {
           "oauth2" : [ "crm.objects.deals.read" ]
         }, {
-          "oauth2_legacy" : [ "crm.objects.custom.read" ]
+          "private_apps_legacy" : [ "contacts" ]
         }, {
-          "oauth2" : [ "crm.objects.line_items.write" ]
+          "private_apps" : [ "crm.objects.contacts.read" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.read" ]
+        }, {
+          "private_apps" : [ "crm.objects.deals.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.read" ]
         }, {
           "oauth2" : [ "crm.objects.deals.write" ]
         }, {
+          "private_apps_legacy" : [ "media_bridge.read" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
+        }, {
+          "oauth2" : [ "crm.objects.companies.write" ]
+        }, {
+          "oauth2" : [ "crm.objects.quotes.write" ]
+        }, {
+          "private_apps" : [ "crm.objects.quotes.write" ]
+        }, {
+          "oauth2_legacy" : [ "tickets" ]
+        }, {
+          "private_apps_legacy" : [ "crm.objects.custom.write" ]
+        }, {
+          "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.read" ]
+        }, {
+          "oauth2" : [ "crm.objects.contacts.write" ]
+        }, {
+          "private_apps" : [ "crm.objects.contacts.write" ]
+        }, {
+          "oauth2" : [ "crm.objects.line_items.read" ]
+        }, {
+          "oauth2_legacy" : [ "crm.objects.custom.read" ]
+        }, {
+          "private_apps_legacy" : [ "crm.objects.custom.read" ]
+        }, {
+          "oauth2" : [ "crm.objects.line_items.write" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "tickets" ]
         }, {
           "oauth2" : [ "crm.objects.quotes.read" ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
-        }, {
           "oauth2_legacy" : [ "crm.objects.custom.write" ]
         }, {
-          "oauth2" : [ "crm.objects.companies.write" ]
+          "private_apps" : [ "crm.objects.quotes.read" ]
         } ]
       }
     },
@@ -128,7 +158,7 @@
               }
             }
           },
-          "required" : false
+          "required" : true
         },
         "responses" : {
           "201" : {
@@ -146,7 +176,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/BatchResponsePublicAssociation"
+                  "$ref" : "#/components/schemas/BatchResponsePublicAssociationWithErrors"
                 }
               }
             }
@@ -156,39 +186,69 @@
           }
         },
         "security" : [ {
-          "oauth2" : [ "crm.objects.quotes.write" ]
-        }, {
           "oauth2_legacy" : [ "media_bridge.read" ]
-        }, {
-          "oauth2_legacy" : [ "tickets" ]
         }, {
           "oauth2" : [ "crm.objects.contacts.read" ]
         }, {
-          "hapikey" : [ ]
-        }, {
-          "oauth2" : [ "crm.objects.contacts.write" ]
-        }, {
-          "oauth2" : [ "crm.objects.line_items.read" ]
+          "private_apps" : [ "crm.objects.deals.read" ]
         }, {
           "oauth2" : [ "crm.objects.deals.read" ]
         }, {
-          "oauth2_legacy" : [ "crm.objects.custom.read" ]
+          "private_apps_legacy" : [ "contacts" ]
         }, {
-          "oauth2" : [ "crm.objects.line_items.write" ]
+          "private_apps" : [ "crm.objects.contacts.read" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.read" ]
+        }, {
+          "private_apps" : [ "crm.objects.deals.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.read" ]
         }, {
           "oauth2" : [ "crm.objects.deals.write" ]
         }, {
+          "private_apps_legacy" : [ "media_bridge.read" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
+        }, {
+          "oauth2" : [ "crm.objects.companies.write" ]
+        }, {
+          "oauth2" : [ "crm.objects.quotes.write" ]
+        }, {
+          "private_apps" : [ "crm.objects.quotes.write" ]
+        }, {
+          "oauth2_legacy" : [ "tickets" ]
+        }, {
+          "private_apps_legacy" : [ "crm.objects.custom.write" ]
+        }, {
+          "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.read" ]
+        }, {
+          "oauth2" : [ "crm.objects.contacts.write" ]
+        }, {
+          "private_apps" : [ "crm.objects.contacts.write" ]
+        }, {
+          "oauth2" : [ "crm.objects.line_items.read" ]
+        }, {
+          "oauth2_legacy" : [ "crm.objects.custom.read" ]
+        }, {
+          "private_apps_legacy" : [ "crm.objects.custom.read" ]
+        }, {
+          "oauth2" : [ "crm.objects.line_items.write" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "tickets" ]
         }, {
           "oauth2" : [ "crm.objects.quotes.read" ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
-        }, {
           "oauth2_legacy" : [ "crm.objects.custom.write" ]
         }, {
-          "oauth2" : [ "crm.objects.companies.write" ]
+          "private_apps" : [ "crm.objects.quotes.read" ]
         } ]
       }
     },
@@ -225,7 +285,7 @@
               }
             }
           },
-          "required" : false
+          "required" : true
         },
         "responses" : {
           "200" : {
@@ -243,7 +303,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/BatchResponsePublicAssociationMulti"
+                  "$ref" : "#/components/schemas/BatchResponsePublicAssociationMultiWithErrors"
                 }
               }
             }
@@ -253,39 +313,69 @@
           }
         },
         "security" : [ {
-          "oauth2" : [ "crm.objects.quotes.write" ]
-        }, {
           "oauth2_legacy" : [ "media_bridge.read" ]
-        }, {
-          "oauth2_legacy" : [ "tickets" ]
         }, {
           "oauth2" : [ "crm.objects.contacts.read" ]
         }, {
-          "hapikey" : [ ]
-        }, {
-          "oauth2" : [ "crm.objects.contacts.write" ]
-        }, {
-          "oauth2" : [ "crm.objects.line_items.read" ]
+          "private_apps" : [ "crm.objects.deals.read" ]
         }, {
           "oauth2" : [ "crm.objects.deals.read" ]
         }, {
-          "oauth2_legacy" : [ "crm.objects.custom.read" ]
+          "private_apps_legacy" : [ "contacts" ]
         }, {
-          "oauth2" : [ "crm.objects.line_items.write" ]
+          "private_apps" : [ "crm.objects.contacts.read" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.read" ]
+        }, {
+          "private_apps" : [ "crm.objects.deals.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.read" ]
         }, {
           "oauth2" : [ "crm.objects.deals.write" ]
         }, {
+          "private_apps_legacy" : [ "media_bridge.read" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
+        }, {
+          "oauth2" : [ "crm.objects.companies.write" ]
+        }, {
+          "oauth2" : [ "crm.objects.quotes.write" ]
+        }, {
+          "private_apps" : [ "crm.objects.quotes.write" ]
+        }, {
+          "oauth2_legacy" : [ "tickets" ]
+        }, {
+          "private_apps_legacy" : [ "crm.objects.custom.write" ]
+        }, {
+          "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.read" ]
+        }, {
+          "oauth2" : [ "crm.objects.contacts.write" ]
+        }, {
+          "private_apps" : [ "crm.objects.contacts.write" ]
+        }, {
+          "oauth2" : [ "crm.objects.line_items.read" ]
+        }, {
+          "oauth2_legacy" : [ "crm.objects.custom.read" ]
+        }, {
+          "private_apps_legacy" : [ "crm.objects.custom.read" ]
+        }, {
+          "oauth2" : [ "crm.objects.line_items.write" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "tickets" ]
         }, {
           "oauth2" : [ "crm.objects.quotes.read" ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
-        }, {
           "oauth2_legacy" : [ "crm.objects.custom.write" ]
         }, {
-          "oauth2" : [ "crm.objects.companies.write" ]
+          "private_apps" : [ "crm.objects.quotes.read" ]
         } ]
       }
     },
@@ -320,7 +410,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/CollectionResponsePublicAssociationDefiniton"
+                  "$ref" : "#/components/schemas/CollectionResponsePublicAssociationDefinitionNoPaging"
                 }
               }
             }
@@ -330,45 +420,87 @@
           }
         },
         "security" : [ {
-          "oauth2" : [ "crm.objects.quotes.write" ]
-        }, {
           "oauth2_legacy" : [ "media_bridge.read" ]
-        }, {
-          "oauth2_legacy" : [ "tickets" ]
         }, {
           "oauth2" : [ "crm.objects.contacts.read" ]
         }, {
-          "hapikey" : [ ]
-        }, {
-          "oauth2" : [ "crm.objects.contacts.write" ]
-        }, {
-          "oauth2" : [ "crm.objects.line_items.read" ]
+          "private_apps" : [ "crm.objects.deals.read" ]
         }, {
           "oauth2" : [ "crm.objects.deals.read" ]
         }, {
-          "oauth2_legacy" : [ "crm.objects.custom.read" ]
+          "private_apps_legacy" : [ "contacts" ]
         }, {
-          "oauth2" : [ "crm.objects.line_items.write" ]
+          "private_apps" : [ "crm.objects.contacts.read" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.read" ]
+        }, {
+          "private_apps" : [ "crm.objects.deals.write" ]
         }, {
           "oauth2" : [ "crm.objects.companies.read" ]
         }, {
           "oauth2" : [ "crm.objects.deals.write" ]
         }, {
+          "private_apps_legacy" : [ "media_bridge.read" ]
+        }, {
+          "private_apps" : [ "crm.objects.companies.write" ]
+        }, {
+          "oauth2" : [ "crm.objects.companies.write" ]
+        }, {
+          "oauth2" : [ "crm.objects.quotes.write" ]
+        }, {
+          "private_apps" : [ "crm.objects.quotes.write" ]
+        }, {
+          "oauth2_legacy" : [ "tickets" ]
+        }, {
+          "private_apps_legacy" : [ "crm.objects.custom.write" ]
+        }, {
+          "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.read" ]
+        }, {
+          "oauth2" : [ "crm.objects.contacts.write" ]
+        }, {
+          "private_apps" : [ "crm.objects.contacts.write" ]
+        }, {
+          "oauth2" : [ "crm.objects.line_items.read" ]
+        }, {
+          "oauth2_legacy" : [ "crm.objects.custom.read" ]
+        }, {
+          "private_apps_legacy" : [ "crm.objects.custom.read" ]
+        }, {
+          "oauth2" : [ "crm.objects.line_items.write" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "tickets" ]
         }, {
           "oauth2" : [ "crm.objects.quotes.read" ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
-        }, {
           "oauth2_legacy" : [ "crm.objects.custom.write" ]
         }, {
-          "oauth2" : [ "crm.objects.companies.write" ]
+          "private_apps" : [ "crm.objects.quotes.read" ]
         } ]
       }
     }
   },
   "components" : {
     "schemas" : {
+      "CollectionResponsePublicAssociationDefinitionNoPaging" : {
+        "required" : [ "results" ],
+        "type" : "object",
+        "properties" : {
+          "results" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PublicAssociationDefinition"
+            }
+          }
+        }
+      },
       "PublicObjectId" : {
         "required" : [ "id" ],
         "type" : "object",
@@ -430,6 +562,9 @@
         "properties" : {
           "next" : {
             "$ref" : "#/components/schemas/NextPage"
+          },
+          "prev" : {
+            "$ref" : "#/components/schemas/PreviousPage"
           }
         }
       },
@@ -507,6 +642,9 @@
             "items" : {
               "$ref" : "#/components/schemas/AssociatedId"
             }
+          },
+          "paging" : {
+            "$ref" : "#/components/schemas/Paging"
           }
         },
         "example" : {
@@ -546,18 +684,91 @@
           "type" : "contact_to_company"
         }
       },
-      "CollectionResponsePublicAssociationDefiniton" : {
-        "required" : [ "results" ],
+      "BatchResponsePublicAssociationMultiWithErrors" : {
+        "required" : [ "completedAt", "results", "startedAt", "status" ],
         "type" : "object",
         "properties" : {
+          "status" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "PROCESSING", "CANCELED", "COMPLETE" ]
+          },
           "results" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/PublicAssociationDefiniton"
+              "$ref" : "#/components/schemas/PublicAssociationMulti"
             }
           },
-          "paging" : {
-            "$ref" : "#/components/schemas/Paging"
+          "numErrors" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "errors" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StandardError"
+            }
+          },
+          "requestedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "startedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "completedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "links" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "BatchResponsePublicAssociationWithErrors" : {
+        "required" : [ "completedAt", "results", "startedAt", "status" ],
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "PROCESSING", "CANCELED", "COMPLETE" ]
+          },
+          "results" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PublicAssociation"
+            }
+          },
+          "numErrors" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "errors" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StandardError"
+            }
+          },
+          "requestedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "startedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "completedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "links" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
           }
         }
       },
@@ -612,12 +823,12 @@
         "required" : [ "httpStatus", "name" ],
         "type" : "object",
         "properties" : {
-          "httpStatus" : {
-            "type" : "string",
-            "enum" : [ "CONTINUE", "SWITCHING_PROTOCOLS", "PROCESSING", "OK", "CREATED", "ACCEPTED", "NON_AUTHORITATIVE_INFORMATION", "NO_CONTENT", "RESET_CONTENT", "PARTIAL_CONTENT", "MULTI_STATUS", "ALREADY_REPORTED", "IM_USED", "MULTIPLE_CHOICES", "MOVED_PERMANENTLY", "FOUND", "SEE_OTHER", "NOT_MODIFIED", "USE_PROXY", "TEMPORARY_REDIRECT", "PERMANENT_REDIRECT", "BAD_REQUEST", "UNAUTHORIZED", "PAYMENT_REQUIRED", "FORBIDDEN", "NOT_FOUND", "METHOD_NOT_ALLOWED", "NOT_ACCEPTABLE", "PROXY_AUTHENTICATION_REQUIRED", "REQUEST_TIMEOUT", "CONFLICT", "GONE", "LENGTH_REQUIRED", "PRECONDITION_FAILED", "REQUEST_ENTITY_TOO_LARGE", "REQUEST_URI_TOO_LONG", "UNSUPPORTED_MEDIA_TYPE", "REQUESTED_RANGE_NOT_SATISFIABLE", "EXPECTATION_FAILED", "IM_A_TEAPOT", "MISDIRECTED_REQUEST", "UNPROCESSABLE_ENTITY", "LOCKED", "FAILED_DEPENDENCY", "UPGRADE_REQUIRED", "PRECONDITION_REQUIRED", "TOO_MANY_REQUESTS", "REQUEST_HEADERS_FIELDS_TOO_LARGE", "INTERNAL_STALE_SERVICE_DISCOVERY", "UNAVAILABLE_FOR_LEGAL_REASONS", "INTERNAL_SERVER_ERROR", "NOT_IMPLEMENTED", "BAD_GATEWAY", "SERVICE_UNAVAILABLE", "GATEWAY_TIMEOUT", "HTTP_VERSION_NOT_SUPPORTED", "VARIANT_ALSO_NEGOTIATES", "INSUFFICIENT_STORAGE", "LOOP_DETECTED", "NOT_EXTENDED", "NETWORK_AUTHENTICATION_REQUIRED" ]
-          },
           "name" : {
             "type" : "string"
+          },
+          "httpStatus" : {
+            "type" : "string",
+            "enum" : [ "CONTINUE", "SWITCHING_PROTOCOLS", "PROCESSING", "OK", "CREATED", "ACCEPTED", "NON_AUTHORITATIVE_INFORMATION", "NO_CONTENT", "RESET_CONTENT", "PARTIAL_CONTENT", "MULTI_STATUS", "ALREADY_REPORTED", "IM_USED", "MULTIPLE_CHOICES", "MOVED_PERMANENTLY", "FOUND", "SEE_OTHER", "NOT_MODIFIED", "USE_PROXY", "TEMPORARY_REDIRECT", "PERMANENT_REDIRECT", "BAD_REQUEST", "UNAUTHORIZED", "PAYMENT_REQUIRED", "FORBIDDEN", "NOT_FOUND", "METHOD_NOT_ALLOWED", "NOT_ACCEPTABLE", "PROXY_AUTHENTICATION_REQUIRED", "REQUEST_TIMEOUT", "CONFLICT", "GONE", "LENGTH_REQUIRED", "PRECONDITION_FAILED", "REQUEST_ENTITY_TOO_LARGE", "REQUEST_URI_TOO_LONG", "UNSUPPORTED_MEDIA_TYPE", "REQUESTED_RANGE_NOT_SATISFIABLE", "EXPECTATION_FAILED", "IM_A_TEAPOT", "MISDIRECTED_REQUEST", "UNPROCESSABLE_ENTITY", "LOCKED", "FAILED_DEPENDENCY", "UPGRADE_REQUIRED", "PRECONDITION_REQUIRED", "TOO_MANY_REQUESTS", "REQUEST_HEADERS_FIELDS_TOO_LARGE", "INTERNAL_STALE_SERVICE_DISCOVERY", "UNAVAILABLE_FOR_LEGAL_REASONS", "MIGRATION_IN_PROGRESS", "INTERNAL_SERVER_ERROR", "NOT_IMPLEMENTED", "BAD_GATEWAY", "SERVICE_UNAVAILABLE", "GATEWAY_TIMEOUT", "HTTP_VERSION_NOT_SUPPORTED", "VARIANT_ALSO_NEGOTIATES", "INSUFFICIENT_STORAGE", "LOOP_DETECTED", "NOT_EXTENDED", "NETWORK_AUTHENTICATION_REQUIRED" ]
           }
         }
       },
@@ -625,25 +836,15 @@
         "required" : [ "completedAt", "results", "startedAt", "status" ],
         "type" : "object",
         "properties" : {
+          "status" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "PROCESSING", "CANCELED", "COMPLETE" ]
+          },
           "results" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/PublicAssociation"
             }
-          },
-          "numErrors" : {
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "errors" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/StandardError"
-            }
-          },
-          "status" : {
-            "type" : "string",
-            "enum" : [ "PENDING", "PROCESSING", "CANCELED", "COMPLETE" ]
           },
           "requestedAt" : {
             "type" : "string",
@@ -656,10 +857,28 @@
           "completedAt" : {
             "type" : "string",
             "format" : "date-time"
+          },
+          "links" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
           }
         }
       },
-      "PublicAssociationDefiniton" : {
+      "PreviousPage" : {
+        "required" : [ "before" ],
+        "type" : "object",
+        "properties" : {
+          "before" : {
+            "type" : "string"
+          },
+          "link" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PublicAssociationDefinition" : {
         "required" : [ "id", "name" ],
         "type" : "object",
         "properties" : {
@@ -669,31 +888,25 @@
           "name" : {
             "type" : "string"
           }
+        },
+        "example" : {
+          "id" : "1",
+          "name" : "contact_to_company"
         }
       },
       "BatchResponsePublicAssociationMulti" : {
         "required" : [ "completedAt", "results", "startedAt", "status" ],
         "type" : "object",
         "properties" : {
+          "status" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "PROCESSING", "CANCELED", "COMPLETE" ]
+          },
           "results" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/PublicAssociationMulti"
             }
-          },
-          "numErrors" : {
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "errors" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/StandardError"
-            }
-          },
-          "status" : {
-            "type" : "string",
-            "enum" : [ "PENDING", "PROCESSING", "CANCELED", "COMPLETE" ]
           },
           "requestedAt" : {
             "type" : "string",
@@ -706,6 +919,12 @@
           "completedAt" : {
             "type" : "string",
             "format" : "date-time"
+          },
+          "links" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
           }
         }
       },
@@ -770,12 +989,11 @@
             "authorizationUrl" : "https://app.hubspot.com/oauth/authorize",
             "tokenUrl" : "https://api.hubapi.com/oauth/v1/token",
             "scopes" : {
-              "crm.objects.custom.read" : "View custom object records",
-              "contacts" : "Read from and write to my Contacts",
-              "crm.objects.custom.write" : "Change custom object records",
               "e-commerce" : "e-commerce",
+              "tickets" : "Read and write tickets",
               "media_bridge.read" : "Read media and media events",
-              "tickets" : "Read and write tickets"
+              "crm.objects.custom.write" : "Change custom object records",
+              "crm.objects.custom.read" : "View custom object records"
             }
           }
         }
@@ -792,19 +1010,29 @@
             "authorizationUrl" : "https://app.hubspot.com/oauth/authorize",
             "tokenUrl" : "https://api.hubapi.com/oauth/v1/token",
             "scopes" : {
-              "crm.objects.quotes.write" : "Quotes",
-              "crm.objects.contacts.read" : " ",
-              "crm.objects.contacts.write" : " ",
               "crm.objects.companies.write" : " ",
               "crm.objects.companies.read" : " ",
               "crm.objects.line_items.write" : "Line Items",
               "crm.objects.quotes.read" : "Quotes",
               "crm.objects.deals.write" : " ",
               "crm.objects.line_items.read" : "Line Items",
-              "crm.objects.deals.read" : " "
+              "crm.objects.deals.read" : " ",
+              "crm.objects.quotes.write" : "Quotes",
+              "crm.objects.contacts.read" : " ",
+              "crm.objects.contacts.write" : " "
             }
           }
         }
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
+      },
+      "private_apps" : {
+        "type" : "apiKey",
+        "name" : "private-app",
+        "in" : "header"
       }
     }
   },

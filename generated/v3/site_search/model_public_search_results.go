@@ -144,7 +144,7 @@ func (o *PublicSearchResults) SetResults(v []ContentSearchResult) {
 
 // GetSearchTerm returns the SearchTerm field value if set, zero value otherwise.
 func (o *PublicSearchResults) GetSearchTerm() string {
-	if o == nil || o.SearchTerm == nil {
+	if o == nil || isNil(o.SearchTerm) {
 		var ret string
 		return ret
 	}
@@ -154,7 +154,7 @@ func (o *PublicSearchResults) GetSearchTerm() string {
 // GetSearchTermOk returns a tuple with the SearchTerm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicSearchResults) GetSearchTermOk() (*string, bool) {
-	if o == nil || o.SearchTerm == nil {
+	if o == nil || isNil(o.SearchTerm) {
 		return nil, false
 	}
 	return o.SearchTerm, true
@@ -162,7 +162,7 @@ func (o *PublicSearchResults) GetSearchTermOk() (*string, bool) {
 
 // HasSearchTerm returns a boolean if a field has been set.
 func (o *PublicSearchResults) HasSearchTerm() bool {
-	if o != nil && o.SearchTerm != nil {
+	if o != nil && !isNil(o.SearchTerm) {
 		return true
 	}
 
@@ -212,7 +212,7 @@ func (o PublicSearchResults) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["results"] = o.Results
 	}
-	if o.SearchTerm != nil {
+	if !isNil(o.SearchTerm) {
 		toSerialize["searchTerm"] = o.SearchTerm
 	}
 	if true {

@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"strings"
 )
@@ -46,9 +46,9 @@ CallbackComplete Complete a callback
 
 Completes the given action callback.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param callbackId The ID of the target app.
- @return ApiCallbackCompleteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param callbackId The ID of the target app.
+	@return ApiCallbackCompleteRequest
 */
 func (a *CallbacksApiService) CallbackComplete(ctx context.Context, callbackId string) ApiCallbackCompleteRequest {
 	return ApiCallbackCompleteRequest{
@@ -110,6 +110,20 @@ func (a *CallbacksApiService) CallbackCompleteExecute(r ApiCallbackCompleteReque
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -138,6 +152,7 @@ func (a *CallbacksApiService) CallbackCompleteExecute(r ApiCallbackCompleteReque
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -166,8 +181,8 @@ CallbackCompleteBatch Complete a batch of callbacks
 
 Completes the given action callbacks.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCallbackCompleteBatchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCallbackCompleteBatchRequest
 */
 func (a *CallbacksApiService) CallbackCompleteBatch(ctx context.Context) ApiCallbackCompleteBatchRequest {
 	return ApiCallbackCompleteBatchRequest{
@@ -227,6 +242,20 @@ func (a *CallbacksApiService) CallbackCompleteBatchExecute(r ApiCallbackComplete
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -255,6 +284,7 @@ func (a *CallbacksApiService) CallbackCompleteBatchExecute(r ApiCallbackComplete
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}

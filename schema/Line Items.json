@@ -118,6 +118,10 @@
         }, {
           "oauth2_legacy" : [ "e-commerce" ]
         }, {
+          "private_apps_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.read" ]
+        }, {
           "oauth2" : [ "crm.objects.line_items.read" ]
         } ]
       },
@@ -157,7 +161,11 @@
         }, {
           "hapikey" : [ ]
         }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
         } ]
       }
     },
@@ -191,7 +199,11 @@
         }, {
           "hapikey" : [ ]
         }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
         } ]
       }
     },
@@ -241,7 +253,11 @@
         }, {
           "hapikey" : [ ]
         }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
         } ]
       }
     },
@@ -302,6 +318,10 @@
         }, {
           "oauth2_legacy" : [ "e-commerce" ]
         }, {
+          "private_apps_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.read" ]
+        }, {
           "oauth2" : [ "crm.objects.line_items.read" ]
         } ]
       }
@@ -352,7 +372,11 @@
         }, {
           "hapikey" : [ ]
         }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
         } ]
       }
     },
@@ -392,7 +416,11 @@
         }, {
           "hapikey" : [ ]
         }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
         } ]
       }
     },
@@ -430,6 +458,10 @@
           "hapikey" : [ ]
         }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.read" ]
         }, {
           "oauth2" : [ "crm.objects.line_items.read" ]
         } ],
@@ -532,6 +564,10 @@
         }, {
           "oauth2_legacy" : [ "e-commerce" ]
         }, {
+          "private_apps_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.read" ]
+        }, {
           "oauth2" : [ "crm.objects.line_items.read" ]
         } ]
       },
@@ -564,7 +600,11 @@
         }, {
           "hapikey" : [ ]
         }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
         } ]
       },
       "patch" : {
@@ -622,14 +662,19 @@
         }, {
           "hapikey" : [ ]
         }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
         } ]
       }
     },
-    "/crm/v3/objects/line_items/{lineItemId}/associations/{toObjectType}" : {
+    "/crm/v4/objects/line_items/{lineItemId}/associations/{toObjectType}" : {
       "get" : {
         "tags" : [ "Associations" ],
-        "summary" : "List associations of a line item by type",
+        "summary" : "List",
+        "description" : "List all associations of a line item by object type. Limit 1000 per call.",
         "operationId" : "AssociationsGetAll",
         "parameters" : [ {
           "name" : "lineItemId",
@@ -638,7 +683,8 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         }, {
           "name" : "toObjectType",
@@ -678,7 +724,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/CollectionResponseAssociatedIdForwardPaging"
+                  "$ref" : "#/components/schemas/CollectionResponseMultiAssociatedObjectWithLabelForwardPaging"
                 }
               }
             }
@@ -692,15 +738,20 @@
         }, {
           "oauth2_legacy" : [ "e-commerce" ]
         }, {
+          "private_apps_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps" : [ "crm.objects.line_items.read" ]
+        }, {
           "oauth2" : [ "crm.objects.line_items.read" ]
         } ]
       }
     },
-    "/crm/v3/objects/line_items/{lineItemId}/associations/{toObjectType}/{toObjectId}/{associationType}" : {
+    "/crm/v4/objects/line_items/{lineItemId}/associations/{toObjectType}/{toObjectId}" : {
       "put" : {
         "tags" : [ "Associations" ],
-        "summary" : "Associate a line item with another object",
-        "operationId" : "AssociationsCreate",
+        "summary" : "Create",
+        "description" : "Set association labels between two records.",
+        "operationId" : "put-/crm/v4/objects/line-items/{lineItemId}/associations/{toObjectType}/{toObjectId}_create",
         "parameters" : [ {
           "name" : "lineItemId",
           "in" : "path",
@@ -708,7 +759,8 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         }, {
           "name" : "toObjectType",
@@ -726,25 +778,30 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "associationType",
-          "in" : "path",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/components/schemas/AssociationSpec"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
-          "200" : {
+          "201" : {
             "description" : "successful operation",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/SimplePublicObjectWithAssociations"
+                  "$ref" : "#/components/schemas/LabelsBetweenObjectPair"
                 }
               }
             }
@@ -758,13 +815,18 @@
         }, {
           "hapikey" : [ ]
         }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
         } ]
       },
       "delete" : {
         "tags" : [ "Associations" ],
-        "summary" : "Remove an association between two line items",
-        "operationId" : "AssociationsArchive",
+        "summary" : "Delete",
+        "description" : "deletes all associations between two records.",
+        "operationId" : "delete-/crm/v4/objects/line-items/{lineItemId}/associations/{toObjectType}/{toObjectId}_archive",
         "parameters" : [ {
           "name" : "lineItemId",
           "in" : "path",
@@ -772,7 +834,8 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         }, {
           "name" : "toObjectType",
@@ -790,16 +853,8 @@
           "style" : "simple",
           "explode" : false,
           "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "associationType",
-          "in" : "path",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
+            "type" : "integer",
+            "format" : "int64"
           }
         } ],
         "responses" : {
@@ -816,7 +871,11 @@
         }, {
           "hapikey" : [ ]
         }, {
+          "private_apps" : [ "crm.objects.line_items.write" ]
+        }, {
           "oauth2_legacy" : [ "e-commerce" ]
+        }, {
+          "private_apps_legacy" : [ "e-commerce" ]
         } ]
       }
     }
@@ -881,6 +940,32 @@
           }
         }
       },
+      "LabelsBetweenObjectPair" : {
+        "required" : [ "fromObjectId", "fromObjectTypeId", "labels", "toObjectId", "toObjectTypeId" ],
+        "type" : "object",
+        "properties" : {
+          "fromObjectTypeId" : {
+            "type" : "string"
+          },
+          "fromObjectId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "toObjectTypeId" : {
+            "type" : "string"
+          },
+          "toObjectId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "labels" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
       "BatchResponseSimplePublicObject" : {
         "required" : [ "completedAt", "results", "startedAt", "status" ],
         "type" : "object",
@@ -923,6 +1008,22 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/Filter"
+            }
+          }
+        }
+      },
+      "MultiAssociatedObjectWithLabel" : {
+        "required" : [ "associationTypes", "toObjectId" ],
+        "type" : "object",
+        "properties" : {
+          "toObjectId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "associationTypes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/AssociationSpecWithLabel"
             }
           }
         }
@@ -975,6 +1076,23 @@
         "type" : "object",
         "properties" : {
           "id" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AssociationSpecWithLabel" : {
+        "required" : [ "category", "typeId" ],
+        "type" : "object",
+        "properties" : {
+          "category" : {
+            "type" : "string",
+            "enum" : [ "HUBSPOT_DEFINED", "USER_DEFINED", "INTEGRATOR_DEFINED" ]
+          },
+          "typeId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "label" : {
             "type" : "string"
           }
         }
@@ -1318,6 +1436,20 @@
           }
         }
       },
+      "AssociationSpec" : {
+        "required" : [ "associationCategory", "associationTypeId" ],
+        "type" : "object",
+        "properties" : {
+          "associationCategory" : {
+            "type" : "string",
+            "enum" : [ "HUBSPOT_DEFINED", "USER_DEFINED", "INTEGRATOR_DEFINED" ]
+          },
+          "associationTypeId" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
       "PublicMergeInput" : {
         "required" : [ "objectIdToMerge", "primaryObjectId" ],
         "type" : "object",
@@ -1447,14 +1579,14 @@
           }
         }
       },
-      "CollectionResponseAssociatedIdForwardPaging" : {
+      "CollectionResponseMultiAssociatedObjectWithLabelForwardPaging" : {
         "required" : [ "results" ],
         "type" : "object",
         "properties" : {
           "results" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AssociatedId"
+              "$ref" : "#/components/schemas/MultiAssociatedObjectWithLabel"
             }
           },
           "paging" : {
@@ -1559,6 +1691,16 @@
             }
           }
         }
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
+      },
+      "private_apps" : {
+        "type" : "apiKey",
+        "name" : "private-app",
+        "in" : "header"
       }
     }
   },

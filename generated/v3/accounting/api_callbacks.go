@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"strings"
 )
@@ -46,9 +46,9 @@ CallbackCreateCustomer Endpoint for customer creation response
 
 Call this endpoint with the response to a customer creation request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param requestId The ID of the request that this response is for
- @return ApiCallbackCreateCustomerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param requestId The ID of the request that this response is for
+	@return ApiCallbackCreateCustomerRequest
 */
 func (a *CallbacksApiService) CallbackCreateCustomer(ctx context.Context, requestId string) ApiCallbackCreateCustomerRequest {
 	return ApiCallbackCreateCustomerRequest{
@@ -110,6 +110,20 @@ func (a *CallbacksApiService) CallbackCreateCustomerExecute(r ApiCallbackCreateC
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -138,6 +152,7 @@ func (a *CallbacksApiService) CallbackCreateCustomerExecute(r ApiCallbackCreateC
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -167,9 +182,9 @@ CallbackCreateExchangeRate Endpoint for exchange rate response
 
 Call this endpoint with the response to an exchange rate request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param requestId The ID of the request that this response is for
- @return ApiCallbackCreateExchangeRateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param requestId The ID of the request that this response is for
+	@return ApiCallbackCreateExchangeRateRequest
 */
 func (a *CallbacksApiService) CallbackCreateExchangeRate(ctx context.Context, requestId string) ApiCallbackCreateExchangeRateRequest {
 	return ApiCallbackCreateExchangeRateRequest{
@@ -231,6 +246,20 @@ func (a *CallbacksApiService) CallbackCreateExchangeRateExecute(r ApiCallbackCre
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -259,6 +288,7 @@ func (a *CallbacksApiService) CallbackCreateExchangeRateExecute(r ApiCallbackCre
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -288,9 +318,9 @@ CallbackCreateInvoice Endpoint for invoice creation response
 
 Call this endpoint with the response to a invoice creation request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param requestId The ID of the request that this response is for
- @return ApiCallbackCreateInvoiceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param requestId The ID of the request that this response is for
+	@return ApiCallbackCreateInvoiceRequest
 */
 func (a *CallbacksApiService) CallbackCreateInvoice(ctx context.Context, requestId string) ApiCallbackCreateInvoiceRequest {
 	return ApiCallbackCreateInvoiceRequest{
@@ -352,6 +382,20 @@ func (a *CallbacksApiService) CallbackCreateInvoiceExecute(r ApiCallbackCreateIn
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -380,6 +424,7 @@ func (a *CallbacksApiService) CallbackCreateInvoiceExecute(r ApiCallbackCreateIn
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -409,9 +454,9 @@ CallbackCreateTerm Endpoint for terms search response
 
 Call this endpoint with the response to a terms search request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param requestId The ID of the request that this response is for
- @return ApiCallbackCreateTermRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param requestId The ID of the request that this response is for
+	@return ApiCallbackCreateTermRequest
 */
 func (a *CallbacksApiService) CallbackCreateTerm(ctx context.Context, requestId string) ApiCallbackCreateTermRequest {
 	return ApiCallbackCreateTermRequest{
@@ -473,6 +518,20 @@ func (a *CallbacksApiService) CallbackCreateTermExecute(r ApiCallbackCreateTermR
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -501,6 +560,7 @@ func (a *CallbacksApiService) CallbackCreateTermExecute(r ApiCallbackCreateTermR
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -530,9 +590,9 @@ CallbackDoInvoiceSearch Endpoint for invoice search response
 
 Call this endpoint with the response to a invoice search request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param requestId The ID of the request that this response is for
- @return ApiCallbackDoInvoiceSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param requestId The ID of the request that this response is for
+	@return ApiCallbackDoInvoiceSearchRequest
 */
 func (a *CallbacksApiService) CallbackDoInvoiceSearch(ctx context.Context, requestId string) ApiCallbackDoInvoiceSearchRequest {
 	return ApiCallbackDoInvoiceSearchRequest{
@@ -594,6 +654,20 @@ func (a *CallbacksApiService) CallbackDoInvoiceSearchExecute(r ApiCallbackDoInvo
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -622,6 +696,7 @@ func (a *CallbacksApiService) CallbackDoInvoiceSearchExecute(r ApiCallbackDoInvo
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -651,9 +726,9 @@ CallbackDoProductSearch Endpoint for product search response
 
 Call this endpoint with the response to a product search request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param requestId The ID of the request that this response is for
- @return ApiCallbackDoProductSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param requestId The ID of the request that this response is for
+	@return ApiCallbackDoProductSearchRequest
 */
 func (a *CallbacksApiService) CallbackDoProductSearch(ctx context.Context, requestId string) ApiCallbackDoProductSearchRequest {
 	return ApiCallbackDoProductSearchRequest{
@@ -715,6 +790,20 @@ func (a *CallbacksApiService) CallbackDoProductSearchExecute(r ApiCallbackDoProd
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -743,6 +832,7 @@ func (a *CallbacksApiService) CallbackDoProductSearchExecute(r ApiCallbackDoProd
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -772,9 +862,9 @@ CallbackDoSearchCustomer Endpoint for customer search response
 
 Call this endpoint with the response to a customer search request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param requestId The ID of the request that this response is for
- @return ApiCallbackDoSearchCustomerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param requestId The ID of the request that this response is for
+	@return ApiCallbackDoSearchCustomerRequest
 */
 func (a *CallbacksApiService) CallbackDoSearchCustomer(ctx context.Context, requestId string) ApiCallbackDoSearchCustomerRequest {
 	return ApiCallbackDoSearchCustomerRequest{
@@ -836,6 +926,20 @@ func (a *CallbacksApiService) CallbackDoSearchCustomerExecute(r ApiCallbackDoSea
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -864,6 +968,7 @@ func (a *CallbacksApiService) CallbackDoSearchCustomerExecute(r ApiCallbackDoSea
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -893,9 +998,9 @@ CallbackDoTaxSearch Endpoint for taxes search response
 
 Call this endpoint with the response to a taxes search request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param requestId The ID of the request that this response is for
- @return ApiCallbackDoTaxSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param requestId The ID of the request that this response is for
+	@return ApiCallbackDoTaxSearchRequest
 */
 func (a *CallbacksApiService) CallbackDoTaxSearch(ctx context.Context, requestId string) ApiCallbackDoTaxSearchRequest {
 	return ApiCallbackDoTaxSearchRequest{
@@ -957,6 +1062,20 @@ func (a *CallbacksApiService) CallbackDoTaxSearchExecute(r ApiCallbackDoTaxSearc
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -985,6 +1104,7 @@ func (a *CallbacksApiService) CallbackDoTaxSearchExecute(r ApiCallbackDoTaxSearc
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -1014,9 +1134,9 @@ CallbackGetByID Endpoint for invoice get-by-id response
 
 Call this endpoint with the response to a invoice get-by-id request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param requestId The ID of the request that this response is for
- @return ApiCallbackGetByIDRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param requestId The ID of the request that this response is for
+	@return ApiCallbackGetByIDRequest
 */
 func (a *CallbacksApiService) CallbackGetByID(ctx context.Context, requestId string) ApiCallbackGetByIDRequest {
 	return ApiCallbackGetByIDRequest{
@@ -1078,6 +1198,20 @@ func (a *CallbacksApiService) CallbackGetByIDExecute(r ApiCallbackGetByIDRequest
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1106,6 +1240,7 @@ func (a *CallbacksApiService) CallbackGetByIDExecute(r ApiCallbackGetByIDRequest
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -1135,9 +1270,9 @@ CallbackInvoicePDF Endpoint for PDF content of invoice
 
 Call this endpoint with the PDF content of a requested invoice.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param requestId The ID of the request that this response is for
- @return ApiCallbackInvoicePDFRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param requestId The ID of the request that this response is for
+	@return ApiCallbackInvoicePDFRequest
 */
 func (a *CallbacksApiService) CallbackInvoicePDF(ctx context.Context, requestId string) ApiCallbackInvoicePDFRequest {
 	return ApiCallbackInvoicePDFRequest{
@@ -1199,6 +1334,20 @@ func (a *CallbacksApiService) CallbackInvoicePDFExecute(r ApiCallbackInvoicePDFR
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1227,6 +1376,7 @@ func (a *CallbacksApiService) CallbackInvoicePDFExecute(r ApiCallbackInvoicePDFR
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}

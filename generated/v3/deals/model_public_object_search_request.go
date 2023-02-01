@@ -96,7 +96,7 @@ func (o *PublicObjectSearchRequest) SetSorts(v []string) {
 
 // GetQuery returns the Query field value if set, zero value otherwise.
 func (o *PublicObjectSearchRequest) GetQuery() string {
-	if o == nil || o.Query == nil {
+	if o == nil || isNil(o.Query) {
 		var ret string
 		return ret
 	}
@@ -106,7 +106,7 @@ func (o *PublicObjectSearchRequest) GetQuery() string {
 // GetQueryOk returns a tuple with the Query field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicObjectSearchRequest) GetQueryOk() (*string, bool) {
-	if o == nil || o.Query == nil {
+	if o == nil || isNil(o.Query) {
 		return nil, false
 	}
 	return o.Query, true
@@ -114,7 +114,7 @@ func (o *PublicObjectSearchRequest) GetQueryOk() (*string, bool) {
 
 // HasQuery returns a boolean if a field has been set.
 func (o *PublicObjectSearchRequest) HasQuery() bool {
-	if o != nil && o.Query != nil {
+	if o != nil && !isNil(o.Query) {
 		return true
 	}
 
@@ -206,7 +206,7 @@ func (o PublicObjectSearchRequest) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["sorts"] = o.Sorts
 	}
-	if o.Query != nil {
+	if !isNil(o.Query) {
 		toSerialize["query"] = o.Query
 	}
 	if true {

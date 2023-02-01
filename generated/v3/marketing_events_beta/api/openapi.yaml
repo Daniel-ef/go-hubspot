@@ -10,6 +10,8 @@ info:
 servers:
 - url: https://api.hubapi.com/
 tags:
+- description: Endpoints that allow you to search for Marketing Events in HubSpot.
+  name: Search
 - description: "Operations to mark HubSpot contacts as registered, attended or cancelled\
     \ a registration to a Marketing Event."
   name: Attendance Subscriber State Changes
@@ -20,7 +22,7 @@ paths:
     post:
       description: "Record a subscription state between multiple HubSpot contacts\
         \ and a marketing event, using HubSpot contact ids."
-      operationId: AttendanceCreate
+      operationId: AttendanceCreate_create
       parameters:
       - description: The id of the marketing event
         explode: false
@@ -30,8 +32,8 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The new subscriber state for the HubSpot contacts and the specified
-          marketing event
+      - description: "The new subscriber state for the HubSpot contacts and the specified\
+          \ marketing event. For example: 'register', 'attend' or 'cancel'."
         explode: false
         in: path
         name: subscriberState
@@ -69,7 +71,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
+      - private_apps_legacy:
+        - crm.objects.marketing_events.write
       - oauth2_legacy:
         - crm.objects.marketing_events.write
       summary: Record
@@ -80,7 +83,7 @@ paths:
       description: "Record a subscription state between multiple HubSpot contacts\
         \ and a marketing event, using contact email addresses. If contact is not\
         \ present it will be automatically created. If you set params "
-      operationId: AttendanceEmailCreate
+      operationId: AttendanceEmailCreate_createByEmail
       parameters:
       - description: The id of the marketing event
         explode: false
@@ -90,8 +93,8 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The new subscriber state for the HubSpot contacts and the specified
-          marketing event
+      - description: "The new subscriber state for the HubSpot contacts and the specified\
+          \ marketing event. For example: 'register', 'attend' or 'cancel'."
         explode: false
         in: path
         name: subscriberState
@@ -129,7 +132,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
+      - private_apps_legacy:
+        - crm.objects.marketing_events.write
       - oauth2_legacy:
         - crm.objects.marketing_events.write
       summary: Record
@@ -158,14 +162,15 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
+      - private_apps_legacy:
+        - crm.objects.marketing_events.write
       - oauth2_legacy:
         - crm.objects.marketing_events.write
       tags:
       - Marketing_Events_External
   /marketing/v3/marketing-events/events/delete:
     post:
-      operationId: Archive
+      operationId: ArchiveBatch
       requestBody:
         content:
           application/json:
@@ -180,16 +185,20 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
+      - private_apps_legacy:
+        - crm.objects.marketing_events.write
       - oauth2_legacy:
         - crm.objects.marketing_events.write
       tags:
       - Marketing_Events_External
   /marketing/v3/marketing-events/events/search:
     get:
+      description: Search for marketing events that have an event id that starts with
+        the query string
       operationId: Search
       parameters:
-      - explode: true
+      - description: The id of the marketing event in the external event application
+        explode: true
         in: query
         name: q
         required: true
@@ -210,11 +219,13 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
       - oauth2_legacy:
         - crm.objects.marketing_events.read
+      - private_apps_legacy:
+        - crm.objects.marketing_events.read
+      summary: Search for marketing events
       tags:
-      - Marketing_Events_External
+      - Search
   /marketing/v3/marketing-events/events/upsert:
     post:
       operationId: Upsert
@@ -238,7 +249,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
+      - private_apps_legacy:
+        - crm.objects.marketing_events.write
       - oauth2_legacy:
         - crm.objects.marketing_events.write
       tags:
@@ -272,7 +284,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
+      - private_apps_legacy:
+        - crm.objects.marketing_events.write
       - oauth2_legacy:
         - crm.objects.marketing_events.write
       tags:
@@ -308,8 +321,9 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
       - oauth2_legacy:
+        - crm.objects.marketing_events.read
+      - private_apps_legacy:
         - crm.objects.marketing_events.read
       tags:
       - Marketing_Events_External
@@ -350,7 +364,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
+      - private_apps_legacy:
+        - crm.objects.marketing_events.write
       - oauth2_legacy:
         - crm.objects.marketing_events.write
       tags:
@@ -385,7 +400,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
+      - private_apps_legacy:
+        - crm.objects.marketing_events.write
       - oauth2_legacy:
         - crm.objects.marketing_events.write
       tags:
@@ -422,14 +438,15 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
+      - private_apps_legacy:
+        - crm.objects.marketing_events.write
       - oauth2_legacy:
         - crm.objects.marketing_events.write
       tags:
       - Marketing_Events_External
   /marketing/v3/marketing-events/events/{externalEventId}/complete:
     post:
-      operationId: ExternalComplete
+      operationId: ExternalComplete_complete
       parameters:
       - explode: false
         in: path
@@ -465,7 +482,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
+      - private_apps_legacy:
+        - crm.objects.marketing_events.write
       - oauth2_legacy:
         - crm.objects.marketing_events.write
       tags:
@@ -509,7 +527,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
+      - private_apps_legacy:
+        - crm.objects.marketing_events.write
       - oauth2_legacy:
         - crm.objects.marketing_events.write
       tags:
@@ -553,7 +572,8 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: An error occurred.
       security:
-      - hapikey: []
+      - private_apps_legacy:
+        - crm.objects.marketing_events.write
       - oauth2_legacy:
         - crm.objects.marketing_events.write
       tags:
@@ -721,30 +741,34 @@ components:
         customProperties:
         - sourceId: sourceId
           selectedByUser: true
+          sourceLabel: sourceLabel
+          source: IMPORT
+          updatedByUserId: 5
+          persistenceTimestamp: 5
+          sourceMetadata: sourceMetadata
           sourceVid:
           - 1
           - 1
-          sourceLabel: sourceLabel
           requestId: requestId
           name: name
-          source: IMPORT
-          updatedByUserId: 5
+          useTimestampAsPersistenceTimestamp: true
           value: value
-          sourceMetadata: sourceMetadata
           selectedByUserTimestamp: 6
           timestamp: 0
         - sourceId: sourceId
           selectedByUser: true
+          sourceLabel: sourceLabel
+          source: IMPORT
+          updatedByUserId: 5
+          persistenceTimestamp: 5
+          sourceMetadata: sourceMetadata
           sourceVid:
           - 1
           - 1
-          sourceLabel: sourceLabel
           requestId: requestId
           name: name
-          source: IMPORT
-          updatedByUserId: 5
+          useTimestampAsPersistenceTimestamp: true
           value: value
-          sourceMetadata: sourceMetadata
           selectedByUserTimestamp: 6
           timestamp: 0
         externalAccountId: externalAccountId
@@ -867,30 +891,34 @@ components:
         customProperties:
         - sourceId: sourceId
           selectedByUser: true
+          sourceLabel: sourceLabel
+          source: IMPORT
+          updatedByUserId: 5
+          persistenceTimestamp: 5
+          sourceMetadata: sourceMetadata
           sourceVid:
           - 1
           - 1
-          sourceLabel: sourceLabel
           requestId: requestId
           name: name
-          source: IMPORT
-          updatedByUserId: 5
+          useTimestampAsPersistenceTimestamp: true
           value: value
-          sourceMetadata: sourceMetadata
           selectedByUserTimestamp: 6
           timestamp: 0
         - sourceId: sourceId
           selectedByUser: true
+          sourceLabel: sourceLabel
+          source: IMPORT
+          updatedByUserId: 5
+          persistenceTimestamp: 5
+          sourceMetadata: sourceMetadata
           sourceVid:
           - 1
           - 1
-          sourceLabel: sourceLabel
           requestId: requestId
           name: name
-          source: IMPORT
-          updatedByUserId: 5
+          useTimestampAsPersistenceTimestamp: true
           value: value
-          sourceMetadata: sourceMetadata
           selectedByUserTimestamp: 6
           timestamp: 0
         eventCancelled: true
@@ -1145,30 +1173,34 @@ components:
           customProperties:
           - sourceId: sourceId
             selectedByUser: true
+            sourceLabel: sourceLabel
+            source: IMPORT
+            updatedByUserId: 5
+            persistenceTimestamp: 5
+            sourceMetadata: sourceMetadata
             sourceVid:
             - 1
             - 1
-            sourceLabel: sourceLabel
             requestId: requestId
             name: name
-            source: IMPORT
-            updatedByUserId: 5
+            useTimestampAsPersistenceTimestamp: true
             value: value
-            sourceMetadata: sourceMetadata
             selectedByUserTimestamp: 6
             timestamp: 0
           - sourceId: sourceId
             selectedByUser: true
+            sourceLabel: sourceLabel
+            source: IMPORT
+            updatedByUserId: 5
+            persistenceTimestamp: 5
+            sourceMetadata: sourceMetadata
             sourceVid:
             - 1
             - 1
-            sourceLabel: sourceLabel
             requestId: requestId
             name: name
-            source: IMPORT
-            updatedByUserId: 5
+            useTimestampAsPersistenceTimestamp: true
             value: value
-            sourceMetadata: sourceMetadata
             selectedByUserTimestamp: 6
             timestamp: 0
           externalAccountId: externalAccountId
@@ -1184,30 +1216,34 @@ components:
           customProperties:
           - sourceId: sourceId
             selectedByUser: true
+            sourceLabel: sourceLabel
+            source: IMPORT
+            updatedByUserId: 5
+            persistenceTimestamp: 5
+            sourceMetadata: sourceMetadata
             sourceVid:
             - 1
             - 1
-            sourceLabel: sourceLabel
             requestId: requestId
             name: name
-            source: IMPORT
-            updatedByUserId: 5
+            useTimestampAsPersistenceTimestamp: true
             value: value
-            sourceMetadata: sourceMetadata
             selectedByUserTimestamp: 6
             timestamp: 0
           - sourceId: sourceId
             selectedByUser: true
+            sourceLabel: sourceLabel
+            source: IMPORT
+            updatedByUserId: 5
+            persistenceTimestamp: 5
+            sourceMetadata: sourceMetadata
             sourceVid:
             - 1
             - 1
-            sourceLabel: sourceLabel
             requestId: requestId
             name: name
-            source: IMPORT
-            updatedByUserId: 5
+            useTimestampAsPersistenceTimestamp: true
             value: value
-            sourceMetadata: sourceMetadata
             selectedByUserTimestamp: 6
             timestamp: 0
           externalAccountId: externalAccountId
@@ -1286,16 +1322,18 @@ components:
       example:
         sourceId: sourceId
         selectedByUser: true
+        sourceLabel: sourceLabel
+        source: IMPORT
+        updatedByUserId: 5
+        persistenceTimestamp: 5
+        sourceMetadata: sourceMetadata
         sourceVid:
         - 1
         - 1
-        sourceLabel: sourceLabel
         requestId: requestId
         name: name
-        source: IMPORT
-        updatedByUserId: 5
+        useTimestampAsPersistenceTimestamp: true
         value: value
-        sourceMetadata: sourceMetadata
         selectedByUserTimestamp: 6
         timestamp: 0
       properties:
@@ -1410,6 +1448,11 @@ components:
         updatedByUserId:
           format: int32
           type: integer
+        persistenceTimestamp:
+          format: int64
+          type: integer
+        useTimestampAsPersistenceTimestamp:
+          type: boolean
       required:
       - name
       - requestId
@@ -1446,30 +1489,34 @@ components:
         customProperties:
         - sourceId: sourceId
           selectedByUser: true
+          sourceLabel: sourceLabel
+          source: IMPORT
+          updatedByUserId: 5
+          persistenceTimestamp: 5
+          sourceMetadata: sourceMetadata
           sourceVid:
           - 1
           - 1
-          sourceLabel: sourceLabel
           requestId: requestId
           name: name
-          source: IMPORT
-          updatedByUserId: 5
+          useTimestampAsPersistenceTimestamp: true
           value: value
-          sourceMetadata: sourceMetadata
           selectedByUserTimestamp: 6
           timestamp: 0
         - sourceId: sourceId
           selectedByUser: true
+          sourceLabel: sourceLabel
+          source: IMPORT
+          updatedByUserId: 5
+          persistenceTimestamp: 5
+          sourceMetadata: sourceMetadata
           sourceVid:
           - 1
           - 1
-          sourceLabel: sourceLabel
           requestId: requestId
           name: name
-          source: IMPORT
-          updatedByUserId: 5
+          useTimestampAsPersistenceTimestamp: true
           value: value
-          sourceMetadata: sourceMetadata
           selectedByUserTimestamp: 6
           timestamp: 0
         eventCancelled: true
@@ -1713,30 +1760,34 @@ components:
         customProperties:
         - sourceId: sourceId
           selectedByUser: true
+          sourceLabel: sourceLabel
+          source: IMPORT
+          updatedByUserId: 5
+          persistenceTimestamp: 5
+          sourceMetadata: sourceMetadata
           sourceVid:
           - 1
           - 1
-          sourceLabel: sourceLabel
           requestId: requestId
           name: name
-          source: IMPORT
-          updatedByUserId: 5
+          useTimestampAsPersistenceTimestamp: true
           value: value
-          sourceMetadata: sourceMetadata
           selectedByUserTimestamp: 6
           timestamp: 0
         - sourceId: sourceId
           selectedByUser: true
+          sourceLabel: sourceLabel
+          source: IMPORT
+          updatedByUserId: 5
+          persistenceTimestamp: 5
+          sourceMetadata: sourceMetadata
           sourceVid:
           - 1
           - 1
-          sourceLabel: sourceLabel
           requestId: requestId
           name: name
-          source: IMPORT
-          updatedByUserId: 5
+          useTimestampAsPersistenceTimestamp: true
           value: value
-          sourceMetadata: sourceMetadata
           selectedByUserTimestamp: 6
           timestamp: 0
         eventCancelled: true
@@ -1915,30 +1966,34 @@ components:
         customProperties:
         - sourceId: sourceId
           selectedByUser: true
+          sourceLabel: sourceLabel
+          source: IMPORT
+          updatedByUserId: 5
+          persistenceTimestamp: 5
+          sourceMetadata: sourceMetadata
           sourceVid:
           - 1
           - 1
-          sourceLabel: sourceLabel
           requestId: requestId
           name: name
-          source: IMPORT
-          updatedByUserId: 5
+          useTimestampAsPersistenceTimestamp: true
           value: value
-          sourceMetadata: sourceMetadata
           selectedByUserTimestamp: 6
           timestamp: 0
         - sourceId: sourceId
           selectedByUser: true
+          sourceLabel: sourceLabel
+          source: IMPORT
+          updatedByUserId: 5
+          persistenceTimestamp: 5
+          sourceMetadata: sourceMetadata
           sourceVid:
           - 1
           - 1
-          sourceLabel: sourceLabel
           requestId: requestId
           name: name
-          source: IMPORT
-          updatedByUserId: 5
+          useTimestampAsPersistenceTimestamp: true
           value: value
-          sourceMetadata: sourceMetadata
           selectedByUserTimestamp: 6
           timestamp: 0
         eventCancelled: true
@@ -2022,30 +2077,34 @@ components:
           customProperties:
           - sourceId: sourceId
             selectedByUser: true
+            sourceLabel: sourceLabel
+            source: IMPORT
+            updatedByUserId: 5
+            persistenceTimestamp: 5
+            sourceMetadata: sourceMetadata
             sourceVid:
             - 1
             - 1
-            sourceLabel: sourceLabel
             requestId: requestId
             name: name
-            source: IMPORT
-            updatedByUserId: 5
+            useTimestampAsPersistenceTimestamp: true
             value: value
-            sourceMetadata: sourceMetadata
             selectedByUserTimestamp: 6
             timestamp: 0
           - sourceId: sourceId
             selectedByUser: true
+            sourceLabel: sourceLabel
+            source: IMPORT
+            updatedByUserId: 5
+            persistenceTimestamp: 5
+            sourceMetadata: sourceMetadata
             sourceVid:
             - 1
             - 1
-            sourceLabel: sourceLabel
             requestId: requestId
             name: name
-            source: IMPORT
-            updatedByUserId: 5
+            useTimestampAsPersistenceTimestamp: true
             value: value
-            sourceMetadata: sourceMetadata
             selectedByUserTimestamp: 6
             timestamp: 0
           eventCancelled: true
@@ -2062,30 +2121,34 @@ components:
           customProperties:
           - sourceId: sourceId
             selectedByUser: true
+            sourceLabel: sourceLabel
+            source: IMPORT
+            updatedByUserId: 5
+            persistenceTimestamp: 5
+            sourceMetadata: sourceMetadata
             sourceVid:
             - 1
             - 1
-            sourceLabel: sourceLabel
             requestId: requestId
             name: name
-            source: IMPORT
-            updatedByUserId: 5
+            useTimestampAsPersistenceTimestamp: true
             value: value
-            sourceMetadata: sourceMetadata
             selectedByUserTimestamp: 6
             timestamp: 0
           - sourceId: sourceId
             selectedByUser: true
+            sourceLabel: sourceLabel
+            source: IMPORT
+            updatedByUserId: 5
+            persistenceTimestamp: 5
+            sourceMetadata: sourceMetadata
             sourceVid:
             - 1
             - 1
-            sourceLabel: sourceLabel
             requestId: requestId
             name: name
-            source: IMPORT
-            updatedByUserId: 5
+            useTimestampAsPersistenceTimestamp: true
             value: value
-            sourceMetadata: sourceMetadata
             selectedByUserTimestamp: 6
             timestamp: 0
           eventCancelled: true
@@ -2215,3 +2278,12 @@ components:
       in: query
       name: hapikey
       type: apiKey
+    private_apps_legacy:
+      in: header
+      name: private-app-legacy
+      type: apiKey
+x-hubspot-available-client-libraries:
+- PHP
+- Node
+- Python
+- Ruby

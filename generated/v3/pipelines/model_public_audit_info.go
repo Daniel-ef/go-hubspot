@@ -120,7 +120,7 @@ func (o *PublicAuditInfo) SetAction(v string) {
 
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
 func (o *PublicAuditInfo) GetTimestamp() time.Time {
-	if o == nil || o.Timestamp == nil {
+	if o == nil || isNil(o.Timestamp) {
 		var ret time.Time
 		return ret
 	}
@@ -130,7 +130,7 @@ func (o *PublicAuditInfo) GetTimestamp() time.Time {
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicAuditInfo) GetTimestampOk() (*time.Time, bool) {
-	if o == nil || o.Timestamp == nil {
+	if o == nil || isNil(o.Timestamp) {
 		return nil, false
 	}
 	return o.Timestamp, true
@@ -138,7 +138,7 @@ func (o *PublicAuditInfo) GetTimestampOk() (*time.Time, bool) {
 
 // HasTimestamp returns a boolean if a field has been set.
 func (o *PublicAuditInfo) HasTimestamp() bool {
-	if o != nil && o.Timestamp != nil {
+	if o != nil && !isNil(o.Timestamp) {
 		return true
 	}
 
@@ -152,7 +152,7 @@ func (o *PublicAuditInfo) SetTimestamp(v time.Time) {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *PublicAuditInfo) GetMessage() string {
-	if o == nil || o.Message == nil {
+	if o == nil || isNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -162,7 +162,7 @@ func (o *PublicAuditInfo) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicAuditInfo) GetMessageOk() (*string, bool) {
-	if o == nil || o.Message == nil {
+	if o == nil || isNil(o.Message) {
 		return nil, false
 	}
 	return o.Message, true
@@ -170,7 +170,7 @@ func (o *PublicAuditInfo) GetMessageOk() (*string, bool) {
 
 // HasMessage returns a boolean if a field has been set.
 func (o *PublicAuditInfo) HasMessage() bool {
-	if o != nil && o.Message != nil {
+	if o != nil && !isNil(o.Message) {
 		return true
 	}
 
@@ -184,7 +184,7 @@ func (o *PublicAuditInfo) SetMessage(v string) {
 
 // GetRawObject returns the RawObject field value if set, zero value otherwise.
 func (o *PublicAuditInfo) GetRawObject() map[string]interface{} {
-	if o == nil || o.RawObject == nil {
+	if o == nil || isNil(o.RawObject) {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -194,15 +194,15 @@ func (o *PublicAuditInfo) GetRawObject() map[string]interface{} {
 // GetRawObjectOk returns a tuple with the RawObject field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicAuditInfo) GetRawObjectOk() (map[string]interface{}, bool) {
-	if o == nil || o.RawObject == nil {
-		return nil, false
+	if o == nil || isNil(o.RawObject) {
+		return map[string]interface{}{}, false
 	}
 	return o.RawObject, true
 }
 
 // HasRawObject returns a boolean if a field has been set.
 func (o *PublicAuditInfo) HasRawObject() bool {
-	if o != nil && o.RawObject != nil {
+	if o != nil && !isNil(o.RawObject) {
 		return true
 	}
 
@@ -216,7 +216,7 @@ func (o *PublicAuditInfo) SetRawObject(v map[string]interface{}) {
 
 // GetFromUserId returns the FromUserId field value if set, zero value otherwise.
 func (o *PublicAuditInfo) GetFromUserId() int32 {
-	if o == nil || o.FromUserId == nil {
+	if o == nil || isNil(o.FromUserId) {
 		var ret int32
 		return ret
 	}
@@ -226,7 +226,7 @@ func (o *PublicAuditInfo) GetFromUserId() int32 {
 // GetFromUserIdOk returns a tuple with the FromUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicAuditInfo) GetFromUserIdOk() (*int32, bool) {
-	if o == nil || o.FromUserId == nil {
+	if o == nil || isNil(o.FromUserId) {
 		return nil, false
 	}
 	return o.FromUserId, true
@@ -234,7 +234,7 @@ func (o *PublicAuditInfo) GetFromUserIdOk() (*int32, bool) {
 
 // HasFromUserId returns a boolean if a field has been set.
 func (o *PublicAuditInfo) HasFromUserId() bool {
-	if o != nil && o.FromUserId != nil {
+	if o != nil && !isNil(o.FromUserId) {
 		return true
 	}
 
@@ -257,16 +257,16 @@ func (o PublicAuditInfo) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["action"] = o.Action
 	}
-	if o.Timestamp != nil {
+	if !isNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
-	if o.Message != nil {
+	if !isNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
-	if o.RawObject != nil {
+	if !isNil(o.RawObject) {
 		toSerialize["rawObject"] = o.RawObject
 	}
-	if o.FromUserId != nil {
+	if !isNil(o.FromUserId) {
 		toSerialize["fromUserId"] = o.FromUserId
 	}
 	return json.Marshal(toSerialize)

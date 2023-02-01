@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"strings"
 )
@@ -45,9 +45,9 @@ SyncCreateContact Import contacts
 
 Imports contacts' properties from an external accounting system to HubSpot. Import details, including property mappings, must be configured previously in HubSpot infrastructure.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId The ID of the accounting app. This is the identifier of the application created in your HubSpot developer portal.
- @return ApiSyncCreateContactRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId The ID of the accounting app. This is the identifier of the application created in your HubSpot developer portal.
+	@return ApiSyncCreateContactRequest
 */
 func (a *SyncApiService) SyncCreateContact(ctx context.Context, appId int32) ApiSyncCreateContactRequest {
 	return ApiSyncCreateContactRequest{
@@ -58,7 +58,8 @@ func (a *SyncApiService) SyncCreateContact(ctx context.Context, appId int32) Api
 }
 
 // Execute executes the request
-//  @return ActionResponse
+//
+//	@return ActionResponse
 func (a *SyncApiService) SyncCreateContactExecute(r ApiSyncCreateContactRequest) (*ActionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -111,6 +112,20 @@ func (a *SyncApiService) SyncCreateContactExecute(r ApiSyncCreateContactRequest)
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -139,6 +154,7 @@ func (a *SyncApiService) SyncCreateContactExecute(r ApiSyncCreateContactRequest)
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -176,9 +192,9 @@ SyncCreateProduct Import products
 
 Imports products' properties from an external accounting system to HubSpot. Import details, including property mappings, must be configured previously in HubSpot infrastructure.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId The ID of the accounting app. This is the identifier of the application created in your HubSpot developer portal.
- @return ApiSyncCreateProductRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId The ID of the accounting app. This is the identifier of the application created in your HubSpot developer portal.
+	@return ApiSyncCreateProductRequest
 */
 func (a *SyncApiService) SyncCreateProduct(ctx context.Context, appId int32) ApiSyncCreateProductRequest {
 	return ApiSyncCreateProductRequest{
@@ -189,7 +205,8 @@ func (a *SyncApiService) SyncCreateProduct(ctx context.Context, appId int32) Api
 }
 
 // Execute executes the request
-//  @return ActionResponse
+//
+//	@return ActionResponse
 func (a *SyncApiService) SyncCreateProductExecute(r ApiSyncCreateProductRequest) (*ActionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -242,6 +259,20 @@ func (a *SyncApiService) SyncCreateProductExecute(r ApiSyncCreateProductRequest)
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -270,6 +301,7 @@ func (a *SyncApiService) SyncCreateProductExecute(r ApiSyncCreateProductRequest)
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

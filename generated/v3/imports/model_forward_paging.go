@@ -38,7 +38,7 @@ func NewForwardPagingWithDefaults() *ForwardPaging {
 
 // GetNext returns the Next field value if set, zero value otherwise.
 func (o *ForwardPaging) GetNext() NextPage {
-	if o == nil || o.Next == nil {
+	if o == nil || isNil(o.Next) {
 		var ret NextPage
 		return ret
 	}
@@ -48,7 +48,7 @@ func (o *ForwardPaging) GetNext() NextPage {
 // GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ForwardPaging) GetNextOk() (*NextPage, bool) {
-	if o == nil || o.Next == nil {
+	if o == nil || isNil(o.Next) {
 		return nil, false
 	}
 	return o.Next, true
@@ -56,7 +56,7 @@ func (o *ForwardPaging) GetNextOk() (*NextPage, bool) {
 
 // HasNext returns a boolean if a field has been set.
 func (o *ForwardPaging) HasNext() bool {
-	if o != nil && o.Next != nil {
+	if o != nil && !isNil(o.Next) {
 		return true
 	}
 
@@ -70,7 +70,7 @@ func (o *ForwardPaging) SetNext(v NextPage) {
 
 func (o ForwardPaging) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Next != nil {
+	if !isNil(o.Next) {
 		toSerialize["next"] = o.Next
 	}
 	return json.Marshal(toSerialize)

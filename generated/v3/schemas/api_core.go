@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"strings"
 )
@@ -46,9 +46,9 @@ Archive Delete a schema
 
 Deletes a schema. Any existing records of this schema must be deleted **first**. Otherwise this call will fail.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType Fully qualified name or object type ID of your schema.
- @return ApiArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType Fully qualified name or object type ID of your schema.
+	@return ApiArchiveRequest
 */
 func (a *CoreApiService) Archive(ctx context.Context, objectType string) ApiArchiveRequest {
 	return ApiArchiveRequest{
@@ -108,6 +108,20 @@ func (a *CoreApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Response, er
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -136,6 +150,7 @@ func (a *CoreApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Response, er
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -159,10 +174,10 @@ ArchiveAssociation Remove an association
 
 Removes an existing association from a schema.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType Fully qualified name or object type ID of your schema.
- @param associationIdentifier Unique ID of the association to remove.
- @return ApiArchiveAssociationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType Fully qualified name or object type ID of your schema.
+	@param associationIdentifier Unique ID of the association to remove.
+	@return ApiArchiveAssociationRequest
 */
 func (a *CoreApiService) ArchiveAssociation(ctx context.Context, objectType string, associationIdentifier string) ApiArchiveAssociationRequest {
 	return ApiArchiveAssociationRequest{
@@ -221,6 +236,20 @@ func (a *CoreApiService) ArchiveAssociationExecute(r ApiArchiveAssociationReques
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -249,6 +278,7 @@ func (a *CoreApiService) ArchiveAssociationExecute(r ApiArchiveAssociationReques
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -277,8 +307,8 @@ Create Create a new schema
 
 Define a new object schema, along with custom properties and associations. The entire object schema, including its object type ID, properties, and associations will be returned in the response.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateRequest
 */
 func (a *CoreApiService) Create(ctx context.Context) ApiCreateRequest {
 	return ApiCreateRequest{
@@ -288,7 +318,8 @@ func (a *CoreApiService) Create(ctx context.Context) ApiCreateRequest {
 }
 
 // Execute executes the request
-//  @return ObjectSchema
+//
+//	@return ObjectSchema
 func (a *CoreApiService) CreateExecute(r ApiCreateRequest) (*ObjectSchema, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -340,6 +371,20 @@ func (a *CoreApiService) CreateExecute(r ApiCreateRequest) (*ObjectSchema, *http
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -368,6 +413,7 @@ func (a *CoreApiService) CreateExecute(r ApiCreateRequest) (*ObjectSchema, *http
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -406,9 +452,9 @@ CreateAssociation Create an association
 
 Defines a new association between the primary schema's object type and other object types.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType Fully qualified name or object type ID of your schema.
- @return ApiCreateAssociationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType Fully qualified name or object type ID of your schema.
+	@return ApiCreateAssociationRequest
 */
 func (a *CoreApiService) CreateAssociation(ctx context.Context, objectType string) ApiCreateAssociationRequest {
 	return ApiCreateAssociationRequest{
@@ -419,7 +465,8 @@ func (a *CoreApiService) CreateAssociation(ctx context.Context, objectType strin
 }
 
 // Execute executes the request
-//  @return AssociationDefinition
+//
+//	@return AssociationDefinition
 func (a *CoreApiService) CreateAssociationExecute(r ApiCreateAssociationRequest) (*AssociationDefinition, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -472,6 +519,20 @@ func (a *CoreApiService) CreateAssociationExecute(r ApiCreateAssociationRequest)
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -500,6 +561,7 @@ func (a *CoreApiService) CreateAssociationExecute(r ApiCreateAssociationRequest)
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -537,8 +599,8 @@ GetAll Get all schemas
 
 Returns all object schemas that have been defined for your account.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetAllRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetAllRequest
 */
 func (a *CoreApiService) GetAll(ctx context.Context) ApiGetAllRequest {
 	return ApiGetAllRequest{
@@ -548,7 +610,8 @@ func (a *CoreApiService) GetAll(ctx context.Context) ApiGetAllRequest {
 }
 
 // Execute executes the request
-//  @return CollectionResponseObjectSchemaNoPaging
+//
+//	@return CollectionResponseObjectSchemaNoPaging
 func (a *CoreApiService) GetAllExecute(r ApiGetAllRequest) (*CollectionResponseObjectSchemaNoPaging, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -598,6 +661,20 @@ func (a *CoreApiService) GetAllExecute(r ApiGetAllRequest) (*CollectionResponseO
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -626,6 +703,7 @@ func (a *CoreApiService) GetAllExecute(r ApiGetAllRequest) (*CollectionResponseO
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -657,9 +735,9 @@ GetByID Get an existing schema
 
 Returns an existing object schema.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType Fully qualified name or object type ID of your schema.
- @return ApiGetByIDRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType Fully qualified name or object type ID of your schema.
+	@return ApiGetByIDRequest
 */
 func (a *CoreApiService) GetByID(ctx context.Context, objectType string) ApiGetByIDRequest {
 	return ApiGetByIDRequest{
@@ -670,7 +748,8 @@ func (a *CoreApiService) GetByID(ctx context.Context, objectType string) ApiGetB
 }
 
 // Execute executes the request
-//  @return ObjectSchema
+//
+//	@return ObjectSchema
 func (a *CoreApiService) GetByIDExecute(r ApiGetByIDRequest) (*ObjectSchema, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -718,6 +797,20 @@ func (a *CoreApiService) GetByIDExecute(r ApiGetByIDRequest) (*ObjectSchema, *ht
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -746,6 +839,7 @@ func (a *CoreApiService) GetByIDExecute(r ApiGetByIDRequest) (*ObjectSchema, *ht
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -784,9 +878,9 @@ Update Update a schema
 
 Update the details for an existing object schema.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param objectType Fully qualified name or object type ID of your schema.
- @return ApiUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param objectType Fully qualified name or object type ID of your schema.
+	@return ApiUpdateRequest
 */
 func (a *CoreApiService) Update(ctx context.Context, objectType string) ApiUpdateRequest {
 	return ApiUpdateRequest{
@@ -797,7 +891,8 @@ func (a *CoreApiService) Update(ctx context.Context, objectType string) ApiUpdat
 }
 
 // Execute executes the request
-//  @return ObjectTypeDefinition
+//
+//	@return ObjectTypeDefinition
 func (a *CoreApiService) UpdateExecute(r ApiUpdateRequest) (*ObjectTypeDefinition, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPatch
@@ -850,6 +945,20 @@ func (a *CoreApiService) UpdateExecute(r ApiUpdateRequest) (*ObjectTypeDefinitio
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -878,6 +987,7 @@ func (a *CoreApiService) UpdateExecute(r ApiUpdateRequest) (*ObjectTypeDefinitio
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -146,7 +146,7 @@ func (o *IFrameActionBody) SetUrl(v string) {
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *IFrameActionBody) GetLabel() string {
-	if o == nil || o.Label == nil {
+	if o == nil || isNil(o.Label) {
 		var ret string
 		return ret
 	}
@@ -156,7 +156,7 @@ func (o *IFrameActionBody) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IFrameActionBody) GetLabelOk() (*string, bool) {
-	if o == nil || o.Label == nil {
+	if o == nil || isNil(o.Label) {
 		return nil, false
 	}
 	return o.Label, true
@@ -164,7 +164,7 @@ func (o *IFrameActionBody) GetLabelOk() (*string, bool) {
 
 // HasLabel returns a boolean if a field has been set.
 func (o *IFrameActionBody) HasLabel() bool {
-	if o != nil && o.Label != nil {
+	if o != nil && !isNil(o.Label) {
 		return true
 	}
 
@@ -214,7 +214,7 @@ func (o IFrameActionBody) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["url"] = o.Url
 	}
-	if o.Label != nil {
+	if !isNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
 	if true {

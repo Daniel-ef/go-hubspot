@@ -94,7 +94,7 @@ func (o *IntegratorObjectResult) SetTitle(v string) {
 
 // GetLinkUrl returns the LinkUrl field value if set, zero value otherwise.
 func (o *IntegratorObjectResult) GetLinkUrl() string {
-	if o == nil || o.LinkUrl == nil {
+	if o == nil || isNil(o.LinkUrl) {
 		var ret string
 		return ret
 	}
@@ -104,7 +104,7 @@ func (o *IntegratorObjectResult) GetLinkUrl() string {
 // GetLinkUrlOk returns a tuple with the LinkUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IntegratorObjectResult) GetLinkUrlOk() (*string, bool) {
-	if o == nil || o.LinkUrl == nil {
+	if o == nil || isNil(o.LinkUrl) {
 		return nil, false
 	}
 	return o.LinkUrl, true
@@ -112,7 +112,7 @@ func (o *IntegratorObjectResult) GetLinkUrlOk() (*string, bool) {
 
 // HasLinkUrl returns a boolean if a field has been set.
 func (o *IntegratorObjectResult) HasLinkUrl() bool {
-	if o != nil && o.LinkUrl != nil {
+	if o != nil && !isNil(o.LinkUrl) {
 		return true
 	}
 
@@ -180,7 +180,7 @@ func (o IntegratorObjectResult) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["title"] = o.Title
 	}
-	if o.LinkUrl != nil {
+	if !isNil(o.LinkUrl) {
 		toSerialize["linkUrl"] = o.LinkUrl
 	}
 	if true {

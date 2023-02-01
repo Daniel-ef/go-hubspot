@@ -37,9 +37,9 @@ Archive Delete calling settings
 
 Deletes this calling extension. This will remove your service as an option for all connected accounts.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId The ID of the target app.
- @return ApiArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId The ID of the target app.
+	@return ApiArchiveRequest
 */
 func (a *SettingsApiService) Archive(ctx context.Context, appId int32) ApiArchiveRequest {
 	return ApiArchiveRequest{
@@ -128,6 +128,7 @@ func (a *SettingsApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Response
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -157,9 +158,9 @@ Create Configure a calling extension
 
 Used to set the menu label, target iframe URL, and dimensions for your calling extension.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId The ID of the target app.
- @return ApiCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId The ID of the target app.
+	@return ApiCreateRequest
 */
 func (a *SettingsApiService) Create(ctx context.Context, appId int32) ApiCreateRequest {
 	return ApiCreateRequest{
@@ -170,7 +171,8 @@ func (a *SettingsApiService) Create(ctx context.Context, appId int32) ApiCreateR
 }
 
 // Execute executes the request
-//  @return SettingsResponse
+//
+//	@return SettingsResponse
 func (a *SettingsApiService) CreateExecute(r ApiCreateRequest) (*SettingsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -255,6 +257,7 @@ func (a *SettingsApiService) CreateExecute(r ApiCreateRequest) (*SettingsRespons
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -286,9 +289,9 @@ GetByID Get calling settings
 
 Returns the calling extension settings configured for your app.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId The ID of the target app.
- @return ApiGetByIDRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId The ID of the target app.
+	@return ApiGetByIDRequest
 */
 func (a *SettingsApiService) GetByID(ctx context.Context, appId int32) ApiGetByIDRequest {
 	return ApiGetByIDRequest{
@@ -299,7 +302,8 @@ func (a *SettingsApiService) GetByID(ctx context.Context, appId int32) ApiGetByI
 }
 
 // Execute executes the request
-//  @return SettingsResponse
+//
+//	@return SettingsResponse
 func (a *SettingsApiService) GetByIDExecute(r ApiGetByIDRequest) (*SettingsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -379,6 +383,7 @@ func (a *SettingsApiService) GetByIDExecute(r ApiGetByIDRequest) (*SettingsRespo
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -417,9 +422,9 @@ Update Update settings
 
 Updates existing calling extension settings.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId The ID of the target app.
- @return ApiUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId The ID of the target app.
+	@return ApiUpdateRequest
 */
 func (a *SettingsApiService) Update(ctx context.Context, appId int32) ApiUpdateRequest {
 	return ApiUpdateRequest{
@@ -430,7 +435,8 @@ func (a *SettingsApiService) Update(ctx context.Context, appId int32) ApiUpdateR
 }
 
 // Execute executes the request
-//  @return SettingsResponse
+//
+//	@return SettingsResponse
 func (a *SettingsApiService) UpdateExecute(r ApiUpdateRequest) (*SettingsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPatch
@@ -515,6 +521,7 @@ func (a *SettingsApiService) UpdateExecute(r ApiUpdateRequest) (*SettingsRespons
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

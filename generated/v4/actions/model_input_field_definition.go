@@ -68,7 +68,7 @@ func (o *InputFieldDefinition) SetTypeDefinition(v FieldTypeDefinition) {
 
 // GetSupportedValueTypes returns the SupportedValueTypes field value if set, zero value otherwise.
 func (o *InputFieldDefinition) GetSupportedValueTypes() []string {
-	if o == nil || o.SupportedValueTypes == nil {
+	if o == nil || isNil(o.SupportedValueTypes) {
 		var ret []string
 		return ret
 	}
@@ -78,7 +78,7 @@ func (o *InputFieldDefinition) GetSupportedValueTypes() []string {
 // GetSupportedValueTypesOk returns a tuple with the SupportedValueTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InputFieldDefinition) GetSupportedValueTypesOk() ([]string, bool) {
-	if o == nil || o.SupportedValueTypes == nil {
+	if o == nil || isNil(o.SupportedValueTypes) {
 		return nil, false
 	}
 	return o.SupportedValueTypes, true
@@ -86,7 +86,7 @@ func (o *InputFieldDefinition) GetSupportedValueTypesOk() ([]string, bool) {
 
 // HasSupportedValueTypes returns a boolean if a field has been set.
 func (o *InputFieldDefinition) HasSupportedValueTypes() bool {
-	if o != nil && o.SupportedValueTypes != nil {
+	if o != nil && !isNil(o.SupportedValueTypes) {
 		return true
 	}
 
@@ -127,7 +127,7 @@ func (o InputFieldDefinition) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["typeDefinition"] = o.TypeDefinition
 	}
-	if o.SupportedValueTypes != nil {
+	if !isNil(o.SupportedValueTypes) {
 		toSerialize["supportedValueTypes"] = o.SupportedValueTypes
 	}
 	if true {

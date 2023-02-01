@@ -184,7 +184,7 @@ func (o *PropertyCreate) SetGroupName(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *PropertyCreate) GetDescription() string {
-	if o == nil || o.Description == nil {
+	if o == nil || isNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -194,7 +194,7 @@ func (o *PropertyCreate) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyCreate) GetDescriptionOk() (*string, bool) {
-	if o == nil || o.Description == nil {
+	if o == nil || isNil(o.Description) {
 		return nil, false
 	}
 	return o.Description, true
@@ -202,7 +202,7 @@ func (o *PropertyCreate) GetDescriptionOk() (*string, bool) {
 
 // HasDescription returns a boolean if a field has been set.
 func (o *PropertyCreate) HasDescription() bool {
-	if o != nil && o.Description != nil {
+	if o != nil && !isNil(o.Description) {
 		return true
 	}
 
@@ -216,7 +216,7 @@ func (o *PropertyCreate) SetDescription(v string) {
 
 // GetOptions returns the Options field value if set, zero value otherwise.
 func (o *PropertyCreate) GetOptions() []OptionInput {
-	if o == nil || o.Options == nil {
+	if o == nil || isNil(o.Options) {
 		var ret []OptionInput
 		return ret
 	}
@@ -226,7 +226,7 @@ func (o *PropertyCreate) GetOptions() []OptionInput {
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyCreate) GetOptionsOk() ([]OptionInput, bool) {
-	if o == nil || o.Options == nil {
+	if o == nil || isNil(o.Options) {
 		return nil, false
 	}
 	return o.Options, true
@@ -234,7 +234,7 @@ func (o *PropertyCreate) GetOptionsOk() ([]OptionInput, bool) {
 
 // HasOptions returns a boolean if a field has been set.
 func (o *PropertyCreate) HasOptions() bool {
-	if o != nil && o.Options != nil {
+	if o != nil && !isNil(o.Options) {
 		return true
 	}
 
@@ -248,7 +248,7 @@ func (o *PropertyCreate) SetOptions(v []OptionInput) {
 
 // GetDisplayOrder returns the DisplayOrder field value if set, zero value otherwise.
 func (o *PropertyCreate) GetDisplayOrder() int32 {
-	if o == nil || o.DisplayOrder == nil {
+	if o == nil || isNil(o.DisplayOrder) {
 		var ret int32
 		return ret
 	}
@@ -258,7 +258,7 @@ func (o *PropertyCreate) GetDisplayOrder() int32 {
 // GetDisplayOrderOk returns a tuple with the DisplayOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyCreate) GetDisplayOrderOk() (*int32, bool) {
-	if o == nil || o.DisplayOrder == nil {
+	if o == nil || isNil(o.DisplayOrder) {
 		return nil, false
 	}
 	return o.DisplayOrder, true
@@ -266,7 +266,7 @@ func (o *PropertyCreate) GetDisplayOrderOk() (*int32, bool) {
 
 // HasDisplayOrder returns a boolean if a field has been set.
 func (o *PropertyCreate) HasDisplayOrder() bool {
-	if o != nil && o.DisplayOrder != nil {
+	if o != nil && !isNil(o.DisplayOrder) {
 		return true
 	}
 
@@ -280,7 +280,7 @@ func (o *PropertyCreate) SetDisplayOrder(v int32) {
 
 // GetHasUniqueValue returns the HasUniqueValue field value if set, zero value otherwise.
 func (o *PropertyCreate) GetHasUniqueValue() bool {
-	if o == nil || o.HasUniqueValue == nil {
+	if o == nil || isNil(o.HasUniqueValue) {
 		var ret bool
 		return ret
 	}
@@ -290,7 +290,7 @@ func (o *PropertyCreate) GetHasUniqueValue() bool {
 // GetHasUniqueValueOk returns a tuple with the HasUniqueValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyCreate) GetHasUniqueValueOk() (*bool, bool) {
-	if o == nil || o.HasUniqueValue == nil {
+	if o == nil || isNil(o.HasUniqueValue) {
 		return nil, false
 	}
 	return o.HasUniqueValue, true
@@ -298,7 +298,7 @@ func (o *PropertyCreate) GetHasUniqueValueOk() (*bool, bool) {
 
 // HasHasUniqueValue returns a boolean if a field has been set.
 func (o *PropertyCreate) HasHasUniqueValue() bool {
-	if o != nil && o.HasUniqueValue != nil {
+	if o != nil && !isNil(o.HasUniqueValue) {
 		return true
 	}
 
@@ -312,7 +312,7 @@ func (o *PropertyCreate) SetHasUniqueValue(v bool) {
 
 // GetHidden returns the Hidden field value if set, zero value otherwise.
 func (o *PropertyCreate) GetHidden() bool {
-	if o == nil || o.Hidden == nil {
+	if o == nil || isNil(o.Hidden) {
 		var ret bool
 		return ret
 	}
@@ -322,7 +322,7 @@ func (o *PropertyCreate) GetHidden() bool {
 // GetHiddenOk returns a tuple with the Hidden field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyCreate) GetHiddenOk() (*bool, bool) {
-	if o == nil || o.Hidden == nil {
+	if o == nil || isNil(o.Hidden) {
 		return nil, false
 	}
 	return o.Hidden, true
@@ -330,7 +330,7 @@ func (o *PropertyCreate) GetHiddenOk() (*bool, bool) {
 
 // HasHidden returns a boolean if a field has been set.
 func (o *PropertyCreate) HasHidden() bool {
-	if o != nil && o.Hidden != nil {
+	if o != nil && !isNil(o.Hidden) {
 		return true
 	}
 
@@ -344,7 +344,7 @@ func (o *PropertyCreate) SetHidden(v bool) {
 
 // GetFormField returns the FormField field value if set, zero value otherwise.
 func (o *PropertyCreate) GetFormField() bool {
-	if o == nil || o.FormField == nil {
+	if o == nil || isNil(o.FormField) {
 		var ret bool
 		return ret
 	}
@@ -354,7 +354,7 @@ func (o *PropertyCreate) GetFormField() bool {
 // GetFormFieldOk returns a tuple with the FormField field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyCreate) GetFormFieldOk() (*bool, bool) {
-	if o == nil || o.FormField == nil {
+	if o == nil || isNil(o.FormField) {
 		return nil, false
 	}
 	return o.FormField, true
@@ -362,7 +362,7 @@ func (o *PropertyCreate) GetFormFieldOk() (*bool, bool) {
 
 // HasFormField returns a boolean if a field has been set.
 func (o *PropertyCreate) HasFormField() bool {
-	if o != nil && o.FormField != nil {
+	if o != nil && !isNil(o.FormField) {
 		return true
 	}
 
@@ -391,22 +391,22 @@ func (o PropertyCreate) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["groupName"] = o.GroupName
 	}
-	if o.Description != nil {
+	if !isNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if o.Options != nil {
+	if !isNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
-	if o.DisplayOrder != nil {
+	if !isNil(o.DisplayOrder) {
 		toSerialize["displayOrder"] = o.DisplayOrder
 	}
-	if o.HasUniqueValue != nil {
+	if !isNil(o.HasUniqueValue) {
 		toSerialize["hasUniqueValue"] = o.HasUniqueValue
 	}
-	if o.Hidden != nil {
+	if !isNil(o.Hidden) {
 		toSerialize["hidden"] = o.Hidden
 	}
-	if o.FormField != nil {
+	if !isNil(o.FormField) {
 		toSerialize["formField"] = o.FormField
 	}
 	return json.Marshal(toSerialize)

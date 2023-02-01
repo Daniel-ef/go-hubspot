@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"strings"
 )
@@ -39,9 +39,9 @@ Archive Delete settings
 
 Deletes the settings for a video conference application with the specified ID.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId The ID of the video conference application. This is the identifier of the application created in your HubSpot developer portal.
- @return ApiArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId The ID of the video conference application. This is the identifier of the application created in your HubSpot developer portal.
+	@return ApiArchiveRequest
 */
 func (a *SettingsApiService) Archive(ctx context.Context, appId int32) ApiArchiveRequest {
 	return ApiArchiveRequest{
@@ -126,6 +126,7 @@ func (a *SettingsApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Response
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -148,9 +149,9 @@ GetByID Get settings
 
 Return the settings for a video conference application with the specified ID.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId The ID of the video conference application. This is the identifier of the application created in your HubSpot developer portal.
- @return ApiGetByIDRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId The ID of the video conference application. This is the identifier of the application created in your HubSpot developer portal.
+	@return ApiGetByIDRequest
 */
 func (a *SettingsApiService) GetByID(ctx context.Context, appId int32) ApiGetByIDRequest {
 	return ApiGetByIDRequest{
@@ -161,7 +162,8 @@ func (a *SettingsApiService) GetByID(ctx context.Context, appId int32) ApiGetByI
 }
 
 // Execute executes the request
-//  @return ExternalSettings
+//
+//	@return ExternalSettings
 func (a *SettingsApiService) GetByIDExecute(r ApiGetByIDRequest) (*ExternalSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -237,6 +239,7 @@ func (a *SettingsApiService) GetByIDExecute(r ApiGetByIDRequest) (*ExternalSetti
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -274,9 +277,9 @@ Replace Update settings
 
 Updates the settings for a video conference application with the specified ID.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId The ID of the video conference application. This is the identifier of the application created in your HubSpot developer portal.
- @return ApiReplaceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId The ID of the video conference application. This is the identifier of the application created in your HubSpot developer portal.
+	@return ApiReplaceRequest
 */
 func (a *SettingsApiService) Replace(ctx context.Context, appId int32) ApiReplaceRequest {
 	return ApiReplaceRequest{
@@ -287,7 +290,8 @@ func (a *SettingsApiService) Replace(ctx context.Context, appId int32) ApiReplac
 }
 
 // Execute executes the request
-//  @return ExternalSettings
+//
+//	@return ExternalSettings
 func (a *SettingsApiService) ReplaceExecute(r ApiReplaceRequest) (*ExternalSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
@@ -368,6 +372,7 @@ func (a *SettingsApiService) ReplaceExecute(r ApiReplaceRequest) (*ExternalSetti
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

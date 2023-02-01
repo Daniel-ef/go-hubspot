@@ -95,7 +95,7 @@ func (o *PublicUpdateSubscriptionStatusRequest) SetSubscriptionId(v string) {
 
 // GetLegalBasis returns the LegalBasis field value if set, zero value otherwise.
 func (o *PublicUpdateSubscriptionStatusRequest) GetLegalBasis() string {
-	if o == nil || o.LegalBasis == nil {
+	if o == nil || isNil(o.LegalBasis) {
 		var ret string
 		return ret
 	}
@@ -105,7 +105,7 @@ func (o *PublicUpdateSubscriptionStatusRequest) GetLegalBasis() string {
 // GetLegalBasisOk returns a tuple with the LegalBasis field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicUpdateSubscriptionStatusRequest) GetLegalBasisOk() (*string, bool) {
-	if o == nil || o.LegalBasis == nil {
+	if o == nil || isNil(o.LegalBasis) {
 		return nil, false
 	}
 	return o.LegalBasis, true
@@ -113,7 +113,7 @@ func (o *PublicUpdateSubscriptionStatusRequest) GetLegalBasisOk() (*string, bool
 
 // HasLegalBasis returns a boolean if a field has been set.
 func (o *PublicUpdateSubscriptionStatusRequest) HasLegalBasis() bool {
-	if o != nil && o.LegalBasis != nil {
+	if o != nil && !isNil(o.LegalBasis) {
 		return true
 	}
 
@@ -127,7 +127,7 @@ func (o *PublicUpdateSubscriptionStatusRequest) SetLegalBasis(v string) {
 
 // GetLegalBasisExplanation returns the LegalBasisExplanation field value if set, zero value otherwise.
 func (o *PublicUpdateSubscriptionStatusRequest) GetLegalBasisExplanation() string {
-	if o == nil || o.LegalBasisExplanation == nil {
+	if o == nil || isNil(o.LegalBasisExplanation) {
 		var ret string
 		return ret
 	}
@@ -137,7 +137,7 @@ func (o *PublicUpdateSubscriptionStatusRequest) GetLegalBasisExplanation() strin
 // GetLegalBasisExplanationOk returns a tuple with the LegalBasisExplanation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicUpdateSubscriptionStatusRequest) GetLegalBasisExplanationOk() (*string, bool) {
-	if o == nil || o.LegalBasisExplanation == nil {
+	if o == nil || isNil(o.LegalBasisExplanation) {
 		return nil, false
 	}
 	return o.LegalBasisExplanation, true
@@ -145,7 +145,7 @@ func (o *PublicUpdateSubscriptionStatusRequest) GetLegalBasisExplanationOk() (*s
 
 // HasLegalBasisExplanation returns a boolean if a field has been set.
 func (o *PublicUpdateSubscriptionStatusRequest) HasLegalBasisExplanation() bool {
-	if o != nil && o.LegalBasisExplanation != nil {
+	if o != nil && !isNil(o.LegalBasisExplanation) {
 		return true
 	}
 
@@ -165,10 +165,10 @@ func (o PublicUpdateSubscriptionStatusRequest) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
-	if o.LegalBasis != nil {
+	if !isNil(o.LegalBasis) {
 		toSerialize["legalBasis"] = o.LegalBasis
 	}
-	if o.LegalBasisExplanation != nil {
+	if !isNil(o.LegalBasisExplanation) {
 		toSerialize["legalBasisExplanation"] = o.LegalBasisExplanation
 	}
 	return json.Marshal(toSerialize)

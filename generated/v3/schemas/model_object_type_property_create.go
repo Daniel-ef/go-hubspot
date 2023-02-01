@@ -108,7 +108,7 @@ func (o *ObjectTypePropertyCreate) SetLabel(v string) {
 
 // GetGroupName returns the GroupName field value if set, zero value otherwise.
 func (o *ObjectTypePropertyCreate) GetGroupName() string {
-	if o == nil || o.GroupName == nil {
+	if o == nil || isNil(o.GroupName) {
 		var ret string
 		return ret
 	}
@@ -118,7 +118,7 @@ func (o *ObjectTypePropertyCreate) GetGroupName() string {
 // GetGroupNameOk returns a tuple with the GroupName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ObjectTypePropertyCreate) GetGroupNameOk() (*string, bool) {
-	if o == nil || o.GroupName == nil {
+	if o == nil || isNil(o.GroupName) {
 		return nil, false
 	}
 	return o.GroupName, true
@@ -126,7 +126,7 @@ func (o *ObjectTypePropertyCreate) GetGroupNameOk() (*string, bool) {
 
 // HasGroupName returns a boolean if a field has been set.
 func (o *ObjectTypePropertyCreate) HasGroupName() bool {
-	if o != nil && o.GroupName != nil {
+	if o != nil && !isNil(o.GroupName) {
 		return true
 	}
 
@@ -140,7 +140,7 @@ func (o *ObjectTypePropertyCreate) SetGroupName(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ObjectTypePropertyCreate) GetDescription() string {
-	if o == nil || o.Description == nil {
+	if o == nil || isNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -150,7 +150,7 @@ func (o *ObjectTypePropertyCreate) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ObjectTypePropertyCreate) GetDescriptionOk() (*string, bool) {
-	if o == nil || o.Description == nil {
+	if o == nil || isNil(o.Description) {
 		return nil, false
 	}
 	return o.Description, true
@@ -158,7 +158,7 @@ func (o *ObjectTypePropertyCreate) GetDescriptionOk() (*string, bool) {
 
 // HasDescription returns a boolean if a field has been set.
 func (o *ObjectTypePropertyCreate) HasDescription() bool {
-	if o != nil && o.Description != nil {
+	if o != nil && !isNil(o.Description) {
 		return true
 	}
 
@@ -172,7 +172,7 @@ func (o *ObjectTypePropertyCreate) SetDescription(v string) {
 
 // GetOptions returns the Options field value if set, zero value otherwise.
 func (o *ObjectTypePropertyCreate) GetOptions() []OptionInput {
-	if o == nil || o.Options == nil {
+	if o == nil || isNil(o.Options) {
 		var ret []OptionInput
 		return ret
 	}
@@ -182,7 +182,7 @@ func (o *ObjectTypePropertyCreate) GetOptions() []OptionInput {
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ObjectTypePropertyCreate) GetOptionsOk() ([]OptionInput, bool) {
-	if o == nil || o.Options == nil {
+	if o == nil || isNil(o.Options) {
 		return nil, false
 	}
 	return o.Options, true
@@ -190,7 +190,7 @@ func (o *ObjectTypePropertyCreate) GetOptionsOk() ([]OptionInput, bool) {
 
 // HasOptions returns a boolean if a field has been set.
 func (o *ObjectTypePropertyCreate) HasOptions() bool {
-	if o != nil && o.Options != nil {
+	if o != nil && !isNil(o.Options) {
 		return true
 	}
 
@@ -204,7 +204,7 @@ func (o *ObjectTypePropertyCreate) SetOptions(v []OptionInput) {
 
 // GetDisplayOrder returns the DisplayOrder field value if set, zero value otherwise.
 func (o *ObjectTypePropertyCreate) GetDisplayOrder() int32 {
-	if o == nil || o.DisplayOrder == nil {
+	if o == nil || isNil(o.DisplayOrder) {
 		var ret int32
 		return ret
 	}
@@ -214,7 +214,7 @@ func (o *ObjectTypePropertyCreate) GetDisplayOrder() int32 {
 // GetDisplayOrderOk returns a tuple with the DisplayOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ObjectTypePropertyCreate) GetDisplayOrderOk() (*int32, bool) {
-	if o == nil || o.DisplayOrder == nil {
+	if o == nil || isNil(o.DisplayOrder) {
 		return nil, false
 	}
 	return o.DisplayOrder, true
@@ -222,7 +222,7 @@ func (o *ObjectTypePropertyCreate) GetDisplayOrderOk() (*int32, bool) {
 
 // HasDisplayOrder returns a boolean if a field has been set.
 func (o *ObjectTypePropertyCreate) HasDisplayOrder() bool {
-	if o != nil && o.DisplayOrder != nil {
+	if o != nil && !isNil(o.DisplayOrder) {
 		return true
 	}
 
@@ -236,7 +236,7 @@ func (o *ObjectTypePropertyCreate) SetDisplayOrder(v int32) {
 
 // GetHasUniqueValue returns the HasUniqueValue field value if set, zero value otherwise.
 func (o *ObjectTypePropertyCreate) GetHasUniqueValue() bool {
-	if o == nil || o.HasUniqueValue == nil {
+	if o == nil || isNil(o.HasUniqueValue) {
 		var ret bool
 		return ret
 	}
@@ -246,7 +246,7 @@ func (o *ObjectTypePropertyCreate) GetHasUniqueValue() bool {
 // GetHasUniqueValueOk returns a tuple with the HasUniqueValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ObjectTypePropertyCreate) GetHasUniqueValueOk() (*bool, bool) {
-	if o == nil || o.HasUniqueValue == nil {
+	if o == nil || isNil(o.HasUniqueValue) {
 		return nil, false
 	}
 	return o.HasUniqueValue, true
@@ -254,7 +254,7 @@ func (o *ObjectTypePropertyCreate) GetHasUniqueValueOk() (*bool, bool) {
 
 // HasHasUniqueValue returns a boolean if a field has been set.
 func (o *ObjectTypePropertyCreate) HasHasUniqueValue() bool {
-	if o != nil && o.HasUniqueValue != nil {
+	if o != nil && !isNil(o.HasUniqueValue) {
 		return true
 	}
 
@@ -268,7 +268,7 @@ func (o *ObjectTypePropertyCreate) SetHasUniqueValue(v bool) {
 
 // GetHidden returns the Hidden field value if set, zero value otherwise.
 func (o *ObjectTypePropertyCreate) GetHidden() bool {
-	if o == nil || o.Hidden == nil {
+	if o == nil || isNil(o.Hidden) {
 		var ret bool
 		return ret
 	}
@@ -278,7 +278,7 @@ func (o *ObjectTypePropertyCreate) GetHidden() bool {
 // GetHiddenOk returns a tuple with the Hidden field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ObjectTypePropertyCreate) GetHiddenOk() (*bool, bool) {
-	if o == nil || o.Hidden == nil {
+	if o == nil || isNil(o.Hidden) {
 		return nil, false
 	}
 	return o.Hidden, true
@@ -286,7 +286,7 @@ func (o *ObjectTypePropertyCreate) GetHiddenOk() (*bool, bool) {
 
 // HasHidden returns a boolean if a field has been set.
 func (o *ObjectTypePropertyCreate) HasHidden() bool {
-	if o != nil && o.Hidden != nil {
+	if o != nil && !isNil(o.Hidden) {
 		return true
 	}
 
@@ -354,22 +354,22 @@ func (o ObjectTypePropertyCreate) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["label"] = o.Label
 	}
-	if o.GroupName != nil {
+	if !isNil(o.GroupName) {
 		toSerialize["groupName"] = o.GroupName
 	}
-	if o.Description != nil {
+	if !isNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if o.Options != nil {
+	if !isNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
-	if o.DisplayOrder != nil {
+	if !isNil(o.DisplayOrder) {
 		toSerialize["displayOrder"] = o.DisplayOrder
 	}
-	if o.HasUniqueValue != nil {
+	if !isNil(o.HasUniqueValue) {
 		toSerialize["hasUniqueValue"] = o.HasUniqueValue
 	}
-	if o.Hidden != nil {
+	if !isNil(o.Hidden) {
 		toSerialize["hidden"] = o.Hidden
 	}
 	if true {

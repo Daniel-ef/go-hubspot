@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 )
 
@@ -44,8 +44,8 @@ SendEmail Send a single transactional email asynchronously.
 
 Asynchronously send a transactional email. Returns the status of the email send with a statusId that can be used to continuously query for the status using the Email Send Status API.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSendEmailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSendEmailRequest
 */
 func (a *SingleSendApiService) SendEmail(ctx context.Context) ApiSendEmailRequest {
 	return ApiSendEmailRequest{
@@ -55,7 +55,8 @@ func (a *SingleSendApiService) SendEmail(ctx context.Context) ApiSendEmailReques
 }
 
 // Execute executes the request
-//  @return EmailSendStatusView
+//
+//	@return EmailSendStatusView
 func (a *SingleSendApiService) SendEmailExecute(r ApiSendEmailRequest) (*EmailSendStatusView, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -107,6 +108,20 @@ func (a *SingleSendApiService) SendEmailExecute(r ApiSendEmailRequest) (*EmailSe
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -135,6 +150,7 @@ func (a *SingleSendApiService) SendEmailExecute(r ApiSendEmailRequest) (*EmailSe
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

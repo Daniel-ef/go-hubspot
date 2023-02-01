@@ -281,7 +281,7 @@ func (o *ContentLanguageVariation) SetCampaign(v string) {
 
 // GetTagIds returns the TagIds field value if set, zero value otherwise.
 func (o *ContentLanguageVariation) GetTagIds() []int64 {
-	if o == nil || o.TagIds == nil {
+	if o == nil || isNil(o.TagIds) {
 		var ret []int64
 		return ret
 	}
@@ -291,7 +291,7 @@ func (o *ContentLanguageVariation) GetTagIds() []int64 {
 // GetTagIdsOk returns a tuple with the TagIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContentLanguageVariation) GetTagIdsOk() ([]int64, bool) {
-	if o == nil || o.TagIds == nil {
+	if o == nil || isNil(o.TagIds) {
 		return nil, false
 	}
 	return o.TagIds, true
@@ -299,7 +299,7 @@ func (o *ContentLanguageVariation) GetTagIdsOk() ([]int64, bool) {
 
 // HasTagIds returns a boolean if a field has been set.
 func (o *ContentLanguageVariation) HasTagIds() bool {
-	if o != nil && o.TagIds != nil {
+	if o != nil && !isNil(o.TagIds) {
 		return true
 	}
 
@@ -436,7 +436,7 @@ func (o ContentLanguageVariation) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["campaign"] = o.Campaign
 	}
-	if o.TagIds != nil {
+	if !isNil(o.TagIds) {
 		toSerialize["tagIds"] = o.TagIds
 	}
 	if true {

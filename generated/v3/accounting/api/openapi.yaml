@@ -56,6 +56,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Endpoint for customer creation response
@@ -93,6 +95,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Endpoint for customer search response
@@ -130,6 +134,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Endpoint for exchange rate response
@@ -167,6 +173,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Endpoint for invoice creation response
@@ -204,6 +212,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Endpoint for PDF content of invoice
@@ -241,6 +251,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Endpoint for invoice search response
@@ -278,6 +290,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Endpoint for invoice get-by-id response
@@ -315,6 +329,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Endpoint for product search response
@@ -352,6 +368,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Endpoint for taxes search response
@@ -389,6 +407,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Endpoint for terms search response
@@ -433,6 +453,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Get invoice data
@@ -482,6 +504,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Update an invoice
@@ -532,6 +556,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Records an invoice payment
@@ -645,6 +671,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Import contacts
@@ -688,6 +716,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Import products
@@ -719,6 +749,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Create a user account
@@ -750,6 +782,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - accounting
       - oauth2_legacy:
         - accounting
       summary: Delete user account
@@ -2148,6 +2182,10 @@ components:
     hapikey:
       in: query
       name: hapikey
+      type: apiKey
+    private_apps_legacy:
+      in: header
+      name: private-app-legacy
       type: apiKey
 x-hubspot-available-client-libraries:
 - PHP

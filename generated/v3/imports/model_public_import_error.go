@@ -17,12 +17,12 @@ import (
 // PublicImportError struct for PublicImportError
 type PublicImportError struct {
 	ErrorType         string        `json:"errorType"`
+	SourceData        ImportRowCore `json:"sourceData"`
 	ObjectType        *string       `json:"objectType,omitempty"`
 	InvalidValue      *string       `json:"invalidValue,omitempty"`
 	ExtraContext      *string       `json:"extraContext,omitempty"`
 	ObjectTypeId      *string       `json:"objectTypeId,omitempty"`
 	KnownColumnNumber int32         `json:"knownColumnNumber"`
-	SourceData        ImportRowCore `json:"sourceData"`
 	CreatedAt         int32         `json:"createdAt"`
 	Id                string        `json:"id"`
 }
@@ -31,11 +31,11 @@ type PublicImportError struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPublicImportError(errorType string, knownColumnNumber int32, sourceData ImportRowCore, createdAt int32, id string) *PublicImportError {
+func NewPublicImportError(errorType string, sourceData ImportRowCore, knownColumnNumber int32, createdAt int32, id string) *PublicImportError {
 	this := PublicImportError{}
 	this.ErrorType = errorType
-	this.KnownColumnNumber = knownColumnNumber
 	this.SourceData = sourceData
+	this.KnownColumnNumber = knownColumnNumber
 	this.CreatedAt = createdAt
 	this.Id = id
 	return &this
@@ -73,9 +73,33 @@ func (o *PublicImportError) SetErrorType(v string) {
 	o.ErrorType = v
 }
 
+// GetSourceData returns the SourceData field value
+func (o *PublicImportError) GetSourceData() ImportRowCore {
+	if o == nil {
+		var ret ImportRowCore
+		return ret
+	}
+
+	return o.SourceData
+}
+
+// GetSourceDataOk returns a tuple with the SourceData field value
+// and a boolean to check if the value has been set.
+func (o *PublicImportError) GetSourceDataOk() (*ImportRowCore, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SourceData, true
+}
+
+// SetSourceData sets field value
+func (o *PublicImportError) SetSourceData(v ImportRowCore) {
+	o.SourceData = v
+}
+
 // GetObjectType returns the ObjectType field value if set, zero value otherwise.
 func (o *PublicImportError) GetObjectType() string {
-	if o == nil || o.ObjectType == nil {
+	if o == nil || isNil(o.ObjectType) {
 		var ret string
 		return ret
 	}
@@ -85,7 +109,7 @@ func (o *PublicImportError) GetObjectType() string {
 // GetObjectTypeOk returns a tuple with the ObjectType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicImportError) GetObjectTypeOk() (*string, bool) {
-	if o == nil || o.ObjectType == nil {
+	if o == nil || isNil(o.ObjectType) {
 		return nil, false
 	}
 	return o.ObjectType, true
@@ -93,7 +117,7 @@ func (o *PublicImportError) GetObjectTypeOk() (*string, bool) {
 
 // HasObjectType returns a boolean if a field has been set.
 func (o *PublicImportError) HasObjectType() bool {
-	if o != nil && o.ObjectType != nil {
+	if o != nil && !isNil(o.ObjectType) {
 		return true
 	}
 
@@ -107,7 +131,7 @@ func (o *PublicImportError) SetObjectType(v string) {
 
 // GetInvalidValue returns the InvalidValue field value if set, zero value otherwise.
 func (o *PublicImportError) GetInvalidValue() string {
-	if o == nil || o.InvalidValue == nil {
+	if o == nil || isNil(o.InvalidValue) {
 		var ret string
 		return ret
 	}
@@ -117,7 +141,7 @@ func (o *PublicImportError) GetInvalidValue() string {
 // GetInvalidValueOk returns a tuple with the InvalidValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicImportError) GetInvalidValueOk() (*string, bool) {
-	if o == nil || o.InvalidValue == nil {
+	if o == nil || isNil(o.InvalidValue) {
 		return nil, false
 	}
 	return o.InvalidValue, true
@@ -125,7 +149,7 @@ func (o *PublicImportError) GetInvalidValueOk() (*string, bool) {
 
 // HasInvalidValue returns a boolean if a field has been set.
 func (o *PublicImportError) HasInvalidValue() bool {
-	if o != nil && o.InvalidValue != nil {
+	if o != nil && !isNil(o.InvalidValue) {
 		return true
 	}
 
@@ -139,7 +163,7 @@ func (o *PublicImportError) SetInvalidValue(v string) {
 
 // GetExtraContext returns the ExtraContext field value if set, zero value otherwise.
 func (o *PublicImportError) GetExtraContext() string {
-	if o == nil || o.ExtraContext == nil {
+	if o == nil || isNil(o.ExtraContext) {
 		var ret string
 		return ret
 	}
@@ -149,7 +173,7 @@ func (o *PublicImportError) GetExtraContext() string {
 // GetExtraContextOk returns a tuple with the ExtraContext field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicImportError) GetExtraContextOk() (*string, bool) {
-	if o == nil || o.ExtraContext == nil {
+	if o == nil || isNil(o.ExtraContext) {
 		return nil, false
 	}
 	return o.ExtraContext, true
@@ -157,7 +181,7 @@ func (o *PublicImportError) GetExtraContextOk() (*string, bool) {
 
 // HasExtraContext returns a boolean if a field has been set.
 func (o *PublicImportError) HasExtraContext() bool {
-	if o != nil && o.ExtraContext != nil {
+	if o != nil && !isNil(o.ExtraContext) {
 		return true
 	}
 
@@ -171,7 +195,7 @@ func (o *PublicImportError) SetExtraContext(v string) {
 
 // GetObjectTypeId returns the ObjectTypeId field value if set, zero value otherwise.
 func (o *PublicImportError) GetObjectTypeId() string {
-	if o == nil || o.ObjectTypeId == nil {
+	if o == nil || isNil(o.ObjectTypeId) {
 		var ret string
 		return ret
 	}
@@ -181,7 +205,7 @@ func (o *PublicImportError) GetObjectTypeId() string {
 // GetObjectTypeIdOk returns a tuple with the ObjectTypeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicImportError) GetObjectTypeIdOk() (*string, bool) {
-	if o == nil || o.ObjectTypeId == nil {
+	if o == nil || isNil(o.ObjectTypeId) {
 		return nil, false
 	}
 	return o.ObjectTypeId, true
@@ -189,7 +213,7 @@ func (o *PublicImportError) GetObjectTypeIdOk() (*string, bool) {
 
 // HasObjectTypeId returns a boolean if a field has been set.
 func (o *PublicImportError) HasObjectTypeId() bool {
-	if o != nil && o.ObjectTypeId != nil {
+	if o != nil && !isNil(o.ObjectTypeId) {
 		return true
 	}
 
@@ -223,30 +247,6 @@ func (o *PublicImportError) GetKnownColumnNumberOk() (*int32, bool) {
 // SetKnownColumnNumber sets field value
 func (o *PublicImportError) SetKnownColumnNumber(v int32) {
 	o.KnownColumnNumber = v
-}
-
-// GetSourceData returns the SourceData field value
-func (o *PublicImportError) GetSourceData() ImportRowCore {
-	if o == nil {
-		var ret ImportRowCore
-		return ret
-	}
-
-	return o.SourceData
-}
-
-// GetSourceDataOk returns a tuple with the SourceData field value
-// and a boolean to check if the value has been set.
-func (o *PublicImportError) GetSourceDataOk() (*ImportRowCore, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SourceData, true
-}
-
-// SetSourceData sets field value
-func (o *PublicImportError) SetSourceData(v ImportRowCore) {
-	o.SourceData = v
 }
 
 // GetCreatedAt returns the CreatedAt field value
@@ -302,23 +302,23 @@ func (o PublicImportError) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["errorType"] = o.ErrorType
 	}
-	if o.ObjectType != nil {
+	if true {
+		toSerialize["sourceData"] = o.SourceData
+	}
+	if !isNil(o.ObjectType) {
 		toSerialize["objectType"] = o.ObjectType
 	}
-	if o.InvalidValue != nil {
+	if !isNil(o.InvalidValue) {
 		toSerialize["invalidValue"] = o.InvalidValue
 	}
-	if o.ExtraContext != nil {
+	if !isNil(o.ExtraContext) {
 		toSerialize["extraContext"] = o.ExtraContext
 	}
-	if o.ObjectTypeId != nil {
+	if !isNil(o.ObjectTypeId) {
 		toSerialize["objectTypeId"] = o.ObjectTypeId
 	}
 	if true {
 		toSerialize["knownColumnNumber"] = o.KnownColumnNumber
-	}
-	if true {
-		toSerialize["sourceData"] = o.SourceData
 	}
 	if true {
 		toSerialize["createdAt"] = o.CreatedAt

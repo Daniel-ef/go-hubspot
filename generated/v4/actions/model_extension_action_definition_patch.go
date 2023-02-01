@@ -50,7 +50,7 @@ func NewExtensionActionDefinitionPatchWithDefaults() *ExtensionActionDefinitionP
 
 // GetActionUrl returns the ActionUrl field value if set, zero value otherwise.
 func (o *ExtensionActionDefinitionPatch) GetActionUrl() string {
-	if o == nil || o.ActionUrl == nil {
+	if o == nil || isNil(o.ActionUrl) {
 		var ret string
 		return ret
 	}
@@ -60,7 +60,7 @@ func (o *ExtensionActionDefinitionPatch) GetActionUrl() string {
 // GetActionUrlOk returns a tuple with the ActionUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionActionDefinitionPatch) GetActionUrlOk() (*string, bool) {
-	if o == nil || o.ActionUrl == nil {
+	if o == nil || isNil(o.ActionUrl) {
 		return nil, false
 	}
 	return o.ActionUrl, true
@@ -68,7 +68,7 @@ func (o *ExtensionActionDefinitionPatch) GetActionUrlOk() (*string, bool) {
 
 // HasActionUrl returns a boolean if a field has been set.
 func (o *ExtensionActionDefinitionPatch) HasActionUrl() bool {
-	if o != nil && o.ActionUrl != nil {
+	if o != nil && !isNil(o.ActionUrl) {
 		return true
 	}
 
@@ -82,7 +82,7 @@ func (o *ExtensionActionDefinitionPatch) SetActionUrl(v string) {
 
 // GetPublished returns the Published field value if set, zero value otherwise.
 func (o *ExtensionActionDefinitionPatch) GetPublished() bool {
-	if o == nil || o.Published == nil {
+	if o == nil || isNil(o.Published) {
 		var ret bool
 		return ret
 	}
@@ -92,7 +92,7 @@ func (o *ExtensionActionDefinitionPatch) GetPublished() bool {
 // GetPublishedOk returns a tuple with the Published field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionActionDefinitionPatch) GetPublishedOk() (*bool, bool) {
-	if o == nil || o.Published == nil {
+	if o == nil || isNil(o.Published) {
 		return nil, false
 	}
 	return o.Published, true
@@ -100,7 +100,7 @@ func (o *ExtensionActionDefinitionPatch) GetPublishedOk() (*bool, bool) {
 
 // HasPublished returns a boolean if a field has been set.
 func (o *ExtensionActionDefinitionPatch) HasPublished() bool {
-	if o != nil && o.Published != nil {
+	if o != nil && !isNil(o.Published) {
 		return true
 	}
 
@@ -114,7 +114,7 @@ func (o *ExtensionActionDefinitionPatch) SetPublished(v bool) {
 
 // GetInputFields returns the InputFields field value if set, zero value otherwise.
 func (o *ExtensionActionDefinitionPatch) GetInputFields() []InputFieldDefinition {
-	if o == nil || o.InputFields == nil {
+	if o == nil || isNil(o.InputFields) {
 		var ret []InputFieldDefinition
 		return ret
 	}
@@ -124,7 +124,7 @@ func (o *ExtensionActionDefinitionPatch) GetInputFields() []InputFieldDefinition
 // GetInputFieldsOk returns a tuple with the InputFields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionActionDefinitionPatch) GetInputFieldsOk() ([]InputFieldDefinition, bool) {
-	if o == nil || o.InputFields == nil {
+	if o == nil || isNil(o.InputFields) {
 		return nil, false
 	}
 	return o.InputFields, true
@@ -132,7 +132,7 @@ func (o *ExtensionActionDefinitionPatch) GetInputFieldsOk() ([]InputFieldDefinit
 
 // HasInputFields returns a boolean if a field has been set.
 func (o *ExtensionActionDefinitionPatch) HasInputFields() bool {
-	if o != nil && o.InputFields != nil {
+	if o != nil && !isNil(o.InputFields) {
 		return true
 	}
 
@@ -146,7 +146,7 @@ func (o *ExtensionActionDefinitionPatch) SetInputFields(v []InputFieldDefinition
 
 // GetObjectRequestOptions returns the ObjectRequestOptions field value if set, zero value otherwise.
 func (o *ExtensionActionDefinitionPatch) GetObjectRequestOptions() ObjectRequestOptions {
-	if o == nil || o.ObjectRequestOptions == nil {
+	if o == nil || isNil(o.ObjectRequestOptions) {
 		var ret ObjectRequestOptions
 		return ret
 	}
@@ -156,7 +156,7 @@ func (o *ExtensionActionDefinitionPatch) GetObjectRequestOptions() ObjectRequest
 // GetObjectRequestOptionsOk returns a tuple with the ObjectRequestOptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionActionDefinitionPatch) GetObjectRequestOptionsOk() (*ObjectRequestOptions, bool) {
-	if o == nil || o.ObjectRequestOptions == nil {
+	if o == nil || isNil(o.ObjectRequestOptions) {
 		return nil, false
 	}
 	return o.ObjectRequestOptions, true
@@ -164,7 +164,7 @@ func (o *ExtensionActionDefinitionPatch) GetObjectRequestOptionsOk() (*ObjectReq
 
 // HasObjectRequestOptions returns a boolean if a field has been set.
 func (o *ExtensionActionDefinitionPatch) HasObjectRequestOptions() bool {
-	if o != nil && o.ObjectRequestOptions != nil {
+	if o != nil && !isNil(o.ObjectRequestOptions) {
 		return true
 	}
 
@@ -178,7 +178,7 @@ func (o *ExtensionActionDefinitionPatch) SetObjectRequestOptions(v ObjectRequest
 
 // GetInputFieldDependencies returns the InputFieldDependencies field value if set, zero value otherwise.
 func (o *ExtensionActionDefinitionPatch) GetInputFieldDependencies() []ExtensionActionDefinitionPatchInputFieldDependenciesInner {
-	if o == nil || o.InputFieldDependencies == nil {
+	if o == nil || isNil(o.InputFieldDependencies) {
 		var ret []ExtensionActionDefinitionPatchInputFieldDependenciesInner
 		return ret
 	}
@@ -188,7 +188,7 @@ func (o *ExtensionActionDefinitionPatch) GetInputFieldDependencies() []Extension
 // GetInputFieldDependenciesOk returns a tuple with the InputFieldDependencies field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionActionDefinitionPatch) GetInputFieldDependenciesOk() ([]ExtensionActionDefinitionPatchInputFieldDependenciesInner, bool) {
-	if o == nil || o.InputFieldDependencies == nil {
+	if o == nil || isNil(o.InputFieldDependencies) {
 		return nil, false
 	}
 	return o.InputFieldDependencies, true
@@ -196,7 +196,7 @@ func (o *ExtensionActionDefinitionPatch) GetInputFieldDependenciesOk() ([]Extens
 
 // HasInputFieldDependencies returns a boolean if a field has been set.
 func (o *ExtensionActionDefinitionPatch) HasInputFieldDependencies() bool {
-	if o != nil && o.InputFieldDependencies != nil {
+	if o != nil && !isNil(o.InputFieldDependencies) {
 		return true
 	}
 
@@ -210,7 +210,7 @@ func (o *ExtensionActionDefinitionPatch) SetInputFieldDependencies(v []Extension
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
 func (o *ExtensionActionDefinitionPatch) GetLabels() map[string]ActionLabels {
-	if o == nil || o.Labels == nil {
+	if o == nil || isNil(o.Labels) {
 		var ret map[string]ActionLabels
 		return ret
 	}
@@ -220,7 +220,7 @@ func (o *ExtensionActionDefinitionPatch) GetLabels() map[string]ActionLabels {
 // GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionActionDefinitionPatch) GetLabelsOk() (*map[string]ActionLabels, bool) {
-	if o == nil || o.Labels == nil {
+	if o == nil || isNil(o.Labels) {
 		return nil, false
 	}
 	return o.Labels, true
@@ -228,7 +228,7 @@ func (o *ExtensionActionDefinitionPatch) GetLabelsOk() (*map[string]ActionLabels
 
 // HasLabels returns a boolean if a field has been set.
 func (o *ExtensionActionDefinitionPatch) HasLabels() bool {
-	if o != nil && o.Labels != nil {
+	if o != nil && !isNil(o.Labels) {
 		return true
 	}
 
@@ -242,7 +242,7 @@ func (o *ExtensionActionDefinitionPatch) SetLabels(v map[string]ActionLabels) {
 
 // GetObjectTypes returns the ObjectTypes field value if set, zero value otherwise.
 func (o *ExtensionActionDefinitionPatch) GetObjectTypes() []string {
-	if o == nil || o.ObjectTypes == nil {
+	if o == nil || isNil(o.ObjectTypes) {
 		var ret []string
 		return ret
 	}
@@ -252,7 +252,7 @@ func (o *ExtensionActionDefinitionPatch) GetObjectTypes() []string {
 // GetObjectTypesOk returns a tuple with the ObjectTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionActionDefinitionPatch) GetObjectTypesOk() ([]string, bool) {
-	if o == nil || o.ObjectTypes == nil {
+	if o == nil || isNil(o.ObjectTypes) {
 		return nil, false
 	}
 	return o.ObjectTypes, true
@@ -260,7 +260,7 @@ func (o *ExtensionActionDefinitionPatch) GetObjectTypesOk() ([]string, bool) {
 
 // HasObjectTypes returns a boolean if a field has been set.
 func (o *ExtensionActionDefinitionPatch) HasObjectTypes() bool {
-	if o != nil && o.ObjectTypes != nil {
+	if o != nil && !isNil(o.ObjectTypes) {
 		return true
 	}
 
@@ -274,25 +274,25 @@ func (o *ExtensionActionDefinitionPatch) SetObjectTypes(v []string) {
 
 func (o ExtensionActionDefinitionPatch) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ActionUrl != nil {
+	if !isNil(o.ActionUrl) {
 		toSerialize["actionUrl"] = o.ActionUrl
 	}
-	if o.Published != nil {
+	if !isNil(o.Published) {
 		toSerialize["published"] = o.Published
 	}
-	if o.InputFields != nil {
+	if !isNil(o.InputFields) {
 		toSerialize["inputFields"] = o.InputFields
 	}
-	if o.ObjectRequestOptions != nil {
+	if !isNil(o.ObjectRequestOptions) {
 		toSerialize["objectRequestOptions"] = o.ObjectRequestOptions
 	}
-	if o.InputFieldDependencies != nil {
+	if !isNil(o.InputFieldDependencies) {
 		toSerialize["inputFieldDependencies"] = o.InputFieldDependencies
 	}
-	if o.Labels != nil {
+	if !isNil(o.Labels) {
 		toSerialize["labels"] = o.Labels
 	}
-	if o.ObjectTypes != nil {
+	if !isNil(o.ObjectTypes) {
 		toSerialize["objectTypes"] = o.ObjectTypes
 	}
 	return json.Marshal(toSerialize)

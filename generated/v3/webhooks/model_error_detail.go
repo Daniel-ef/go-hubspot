@@ -72,7 +72,7 @@ func (o *ErrorDetail) SetMessage(v string) {
 
 // GetIn returns the In field value if set, zero value otherwise.
 func (o *ErrorDetail) GetIn() string {
-	if o == nil || o.In == nil {
+	if o == nil || isNil(o.In) {
 		var ret string
 		return ret
 	}
@@ -82,7 +82,7 @@ func (o *ErrorDetail) GetIn() string {
 // GetInOk returns a tuple with the In field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ErrorDetail) GetInOk() (*string, bool) {
-	if o == nil || o.In == nil {
+	if o == nil || isNil(o.In) {
 		return nil, false
 	}
 	return o.In, true
@@ -90,7 +90,7 @@ func (o *ErrorDetail) GetInOk() (*string, bool) {
 
 // HasIn returns a boolean if a field has been set.
 func (o *ErrorDetail) HasIn() bool {
-	if o != nil && o.In != nil {
+	if o != nil && !isNil(o.In) {
 		return true
 	}
 
@@ -104,7 +104,7 @@ func (o *ErrorDetail) SetIn(v string) {
 
 // GetCode returns the Code field value if set, zero value otherwise.
 func (o *ErrorDetail) GetCode() string {
-	if o == nil || o.Code == nil {
+	if o == nil || isNil(o.Code) {
 		var ret string
 		return ret
 	}
@@ -114,7 +114,7 @@ func (o *ErrorDetail) GetCode() string {
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ErrorDetail) GetCodeOk() (*string, bool) {
-	if o == nil || o.Code == nil {
+	if o == nil || isNil(o.Code) {
 		return nil, false
 	}
 	return o.Code, true
@@ -122,7 +122,7 @@ func (o *ErrorDetail) GetCodeOk() (*string, bool) {
 
 // HasCode returns a boolean if a field has been set.
 func (o *ErrorDetail) HasCode() bool {
-	if o != nil && o.Code != nil {
+	if o != nil && !isNil(o.Code) {
 		return true
 	}
 
@@ -136,7 +136,7 @@ func (o *ErrorDetail) SetCode(v string) {
 
 // GetSubCategory returns the SubCategory field value if set, zero value otherwise.
 func (o *ErrorDetail) GetSubCategory() string {
-	if o == nil || o.SubCategory == nil {
+	if o == nil || isNil(o.SubCategory) {
 		var ret string
 		return ret
 	}
@@ -146,7 +146,7 @@ func (o *ErrorDetail) GetSubCategory() string {
 // GetSubCategoryOk returns a tuple with the SubCategory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ErrorDetail) GetSubCategoryOk() (*string, bool) {
-	if o == nil || o.SubCategory == nil {
+	if o == nil || isNil(o.SubCategory) {
 		return nil, false
 	}
 	return o.SubCategory, true
@@ -154,7 +154,7 @@ func (o *ErrorDetail) GetSubCategoryOk() (*string, bool) {
 
 // HasSubCategory returns a boolean if a field has been set.
 func (o *ErrorDetail) HasSubCategory() bool {
-	if o != nil && o.SubCategory != nil {
+	if o != nil && !isNil(o.SubCategory) {
 		return true
 	}
 
@@ -168,7 +168,7 @@ func (o *ErrorDetail) SetSubCategory(v string) {
 
 // GetContext returns the Context field value if set, zero value otherwise.
 func (o *ErrorDetail) GetContext() map[string][]string {
-	if o == nil || o.Context == nil {
+	if o == nil || isNil(o.Context) {
 		var ret map[string][]string
 		return ret
 	}
@@ -178,7 +178,7 @@ func (o *ErrorDetail) GetContext() map[string][]string {
 // GetContextOk returns a tuple with the Context field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ErrorDetail) GetContextOk() (*map[string][]string, bool) {
-	if o == nil || o.Context == nil {
+	if o == nil || isNil(o.Context) {
 		return nil, false
 	}
 	return o.Context, true
@@ -186,7 +186,7 @@ func (o *ErrorDetail) GetContextOk() (*map[string][]string, bool) {
 
 // HasContext returns a boolean if a field has been set.
 func (o *ErrorDetail) HasContext() bool {
-	if o != nil && o.Context != nil {
+	if o != nil && !isNil(o.Context) {
 		return true
 	}
 
@@ -203,16 +203,16 @@ func (o ErrorDetail) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["message"] = o.Message
 	}
-	if o.In != nil {
+	if !isNil(o.In) {
 		toSerialize["in"] = o.In
 	}
-	if o.Code != nil {
+	if !isNil(o.Code) {
 		toSerialize["code"] = o.Code
 	}
-	if o.SubCategory != nil {
+	if !isNil(o.SubCategory) {
 		toSerialize["subCategory"] = o.SubCategory
 	}
-	if o.Context != nil {
+	if !isNil(o.Context) {
 		toSerialize["context"] = o.Context
 	}
 	return json.Marshal(toSerialize)

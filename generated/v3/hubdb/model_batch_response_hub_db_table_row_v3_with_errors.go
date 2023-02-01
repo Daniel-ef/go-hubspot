@@ -98,7 +98,7 @@ func (o *BatchResponseHubDbTableRowV3WithErrors) SetResults(v []HubDbTableRowV3)
 
 // GetNumErrors returns the NumErrors field value if set, zero value otherwise.
 func (o *BatchResponseHubDbTableRowV3WithErrors) GetNumErrors() int32 {
-	if o == nil || o.NumErrors == nil {
+	if o == nil || isNil(o.NumErrors) {
 		var ret int32
 		return ret
 	}
@@ -108,7 +108,7 @@ func (o *BatchResponseHubDbTableRowV3WithErrors) GetNumErrors() int32 {
 // GetNumErrorsOk returns a tuple with the NumErrors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseHubDbTableRowV3WithErrors) GetNumErrorsOk() (*int32, bool) {
-	if o == nil || o.NumErrors == nil {
+	if o == nil || isNil(o.NumErrors) {
 		return nil, false
 	}
 	return o.NumErrors, true
@@ -116,7 +116,7 @@ func (o *BatchResponseHubDbTableRowV3WithErrors) GetNumErrorsOk() (*int32, bool)
 
 // HasNumErrors returns a boolean if a field has been set.
 func (o *BatchResponseHubDbTableRowV3WithErrors) HasNumErrors() bool {
-	if o != nil && o.NumErrors != nil {
+	if o != nil && !isNil(o.NumErrors) {
 		return true
 	}
 
@@ -130,7 +130,7 @@ func (o *BatchResponseHubDbTableRowV3WithErrors) SetNumErrors(v int32) {
 
 // GetErrors returns the Errors field value if set, zero value otherwise.
 func (o *BatchResponseHubDbTableRowV3WithErrors) GetErrors() []StandardError {
-	if o == nil || o.Errors == nil {
+	if o == nil || isNil(o.Errors) {
 		var ret []StandardError
 		return ret
 	}
@@ -140,7 +140,7 @@ func (o *BatchResponseHubDbTableRowV3WithErrors) GetErrors() []StandardError {
 // GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseHubDbTableRowV3WithErrors) GetErrorsOk() ([]StandardError, bool) {
-	if o == nil || o.Errors == nil {
+	if o == nil || isNil(o.Errors) {
 		return nil, false
 	}
 	return o.Errors, true
@@ -148,7 +148,7 @@ func (o *BatchResponseHubDbTableRowV3WithErrors) GetErrorsOk() ([]StandardError,
 
 // HasErrors returns a boolean if a field has been set.
 func (o *BatchResponseHubDbTableRowV3WithErrors) HasErrors() bool {
-	if o != nil && o.Errors != nil {
+	if o != nil && !isNil(o.Errors) {
 		return true
 	}
 
@@ -162,7 +162,7 @@ func (o *BatchResponseHubDbTableRowV3WithErrors) SetErrors(v []StandardError) {
 
 // GetRequestedAt returns the RequestedAt field value if set, zero value otherwise.
 func (o *BatchResponseHubDbTableRowV3WithErrors) GetRequestedAt() time.Time {
-	if o == nil || o.RequestedAt == nil {
+	if o == nil || isNil(o.RequestedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -172,7 +172,7 @@ func (o *BatchResponseHubDbTableRowV3WithErrors) GetRequestedAt() time.Time {
 // GetRequestedAtOk returns a tuple with the RequestedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseHubDbTableRowV3WithErrors) GetRequestedAtOk() (*time.Time, bool) {
-	if o == nil || o.RequestedAt == nil {
+	if o == nil || isNil(o.RequestedAt) {
 		return nil, false
 	}
 	return o.RequestedAt, true
@@ -180,7 +180,7 @@ func (o *BatchResponseHubDbTableRowV3WithErrors) GetRequestedAtOk() (*time.Time,
 
 // HasRequestedAt returns a boolean if a field has been set.
 func (o *BatchResponseHubDbTableRowV3WithErrors) HasRequestedAt() bool {
-	if o != nil && o.RequestedAt != nil {
+	if o != nil && !isNil(o.RequestedAt) {
 		return true
 	}
 
@@ -242,7 +242,7 @@ func (o *BatchResponseHubDbTableRowV3WithErrors) SetCompletedAt(v time.Time) {
 
 // GetLinks returns the Links field value if set, zero value otherwise.
 func (o *BatchResponseHubDbTableRowV3WithErrors) GetLinks() map[string]string {
-	if o == nil || o.Links == nil {
+	if o == nil || isNil(o.Links) {
 		var ret map[string]string
 		return ret
 	}
@@ -252,7 +252,7 @@ func (o *BatchResponseHubDbTableRowV3WithErrors) GetLinks() map[string]string {
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BatchResponseHubDbTableRowV3WithErrors) GetLinksOk() (*map[string]string, bool) {
-	if o == nil || o.Links == nil {
+	if o == nil || isNil(o.Links) {
 		return nil, false
 	}
 	return o.Links, true
@@ -260,7 +260,7 @@ func (o *BatchResponseHubDbTableRowV3WithErrors) GetLinksOk() (*map[string]strin
 
 // HasLinks returns a boolean if a field has been set.
 func (o *BatchResponseHubDbTableRowV3WithErrors) HasLinks() bool {
-	if o != nil && o.Links != nil {
+	if o != nil && !isNil(o.Links) {
 		return true
 	}
 
@@ -280,13 +280,13 @@ func (o BatchResponseHubDbTableRowV3WithErrors) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["results"] = o.Results
 	}
-	if o.NumErrors != nil {
+	if !isNil(o.NumErrors) {
 		toSerialize["numErrors"] = o.NumErrors
 	}
-	if o.Errors != nil {
+	if !isNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
-	if o.RequestedAt != nil {
+	if !isNil(o.RequestedAt) {
 		toSerialize["requestedAt"] = o.RequestedAt
 	}
 	if true {
@@ -295,7 +295,7 @@ func (o BatchResponseHubDbTableRowV3WithErrors) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["completedAt"] = o.CompletedAt
 	}
-	if o.Links != nil {
+	if !isNil(o.Links) {
 		toSerialize["links"] = o.Links
 	}
 	return json.Marshal(toSerialize)

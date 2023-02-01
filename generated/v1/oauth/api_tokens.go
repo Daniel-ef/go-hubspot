@@ -69,8 +69,8 @@ func (r ApiCreateTokenRequest) Execute() (*TokenResponseIF, *http.Response, erro
 /*
 CreateToken Method for CreateToken
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateTokenRequest
 */
 func (a *TokensApiService) CreateToken(ctx context.Context) ApiCreateTokenRequest {
 	return ApiCreateTokenRequest{
@@ -80,7 +80,8 @@ func (a *TokensApiService) CreateToken(ctx context.Context) ApiCreateTokenReques
 }
 
 // Execute executes the request
-//  @return TokenResponseIF
+//
+//	@return TokenResponseIF
 func (a *TokensApiService) CreateTokenExecute(r ApiCreateTokenRequest) (*TokenResponseIF, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -163,6 +164,7 @@ func (a *TokensApiService) CreateTokenExecute(r ApiCreateTokenRequest) (*TokenRe
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

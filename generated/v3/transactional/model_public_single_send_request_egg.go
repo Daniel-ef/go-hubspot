@@ -94,7 +94,7 @@ func (o *PublicSingleSendRequestEgg) SetMessage(v PublicSingleSendEmail) {
 
 // GetContactProperties returns the ContactProperties field value if set, zero value otherwise.
 func (o *PublicSingleSendRequestEgg) GetContactProperties() map[string]string {
-	if o == nil || o.ContactProperties == nil {
+	if o == nil || isNil(o.ContactProperties) {
 		var ret map[string]string
 		return ret
 	}
@@ -104,7 +104,7 @@ func (o *PublicSingleSendRequestEgg) GetContactProperties() map[string]string {
 // GetContactPropertiesOk returns a tuple with the ContactProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicSingleSendRequestEgg) GetContactPropertiesOk() (*map[string]string, bool) {
-	if o == nil || o.ContactProperties == nil {
+	if o == nil || isNil(o.ContactProperties) {
 		return nil, false
 	}
 	return o.ContactProperties, true
@@ -112,7 +112,7 @@ func (o *PublicSingleSendRequestEgg) GetContactPropertiesOk() (*map[string]strin
 
 // HasContactProperties returns a boolean if a field has been set.
 func (o *PublicSingleSendRequestEgg) HasContactProperties() bool {
-	if o != nil && o.ContactProperties != nil {
+	if o != nil && !isNil(o.ContactProperties) {
 		return true
 	}
 
@@ -126,7 +126,7 @@ func (o *PublicSingleSendRequestEgg) SetContactProperties(v map[string]string) {
 
 // GetCustomProperties returns the CustomProperties field value if set, zero value otherwise.
 func (o *PublicSingleSendRequestEgg) GetCustomProperties() map[string]map[string]interface{} {
-	if o == nil || o.CustomProperties == nil {
+	if o == nil || isNil(o.CustomProperties) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -136,15 +136,15 @@ func (o *PublicSingleSendRequestEgg) GetCustomProperties() map[string]map[string
 // GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicSingleSendRequestEgg) GetCustomPropertiesOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || o.CustomProperties == nil {
-		return nil, false
+	if o == nil || isNil(o.CustomProperties) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.CustomProperties, true
 }
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *PublicSingleSendRequestEgg) HasCustomProperties() bool {
-	if o != nil && o.CustomProperties != nil {
+	if o != nil && !isNil(o.CustomProperties) {
 		return true
 	}
 
@@ -164,10 +164,10 @@ func (o PublicSingleSendRequestEgg) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["message"] = o.Message
 	}
-	if o.ContactProperties != nil {
+	if !isNil(o.ContactProperties) {
 		toSerialize["contactProperties"] = o.ContactProperties
 	}
-	if o.CustomProperties != nil {
+	if !isNil(o.CustomProperties) {
 		toSerialize["customProperties"] = o.CustomProperties
 	}
 	return json.Marshal(toSerialize)

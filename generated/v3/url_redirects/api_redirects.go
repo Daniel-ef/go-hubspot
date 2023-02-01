@@ -16,7 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/clarkmcc/go-hubspot"
+	"github.com/Daniel-ef/go-hubspot"
 	"net/url"
 	"reflect"
 	"strings"
@@ -41,9 +41,9 @@ Archive Delete a redirect
 
 Delete one existing redirect, so it is no longer mapped.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param urlRedirectId The ID of the target redirect.
- @return ApiArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param urlRedirectId The ID of the target redirect.
+	@return ApiArchiveRequest
 */
 func (a *RedirectsApiService) Archive(ctx context.Context, urlRedirectId string) ApiArchiveRequest {
 	return ApiArchiveRequest{
@@ -100,6 +100,20 @@ func (a *RedirectsApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Respons
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -128,6 +142,7 @@ func (a *RedirectsApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Respons
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -155,8 +170,8 @@ Create Create a redirect
 
 Creates and configures a new URL redirect.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateRequest
 */
 func (a *RedirectsApiService) Create(ctx context.Context) ApiCreateRequest {
 	return ApiCreateRequest{
@@ -166,7 +181,8 @@ func (a *RedirectsApiService) Create(ctx context.Context) ApiCreateRequest {
 }
 
 // Execute executes the request
-//  @return UrlMapping
+//
+//	@return UrlMapping
 func (a *RedirectsApiService) CreateExecute(r ApiCreateRequest) (*UrlMapping, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -218,6 +234,20 @@ func (a *RedirectsApiService) CreateExecute(r ApiCreateRequest) (*UrlMapping, *h
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -246,6 +276,7 @@ func (a *RedirectsApiService) CreateExecute(r ApiCreateRequest) (*UrlMapping, *h
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -277,9 +308,9 @@ GetByID Get details for a redirect
 
 Returns the details for a single existing URL redirect by ID.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param urlRedirectId The ID of the target redirect.
- @return ApiGetByIDRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param urlRedirectId The ID of the target redirect.
+	@return ApiGetByIDRequest
 */
 func (a *RedirectsApiService) GetByID(ctx context.Context, urlRedirectId string) ApiGetByIDRequest {
 	return ApiGetByIDRequest{
@@ -290,7 +321,8 @@ func (a *RedirectsApiService) GetByID(ctx context.Context, urlRedirectId string)
 }
 
 // Execute executes the request
-//  @return UrlMapping
+//
+//	@return UrlMapping
 func (a *RedirectsApiService) GetByIDExecute(r ApiGetByIDRequest) (*UrlMapping, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -338,6 +370,20 @@ func (a *RedirectsApiService) GetByIDExecute(r ApiGetByIDRequest) (*UrlMapping, 
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -366,6 +412,7 @@ func (a *RedirectsApiService) GetByIDExecute(r ApiGetByIDRequest) (*UrlMapping, 
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -465,8 +512,8 @@ GetPage Get current redirects
 
 Returns all existing URL redirects. Results can be limited and filtered by creation or updated date.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetPageRequest
 */
 func (a *RedirectsApiService) GetPage(ctx context.Context) ApiGetPageRequest {
 	return ApiGetPageRequest{
@@ -476,7 +523,8 @@ func (a *RedirectsApiService) GetPage(ctx context.Context) ApiGetPageRequest {
 }
 
 // Execute executes the request
-//  @return CollectionResponseWithTotalUrlMappingForwardPaging
+//
+//	@return CollectionResponseWithTotalUrlMappingForwardPaging
 func (a *RedirectsApiService) GetPageExecute(r ApiGetPageRequest) (*CollectionResponseWithTotalUrlMappingForwardPaging, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -561,6 +609,20 @@ func (a *RedirectsApiService) GetPageExecute(r ApiGetPageRequest) (*CollectionRe
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -589,6 +651,7 @@ func (a *RedirectsApiService) GetPageExecute(r ApiGetPageRequest) (*CollectionRe
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -626,9 +689,9 @@ Update Update a redirect
 
 Updates the settings for an existing URL redirect.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param urlRedirectId
- @return ApiUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param urlRedirectId
+	@return ApiUpdateRequest
 */
 func (a *RedirectsApiService) Update(ctx context.Context, urlRedirectId string) ApiUpdateRequest {
 	return ApiUpdateRequest{
@@ -639,7 +702,8 @@ func (a *RedirectsApiService) Update(ctx context.Context, urlRedirectId string) 
 }
 
 // Execute executes the request
-//  @return UrlMapping
+//
+//	@return UrlMapping
 func (a *RedirectsApiService) UpdateExecute(r ApiUpdateRequest) (*UrlMapping, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPatch
@@ -692,6 +756,20 @@ func (a *RedirectsApiService) UpdateExecute(r ApiUpdateRequest) (*UrlMapping, *h
 			})
 		}
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["private_apps_legacy"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["private-app-legacy"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -720,6 +798,7 @@ func (a *RedirectsApiService) UpdateExecute(r ApiUpdateRequest) (*UrlMapping, *h
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

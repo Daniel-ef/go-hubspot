@@ -50,9 +50,9 @@ Each event template contains its own set of tokens and `Markdown` templates. The
 
 You must create an event template before you can create events.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId The ID of the target app.
- @return ApiTemplateCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId The ID of the target app.
+	@return ApiTemplateCreateRequest
 */
 func (a *TemplatesApiService) TemplateCreate(ctx context.Context, appId int32) ApiTemplateCreateRequest {
 	return ApiTemplateCreateRequest{
@@ -63,7 +63,8 @@ func (a *TemplatesApiService) TemplateCreate(ctx context.Context, appId int32) A
 }
 
 // Execute executes the request
-//  @return TimelineEventTemplate
+//
+//	@return TimelineEventTemplate
 func (a *TemplatesApiService) TemplateCreateExecute(r ApiTemplateCreateRequest) (*TimelineEventTemplate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -148,6 +149,7 @@ func (a *TemplatesApiService) TemplateCreateExecute(r ApiTemplateCreateRequest) 
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -179,9 +181,9 @@ TemplateGetAll List all event templates for your app
 
 Use this to list all event templates owned by your app.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId The ID of the target app.
- @return ApiTemplateGetAllRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId The ID of the target app.
+	@return ApiTemplateGetAllRequest
 */
 func (a *TemplatesApiService) TemplateGetAll(ctx context.Context, appId int32) ApiTemplateGetAllRequest {
 	return ApiTemplateGetAllRequest{
@@ -192,7 +194,8 @@ func (a *TemplatesApiService) TemplateGetAll(ctx context.Context, appId int32) A
 }
 
 // Execute executes the request
-//  @return CollectionResponseTimelineEventTemplateNoPaging
+//
+//	@return CollectionResponseTimelineEventTemplateNoPaging
 func (a *TemplatesApiService) TemplateGetAllExecute(r ApiTemplateGetAllRequest) (*CollectionResponseTimelineEventTemplateNoPaging, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -272,6 +275,7 @@ func (a *TemplatesApiService) TemplateGetAllExecute(r ApiTemplateGetAllRequest) 
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -306,10 +310,10 @@ This will delete the event template. All associated events will be removed from 
 
 This action can't be undone, so it's highly recommended that you stop using any associated events before deleting a template.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param eventTemplateId The event template ID.
- @param appId The ID of the target app.
- @return ApiTemplatesArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param eventTemplateId The event template ID.
+	@param appId The ID of the target app.
+	@return ApiTemplatesArchiveRequest
 */
 func (a *TemplatesApiService) TemplatesArchive(ctx context.Context, eventTemplateId string, appId int32) ApiTemplatesArchiveRequest {
 	return ApiTemplatesArchiveRequest{
@@ -400,6 +404,7 @@ func (a *TemplatesApiService) TemplatesArchiveExecute(r ApiTemplatesArchiveReque
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -423,10 +428,10 @@ TemplatesGetByID Gets a specific event template for your app
 
 View the current state of a specific template and its tokens.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param eventTemplateId The event template ID.
- @param appId The ID of the target app.
- @return ApiTemplatesGetByIDRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param eventTemplateId The event template ID.
+	@param appId The ID of the target app.
+	@return ApiTemplatesGetByIDRequest
 */
 func (a *TemplatesApiService) TemplatesGetByID(ctx context.Context, eventTemplateId string, appId int32) ApiTemplatesGetByIDRequest {
 	return ApiTemplatesGetByIDRequest{
@@ -438,7 +443,8 @@ func (a *TemplatesApiService) TemplatesGetByID(ctx context.Context, eventTemplat
 }
 
 // Execute executes the request
-//  @return TimelineEventTemplate
+//
+//	@return TimelineEventTemplate
 func (a *TemplatesApiService) TemplatesGetByIDExecute(r ApiTemplatesGetByIDRequest) (*TimelineEventTemplate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -519,6 +525,7 @@ func (a *TemplatesApiService) TemplatesGetByIDExecute(r ApiTemplatesGetByIDReque
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -560,10 +567,10 @@ Updates an existing template and its tokens. This is primarily used to update th
 
 You can also update or replace all the tokens in the template here instead of doing individual API calls on the `/tokens` endpoint.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param eventTemplateId The event template ID.
- @param appId The ID of the target app.
- @return ApiTemplatesUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param eventTemplateId The event template ID.
+	@param appId The ID of the target app.
+	@return ApiTemplatesUpdateRequest
 */
 func (a *TemplatesApiService) TemplatesUpdate(ctx context.Context, eventTemplateId string, appId int32) ApiTemplatesUpdateRequest {
 	return ApiTemplatesUpdateRequest{
@@ -575,7 +582,8 @@ func (a *TemplatesApiService) TemplatesUpdate(ctx context.Context, eventTemplate
 }
 
 // Execute executes the request
-//  @return TimelineEventTemplate
+//
+//	@return TimelineEventTemplate
 func (a *TemplatesApiService) TemplatesUpdateExecute(r ApiTemplatesUpdateRequest) (*TimelineEventTemplate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
@@ -661,6 +669,7 @@ func (a *TemplatesApiService) TemplatesUpdateExecute(r ApiTemplatesUpdateRequest
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

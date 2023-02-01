@@ -38,10 +38,10 @@ Archive Archive a custom action
 
 Archives a single custom workflow action with the specified ID. Workflows that currently use this custom action will stop attempting to execute the action, and all future executions will be marked as a failure.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param definitionId The ID of the custom workflow action.
- @param appId
- @return ApiArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param definitionId The ID of the custom workflow action.
+	@param appId
+	@return ApiArchiveRequest
 */
 func (a *DefinitionsApiService) Archive(ctx context.Context, definitionId string, appId int32) ApiArchiveRequest {
 	return ApiArchiveRequest{
@@ -132,6 +132,7 @@ func (a *DefinitionsApiService) ArchiveExecute(r ApiArchiveRequest) (*http.Respo
 			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
@@ -161,9 +162,9 @@ Create Create new custom action
 
 Creates a new custom workflow action.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId
- @return ApiCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId
+	@return ApiCreateRequest
 */
 func (a *DefinitionsApiService) Create(ctx context.Context, appId int32) ApiCreateRequest {
 	return ApiCreateRequest{
@@ -174,7 +175,8 @@ func (a *DefinitionsApiService) Create(ctx context.Context, appId int32) ApiCrea
 }
 
 // Execute executes the request
-//  @return ExtensionActionDefinition
+//
+//	@return ExtensionActionDefinition
 func (a *DefinitionsApiService) CreateExecute(r ApiCreateRequest) (*ExtensionActionDefinition, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -259,6 +261,7 @@ func (a *DefinitionsApiService) CreateExecute(r ApiCreateRequest) (*ExtensionAct
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -298,10 +301,10 @@ GetByID Get a custom action
 
 Returns a single custom workflow action with the specified ID.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param definitionId The ID of the custom workflow action.
- @param appId
- @return ApiGetByIDRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param definitionId The ID of the custom workflow action.
+	@param appId
+	@return ApiGetByIDRequest
 */
 func (a *DefinitionsApiService) GetByID(ctx context.Context, definitionId string, appId int32) ApiGetByIDRequest {
 	return ApiGetByIDRequest{
@@ -313,7 +316,8 @@ func (a *DefinitionsApiService) GetByID(ctx context.Context, definitionId string
 }
 
 // Execute executes the request
-//  @return ExtensionActionDefinition
+//
+//	@return ExtensionActionDefinition
 func (a *DefinitionsApiService) GetByIDExecute(r ApiGetByIDRequest) (*ExtensionActionDefinition, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -397,6 +401,7 @@ func (a *DefinitionsApiService) GetByIDExecute(r ApiGetByIDRequest) (*ExtensionA
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -449,9 +454,9 @@ GetPage Get all custom actions
 
 Returns a list of all custom workflow actions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param appId
- @return ApiGetPageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param appId
+	@return ApiGetPageRequest
 */
 func (a *DefinitionsApiService) GetPage(ctx context.Context, appId int32) ApiGetPageRequest {
 	return ApiGetPageRequest{
@@ -462,7 +467,8 @@ func (a *DefinitionsApiService) GetPage(ctx context.Context, appId int32) ApiGet
 }
 
 // Execute executes the request
-//  @return CollectionResponseExtensionActionDefinitionForwardPaging
+//
+//	@return CollectionResponseExtensionActionDefinitionForwardPaging
 func (a *DefinitionsApiService) GetPageExecute(r ApiGetPageRequest) (*CollectionResponseExtensionActionDefinitionForwardPaging, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -551,6 +557,7 @@ func (a *DefinitionsApiService) GetPageExecute(r ApiGetPageRequest) (*Collection
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -590,10 +597,10 @@ Update Update a custom action
 
 Updates a custom workflow action with new values for the specified fields.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param definitionId The ID of the custom workflow action.
- @param appId
- @return ApiUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param definitionId The ID of the custom workflow action.
+	@param appId
+	@return ApiUpdateRequest
 */
 func (a *DefinitionsApiService) Update(ctx context.Context, definitionId string, appId int32) ApiUpdateRequest {
 	return ApiUpdateRequest{
@@ -605,7 +612,8 @@ func (a *DefinitionsApiService) Update(ctx context.Context, definitionId string,
 }
 
 // Execute executes the request
-//  @return ExtensionActionDefinition
+//
+//	@return ExtensionActionDefinition
 func (a *DefinitionsApiService) UpdateExecute(r ApiUpdateRequest) (*ExtensionActionDefinition, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPatch
@@ -691,6 +699,7 @@ func (a *DefinitionsApiService) UpdateExecute(r ApiUpdateRequest) (*ExtensionAct
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

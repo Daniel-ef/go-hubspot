@@ -120,7 +120,7 @@ func (o *AttachToLangPrimaryRequestVNext) SetPrimaryId(v string) {
 
 // GetPrimaryLanguage returns the PrimaryLanguage field value if set, zero value otherwise.
 func (o *AttachToLangPrimaryRequestVNext) GetPrimaryLanguage() string {
-	if o == nil || o.PrimaryLanguage == nil {
+	if o == nil || isNil(o.PrimaryLanguage) {
 		var ret string
 		return ret
 	}
@@ -130,7 +130,7 @@ func (o *AttachToLangPrimaryRequestVNext) GetPrimaryLanguage() string {
 // GetPrimaryLanguageOk returns a tuple with the PrimaryLanguage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AttachToLangPrimaryRequestVNext) GetPrimaryLanguageOk() (*string, bool) {
-	if o == nil || o.PrimaryLanguage == nil {
+	if o == nil || isNil(o.PrimaryLanguage) {
 		return nil, false
 	}
 	return o.PrimaryLanguage, true
@@ -138,7 +138,7 @@ func (o *AttachToLangPrimaryRequestVNext) GetPrimaryLanguageOk() (*string, bool)
 
 // HasPrimaryLanguage returns a boolean if a field has been set.
 func (o *AttachToLangPrimaryRequestVNext) HasPrimaryLanguage() bool {
-	if o != nil && o.PrimaryLanguage != nil {
+	if o != nil && !isNil(o.PrimaryLanguage) {
 		return true
 	}
 
@@ -161,7 +161,7 @@ func (o AttachToLangPrimaryRequestVNext) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["primaryId"] = o.PrimaryId
 	}
-	if o.PrimaryLanguage != nil {
+	if !isNil(o.PrimaryLanguage) {
 		toSerialize["primaryLanguage"] = o.PrimaryLanguage
 	}
 	return json.Marshal(toSerialize)

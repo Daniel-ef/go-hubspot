@@ -30,6 +30,8 @@ paths:
           description: An error occurred.
       security:
       - hapikey: []
+      - private_apps_legacy:
+        - analytics.behavioral_events.send
       - oauth2_legacy:
         - analytics.behavioral_events.send
       summary: Sends Custom Behavioral Event
@@ -179,4 +181,8 @@ components:
     hapikey:
       in: query
       name: hapikey
+      type: apiKey
+    private_apps_legacy:
+      in: header
+      name: private-app-legacy
       type: apiKey

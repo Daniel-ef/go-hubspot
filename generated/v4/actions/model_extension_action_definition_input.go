@@ -132,7 +132,7 @@ func (o *ExtensionActionDefinitionInput) SetPublished(v bool) {
 
 // GetArchivedAt returns the ArchivedAt field value if set, zero value otherwise.
 func (o *ExtensionActionDefinitionInput) GetArchivedAt() int64 {
-	if o == nil || o.ArchivedAt == nil {
+	if o == nil || isNil(o.ArchivedAt) {
 		var ret int64
 		return ret
 	}
@@ -142,7 +142,7 @@ func (o *ExtensionActionDefinitionInput) GetArchivedAt() int64 {
 // GetArchivedAtOk returns a tuple with the ArchivedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionActionDefinitionInput) GetArchivedAtOk() (*int64, bool) {
-	if o == nil || o.ArchivedAt == nil {
+	if o == nil || isNil(o.ArchivedAt) {
 		return nil, false
 	}
 	return o.ArchivedAt, true
@@ -150,7 +150,7 @@ func (o *ExtensionActionDefinitionInput) GetArchivedAtOk() (*int64, bool) {
 
 // HasArchivedAt returns a boolean if a field has been set.
 func (o *ExtensionActionDefinitionInput) HasArchivedAt() bool {
-	if o != nil && o.ArchivedAt != nil {
+	if o != nil && !isNil(o.ArchivedAt) {
 		return true
 	}
 
@@ -188,7 +188,7 @@ func (o *ExtensionActionDefinitionInput) SetInputFields(v []InputFieldDefinition
 
 // GetObjectRequestOptions returns the ObjectRequestOptions field value if set, zero value otherwise.
 func (o *ExtensionActionDefinitionInput) GetObjectRequestOptions() ObjectRequestOptions {
-	if o == nil || o.ObjectRequestOptions == nil {
+	if o == nil || isNil(o.ObjectRequestOptions) {
 		var ret ObjectRequestOptions
 		return ret
 	}
@@ -198,7 +198,7 @@ func (o *ExtensionActionDefinitionInput) GetObjectRequestOptions() ObjectRequest
 // GetObjectRequestOptionsOk returns a tuple with the ObjectRequestOptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionActionDefinitionInput) GetObjectRequestOptionsOk() (*ObjectRequestOptions, bool) {
-	if o == nil || o.ObjectRequestOptions == nil {
+	if o == nil || isNil(o.ObjectRequestOptions) {
 		return nil, false
 	}
 	return o.ObjectRequestOptions, true
@@ -206,7 +206,7 @@ func (o *ExtensionActionDefinitionInput) GetObjectRequestOptionsOk() (*ObjectReq
 
 // HasObjectRequestOptions returns a boolean if a field has been set.
 func (o *ExtensionActionDefinitionInput) HasObjectRequestOptions() bool {
-	if o != nil && o.ObjectRequestOptions != nil {
+	if o != nil && !isNil(o.ObjectRequestOptions) {
 		return true
 	}
 
@@ -220,7 +220,7 @@ func (o *ExtensionActionDefinitionInput) SetObjectRequestOptions(v ObjectRequest
 
 // GetInputFieldDependencies returns the InputFieldDependencies field value if set, zero value otherwise.
 func (o *ExtensionActionDefinitionInput) GetInputFieldDependencies() []ExtensionActionDefinitionPatchInputFieldDependenciesInner {
-	if o == nil || o.InputFieldDependencies == nil {
+	if o == nil || isNil(o.InputFieldDependencies) {
 		var ret []ExtensionActionDefinitionPatchInputFieldDependenciesInner
 		return ret
 	}
@@ -230,7 +230,7 @@ func (o *ExtensionActionDefinitionInput) GetInputFieldDependencies() []Extension
 // GetInputFieldDependenciesOk returns a tuple with the InputFieldDependencies field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionActionDefinitionInput) GetInputFieldDependenciesOk() ([]ExtensionActionDefinitionPatchInputFieldDependenciesInner, bool) {
-	if o == nil || o.InputFieldDependencies == nil {
+	if o == nil || isNil(o.InputFieldDependencies) {
 		return nil, false
 	}
 	return o.InputFieldDependencies, true
@@ -238,7 +238,7 @@ func (o *ExtensionActionDefinitionInput) GetInputFieldDependenciesOk() ([]Extens
 
 // HasInputFieldDependencies returns a boolean if a field has been set.
 func (o *ExtensionActionDefinitionInput) HasInputFieldDependencies() bool {
-	if o != nil && o.InputFieldDependencies != nil {
+	if o != nil && !isNil(o.InputFieldDependencies) {
 		return true
 	}
 
@@ -309,16 +309,16 @@ func (o ExtensionActionDefinitionInput) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["published"] = o.Published
 	}
-	if o.ArchivedAt != nil {
+	if !isNil(o.ArchivedAt) {
 		toSerialize["archivedAt"] = o.ArchivedAt
 	}
 	if true {
 		toSerialize["inputFields"] = o.InputFields
 	}
-	if o.ObjectRequestOptions != nil {
+	if !isNil(o.ObjectRequestOptions) {
 		toSerialize["objectRequestOptions"] = o.ObjectRequestOptions
 	}
-	if o.InputFieldDependencies != nil {
+	if !isNil(o.InputFieldDependencies) {
 		toSerialize["inputFieldDependencies"] = o.InputFieldDependencies
 	}
 	if true {

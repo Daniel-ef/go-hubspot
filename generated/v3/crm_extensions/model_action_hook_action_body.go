@@ -73,7 +73,7 @@ func (o *ActionHookActionBody) SetType(v string) {
 
 // GetConfirmation returns the Confirmation field value if set, zero value otherwise.
 func (o *ActionHookActionBody) GetConfirmation() ActionConfirmationBody {
-	if o == nil || o.Confirmation == nil {
+	if o == nil || isNil(o.Confirmation) {
 		var ret ActionConfirmationBody
 		return ret
 	}
@@ -83,7 +83,7 @@ func (o *ActionHookActionBody) GetConfirmation() ActionConfirmationBody {
 // GetConfirmationOk returns a tuple with the Confirmation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionHookActionBody) GetConfirmationOk() (*ActionConfirmationBody, bool) {
-	if o == nil || o.Confirmation == nil {
+	if o == nil || isNil(o.Confirmation) {
 		return nil, false
 	}
 	return o.Confirmation, true
@@ -91,7 +91,7 @@ func (o *ActionHookActionBody) GetConfirmationOk() (*ActionConfirmationBody, boo
 
 // HasConfirmation returns a boolean if a field has been set.
 func (o *ActionHookActionBody) HasConfirmation() bool {
-	if o != nil && o.Confirmation != nil {
+	if o != nil && !isNil(o.Confirmation) {
 		return true
 	}
 
@@ -153,7 +153,7 @@ func (o *ActionHookActionBody) SetUrl(v string) {
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *ActionHookActionBody) GetLabel() string {
-	if o == nil || o.Label == nil {
+	if o == nil || isNil(o.Label) {
 		var ret string
 		return ret
 	}
@@ -163,7 +163,7 @@ func (o *ActionHookActionBody) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionHookActionBody) GetLabelOk() (*string, bool) {
-	if o == nil || o.Label == nil {
+	if o == nil || isNil(o.Label) {
 		return nil, false
 	}
 	return o.Label, true
@@ -171,7 +171,7 @@ func (o *ActionHookActionBody) GetLabelOk() (*string, bool) {
 
 // HasLabel returns a boolean if a field has been set.
 func (o *ActionHookActionBody) HasLabel() bool {
-	if o != nil && o.Label != nil {
+	if o != nil && !isNil(o.Label) {
 		return true
 	}
 
@@ -212,7 +212,7 @@ func (o ActionHookActionBody) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["type"] = o.Type
 	}
-	if o.Confirmation != nil {
+	if !isNil(o.Confirmation) {
 		toSerialize["confirmation"] = o.Confirmation
 	}
 	if true {
@@ -221,7 +221,7 @@ func (o ActionHookActionBody) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["url"] = o.Url
 	}
-	if o.Label != nil {
+	if !isNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
 	if true {

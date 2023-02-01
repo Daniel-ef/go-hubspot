@@ -1,4 +1,4 @@
-module github.com/clarkmcc/go-hubspot
+module github.com/Daniel-ef/go-hubspot
 
 go 1.17
 

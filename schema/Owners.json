@@ -79,7 +79,9 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
+        }, {
+          "private_apps" : [ "crm.objects.owners.read" ]
         }, {
           "oauth2" : [ "crm.objects.owners.read" ]
         } ]
@@ -141,7 +143,9 @@
         "security" : [ {
           "hapikey" : [ ]
         }, {
-          "oauth2_legacy" : [ "contacts" ]
+          "private_apps_legacy" : [ "contacts" ]
+        }, {
+          "private_apps" : [ "crm.objects.owners.read" ]
         }, {
           "oauth2" : [ "crm.objects.owners.read" ]
         } ]
@@ -368,18 +372,6 @@
       }
     },
     "securitySchemes" : {
-      "oauth2_legacy" : {
-        "type" : "oauth2",
-        "flows" : {
-          "authorizationCode" : {
-            "authorizationUrl" : "https://app.hubspot.com/oauth/authorize",
-            "tokenUrl" : "https://api.hubapi.com/oauth/v1/token",
-            "scopes" : {
-              "contacts" : "Read from and write to my Contacts"
-            }
-          }
-        }
-      },
       "hapikey" : {
         "type" : "apiKey",
         "name" : "hapikey",
@@ -396,6 +388,16 @@
             }
           }
         }
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
+      },
+      "private_apps" : {
+        "type" : "apiKey",
+        "name" : "private-app",
+        "in" : "header"
       }
     }
   },

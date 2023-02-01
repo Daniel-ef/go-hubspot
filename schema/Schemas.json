@@ -48,7 +48,11 @@
           }
         },
         "security" : [ {
+          "private_apps_legacy" : [ "crm.objects.custom.read" ]
+        }, {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "crm.schemas.custom.read" ]
         }, {
           "oauth2_legacy" : [ "crm.objects.custom.read" ]
         }, {
@@ -87,7 +91,11 @@
           }
         },
         "security" : [ {
+          "private_apps_legacy" : [ "crm.schemas.custom.write", "crm.objects.custom.write" ]
+        }, {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "crm.schemas.custom.write" ]
         } ]
       }
     },
@@ -124,7 +132,11 @@
           }
         },
         "security" : [ {
+          "private_apps_legacy" : [ "crm.objects.custom.read" ]
+        }, {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "crm.schemas.custom.read" ]
         }, {
           "oauth2_legacy" : [ "crm.objects.custom.read" ]
         }, {
@@ -169,6 +181,8 @@
         },
         "security" : [ {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "crm.schemas.custom.write" ]
         } ]
       },
       "patch" : {
@@ -214,7 +228,11 @@
           }
         },
         "security" : [ {
+          "private_apps_legacy" : [ "crm.schemas.custom.write", "crm.objects.custom.write" ]
+        }, {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "crm.schemas.custom.write" ]
         } ]
       }
     },
@@ -262,7 +280,11 @@
           }
         },
         "security" : [ {
+          "private_apps_legacy" : [ "crm.schemas.custom.write", "crm.objects.custom.write" ]
+        }, {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "crm.schemas.custom.write" ]
         } ]
       }
     },
@@ -304,6 +326,8 @@
         },
         "security" : [ {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "crm.schemas.custom.write" ]
         } ]
       }
     },
@@ -333,6 +357,8 @@
         "deprecated" : true,
         "security" : [ {
           "hapikey" : [ ]
+        }, {
+          "private_apps_legacy" : [ "crm.schemas.custom.write" ]
         } ]
       }
     }
@@ -1153,6 +1179,11 @@
         "type" : "apiKey",
         "name" : "hapikey",
         "in" : "query"
+      },
+      "private_apps_legacy" : {
+        "type" : "apiKey",
+        "name" : "private-app-legacy",
+        "in" : "header"
       }
     }
   },

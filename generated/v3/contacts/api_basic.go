@@ -324,10 +324,17 @@ type ApiGetByIDRequest struct {
 	ctx                   context.Context
 	ApiService            *BasicApiService
 	contactId             string
+	idProperty            *string
 	properties            *[]string
 	propertiesWithHistory *[]string
 	associations          *[]string
 	archived              *bool
+}
+
+// The property to use as the identifier for the object. If not specified, the default is &#x60;id&#x60;.
+func (r ApiGetByIDRequest) IdProperty(idProperty string) ApiGetByIDRequest {
+	r.idProperty = &idProperty
+	return r
 }
 
 // A comma separated list of the properties to be returned in the response. If any of the specified properties are not present on the requested object(s), they will be ignored.
@@ -398,6 +405,9 @@ func (a *BasicApiService) GetByIDExecute(r ApiGetByIDRequest) (*SimplePublicObje
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.idProperty != nil {
+		localVarQueryParams.Add("idProperty", parameterToString(*r.idProperty, ""))
+	}
 	if r.properties != nil {
 		t := *r.properties
 		if reflect.TypeOf(t).Kind() == reflect.Slice {

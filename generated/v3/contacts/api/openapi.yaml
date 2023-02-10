@@ -455,6 +455,15 @@ paths:
         schema:
           type: string
         style: simple
+      - description: "The property to use as the identifier for the object. If not\
+          \ specified, the default is `id`."
+        explode: true
+        in: query
+        name: idProperty
+        required: false
+        schema:
+          type: string
+        style: form
       - description: "A comma separated list of the properties to be returned in the\
           \ response. If any of the specified properties are not present on the requested\
           \ object(s), they will be ignored."

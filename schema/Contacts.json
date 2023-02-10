@@ -507,6 +507,16 @@
             "type" : "string"
           }
         }, {
+          "name" : "idProperty",
+          "in" : "query",
+          "description" : "The property to use as the identifier for the object. If not specified, the default is `id`.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        },{
           "name" : "properties",
           "in" : "query",
           "description" : "A comma separated list of the properties to be returned in the response. If any of the specified properties are not present on the requested object(s), they will be ignored.",

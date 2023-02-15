@@ -97,8 +97,11 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AssociatedId](docs/AssociatedId.md)
+ - [AssociationInput](docs/AssociationInput.md)
+ - [AssociationInputTo](docs/AssociationInputTo.md)
  - [AssociationSpec](docs/AssociationSpec.md)
  - [AssociationSpecWithLabel](docs/AssociationSpecWithLabel.md)
+ - [AssociationTypeInput](docs/AssociationTypeInput.md)
  - [BatchInputSimplePublicObjectBatchInput](docs/BatchInputSimplePublicObjectBatchInput.md)
  - [BatchInputSimplePublicObjectId](docs/BatchInputSimplePublicObjectId.md)
  - [BatchInputSimplePublicObjectInput](docs/BatchInputSimplePublicObjectInput.md)

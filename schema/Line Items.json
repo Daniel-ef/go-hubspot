@@ -1403,10 +1403,16 @@
         "required" : [ "properties" ],
         "type" : "object",
         "properties" : {
-          "properties" : {
-            "type" : "object",
-            "additionalProperties" : {
-              "type" : "string"
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "associations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssociationInput"
             }
           }
         },
@@ -1418,6 +1424,61 @@
             "recurringbillingfrequency" : "monthly",
             "quantity" : "2",
             "price" : "6000.00"
+          },
+          "associations": [
+            {
+              "to": {
+                "id": 12345
+              },
+              "types": [
+                {
+                  "associationCategory": "HUBSPOT_DEFINED",
+                  "associationTypeId": 20
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "AssociationInput": {
+        "type": "object",
+        "required": [
+          "to",
+          "types"
+        ],
+        "properties": {
+          "to": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            }
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssociationTypeInput"
+            }
+          }
+        }
+      },
+      "AssociationTypeInput": {
+        "type": "object",
+        "required": [
+          "associationCategory",
+          "associationTypeId"
+        ],
+        "properties": {
+          "associationCategory": {
+            "type": "string"
+          },
+          "associationTypeId": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },

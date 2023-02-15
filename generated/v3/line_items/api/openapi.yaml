@@ -1189,6 +1189,12 @@ components:
             recurringbillingfrequency: monthly
             quantity: "2"
             price: "6000.00"
+          associations:
+          - to:
+              id: 12345
+            types:
+            - associationCategory: HUBSPOT_DEFINED
+              associationTypeId: 20
         - properties:
             name: 1 year implementation consultation
             hs_product_id: "191902"
@@ -1196,6 +1202,12 @@ components:
             recurringbillingfrequency: monthly
             quantity: "2"
             price: "6000.00"
+          associations:
+          - to:
+              id: 12345
+            types:
+            - associationCategory: HUBSPOT_DEFINED
+              associationTypeId: 20
       properties:
         inputs:
           items:
@@ -1380,13 +1392,46 @@ components:
           recurringbillingfrequency: monthly
           quantity: "2"
           price: "6000.00"
+        associations:
+        - to:
+            id: 12345
+          types:
+          - associationCategory: HUBSPOT_DEFINED
+            associationTypeId: 20
       properties:
         properties:
           additionalProperties:
             type: string
           type: object
+        associations:
+          items:
+            $ref: '#/components/schemas/AssociationInput'
+          type: array
       required:
       - properties
+      type: object
+    AssociationInput:
+      properties:
+        to:
+          $ref: '#/components/schemas/AssociationInput_to'
+        types:
+          items:
+            $ref: '#/components/schemas/AssociationTypeInput'
+          type: array
+      required:
+      - to
+      - types
+      type: object
+    AssociationTypeInput:
+      properties:
+        associationCategory:
+          type: string
+        associationTypeId:
+          format: int64
+          type: integer
+      required:
+      - associationCategory
+      - associationTypeId
       type: object
     CollectionResponseSimplePublicObjectWithAssociationsForwardPaging:
       example:
@@ -1721,6 +1766,13 @@ components:
           type: string
       required:
       - after
+      type: object
+    AssociationInput_to:
+      properties:
+        id:
+          type: string
+      required:
+      - id
       type: object
   securitySchemes:
     oauth2_legacy:

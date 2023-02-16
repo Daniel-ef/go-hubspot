@@ -589,8 +589,6 @@ func main() {
 		panic(err)
 	}
 
-	//i := 0
-	//outer:
 	for _, group := range r.Results {
 		for name, feature := range group.Features {
 			filename := "./schema/" + name + ".json"

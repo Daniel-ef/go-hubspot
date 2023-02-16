@@ -10,8 +10,11 @@ api_search.go
 client.go
 configuration.go
 docs/AssociatedId.md
+docs/AssociationInput.md
+docs/AssociationInputTo.md
 docs/AssociationSpec.md
 docs/AssociationSpecWithLabel.md
+docs/AssociationTypeInput.md
 docs/AssociationsApi.md
 docs/BasicApi.md
 docs/BatchApi.md
@@ -51,8 +54,11 @@ git_push.sh
 go.mod
 go.sum
 model_associated_id.go
+model_association_input.go
+model_association_input_to.go
 model_association_spec.go
 model_association_spec_with_label.go
+model_association_type_input.go
 model_batch_input_simple_public_object_batch_input.go
 model_batch_input_simple_public_object_id.go
 model_batch_input_simple_public_object_input.go

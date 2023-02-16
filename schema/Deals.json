@@ -1380,6 +1380,12 @@
             "additionalProperties" : {
               "type" : "string"
             }
+          },
+          "associations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssociationInput"
+            }
           }
         },
         "example" : {
@@ -1390,6 +1396,61 @@
             "dealstage" : "presentationscheduled",
             "hubspot_owner_id" : "910901",
             "pipeline" : "default"
+          },
+          "associations": [
+            {
+              "to": {
+                "id": 12345
+              },
+              "types": [
+                {
+                  "associationCategory": "HUBSPOT_DEFINED",
+                  "associationTypeId": 20
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "AssociationInput": {
+        "type": "object",
+        "required": [
+          "to",
+          "types"
+        ],
+        "properties": {
+          "to": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            }
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssociationTypeInput"
+            }
+          }
+        }
+      },
+      "AssociationTypeInput": {
+        "type": "object",
+        "required": [
+          "associationCategory",
+          "associationTypeId"
+        ],
+        "properties": {
+          "associationCategory": {
+            "type": "string"
+          },
+          "associationTypeId": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },

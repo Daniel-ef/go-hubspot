@@ -2344,6 +2344,12 @@
             "additionalProperties" : {
               "type" : "string"
             }
+          },
+          "associations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssociationInput"
+            }
           }
         },
         "example" : {
@@ -2355,6 +2361,61 @@
             "property_dropdown" : "choice_b",
             "property_checkbox" : "false",
             "property_multiple_checkboxes" : "chocolate;strawberry"
+          },
+          "associations": [
+            {
+              "to": {
+                "id": 12345
+              },
+              "types": [
+                {
+                  "associationCategory": "HUBSPOT_DEFINED",
+                  "associationTypeId": 20
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "AssociationInput": {
+        "type": "object",
+        "required": [
+          "to",
+          "types"
+        ],
+        "properties": {
+          "to": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            }
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssociationTypeInput"
+            }
+          }
+        }
+      },
+      "AssociationTypeInput": {
+        "type": "object",
+        "required": [
+          "associationCategory",
+          "associationTypeId"
+        ],
+        "properties": {
+          "associationCategory": {
+            "type": "string"
+          },
+          "associationTypeId": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },

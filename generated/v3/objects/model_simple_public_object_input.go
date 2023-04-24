@@ -16,7 +16,8 @@ import (
 
 // SimplePublicObjectInput struct for SimplePublicObjectInput
 type SimplePublicObjectInput struct {
-	Properties map[string]string `json:"properties"`
+	Properties   map[string]string  `json:"properties"`
+	Associations []AssociationInput `json:"associations,omitempty"`
 }
 
 // NewSimplePublicObjectInput instantiates a new SimplePublicObjectInput object
@@ -61,10 +62,45 @@ func (o *SimplePublicObjectInput) SetProperties(v map[string]string) {
 	o.Properties = v
 }
 
+// GetAssociations returns the Associations field value if set, zero value otherwise.
+func (o *SimplePublicObjectInput) GetAssociations() []AssociationInput {
+	if o == nil || isNil(o.Associations) {
+		var ret []AssociationInput
+		return ret
+	}
+	return o.Associations
+}
+
+// GetAssociationsOk returns a tuple with the Associations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SimplePublicObjectInput) GetAssociationsOk() ([]AssociationInput, bool) {
+	if o == nil || isNil(o.Associations) {
+		return nil, false
+	}
+	return o.Associations, true
+}
+
+// HasAssociations returns a boolean if a field has been set.
+func (o *SimplePublicObjectInput) HasAssociations() bool {
+	if o != nil && !isNil(o.Associations) {
+		return true
+	}
+
+	return false
+}
+
+// SetAssociations gets a reference to the given []AssociationInput and assigns it to the Associations field.
+func (o *SimplePublicObjectInput) SetAssociations(v []AssociationInput) {
+	o.Associations = v
+}
+
 func (o SimplePublicObjectInput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["properties"] = o.Properties
+	}
+	if !isNil(o.Associations) {
+		toSerialize["associations"] = o.Associations
 	}
 	return json.Marshal(toSerialize)
 }

@@ -112,6 +112,9 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AssociatedId](docs/AssociatedId.md)
+ - [AssociationInput](docs/AssociationInput.md)
+ - [AssociationInputTo](docs/AssociationInputTo.md)
+ - [AssociationTypeInput](docs/AssociationTypeInput.md)
  - [BatchInputSimplePublicObjectBatchInput](docs/BatchInputSimplePublicObjectBatchInput.md)
  - [BatchInputSimplePublicObjectId](docs/BatchInputSimplePublicObjectId.md)
  - [BatchInputSimplePublicObjectInput](docs/BatchInputSimplePublicObjectInput.md)

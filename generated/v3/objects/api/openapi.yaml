@@ -2097,6 +2097,12 @@ components:
             property_dropdown: choice_b
             property_checkbox: "false"
             property_multiple_checkboxes: chocolate;strawberry
+          associations:
+          - to:
+              id: 12345
+            types:
+            - associationCategory: HUBSPOT_DEFINED
+              associationTypeId: 20
         - properties:
             property_string: value
             property_number: "17"
@@ -2105,6 +2111,12 @@ components:
             property_dropdown: choice_b
             property_checkbox: "false"
             property_multiple_checkboxes: chocolate;strawberry
+          associations:
+          - to:
+              id: 12345
+            types:
+            - associationCategory: HUBSPOT_DEFINED
+              associationTypeId: 20
       properties:
         inputs:
           items:
@@ -2309,13 +2321,46 @@ components:
           property_dropdown: choice_b
           property_checkbox: "false"
           property_multiple_checkboxes: chocolate;strawberry
+        associations:
+        - to:
+            id: 12345
+          types:
+          - associationCategory: HUBSPOT_DEFINED
+            associationTypeId: 20
       properties:
         properties:
           additionalProperties:
             type: string
           type: object
+        associations:
+          items:
+            $ref: '#/components/schemas/AssociationInput'
+          type: array
       required:
       - properties
+      type: object
+    AssociationInput:
+      properties:
+        to:
+          $ref: '#/components/schemas/AssociationInput_to'
+        types:
+          items:
+            $ref: '#/components/schemas/AssociationTypeInput'
+          type: array
+      required:
+      - to
+      - types
+      type: object
+    AssociationTypeInput:
+      properties:
+        associationCategory:
+          type: string
+        associationTypeId:
+          format: int64
+          type: integer
+      required:
+      - associationCategory
+      - associationTypeId
       type: object
     CollectionResponseSimplePublicObjectWithAssociationsForwardPaging:
       example:
@@ -2689,6 +2734,13 @@ components:
           type: string
       required:
       - after
+      type: object
+    AssociationInput_to:
+      properties:
+        id:
+          type: string
+      required:
+      - id
       type: object
   securitySchemes:
     oauth2_legacy:
